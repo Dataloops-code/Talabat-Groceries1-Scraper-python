@@ -2,24 +2,36 @@ import asyncio
 import json
 import os
 import re
+import time
+import traceback
 import nest_asyncio
 import pandas as pd
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
-# Import the improved TalabatGroceries class
 from talabat_groceries import TalabatGroceries
 
 # Apply nest_asyncio to allow running asyncio in notebooks
 nest_asyncio.apply()
 
 class MainScraper:
-    def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
+    def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher", debug=True):
         self.target_url = target_url
         self.base_url = "https://www.talabat.com"
         self.json_file = "talabat_groceries.json"
         self.excel_file = "dhaher.xlsx"
         self.groceries_data = {}
         self.timeout = 60000  # 60 seconds timeout
+        self.debug = debug
+        
+        # Create screenshots directory
+        if self.debug:
+            if not os.path.exists("screenshots"):
+                os.makedirs("screenshots")
+        
+        # Create logs directory
+        if self.debug:
+            if not os.path.exists("logs"):
+                os.makedirs("logs")
 
         # Initialize JSON file if it doesn't exist or load existing data
         if os.path.exists(self.json_file):
@@ -34,14 +46,29 @@ class MainScraper:
             print("No existing JSON file found, starting fresh")
             with open(self.json_file, 'w', encoding='utf-8') as f:
                 json.dump({}, f)
+                
+    def debug_print(self, message):
+        """Print debug messages if debug is enabled"""
+        if self.debug:
+            print(f"DEBUG: {message}")
+            
+            # Also write to log file
+            timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+            with open(f"logs/scraper_log_{time.strftime('%Y%m%d')}.txt", "a", encoding="utf-8") as f:
+                f.write(f"[{timestamp}] {message}\n")
 
     async def extract_grocery_info(self, page):
         """Extract grocery title, link and delivery time directly from the webpage"""
         groceries_info = []
 
         try:
-            print("Waiting for vendor containers to load...")
+            self.debug_print("Waiting for vendor containers to load...")
             await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=self.timeout)
+            
+            # Save screenshot of vendor list
+            if self.debug:
+                await page.screenshot(path="screenshots/vendor_list.png")
+                self.debug_print("Saved screenshot of vendor list")
             
             # Get all vendor containers
             vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
@@ -88,8 +115,12 @@ class MainScraper:
                         })
                 except Exception as e:
                     print(f"Error processing grocery {i}: {e}")
+                    if self.debug:
+                        traceback.print_exc()
         except Exception as e:
             print(f"Error extracting grocery information: {e}")
+            if self.debug:
+                traceback.print_exc()
 
         return groceries_info
 
@@ -112,6 +143,8 @@ class MainScraper:
             print(f"Data saved to {self.json_file}")
         except Exception as e:
             print(f"Error saving to JSON: {e}")
+            if self.debug:
+                traceback.print_exc()
             raise
 
     def save_to_excel(self):
@@ -173,6 +206,7 @@ class MainScraper:
                 safe_title = re.sub(r'[\\/*?:\[\]]', '_', grocery_title)[:31]
                 df = pd.DataFrame(flattened_data)
                 df.to_excel(writer, sheet_name=safe_title, index=False)
+                
 
             writer.close()
             print(f"Excel file created: {self.excel_file}")
@@ -180,6 +214,8 @@ class MainScraper:
                   f"{total_subcategories} subcategories, {total_items} items")
         except Exception as e:
             print(f"Error saving to Excel: {e}")
+            if self.debug:
+                traceback.print_exc()
             raise
 
     async def process_grocery(self, grocery_info, browser):
@@ -199,7 +235,10 @@ class MainScraper:
         talabat_grocery = TalabatGroceries(grocery_link)
 
         # Create new context and page for this grocery
-        context = await browser.new_context()
+        context = await browser.new_context(
+            viewport={'width': 1920, 'height': 1080},
+            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'
+        )
         context.set_default_timeout(self.timeout)
         page = await context.new_page()
 
@@ -219,19 +258,35 @@ class MainScraper:
             print(f"Successfully processed and saved data for {grocery_title}")
         except Exception as e:
             print(f"Error processing {grocery_title}: {e}")
+            if self.debug:
+                traceback.print_exc()
+                
+                # Save screenshot of the error state
+                try:
+                    error_time = int(time.time())
+                    await page.screenshot(path=f"screenshots/error_{grocery_title.replace(' ', '_')}_{error_time}.png")
+                    self.debug_print(f"Saved error screenshot for {grocery_title}")
+                except:
+                    pass
         finally:
             await page.close()
             await context.close()
 
     async def run(self):
         """Main method to run the scraper"""
+        start_time = time.time()
+        self.debug_print(f"Starting scraper at {time.strftime('%Y-%m-%d %H:%M:%S')}")
+        
         try:
             print(f"Starting the scraper, targeting URL: {self.target_url}")
 
             # Initialize playwright and navigate to target URL
             async with async_playwright() as p:
-                # Launch browser with increased timeout
-                browser = await p.chromium.launch(headless=True)
+                # Launch browser with increased timeout and additional options
+                browser = await p.chromium.launch(
+                    headless=True, 
+                    args=['--disable-features=site-per-process', '--disable-web-security']
+                )
                 
                 # Create initial context and page for finding groceries
                 initial_context = await browser.new_context(
@@ -252,6 +307,7 @@ class MainScraper:
                 except Exception as e:
                     print(f"Warning: Page load had issues: {e}")
                     print("Attempting to continue anyway...")
+                    
                     # Try to reload the page if initial load failed
                     try:
                         await page.reload(timeout=self.timeout)
@@ -260,13 +316,10 @@ class MainScraper:
                     except:
                         print("Warning: Page reload also had issues, but continuing...")
 
-                # Wait for grocery vendor elements to load
-                try:
-                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=self.timeout)
-                    print("Grocery vendor elements found")
-                except Exception as e:
-                    print(f"Error waiting for vendor elements: {e}")
-                    print("Attempting to continue anyway...")
+                # Take a screenshot of the initial page
+                if self.debug:
+                    await page.screenshot(path="screenshots/initial_page.png")
+                    self.debug_print("Saved screenshot of initial page")
 
                 # Extract grocery information directly from page
                 groceries_info = await self.extract_grocery_info(page)
@@ -276,10 +329,17 @@ class MainScraper:
                 await initial_context.close()
 
                 print(f"Found {len(groceries_info)} groceries to process")
+                
+                # Save the raw grocery list data
+                if self.debug:
+                    with open("logs/grocery_list.json", "w", encoding="utf-8") as f:
+                        json.dump(groceries_info, f, indent=4, ensure_ascii=False)
+                    self.debug_print("Saved raw grocery list to logs/grocery_list.json")
 
-                # Limit number of groceries to process for testing (optional)
+                # Limit number of groceries to process
+                # Uncomment the line below and adjust the number for testing with fewer groceries
+                # max_groceries = 3  # Process only first 3 groceries
                 max_groceries = len(groceries_info)  # Process all groceries
-                # max_groceries = 3  # Uncomment to limit to first 3 groceries
                 
                 # Process each grocery sequentially to avoid memory issues
                 for i, grocery_info in enumerate(groceries_info[:max_groceries]):
@@ -291,13 +351,20 @@ class MainScraper:
 
                 # Save all data to Excel
                 self.save_to_excel()
-                print("Scraping completed successfully")
+                
+                end_time = time.time()
+                duration = end_time - start_time
+                print(f"Scraping completed successfully in {duration:.2f} seconds ({duration/60:.2f} minutes)")
+                self.debug_print(f"Finished scraping at {time.strftime('%Y-%m-%d %H:%M:%S')}")
                 
                 # Close the browser
                 await browser.close()
                 
         except Exception as e:
             print(f"Error in main scraper: {e}")
+            if self.debug:
+                traceback.print_exc()
+                
             # Try to save any data collected so far
             if self.groceries_data:
                 print("Attempting to save partial data...")
@@ -306,12 +373,16 @@ class MainScraper:
                     self.save_to_excel()
                 except:
                     print("Could not save Excel file, but JSON should be saved")
+                    
+            end_time = time.time()
+            duration = end_time - start_time
+            self.debug_print(f"Scraper stopped with error after {duration:.2f} seconds ({duration/60:.2f} minutes)")
 
 
 # Main execution point - now compatible with notebook environments
 async def main():
     # Initialize and run the scraper
-    scraper = MainScraper()
+    scraper = MainScraper(debug=True)
     await scraper.run()
 
 # Handle both script and notebook execution
@@ -320,7 +391,7 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-
+                            
 
 
 # import asyncio
