@@ -3,6 +3,7 @@ import json
 import os
 import re
 import time
+import nest_asyncio
 from playwright.async_api import async_playwright, Page, TimeoutError
 
 class TalabatGroceries:
