@@ -7,6 +7,9 @@ import pandas as pd
 from playwright.async_api import async_playwright
 from talabat_groceries import TalabatGroceries
 
+# Apply nest_asyncio to allow running asyncio.run() in a notebook/IPython environment
+nest_asyncio.apply()
+
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
         self.target_url = target_url
@@ -210,12 +213,15 @@ class MainScraper:
             print(f"Error in main scraper: {e}")
 
 
-# Main execution point
+# Main execution point - now compatible with notebook environments
 async def main():
     # Initialize and run the scraper
     scraper = MainScraper()
     await scraper.run()
 
-
+# Handle both script and notebook execution
 if __name__ == "__main__":
     asyncio.run(main())
+else:
+    # For notebook/IPython environment, use this method to run
+    asyncio.get_event_loop().run_until_complete(main())
