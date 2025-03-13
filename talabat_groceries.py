@@ -1,8 +1,8 @@
 import asyncio
 import json
+import os
 import re
 import time
-from urllib.parse import urlparse, parse_qs
 from playwright.async_api import async_playwright, Page, TimeoutError
 
 class TalabatGroceries:
@@ -10,459 +10,463 @@ class TalabatGroceries:
         self.url = url
         self.base_url = "https://www.talabat.com"
         self.timeout = 45000  # 45 seconds
-        self.api_timeout = 60000  # 60 seconds for API calls
-        self.api_base_url = "https://www.talabat.com/api/v3/vendors"
-        self.api_headers = {
-            "Accept": "application/json",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"
-        }
-    
-    def extract_vendor_id(self, url):
-        """Extract vendor ID from URL"""
-        try:
-            # Parse the URL
-            parsed_url = urlparse(url)
-            path_parts = parsed_url.path.strip('/').split('/')
-            
-            # Look for numeric ID in the path
-            for part in path_parts:
-                if part.isdigit():
-                    return part
-            
-            # Try to extract from query parameters
-            query_params = parse_qs(parsed_url.query)
-            if 'id' in query_params:
-                return query_params['id'][0]
-                
-            # Try to find vendor ID in the path segment before query
-            if len(path_parts) >= 2:
-                # Sometimes the ID is part of the restaurant name slug
-                match = re.search(r'(\d+)', path_parts[-1])
-                if match:
-                    return match.group(1)
-            
-            print(f"  Warning: Could not extract vendor ID from URL: {url}")
-            return None
-        except Exception as e:
-            print(f"  Error extracting vendor ID: {e}")
-            return None
-    
-    async def get_api_data(self, page, endpoint):
-        """Get data from Talabat API directly"""
-        try:
-            # Use page.evaluate to make fetch request
-            script = f"""
-            async () => {{
-                try {{
-                    const response = await fetch('{endpoint}', {{
-                        method: 'GET',
-                        headers: {{
-                            'Accept': 'application/json',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                        }}
-                    }});
-                    
-                    if (!response.ok) {{
-                        throw new Error(`HTTP error! Status: ${{response.status}}`);
-                    }}
-                    
-                    return await response.json();
-                }} catch (error) {{
-                    console.error('Error fetching API data:', error);
-                    return null;
-                }}
-            }}
-            """
-            
-            result = await page.evaluate(script)
-            return result
-        except Exception as e:
-            print(f"  Error getting API data from {endpoint}: {e}")
-            return None
-    
-    async def extract_data_using_api(self, page):
-        """Extract data using Talabat's API rather than scraping the DOM"""
-        try:
-            # First, extract vendor ID from the URL
-            vendor_id = self.extract_vendor_id(self.url)
-            if not vendor_id:
-                print("  Could not extract vendor ID, falling back to DOM scraping")
-                return None
-                
-            print(f"  Extracted vendor ID: {vendor_id}")
-            
-            # Construct API endpoint for vendor details
-            vendor_api_url = f"{self.api_base_url}/{vendor_id}"
-            print(f"  Fetching vendor details from API: {vendor_api_url}")
-            
-            # Get vendor details
-            vendor_details = await self.get_api_data(page, vendor_api_url)
-            if not vendor_details:
-                print("  Failed to get vendor details from API, falling back to DOM scraping")
-                return None
-                
-            # Extract basic info
-            delivery_fees = "N/A"
-            minimum_order = "N/A"
-            
+        self.short_timeout = 10000  # 10 seconds for faster checks
+        self.debug = True  # Enable debug output
+        
+    def debug_print(self, message):
+        """Print debug messages if debug is enabled"""
+        if self.debug:
+            print(f"  DEBUG: {message}")
+
+    async def save_screenshot(self, page, name):
+        """Save screenshot for debugging"""
+        if self.debug:
+            screenshot_dir = "screenshots"
+            if not os.path.exists(screenshot_dir):
+                os.makedirs(screenshot_dir)
+            timestamp = int(time.time())
+            filename = f"{screenshot_dir}/{name}_{timestamp}.png"
+            await page.screenshot(path=filename)
+            self.debug_print(f"Screenshot saved to {filename}")
+
+    async def check_selectors(self, page, selectors, description):
+        """Try multiple selectors and return the one that works"""
+        self.debug_print(f"Checking selectors for {description}...")
+        for selector in selectors:
             try:
-                if "deliveryFee" in vendor_details:
-                    delivery_fees = f"KD {vendor_details['deliveryFee']:.3f}"
-                
-                if "minimumOrderValue" in vendor_details:
-                    minimum_order = f"KD {vendor_details['minimumOrderValue']:.3f}"
-            except:
-                pass
-                
-            print(f"  API Delivery fees: {delivery_fees}")
-            print(f"  API Minimum order: {minimum_order}")
+                exists = await page.is_visible(selector, timeout=self.short_timeout)
+                if exists:
+                    self.debug_print(f"Found working selector for {description}: {selector}")
+                    return selector
+            except Exception:
+                continue
+        self.debug_print(f"No working selector found for {description}")
+        return None
+
+    async def navigate_to_all_categories(self, page):
+        """Try different methods to navigate to the all categories view"""
+        try:
+            # First, check if we're already on the all categories page
+            all_categories_indicators = [
+                '//span[@data-testid="category-name"]',
+                '//div[contains(@class, "category-name")]',
+                '//h2[contains(@class, "category-title")]',
+                '//div[contains(@class, "categories-list")]'
+            ]
             
-            # Get menu categories from API
-            menu_api_url = f"{self.api_base_url}/{vendor_id}/menus"
-            print(f"  Fetching menu from API: {menu_api_url}")
+            for indicator in all_categories_indicators:
+                if await page.is_visible(indicator, timeout=5000):
+                    self.debug_print("Already on all categories page")
+                    return True
             
-            menu_data = await self.get_api_data(page, menu_api_url)
-            if not menu_data:
-                print("  Failed to get menu data from API, falling back to DOM scraping")
-                return None
+            # Try to find and click the "View All" link
+            view_all_selectors = [
+                '//a[@data-testid="view-all-link"]',
+                '//a[contains(text(), "View All")]',
+                '//a[contains(text(), "view all")]',
+                '//a[contains(@class, "view-all")]'
+            ]
+            
+            working_selector = await self.check_selectors(page, view_all_selectors, "View All link")
+            if working_selector:
+                self.debug_print(f"Clicking View All link: {working_selector}")
+                await page.click(working_selector)
+                await page.wait_for_load_state("networkidle", timeout=self.timeout)
+                return True
+            
+            # Try to find and click on Menu tab
+            menu_tab_selectors = [
+                '//button[contains(text(), "Menu")]',
+                '//div[contains(@class, "tab-menu")]',
+                '//div[contains(@class, "vendor-tabs")]//button[contains(text(), "Menu")]'
+            ]
+            
+            working_selector = await self.check_selectors(page, menu_tab_selectors, "Menu tab")
+            if working_selector:
+                self.debug_print(f"Clicking Menu tab: {working_selector}")
+                await page.click(working_selector)
+                await page.wait_for_load_state("networkidle", timeout=self.timeout)
+                return True
                 
-            # Process categories
-            categories_data = []
+            self.debug_print("Could not navigate to all categories view")
+            return False
+        except Exception as e:
+            self.debug_print(f"Error navigating to all categories: {e}")
+            return False
+
+    async def extract_info_from_meta(self, page):
+        """Try to extract grocery info from meta tags or JSON-LD data"""
+        try:
+            # Check for structured data in the page
+            script_data = await page.evaluate('''() => {
+                const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+                const data = [];
+                scripts.forEach(script => {
+                    try {
+                        data.push(JSON.parse(script.textContent));
+                    } catch (e) {
+                        // Ignore parse errors
+                    }
+                });
+                return data;
+            }''')
             
-            # Check if menu data has a categories array
-            if not menu_data or "categories" not in menu_data:
-                print("  No categories found in API response")
+            if script_data and len(script_data) > 0:
+                self.debug_print(f"Found {len(script_data)} JSON-LD scripts")
+                
+                for data in script_data:
+                    if isinstance(data, dict):
+                        if '@type' in data and data['@type'] == 'Restaurant':
+                            self.debug_print("Found Restaurant structured data")
+                            return {
+                                "name": data.get('name', 'Unknown'),
+                                "delivery_fees": data.get('deliveryCharge', 'N/A'),
+                                "minimum_order": data.get('minimumOrderValue', 'N/A'),
+                                "categories": []
+                            }
+            
+            # Try to extract from meta tags
+            meta_title = await page.evaluate('''() => {
+                const metaTitle = document.querySelector('meta[property="og:title"]');
+                return metaTitle ? metaTitle.getAttribute('content') : null;
+            }''')
+            
+            if meta_title:
+                self.debug_print(f"Found meta title: {meta_title}")
                 return {
-                    "delivery_fees": delivery_fees,
-                    "minimum_order": minimum_order,
+                    "name": meta_title,
+                    "delivery_fees": "N/A",
+                    "minimum_order": "N/A",
                     "categories": []
                 }
                 
-            print(f"  Found {len(menu_data['categories'])} categories via API")
-            
-            # Process categories and items
-            for category in menu_data['categories']:
-                category_name = category.get('name', 'Unknown')
-                category_id = category.get('id', '')
-                
-                print(f"  Processing category: {category_name}")
-                
-                # Create category link
-                category_link = f"{self.url}/menu/{category_id}"
-                
-                # Process sub-categories or items
-                sub_categories = []
-                
-                # Some categories have sub-categories, others have items directly
-                if 'subcategories' in category and category['subcategories']:
-                    for subcategory in category['subcategories']:
-                        subcategory_name = subcategory.get('name', 'Unknown')
-                        subcategory_id = subcategory.get('id', '')
-                        
-                        print(f"    Processing sub-category: {subcategory_name}")
-                        
-                        # Create subcategory link
-                        subcategory_link = f"{self.url}/menu/{category_id}/{subcategory_id}"
-                        
-                        # Get items
-                        items = []
-                        
-                        if 'items' in subcategory and subcategory['items']:
-                            for item in subcategory['items']:
-                                item_name = item.get('name', 'Unknown Item')
-                                item_id = item.get('id', '')
-                                item_price = f"KD {item.get('price', 0):.3f}"
-                                item_description = item.get('description', 'N/A')
-                                item_link = f"{self.url}/item/{item_id}"
-                                
-                                # Get images
-                                item_images = []
-                                if 'imageUrl' in item and item['imageUrl']:
-                                    item_images.append(item['imageUrl'])
-                                
-                                items.append({
-                                    "item_name": item_name,
-                                    "item_link": item_link,
-                                    "item_price": item_price,
-                                    "item_description": item_description,
-                                    "item_delivery_time_range": vendor_details.get('deliveryTime', 'N/A'),
-                                    "item_images": item_images
-                                })
-                                
-                            print(f"      Found {len(items)} items")
-                            
-                        sub_categories.append({
-                            "sub_category_name": subcategory_name,
-                            "sub_category_link": subcategory_link,
-                            "Items": items
-                        })
-                elif 'items' in category and category['items']:
-                    # If no subcategories, create a default subcategory with the same name
-                    items = []
-                    
-                    for item in category['items']:
-                        item_name = item.get('name', 'Unknown Item')
-                        item_id = item.get('id', '')
-                        item_price = f"KD {item.get('price', 0):.3f}"
-                        item_description = item.get('description', 'N/A')
-                        item_link = f"{self.url}/item/{item_id}"
-                        
-                        # Get images
-                        item_images = []
-                        if 'imageUrl' in item and item['imageUrl']:
-                            item_images.append(item['imageUrl'])
-                        
-                        items.append({
-                            "item_name": item_name,
-                            "item_link": item_link,
-                            "item_price": item_price,
-                            "item_description": item_description,
-                            "item_delivery_time_range": vendor_details.get('deliveryTime', 'N/A'),
-                            "item_images": item_images
-                        })
-                    
-                    print(f"    Found {len(items)} items directly in category")
-                    
-                    sub_categories.append({
-                        "sub_category_name": category_name,
-                        "sub_category_link": category_link,
-                        "Items": items
-                    })
-                
-                categories_data.append({
-                    "name": category_name,
-                    "link": category_link,
-                    "sub_categories": sub_categories
-                })
-            
-            return {
-                "delivery_fees": delivery_fees,
-                "minimum_order": minimum_order,
-                "categories": categories_data
-            }
-            
+            return None
         except Exception as e:
-            print(f"  Error extracting data using API: {e}")
+            self.debug_print(f"Error extracting info from meta: {e}")
             return None
 
-    async def get_general_link(self, page):
+    async def get_delivery_info(self, page):
+        """Extract delivery fees and minimum order amount"""
+        delivery_fees = "N/A"
+        minimum_order = "N/A"
+        
         try:
-            # Wait for selector with increased timeout and log progress
-            print("  Looking for view-all-link element...")
-            await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=self.timeout)
-            link_element = await page.get_attribute('//a[@data-testid="view-all-link"]', 'href')
-            if link_element:
-                full_link = self.base_url + link_element
-                return full_link
-            else:
-                print("  No view-all-link found, continuing with current page")
-                return None
-        except Exception as e:
-            print(f"  Warning: Could not get general link: {e}")
-            print("  Continuing with current page")
-            return None
-
-    async def get_delivery_fees(self, page):
-        try:
-            # Try multiple selectors for better reliability
-            selectors = [
+            # Try multiple selectors for delivery fees
+            fee_selectors = [
                 '//div[contains(@class, "delivery-fee")]/span',
                 '//span[contains(text(), "Delivery")]/following-sibling::span',
                 'xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[1]',
-                '//div[contains(@class, "vendor-info")]//span[contains(text(), "KD")]'
+                '//div[contains(@class, "vendor-info")]//span[contains(text(), "KD")]',
+                '//div[contains(@class, "fee-label")]'
             ]
             
-            for selector in selectors:
-                try:
-                    await page.wait_for_selector(selector, timeout=10000)
-                    element = await page.query_selector(selector)
-                    if element:
-                        return await element.inner_text()
-                except:
-                    continue
-                    
-            return "N/A"
-        except Exception as e:
-            print(f"  Warning: Could not get delivery fees: {e}")
-            return "N/A"
-
-    async def get_minimum_order(self, page):
-        try:
-            # Try multiple selectors for better reliability
-            selectors = [
+            working_selector = await self.check_selectors(page, fee_selectors, "delivery fees")
+            if working_selector:
+                element = await page.query_selector(working_selector)
+                if element:
+                    text = await element.inner_text()
+                    if "KD" in text:
+                        delivery_fees = text.strip()
+                    else:
+                        # Look for KD pattern in the text
+                        match = re.search(r'KD\s+[\d\.]+', text)
+                        if match:
+                            delivery_fees = match.group(0)
+                            
+            # Try multiple selectors for minimum order
+            order_selectors = [
                 '//div[contains(@class, "min-order")]/span',
                 '//span[contains(text(), "Min. order")]/following-sibling::span',
                 'xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[3]',
-                '//div[contains(@class, "min-order")]//span[contains(text(), "KD")]'
+                '//div[contains(@class, "min-order")]//span[contains(text(), "KD")]',
+                '//div[contains(text(), "Min. Order")]'
             ]
             
-            for selector in selectors:
-                try:
-                    await page.wait_for_selector(selector, timeout=10000)
-                    element = await page.query_selector(selector)
-                    if element:
-                        return await element.inner_text()
-                except:
-                    continue
-                    
-            return "N/A"
+            working_selector = await self.check_selectors(page, order_selectors, "minimum order")
+            if working_selector:
+                element = await page.query_selector(working_selector)
+                if element:
+                    text = await element.inner_text()
+                    if "KD" in text:
+                        minimum_order = text.strip()
+                    else:
+                        # Look for KD pattern in the text
+                        match = re.search(r'KD\s+[\d\.]+', text)
+                        if match:
+                            minimum_order = match.group(0)
+                            
         except Exception as e:
-            print(f"  Warning: Could not get minimum order: {e}")
-            return "N/A"
+            self.debug_print(f"Error getting delivery info: {e}")
+            
+        return delivery_fees, minimum_order
 
-    async def extract_categories_from_dom(self, page):
-        """Extract categories using DOM scraping as fallback method"""
+    async def extract_categories_from_page(self, page):
+        """Extract categories from different page structures"""
+        categories_data = []
+        
         try:
-            # Wait for DOM to fully load
-            await page.wait_for_load_state("networkidle", timeout=self.timeout)
+            # Check if we can find category elements
+            category_selectors = [
+                '//div[contains(@class, "category-item-component")]',
+                '//div[contains(@class, "category-name")]',
+                '//span[@data-testid="category-name"]',
+                '//h2[contains(@class, "category-title")]',
+                '//div[contains(@class, "categories-list")]//div[contains(@class, "category-section")]'
+            ]
             
-            # Get general information
-            delivery_fees = await self.get_delivery_fees(page)
-            minimum_order = await self.get_minimum_order(page)
+            # Check all category selectors
+            working_selector = await self.check_selectors(page, category_selectors, "categories")
             
-            print(f"  DOM Delivery fees: {delivery_fees}")
-            print(f"  DOM Minimum order: {minimum_order}")
-            
-            # Extract categories - try different methods
-            categories_data = []
-            
-            # First attempt - check for category sections
-            try:
-                await page.wait_for_selector('//div[contains(@class, "categories-list")]', timeout=15000)
-                category_sections = await page.query_selector_all('//div[contains(@class, "categories-list")]//div[contains(@class, "category-section")]')
+            if working_selector:
+                self.debug_print(f"Found category selector: {working_selector}")
                 
-                if category_sections and len(category_sections) > 0:
-                    print(f"  Found {len(category_sections)} category sections")
-                    
-                    for i, section in enumerate(category_sections):
-                        try:
-                            # Get category name
-                            name_element = await section.query_selector('.//h2')
-                            category_name = await name_element.inner_text() if name_element else f"Category {i+1}"
+                # Take screenshot before extracting categories
+                await self.save_screenshot(page, "before_categories")
+                
+                # Extract categories based on the working selector
+                category_elements = await page.query_selector_all(working_selector)
+                self.debug_print(f"Found {len(category_elements)} category elements")
+                
+                for i, element in enumerate(category_elements):
+                    try:
+                        # Extract category name - try different approaches
+                        name_selectors = [
+                            './/span[@data-testid="category-name"]',
+                            './/div[contains(@class, "category-name")]',
+                            './/h2',
+                            './/*[contains(@class, "title")]'
+                        ]
+                        
+                        category_name = f"Category {i+1}"
+                        for selector in name_selectors:
+                            name_element = await element.query_selector(selector)
+                            if name_element:
+                                name_text = await name_element.inner_text()
+                                if name_text and name_text.strip():
+                                    category_name = name_text.strip()
+                                    break
+                        
+                        self.debug_print(f"Processing category: {category_name}")
+                        
+                        # Create placeholder link for category
+                        category_link = f"{self.url}#{category_name.replace(' ', '-')}"
+                        
+                        # Try to find subcategories
+                        subcategory_selectors = [
+                            './/div[contains(@class, "subcategory")]//a',
+                            './/div[contains(@class, "sub-category")]//a',
+                            './/div[@data-test="sub-category-container"]//a'
+                        ]
+                        
+                        sub_categories = []
+                        subcategory_elements = []
+                        
+                        for selector in subcategory_selectors:
+                            subcategory_elements = await element.query_selector_all(selector)
+                            if subcategory_elements and len(subcategory_elements) > 0:
+                                break
+                        
+                        if subcategory_elements and len(subcategory_elements) > 0:
+                            self.debug_print(f"Found {len(subcategory_elements)} subcategories")
                             
-                            # Get items in this category
-                            item_elements = await section.query_selector_all('.//div[contains(@class, "item-card")]')
-                            
-                            items = []
-                            for item_element in item_elements:
+                            for j, sub_element in enumerate(subcategory_elements):
                                 try:
-                                    item_name_element = await item_element.query_selector('.//h3')
-                                    item_name = await item_name_element.inner_text() if item_name_element else "Unknown Item"
+                                    sub_name = await sub_element.inner_text()
+                                    sub_link = self.base_url + await sub_element.get_attribute('href')
                                     
-                                    item_price_element = await item_element.query_selector('.//span[contains(@class, "price")]')
-                                    item_price = await item_price_element.inner_text() if item_price_element else "N/A"
+                                    self.debug_print(f"  Subcategory {j+1}: {sub_name}")
                                     
-                                    item_desc_element = await item_element.query_selector('.//p[contains(@class, "description")]')
-                                    item_description = await item_desc_element.inner_text() if item_desc_element else "N/A"
-                                    
-                                    # Use a placeholder link since we can't easily get the actual one
-                                    item_link = f"{self.url}#{category_name.replace(' ', '-')}-{item_name.replace(' ', '-')}"
-                                    
-                                    items.append({
-                                        "item_name": item_name,
-                                        "item_link": item_link,
-                                        "item_price": item_price,
-                                        "item_description": item_description,
-                                        "item_delivery_time_range": "N/A",
-                                        "item_images": []
+                                    sub_categories.append({
+                                        "sub_category_name": sub_name,
+                                        "sub_category_link": sub_link,
+                                        "Items": []  # We'll leave items empty for now
                                     })
                                 except Exception as e:
-                                    print(f"      Error processing item: {e}")
-                            
-                            # Create a single subcategory with items
-                            sub_categories = [{
-                                "sub_category_name": category_name,
-                                "sub_category_link": f"{self.url}#{category_name.replace(' ', '-')}",
-                                "Items": items
-                            }]
-                            
-                            categories_data.append({
-                                "name": category_name,
-                                "link": f"{self.url}#{category_name.replace(' ', '-')}",
-                                "sub_categories": sub_categories
+                                    self.debug_print(f"  Error processing subcategory {j+1}: {e}")
+                        
+                        # If no subcategories found, create a default one
+                        if not sub_categories:
+                            self.debug_print("  No subcategories found, creating default subcategory")
+                            sub_categories.append({
+                                "sub_category_name": f"All {category_name}",
+                                "sub_category_link": category_link,
+                                "Items": []
                             })
-                        except Exception as e:
-                            print(f"    Error processing category section {i+1}: {e}")
-                    
-                    # If we found categories, return the data
-                    if categories_data:
-                        return {
-                            "delivery_fees": delivery_fees,
-                            "minimum_order": minimum_order,
-                            "categories": categories_data
-                        }
-            except Exception as e:
-                print(f"  First attempt to find categories failed: {e}")
-            
-            # Second attempt - try traditional category selectors
-            try:
-                # Try to find the category list
-                await page.wait_for_selector('//span[@data-testid="category-name"]', timeout=15000)
-                category_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
-                
-                if category_elements and len(category_elements) > 0:
-                    print(f"  Found {len(category_elements)} categories with traditional selectors")
-                    
-                    for i, element in enumerate(category_elements):
-                        category_name = await element.inner_text()
-                        # Create placeholder links since we can't easily get the actual ones
-                        category_link = f"{self.url}#{category_name.replace(' ', '-')}"
                         
                         categories_data.append({
                             "name": category_name,
                             "link": category_link,
-                            "sub_categories": [{
-                                "sub_category_name": f"All {category_name}",
-                                "sub_category_link": category_link,
-                                "Items": []  # Empty items - we can't easily get them
-                            }]
+                            "sub_categories": sub_categories
                         })
+                        
+                    except Exception as e:
+                        self.debug_print(f"Error processing category {i+1}: {e}")
+            else:
+                # If no categories found, try to look for items directly
+                self.debug_print("No categories found, looking for items directly")
+                
+                item_selectors = [
+                    '//div[contains(@class, "item-card")]',
+                    '//div[contains(@class, "product-card")]',
+                    '//div[contains(@class, "restaurant-item")]'
+                ]
+                
+                working_item_selector = await self.check_selectors(page, item_selectors, "items")
+                
+                if working_item_selector:
+                    self.debug_print(f"Found items directly with selector: {working_item_selector}")
                     
-                    # If we found categories, return the data
-                    if categories_data:
-                        return {
-                            "delivery_fees": delivery_fees,
-                            "minimum_order": minimum_order,
-                            "categories": categories_data
-                        }
-            except Exception as e:
-                print(f"  Second attempt to find categories failed: {e}")
-            
-            # If we get here, we couldn't find any categories
-            print("  Warning: Could not find any categories in the DOM")
-            return {
-                "delivery_fees": delivery_fees,
-                "minimum_order": minimum_order,
-                "categories": []
-            }
-            
+                    # Create a single category for all items
+                    categories_data.append({
+                        "name": "All Items",
+                        "link": self.url,
+                        "sub_categories": [{
+                            "sub_category_name": "All Items",
+                            "sub_category_link": self.url,
+                            "Items": []  # We'll leave items empty for now
+                        }]
+                    })
+                else:
+                    self.debug_print("No items found directly")
         except Exception as e:
-            print(f"  Error extracting categories from DOM: {e}")
-            return {
-                "delivery_fees": "N/A",
-                "minimum_order": "N/A",
-                "categories": []
-            }
+            self.debug_print(f"Error extracting categories: {e}")
+            
+        return categories_data
 
     async def extract_categories(self, page):
+        """Main method to extract all grocery data"""
         try:
             print(f"Processing grocery: {self.url}")
             
-            # First load the page
+            # Navigate to the URL and wait for the page to load
+            self.debug_print(f"Navigating to {self.url}")
             await page.goto(self.url, timeout=self.timeout)
             await page.wait_for_load_state("networkidle", timeout=self.timeout)
             
-            # Try API method first
-            print("Attempting to extract data using API...")
-            api_data = await self.extract_data_using_api(page)
+            # Save a screenshot for debugging
+            await self.save_screenshot(page, "initial_page")
             
-            if api_data:
-                print("Successfully extracted data using API")
-                return api_data
+            # Try to navigate to all categories view
+            self.debug_print("Attempting to navigate to all categories view")
+            await self.navigate_to_all_categories(page)
+            
+            # Save another screenshot after navigation
+            await self.save_screenshot(page, "after_navigation")
+            
+            # Extract delivery fees and minimum order
+            self.debug_print("Extracting delivery info")
+            delivery_fees, minimum_order = await self.get_delivery_info(page)
+            
+            print(f"  Delivery fees: {delivery_fees}")
+            print(f"  Minimum order: {minimum_order}")
+            
+            # Try to extract categories
+            self.debug_print("Extracting categories")
+            categories = await self.extract_categories_from_page(page)
+            
+            if categories:
+                print(f"  Found {len(categories)} categories")
                 
-            # If API method fails, fall back to DOM scraping
-            print("API extraction failed, falling back to DOM scraping...")
-            return await self.extract_categories_from_dom(page)
+                # Save the original categories page content for debugging
+                page_content = await page.content()
+                with open(f"page_content_{int(time.time())}.html", "w", encoding="utf-8") as f:
+                    f.write(page_content)
+                self.debug_print("Saved page content to file")
+                
+                # Try loading a few categories to gather more info
+                if len(categories) > 0:
+                    for i, category in enumerate(categories[:2]):  # Try first 2 categories
+                        for j, subcategory in enumerate(category['sub_categories'][:1]):  # Try first subcategory
+                            # Check if we have a valid subcategory link
+                            if subcategory['sub_category_link'] and not subcategory['sub_category_link'].startswith(f"{self.url}#"):
+                                try:
+                                    self.debug_print(f"Navigating to subcategory: {subcategory['sub_category_name']}")
+                                    await page.goto(subcategory['sub_category_link'], timeout=self.timeout)
+                                    await page.wait_for_load_state("networkidle", timeout=self.timeout)
+                                    
+                                    # Save screenshot of subcategory page
+                                    await self.save_screenshot(page, f"subcategory_{i}_{j}")
+                                    
+                                    # Try to find items
+                                    item_selectors = [
+                                        '//div[contains(@class, "item-card")]',
+                                        '//div[contains(@class, "product-card")]',
+                                        '//a[contains(@data-testid, "item-link")]',
+                                        '//div[contains(@class, "item-container")]'
+                                    ]
+                                    
+                                    working_selector = await self.check_selectors(page, item_selectors, "items in subcategory")
+                                    
+                                    if working_selector:
+                                        item_elements = await page.query_selector_all(working_selector)
+                                        self.debug_print(f"Found {len(item_elements)} items in subcategory")
+                                        
+                                        # Add sample items
+                                        items = []
+                                        for k, item_element in enumerate(item_elements[:5]):  # Limit to 5 items for testing
+                                            try:
+                                                # Extract item name
+                                                name_selectors = [
+                                                    './/h3',
+                                                    './/div[contains(@class, "item-name")]',
+                                                    './/div[contains(@class, "name")]'
+                                                ]
+                                                
+                                                item_name = f"Item {k+1}"
+                                                for selector in name_selectors:
+                                                    name_element = await item_element.query_selector(selector)
+                                                    if name_element:
+                                                        name_text = await name_element.inner_text()
+                                                        if name_text and name_text.strip():
+                                                            item_name = name_text.strip()
+                                                            break
+                                                
+                                                # Extract item price
+                                                price_selectors = [
+                                                    './/span[contains(@class, "price")]',
+                                                    './/div[contains(@class, "price")]',
+                                                    './/div[contains(@class, "amount")]'
+                                                ]
+                                                
+                                                item_price = "N/A"
+                                                for selector in price_selectors:
+                                                    price_element = await item_element.query_selector(selector)
+                                                    if price_element:
+                                                        price_text = await price_element.inner_text()
+                                                        if price_text and price_text.strip():
+                                                            item_price = price_text.strip()
+                                                            break
+                                                
+                                                items.append({
+                                                    "item_name": item_name,
+                                                    "item_link": f"{subcategory['sub_category_link']}#{item_name.replace(' ', '-')}",
+                                                    "item_price": item_price,
+                                                    "item_description": "N/A",
+                                                    "item_delivery_time_range": "N/A",
+                                                    "item_images": []
+                                                })
+                                            except Exception as e:
+                                                self.debug_print(f"Error processing item {k+1}: {e}")
+                                        
+                                        # Update subcategory with items
+                                        subcategory['Items'] = items
+                                        
+                                except Exception as e:
+                                    self.debug_print(f"Error navigating to subcategory: {e}")
+            else:
+                print("  No categories found")
+                
+                # Try to extract basic info from meta tags
+                meta_info = await self.extract_info_from_meta(page)
+                if meta_info:
+                    self.debug_print("Using meta info as fallback")
+                    return meta_info
+            
+            return {
+                "delivery_fees": delivery_fees,
+                "minimum_order": minimum_order,
+                "categories": categories
+            }
             
         except Exception as e:
             print(f"Error in extract_categories: {e}")
@@ -471,6 +475,7 @@ class TalabatGroceries:
                 "minimum_order": "N/A",
                 "categories": []
             }
+
 
 
 # import asyncio
