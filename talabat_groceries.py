@@ -222,3 +222,4 @@ class TalabatGroceries:
         except Exception as e:
             print(f"Error extracting categories: {e}")
             return {"error": str(e)}
+
