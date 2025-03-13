@@ -35,4 +35,5 @@ netaddr==1.2.1
 notebook==7.0.6
 notebook_shim==0.2.3
 numpy>=1.22.0
+pandas>=2.2.0
 xlsxwriter>=3.1.2
