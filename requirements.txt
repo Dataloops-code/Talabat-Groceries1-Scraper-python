@@ -30,3 +30,9 @@ DateTime==5.5
 debugpy==1.8.0
 decorator==5.1.1
 defusedxml==0.7.1
+nest-asyncio==1.6.0
+netaddr==1.2.1
+notebook==7.0.6
+notebook_shim==0.2.3
+numpy>=1.22.0
+xlsxwriter>=3.1.2
