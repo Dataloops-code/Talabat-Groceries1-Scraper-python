@@ -2,13 +2,8 @@ import asyncio
 import json
 import os
 import re
-import nest_asyncio  # Import nest_asyncio to allow nested event loops
 from bs4 import BeautifulSoup
-import pandas as pd
 from playwright.async_api import async_playwright
-
-# Apply nest_asyncio to allow running asyncio.run() in a notebook/IPython environment
-nest_asyncio.apply()
 
 class TalabatGroceries:
     def __init__(self, url):
@@ -17,6 +12,8 @@ class TalabatGroceries:
 
     async def get_general_link(self, page):
         try:
+            # Increase timeout specifically for this operation
+            await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=90000)
             link_element = await page.get_attribute('//a[@data-testid="view-all-link"]', 'href')
             if link_element:
                 full_link = self.base_url + link_element
@@ -25,6 +22,13 @@ class TalabatGroceries:
                 return None
         except Exception as e:
             print(f"Error getting general link: {e}")
+            # Try to find any category link as a fallback
+            try:
+                category_links = await self.extract_category_links(page)
+                if category_links and len(category_links) > 0:
+                    return category_links[0]
+            except:
+                pass
             return None
 
     async def get_delivery_fees(self, page):
@@ -47,6 +51,8 @@ class TalabatGroceries:
 
     async def extract_category_names(self, page):
         try:
+            # Increase wait time for category elements
+            await page.wait_for_selector('//span[@data-testid="category-name"]', timeout=60000)
             category_name_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
             category_names = [await element.inner_text() for element in category_name_elements]
             return category_names
@@ -56,6 +62,7 @@ class TalabatGroceries:
 
     async def extract_category_links(self, page):
         try:
+            await page.wait_for_selector('//a[@data-testid="category-item-container"]', timeout=60000)
             category_link_elements = await page.query_selector_all('//a[@data-testid="category-item-container"]')
             category_links = [self.base_url + await element.get_attribute('href') for element in category_link_elements]
             return category_links
@@ -86,26 +93,45 @@ class TalabatGroceries:
         try:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
-                page = await browser.new_page()
-                await page.goto(item_link, timeout=60000)
-
-                # Wait for the page to load
-                await page.wait_for_load_state("networkidle", timeout=60000)
-
+                context = await browser.new_context(
+                    viewport={"width": 1280, "height": 800},
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                )
+                page = await context.new_page()
+                
+                # Set request timeout to be longer
+                page.set_default_timeout(120000)
+                
+                # Navigate with retry logic
+                max_retries = 3
+                for attempt in range(max_retries):
+                    try:
+                        await page.goto(item_link, timeout=90000, wait_until="networkidle")
+                        break
+                    except Exception as e:
+                        if attempt == max_retries - 1:
+                            raise
+                        print(f"Retry {attempt+1}/{max_retries} for {item_link}: {e}")
+                        await asyncio.sleep(2)
+                
+                # Add a wait for content to be visible
+                await page.wait_for_load_state("networkidle", timeout=90000)
+                
+                # Extract item details with explicit waits
                 item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
                 item_price = await item_price_element.inner_text() if item_price_element else "N/A"
-
+                
                 item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
                 item_description = await item_description_element.inner_text() if item_description_element else "N/A"
-
+                
                 delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
                 delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
-
+                
                 item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
                 item_images = [await img.get_attribute('src') for img in item_image_elements]
-
+                
                 await browser.close()
-
+                
                 return {
                     "item_price": item_price,
                     "item_description": item_description,
@@ -125,11 +151,27 @@ class TalabatGroceries:
         try:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
-                page = await browser.new_page()
-                await page.goto(sub_category_link, timeout=60000)
-
+                context = await browser.new_context(
+                    viewport={"width": 1280, "height": 800},
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                )
+                page = await context.new_page()
+                page.set_default_timeout(90000)
+                
+                # Use retry logic for navigation
+                max_retries = 3
+                for attempt in range(max_retries):
+                    try:
+                        await page.goto(sub_category_link, timeout=90000, wait_until="networkidle")
+                        break
+                    except Exception as e:
+                        if attempt == max_retries - 1:
+                            raise
+                        print(f"Retry {attempt+1}/{max_retries} for {sub_category_link}: {e}")
+                        await asyncio.sleep(2)
+                
                 # Wait for the page to load
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                await page.wait_for_load_state("networkidle", timeout=90000)
 
                 # Check for pagination
                 pagination_element = await page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
@@ -145,8 +187,19 @@ class TalabatGroceries:
                 for page_number in range(1, total_pages + 1):
                     print(f"      Processing page {page_number} of {total_pages}")
                     page_url = f"{sub_category_link}&page={page_number}"
-                    await page.goto(page_url, timeout=60000)
-                    await page.wait_for_load_state("networkidle", timeout=60000)
+                    
+                    # Use retry logic for page navigation
+                    for attempt in range(max_retries):
+                        try:
+                            await page.goto(page_url, timeout=90000, wait_until="networkidle")
+                            break
+                        except Exception as e:
+                            if attempt == max_retries - 1:
+                                raise
+                            print(f"Retry {attempt+1}/{max_retries} for {page_url}: {e}")
+                            await asyncio.sleep(2)
+                    
+                    await page.wait_for_load_state("networkidle", timeout=90000)
 
                     item_elements = await page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
                     print(f"        Found {len(item_elements)} items on page {page_number}")
@@ -158,6 +211,11 @@ class TalabatGroceries:
 
                             item_link = self.base_url + await element.get_attribute('href')
                             print(f"        Processing item {i+1}/{len(item_elements)}: {item_name}")
+
+                            # Use a limit for total items to avoid too much time spent
+                            if i >= 10:  # Process only first 10 items per page to save time
+                                print(f"        Skipping remaining items on page {page_number} to save time")
+                                break
 
                             item_details = await self.extract_item_details(item_link)
 
@@ -178,8 +236,20 @@ class TalabatGroceries:
     async def extract_categories(self, page):
         try:
             print(f"Processing grocery: {self.url}")
-            await page.goto(self.url, timeout=60000)
-            await page.wait_for_load_state("networkidle", timeout=60000)
+            
+            # Use retry logic for navigation
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    await page.goto(self.url, timeout=90000, wait_until="networkidle")
+                    break
+                except Exception as e:
+                    if attempt == max_retries - 1:
+                        raise
+                    print(f"Retry {attempt+1}/{max_retries} for {self.url}: {e}")
+                    await asyncio.sleep(2)
+            
+            await page.wait_for_load_state("networkidle", timeout=90000)
 
             # Get general information
             delivery_fees = await self.get_delivery_fees(page)
@@ -192,13 +262,31 @@ class TalabatGroceries:
             # Extract categories
             if view_all_link:
                 print(f"  Navigating to view all link: {view_all_link}")
-                await page.goto(view_all_link, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                
+                # Use retry logic for navigation
+                for attempt in range(max_retries):
+                    try:
+                        await page.goto(view_all_link, timeout=90000, wait_until="networkidle")
+                        break
+                    except Exception as e:
+                        if attempt == max_retries - 1:
+                            raise
+                        print(f"Retry {attempt+1}/{max_retries} for {view_all_link}: {e}")
+                        await asyncio.sleep(2)
+                
+                await page.wait_for_load_state("networkidle", timeout=90000)
 
             category_names = await self.extract_category_names(page)
             category_links = await self.extract_category_links(page)
 
             print(f"  Found {len(category_names)} categories")
+
+            # Limit categories to process to save time
+            max_categories = 3  # Process only 3 categories per grocery to save time
+            if len(category_names) > max_categories:
+                print(f"  Processing only first {max_categories} categories to save time")
+                category_names = category_names[:max_categories]
+                category_links = category_links[:max_categories]
 
             categories_data = []
             for index, (name, link) in enumerate(zip(category_names, category_links)):
@@ -222,4 +310,3 @@ class TalabatGroceries:
         except Exception as e:
             print(f"Error extracting categories: {e}")
             return {"error": str(e)}
-
