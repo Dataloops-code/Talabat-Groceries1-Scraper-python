@@ -8,7 +8,7 @@ import pandas as pd
 from playwright.async_api import async_playwright
 
 # Apply nest_asyncio to allow running asyncio.run() in a notebook/IPython environment
-# nest_asyncio.apply()
+nest_asyncio.apply()
 
 class TalabatGroceries:
     def __init__(self, url):
