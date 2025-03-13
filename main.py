@@ -7,9 +7,6 @@ import pandas as pd
 from playwright.async_api import async_playwright
 from talabat_groceries import TalabatGroceries
 
-# Apply nest_asyncio to allow running asyncio.run() in a notebook/IPython environment
-# nest_asyncio.apply()
-
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
         self.target_url = target_url
