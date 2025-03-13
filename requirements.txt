@@ -119,7 +119,6 @@ pandas>=2.2.0
 pandocfilters==1.5.0
 parso==0.8.3
 path.py==10.6
-PIL-Tools==1.1.0
 Pillow>=10.1.0
 platformdirs==4.1.0
 playwright>=1.48.0
