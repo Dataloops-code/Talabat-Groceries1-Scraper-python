@@ -2,10 +2,14 @@ import asyncio
 import json
 import os
 import re
-from bs4 import BeautifulSoup
+import nest_asyncio
 import pandas as pd
+from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 from talabat_groceries import TalabatGroceries
+
+# Apply nest_asyncio to allow running asyncio.run() in a notebook/IPython environment
+nest_asyncio.apply()
 
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
@@ -33,6 +37,7 @@ class MainScraper:
 
         try:
             # Get all vendor containers
+            await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=90000)
             vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
             print(f"Found {len(vendor_containers)} grocery vendors on page")
 
@@ -146,8 +151,13 @@ class MainScraper:
 
         # Extract grocery details using Playwright
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)  # Always use headless mode
-            page = await browser.new_page()
+            browser = await p.chromium.launch(headless=True)
+            context = await browser.new_context(
+                viewport={"width": 1280, "height": 800},
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            )
+            page = await context.new_page()
+            page.set_default_timeout(90000)
 
             try:
                 grocery_details = await talabat_grocery.extract_categories(page)
@@ -174,20 +184,33 @@ class MainScraper:
 
             # Initialize playwright and navigate to target URL
             async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=True)  # Always use headless mode
-                page = await browser.new_page()
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
+                    viewport={"width": 1280, "height": 800},
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                )
+                page = await context.new_page()
+                
+                # Set longer timeouts
+                page.set_default_timeout(90000)
 
-                # Set longer timeouts and wait for page load
-                page.set_default_timeout(60000)  # 60 seconds
-
-                # Navigate to the target URL
-                await page.goto(self.target_url, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                # Navigate to the target URL with retry logic
+                max_retries = 3
+                for attempt in range(max_retries):
+                    try:
+                        await page.goto(self.target_url, timeout=90000, wait_until="networkidle")
+                        break
+                    except Exception as e:
+                        if attempt == max_retries - 1:
+                            raise
+                        print(f"Retry {attempt+1}/{max_retries} for {self.target_url}: {e}")
+                        await asyncio.sleep(2)
+                
                 print("Page loaded successfully")
 
                 # Wait for grocery vendor elements to load
                 try:
-                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
+                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=90000)
                     print("Grocery vendor elements found")
                 except Exception as e:
                     print(f"Error waiting for vendor elements: {e}")
@@ -200,6 +223,12 @@ class MainScraper:
                 print(f"Found {len(groceries_info)} groceries to process")
 
                 # Process each grocery sequentially
+                # To mimic Colab behavior, limit to processing just the first grocery for testing
+                process_limit = 2  # Process only 2 groceries to save time
+                if len(groceries_info) > process_limit:
+                    print(f"Limiting processing to first {process_limit} groceries to save time")
+                    groceries_info = groceries_info[:process_limit]
+
                 for grocery_info in groceries_info:
                     await self.process_grocery(grocery_info)
 
