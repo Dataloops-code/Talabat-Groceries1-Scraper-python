@@ -249,48 +249,51 @@ class MainScraper:
 
     async def extract_grocery_info(self, page):
         """Extract grocery title, link and delivery time directly from the webpage"""
-        groceries_info = []
+        retries = 3
+        while retries > 0:
+            try:
+                # Get all vendor containers
+                vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
+                print(f"Found {len(vendor_containers)} grocery vendors on page")
 
-        try:
-            # Get all vendor containers
-            vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
-            print(f"Found {len(vendor_containers)} grocery vendors on page")
+                groceries_info = []
+                for i, container in enumerate(vendor_containers, 1):
+                    try:
+                        # Extract grocery title using the specified xpath pattern but with playwright
+                        title_element = await container.query_selector('a div h2')
+                        grocery_title = await title_element.inner_text() if title_element else f"Unknown Grocery {i}"
 
-            for i, container in enumerate(vendor_containers, 1):
-                try:
-                    # Extract grocery title using the specified xpath pattern but with playwright
-                    title_element = await container.query_selector('a div h2')
-                    grocery_title = await title_element.inner_text() if title_element else f"Unknown Grocery {i}"
+                        # Extract grocery link
+                        link_element = await container.query_selector('a')
+                        grocery_link = self.base_url + await link_element.get_attribute('href') if link_element else None
 
-                    # Extract grocery link
-                    link_element = await container.query_selector('a')
-                    grocery_link = self.base_url + await link_element.get_attribute('href') if link_element else None
+                        # Extract delivery time
+                        delivery_info = await container.query_selector('div.deliveryInfo')
+                        delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
 
-                    # Extract delivery time
-                    delivery_info = await container.query_selector('div.deliveryInfo')
-                    delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
+                        # Clean up delivery time to extract just the minutes
+                        if delivery_time_text != "N/A":
+                            # Extract digits from the delivery time text
+                            digits = re.findall(r'\d+', delivery_time_text)
+                            delivery_time = f"{digits[0]} mins" if digits else "N/A"
+                        else:
+                            delivery_time = "N/A"
 
-                    # Clean up delivery time to extract just the minutes
-                    if delivery_time_text != "N/A":
-                        # Extract digits from the delivery time text
-                        digits = re.findall(r'\d+', delivery_time_text)
-                        delivery_time = f"{digits[0]} mins" if digits else "N/A"
-                    else:
-                        delivery_time = "N/A"
-
-                    if grocery_title and grocery_link and delivery_time:
-                        print(f"Found grocery: {grocery_title}, Delivery time: {delivery_time}")
-                        groceries_info.append({
-                            'grocery_title': grocery_title,
-                            'grocery_link': grocery_link,
-                            'delivery_time': delivery_time
-                        })
-                except Exception as e:
-                    print(f"Error processing grocery {i}: {e}")
-        except Exception as e:
-            print(f"Error extracting grocery information: {e}")
-
-        return groceries_info
+                        if grocery_title and grocery_link and delivery_time:
+                            print(f"Found grocery: {grocery_title}, Delivery time: {delivery_time}")
+                            groceries_info.append({
+                                'grocery_title': grocery_title,
+                                'grocery_link': grocery_link,
+                                'delivery_time': delivery_time
+                            })
+                    except Exception as e:
+                        print(f"Error processing grocery {i}: {e}")
+                return groceries_info
+            except Exception as e:
+                print(f"Error extracting grocery information: {e}")
+                retries -= 1
+                await asyncio.sleep(5)
+        return []
 
     def save_to_json(self):
         """Save scraped data to JSON file"""
@@ -389,45 +392,52 @@ class MainScraper:
 
     async def run(self):
         """Main method to run the scraper"""
-        try:
-            print(f"Starting the scraper, targeting URL: {self.target_url}")
+        retries = 3
+        while retries > 0:
+            try:
+                print(f"Starting the scraper, targeting URL: {self.target_url}")
 
-            # Initialize playwright and navigate to target URL
-            async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=True)  # Always use headless mode
-                page = await browser.new_page()
+                # Initialize playwright and navigate to target URL
+                async with async_playwright() as p:
+                    browser = await p.chromium.launch(headless=True)  # Always use headless mode
+                    page = await browser.new_page()
 
-                # Set longer timeouts and wait for page load
-                page.set_default_timeout(120000)  # 120 seconds
+                    # Set longer timeouts and wait for page load
+                    page.set_default_timeout(120000)  # 120 seconds
 
-                # Navigate to the target URL
-                await page.goto(self.target_url, timeout=120000)
-                await page.wait_for_load_state("networkidle", timeout=120000)
-                print("Page loaded successfully")
+                    # Navigate to the target URL
+                    await page.goto(self.target_url, timeout=120000)
+                    await page.wait_for_load_state("networkidle", timeout=120000)
+                    print("Page loaded successfully")
 
-                # Wait for grocery vendor elements to load
-                try:
-                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
-                    print("Grocery vendor elements found")
-                except Exception as e:
-                    print(f"Error waiting for vendor elements: {e}")
-                    print("Attempting to continue anyway...")
+                    # Wait for grocery vendor elements to load
+                    try:
+                        await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
+                        print("Grocery vendor elements found")
+                    except Exception as e:
+                        print(f"Error waiting for vendor elements: {e}")
+                        print("Attempting to continue anyway...")
 
-                # Extract grocery information directly from page
-                groceries_info = await self.extract_grocery_info(page)
-                await browser.close()
+                    # Extract grocery information directly from page
+                    groceries_info = await self.extract_grocery_info(page)
+                    await browser.close()
 
-                print(f"Found {len(groceries_info)} groceries to process")
+                    print(f"Found {len(groceries_info)} groceries to process")
 
-                # Process each grocery sequentially
-                for grocery_info in groceries_info:
-                    await self.process_grocery(grocery_info)
+                    # Process each grocery sequentially
+                    for grocery_info in groceries_info:
+                        await self.process_grocery(grocery_info)
 
-                # Save all data to Excel
-                self.save_to_excel()
-                print("Scraping completed successfully")
-        except Exception as e:
-            print(f"Error in main scraper: {e}")
+                    # Save all data to Excel
+                    self.save_to_excel()
+                    print("Scraping completed successfully")
+                break  # Exit retry loop if successful
+            except Exception as e:
+                print(f"Error in main scraper: {e}")
+                retries -= 1
+                await asyncio.sleep(5)
+                if retries == 0:
+                    print("Failed to complete the scraping process after multiple attempts.")
 
 
 # Main execution point - now compatible with notebook environments
@@ -442,7 +452,6 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-
     
 
 # import asyncio
