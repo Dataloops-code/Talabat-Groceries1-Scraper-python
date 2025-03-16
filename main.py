@@ -126,10 +126,10 @@ class TalabatGroceries:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 page = await browser.new_page()
-                await page.goto(sub_category_link, timeout=60000)
+                await page.goto(sub_category_link, timeout=120000)
 
                 # Wait for the page to load
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                await page.wait_for_load_state("networkidle", timeout=120000)
 
                 # Check for pagination
                 pagination_element = await page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
@@ -145,8 +145,8 @@ class TalabatGroceries:
                 for page_number in range(1, total_pages + 1):
                     print(f"      Processing page {page_number} of {total_pages}")
                     page_url = f"{sub_category_link}&page={page_number}"
-                    await page.goto(page_url, timeout=60000)
-                    await page.wait_for_load_state("networkidle", timeout=60000)
+                    await page.goto(page_url, timeout=120000)
+                    await page.wait_for_load_state("networkidle", timeout=120000)
 
                     item_elements = await page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
                     print(f"        Found {len(item_elements)} items on page {page_number}")
@@ -178,8 +178,8 @@ class TalabatGroceries:
     async def extract_categories(self, page):
         try:
             print(f"Processing grocery: {self.url}")
-            await page.goto(self.url, timeout=60000)
-            await page.wait_for_load_state("networkidle", timeout=60000)
+            await page.goto(self.url, timeout=120000)
+            await page.wait_for_load_state("networkidle", timeout=120000)
 
             # Get general information
             delivery_fees = await self.get_delivery_fees(page)
@@ -192,8 +192,8 @@ class TalabatGroceries:
             # Extract categories
             if view_all_link:
                 print(f"  Navigating to view all link: {view_all_link}")
-                await page.goto(view_all_link, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                await page.goto(view_all_link, timeout=120000)
+                await page.wait_for_load_state("networkidle", timeout=120000)
 
             category_names = await self.extract_category_names(page)
             category_links = await self.extract_category_links(page)
@@ -395,16 +395,16 @@ class MainScraper:
                 page = await browser.new_page()
 
                 # Set longer timeouts and wait for page load
-                page.set_default_timeout(60000)  # 60 seconds
+                page.set_default_timeout(120000)  # 60 seconds
 
                 # Navigate to the target URL
-                await page.goto(self.target_url, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
+                await page.goto(self.target_url, timeout=120000)
+                await page.wait_for_load_state("networkidle", timeout=120000)
                 print("Page loaded successfully")
 
                 # Wait for grocery vendor elements to load
                 try:
-                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
+                    await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
                     print("Grocery vendor elements found")
                 except Exception as e:
                     print(f"Error waiting for vendor elements: {e}")
