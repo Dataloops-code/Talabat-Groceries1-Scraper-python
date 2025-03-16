@@ -17,9 +17,9 @@ class TalabatGroceries:
 
     async def get_general_link(self, page):
         try:
-            link_element = await page.get_attribute('//a[@data-testid="view-all-link"]', 'href')
+            link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=60000)
             if link_element:
-                full_link = self.base_url + link_element
+                full_link = self.base_url + await link_element.get_attribute('href')
                 return full_link
             else:
                 return None
@@ -243,6 +243,7 @@ class MainScraper:
                 try:
                     self.groceries_data = json.load(f)
                 except json.JSONDecodeError:
+                    print("Error decoding JSON file. Starting with an empty dictionary.")
                     self.groceries_data = {}
 
     async def extract_grocery_info(self, page):
@@ -440,6 +441,7 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
+
 
 
 
