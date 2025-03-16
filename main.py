@@ -426,68 +426,68 @@ class MainScraper:
             finally:
                 await browser.close()
 
-        async def run(self):
-            """Main method to run the scraper"""
-            retries = 3
-            while retries > 0:
-                try:
-                    print(f"Starting the scraper, targeting URL: {self.target_url}")
-    
-                    # Initialize playwright and navigate to target URL
-                    async with async_playwright() as p:
-                        browser = await p.chromium.launch(headless=True)  # Always use headless mode
-                        page = await browser.new_page()
-    
-                        # Set longer timeouts and wait for page load
-                        page.set_default_timeout(120000)  # 120 seconds
-    
-                        # Navigate to the target URL
-                        await page.goto(self.target_url, timeout=120000)
-                        await page.wait_for_load_state("networkidle", timeout=120000)
-                        print("Page loaded successfully")
-    
-                        # Wait for grocery vendor elements to load
-                        try:
-                            await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
-                            print("Grocery vendor elements found")
-                        except Exception as e:
-                            print(f"Error waiting for vendor elements: {e}")
-                            print("Attempting to continue anyway...")
-    
-                        # Extract grocery information directly from page
-                        groceries_info = await self.extract_grocery_info(page)
-                        await browser.close()
-    
-                        print(f"Found {len(groceries_info)} groceries to process")
-    
-                        # Process each grocery sequentially
-                        for grocery_info in groceries_info:
-                            await self.process_grocery(grocery_info)
-    
-                        # Save all data to Excel
-                        self.save_to_excel()
-                        print("Scraping completed successfully")
-                    break  # Exit retry loop if successful
-                except Exception as e:
-                    print(f"Error in main scraper: {e}")
-                    retries -= 1
-                    await asyncio.sleep(5)
-                    if retries == 0:
-                        print("Failed to complete the scraping process after multiple attempts.")
+    async def run(self):
+        """Main method to run the scraper"""
+        retries = 3
+        while retries > 0:
+            try:
+                print(f"Starting the scraper, targeting URL: {self.target_url}")
+
+                # Initialize playwright and navigate to target URL
+                async with async_playwright() as p:
+                    browser = await p.chromium.launch(headless=True)  # Always use headless mode
+                    page = await browser.new_page()
+
+                    # Set longer timeouts and wait for page load
+                    page.set_default_timeout(120000)  # 120 seconds
+
+                    # Navigate to the target URL
+                    await page.goto(self.target_url, timeout=120000)
+                    await page.wait_for_load_state("networkidle", timeout=120000)
+                    print("Page loaded successfully")
+
+                    # Wait for grocery vendor elements to load
+                    try:
+                        await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
+                        print("Grocery vendor elements found")
+                    except Exception as e:
+                        print(f"Error waiting for vendor elements: {e}")
+                        print("Attempting to continue anyway...")
+
+                    # Extract grocery information directly from page
+                    groceries_info = await self.extract_grocery_info(page)
+                    await browser.close()
+
+                    print(f"Found {len(groceries_info)} groceries to process")
+                           
+                    for grocery_info in groceries_info:
+                        await self.process_grocery(grocery_info)
+
+                    # Save all data to Excel
+                    self.save_to_excel()
+                    print("Scraping completed successfully")
+                break
+
+            except Exception as e:
+                print(f"Error in main scraper: {e}")
+                retries -= 1
+                await asyncio.sleep(5)
+                if retries == 0:
+                    print("Failed to complete the scraping process after multiple attempts.")
 
 
-    # Main execution point - now compatible with notebook environments
-    async def main():
-        # Initialize and run the scraper
-        scraper = MainScraper()
-        await scraper.run()
-    
-    # Handle both script and notebook execution
-    if __name__ == "__main__":
-        asyncio.run(main())
-    else:
-        # For notebook/IPython environment, use this method to run
-        asyncio.get_event_loop().run_until_complete(main())
+# Main execution point - now compatible with notebook environments
+async def main():
+    # Initialize and run the scraper
+    scraper = MainScraper()
+    await scraper.run()
+
+# Handle both script and notebook execution
+if __name__ == "__main__":
+    asyncio.run(main())
+else:
+    # For notebook/IPython environment, use this method to run
+    asyncio.get_event_loop().run_until_complete(main())
 
 
 
