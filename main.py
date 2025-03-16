@@ -446,30 +446,32 @@ class MainScraper:
                     await page.wait_for_load_state("networkidle", timeout=120000)
                     print("Page loaded successfully")
 
-                # Wait for grocery vendor elements to load
-                try:
                     await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=120000)
-                    print("Grocery vendor elements found")
-                except Exception as e:
-                    print(f"Error waiting for vendor elements: {e}")
-                    print("Attempting to continue anyway...")
+                        print("Grocery vendor elements found")
+                    except Exception as e:
+                        print(f"Error waiting for vendor elements: {e}")
+                        print("Attempting to continue anyway...")
 
-                # Extract grocery information directly from page
-                groceries_info = await self.extract_grocery_info(page)
-                await browser.close()
+                    # Extract grocery information directly from page
+                    groceries_info = await self.extract_grocery_info(page)
+                    await browser.close()
 
-                print(f"Found {len(groceries_info)} groceries to process")
+                    print(f"Found {len(groceries_info)} groceries to process")
 
-                # Process each grocery sequentially
-                for grocery_info in groceries_info:
-                    await self.process_grocery(grocery_info)
+                    # Process each grocery sequentially
+                    for grocery_info in groceries_info:
+                        await self.process_grocery(grocery_info)
 
-                # Save all data to Excel
-                self.save_to_excel()
-                print("Scraping completed successfully")
-        except Exception as e:
-            print(f"Error in main scraper: {e}")
-
+                    # Save all data to Excel
+                    self.save_to_excel()
+                    print("Scraping completed successfully")
+                break  # Exit retry loop if successful
+            except Exception as e:
+                print(f"Error in main scraper: {e}")
+                retries -= 1
+                await asyncio.sleep(5)
+                if retries == 0:
+                    print("Failed to complete the scraping process after multiple attempts.")
 
 # Main execution point - now compatible with notebook environments
 async def main():
