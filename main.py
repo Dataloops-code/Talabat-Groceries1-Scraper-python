@@ -476,18 +476,18 @@ class MainScraper:
                         print("Failed to complete the scraping process after multiple attempts.")
 
 
-# Main execution point - now compatible with notebook environments
-async def main():
-    # Initialize and run the scraper
-    scraper = MainScraper()
-    await scraper.run()
-
-# Handle both script and notebook execution
-if __name__ == "__main__":
-    asyncio.run(main())
-else:
-    # For notebook/IPython environment, use this method to run
-    asyncio.get_event_loop().run_until_complete(main())
+    # Main execution point - now compatible with notebook environments
+    async def main():
+        # Initialize and run the scraper
+        scraper = MainScraper()
+        await scraper.run()
+    
+    # Handle both script and notebook execution
+    if __name__ == "__main__":
+        asyncio.run(main())
+    else:
+        # For notebook/IPython environment, use this method to run
+        asyncio.get_event_loop().run_until_complete(main())
 
 
 
