@@ -22,6 +22,7 @@ class TalabatGroceries:
                 full_link = self.base_url + await link_element.get_attribute('href')
                 return full_link
             else:
+                print("General link not found")
                 return None
         except Exception as e:
             print(f"Error getting general link: {e}")
@@ -444,6 +445,7 @@ else:
 
 
 
+    
 
 # import asyncio
 # import json
