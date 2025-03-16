@@ -72,6 +72,7 @@ class TalabatGroceries:
                 sub_category_name = await element.inner_text()
                 sub_category_link = self.base_url + await element.get_attribute('href')
                 print(f"    Processing sub-category: {sub_category_name}")
+                print(f"    Sub-category link: {sub_category_link}")
                 items = await self.extract_all_items_from_sub_category(sub_category_link)
                 sub_categories.append({
                     "sub_category_name": sub_category_name,
@@ -204,6 +205,7 @@ class TalabatGroceries:
             categories_data = []
             for index, (name, link) in enumerate(zip(category_names, category_links)):
                 print(f"  Processing category {index+1}/{len(category_names)}: {name}")
+                print(f"  Category link: {link}")
                 category_xpath = f'//div[@data-testid="category-item-component"][{index + 1}]'
                 sub_categories = await self.extract_sub_categories(page, category_xpath)
                 print(f"  Found {len(sub_categories)} sub-categories in {name}")
@@ -451,8 +453,10 @@ if __name__ == "__main__":
     asyncio.run(main())
 else:
     # For notebook/IPython environment, use this method to run
-    asyncio.get_event_loop().run_until_complete(main())
-    
+    asyncio.get_event_loop().run_until_complete(main())    
+
+
+
 
 # import asyncio
 # import json
