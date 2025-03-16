@@ -80,6 +80,10 @@ class TalabatGroceries:
                     sub_page = await browser.new_page()
                     await sub_page.goto(sub_category_link, timeout=120000)
                     await sub_page.wait_for_load_state("networkidle", timeout=120000)
+
+                    # Wait for items to appear on the page
+                    await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=60000)
+
                     items = await self.extract_all_items_from_sub_category(sub_page, sub_category_link)
                     await browser.close()
 
