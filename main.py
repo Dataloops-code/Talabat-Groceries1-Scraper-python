@@ -158,52 +158,57 @@ class TalabatGroceries:
 
     async def extract_all_items_from_sub_category(self, sub_page, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
-        try:
-            # Check for pagination
-            pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
-            total_pages = 1
+        retries = 3
+        while retries > 0:
+            try:
+                # Check for pagination
+                pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
+                total_pages = 1
 
-            if pagination_element:
-                page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
-                total_pages = len(page_numbers) if page_numbers else 1
-            print(f"      Found {total_pages} pages in this sub-category")
+                if pagination_element:
+                    page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
+                    total_pages = len(page_numbers) if page_numbers else 1
+                print(f"      Found {total_pages} pages in this sub-category")
 
-            items = []
-            for page_number in range(1, total_pages + 1):
-                print(f"      Processing page {page_number} of {total_pages}")
-                page_url = f"{sub_category_link}&page={page_number}"
-                await sub_page.goto(page_url, timeout=180000)
-                await sub_page.wait_for_load_state("networkidle", timeout=180000)
+                items = []
+                for page_number in range(1, total_pages + 1):
+                    print(f"      Processing page {page_number} of {total_pages}")
+                    page_url = f"{sub_category_link}&page={page_number}"
+                    await sub_page.goto(page_url, timeout=180000)
+                    await sub_page.wait_for_load_state("networkidle", timeout=180000)
 
-                # Wait for items to appear on the page
-                await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=120000)
+                    # Wait for items to appear on the page
+                    await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=120000)
 
-                item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
-                print(f"        Found {len(item_elements)} items on page {page_number}")
+                    item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
+                    print(f"        Found {len(item_elements)} items on page {page_number}")
 
-                for i, element in enumerate(item_elements):
-                    try:
-                        item_name_element = await element.query_selector('div[data-test="item-name"]')
-                        item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
-                        print(f"        Item name: {item_name}")
+                    for i, element in enumerate(item_elements):
+                        try:
+                            item_name_element = await element.query_selector('div[data-test="item-name"]')
+                            item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
+                            print(f"        Item name: {item_name}")
 
-                        item_link = self.base_url + await element.get_attribute('href')
-                        print(f"        Item link: {item_link}")
+                            item_link = self.base_url + await element.get_attribute('href')
+                            print(f"        Item link: {item_link}")
 
-                        item_details = await self.extract_item_details(item_link)
+                            item_details = await self.extract_item_details(item_link)
 
-                        items.append({
-                            "item_name": item_name,
-                            "item_link": item_link,
-                            **item_details
-                        })
-                    except Exception as e:
-                        print(f"        Error processing item {i+1}: {e}")
+                            items.append({
+                                "item_name": item_name,
+                                "item_link": item_link,
+                                **item_details
+                            })
+                        except Exception as e:
+                            print(f"        Error processing item {i+1}: {e}")
 
-            return items
-        except Exception as e:
-            print(f"Error extracting items from sub-category {sub_category_link}: {e}")
-            return []
+                return items
+            except Exception as e:
+                print(f"Error extracting items from sub-category {sub_category_link}: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
 
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
@@ -417,7 +422,6 @@ class MainScraper:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             page = await browser.new_page()
-
             try:
                 grocery_details = await talabat_grocery.extract_categories(page)
 
@@ -501,6 +505,8 @@ else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
 
+
+    
 
     
 
