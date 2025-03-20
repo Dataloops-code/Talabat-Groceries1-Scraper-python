@@ -37,3 +37,4 @@ notebook_shim==0.2.3
 numpy>=1.22.0
 pandas>=2.2.0
 xlsxwriter>=3.1.2
+playwright==1.29.1
