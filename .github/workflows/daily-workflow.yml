@@ -1,9 +1,7 @@
 name: Daily Workflow
 
 on:
-  # schedule:
-  #   - cron: '10 0 * * *'  # Runs every day at 3:30 AM UTC
-  workflow_dispatch:  # Allows manual triggering
+  workflow_dispatch:
 
 concurrency:
   group: workflow-group
@@ -15,10 +13,10 @@ jobs:
     timeout-minutes: 2000
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Updated to v4
+        uses: actions/checkout@v4
         
       - name: Set up Python
-        uses: actions/setup-python@v5  # Updated to v5
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           
@@ -31,6 +29,7 @@ jobs:
         run: |
           pip install playwright
           python -m playwright install
+          python -m playwright install firefox  # Install Firefox browser
           
       - name: Fix PhantomJS Issue
         run: |
@@ -45,31 +44,30 @@ jobs:
           echo $PATH
           
       - name: Run the scraper
-        # env:
-        #   SERVICES_GCLOUD_KEY_JSON: ${{ secrets.SERVICES_GCLOUD_KEY_JSON }}
         run: |
           python main.py
           
       - name: Upload Logs
         if: always()
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v4
         with:
           name: scraper-logs
           path: scraper.log
-          retention-days: 7  # Added retention period
+          retention-days: 7
       
       - name: Cleanup
         if: always()
         run: |
-          rm -rf node_modules  # Clean up npm modules
-          rm -rf ~/.cache/ms-playwright  # Clean up Playwright cache
+          rm -rf node_modules
+          rm -rf ~/.cache/ms-playwright
+
 
 
 # name: Daily Workflow
 
 # on:
-#   schedule:
-#     - cron: '10 0 * * *'  # Runs every day at 3:30 AM UTC
+#   # schedule:
+#   #   - cron: '10 0 * * *'  # Runs every day at 3:30 AM UTC
 #   workflow_dispatch:  # Allows manual triggering
 
 # concurrency:
@@ -106,7 +104,11 @@ jobs:
 #           npm cache clear --force
 #           npm install
           
-
+#       - name: Debug Environment
+#         run: |
+#           python -m playwright --version
+#           echo $PATH
+          
 #       - name: Run the scraper
 #         # env:
 #         #   SERVICES_GCLOUD_KEY_JSON: ${{ secrets.SERVICES_GCLOUD_KEY_JSON }}
