@@ -113,12 +113,14 @@ class TalabatGroceries:
                         print(f"    Processing sub-category: {sub_category_name}")
                         print(f"    Sub-category link: {sub_category_link}")
 
+                        # Open a new tab for each sub-category link to ensure it loads successfully
                         async with async_playwright() as p:
                             browser = await p.chromium.launch(headless=True)
                             sub_page = await browser.new_page()
                             await sub_page.goto(sub_category_link, timeout=240000)
                             await sub_page.wait_for_load_state("networkidle", timeout=240000)
 
+                            # Wait for items to appear on the page
                             await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
 
                             items = await self.extract_all_items_from_sub_category(sub_page, sub_category_link)
@@ -225,7 +227,7 @@ class TalabatGroceries:
 
                             if item_details["item_price"] == "N/A" and item_details["item_description"] == "N/A" and item_details["item_delivery_time_range"] == "N/A":
                                 print(f"Retrying item details for link: {item_link}")
-                                item_details = await self.extract_item_details_new_tab(item_link)
+                                item_details = await self.extract_item_details_new_tab(item_link, browser_type="firefox")
 
                             items.append({
                                 "item_name": item_name,
@@ -243,13 +245,17 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
-    async def extract_item_details_new_tab(self, item_link):
-        print(f"Attempting to extract item details in a new tab for link: {item_link}")
+    async def extract_item_details_new_tab(self, item_link, browser_type="firefox"):
+        print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
         retries = 3
         while retries > 0:
             try:
                 async with async_playwright() as p:
-                    browser = await p.webkit.launch(headless=True)  # Use a different browser instance
+                    if browser_type == "firefox":
+                        browser = await p.firefox.launch(headless=True)  # Use Firefox browser instance
+                    else:
+                        browser = await p.chromium.launch(headless=True)  # Use Chromium browser instance
+
                     page = await browser.new_page()
                     await page.goto(item_link, timeout=240000)
 
@@ -280,7 +286,7 @@ class TalabatGroceries:
                         "item_images": item_images
                     }
             except Exception as e:
-                print(f"Error extracting item details for {item_link} in new tab: {e}")
+                print(f"Error extracting item details for {item_link} in new tab using {browser_type}: {e}")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -419,6 +425,7 @@ class MainScraper:
                                 'grocery_link': grocery_link,
                                 'delivery_time': delivery_time
                             })
+                    
                     except Exception as e:
                         print(f"Error processing grocery {i}: {e}")
                 return groceries_info
@@ -587,7 +594,6 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-    
     
 
 
