@@ -33,7 +33,7 @@ jobs:
 
       - name: Install Playwright Dependencies
         run: |
-          npx playwright install-deps
+          sudo npx playwright install-deps
           
       - name: Fix PhantomJS Issue
         run: |
