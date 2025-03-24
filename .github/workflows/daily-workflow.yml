@@ -25,13 +25,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: Install Playwright and Dependencies for Python
+      - name: Install Playwright for Python
         run: |
           pip install playwright
           python -m playwright install
           python -m playwright install firefox  # Install Firefox browser
-          sudo playwright install-deps  # Install necessary dependencies for Playwright
-          
+
+      - name: Install Playwright Dependencies
+        run: |
+          npx playwright install-deps
           
       - name: Fix PhantomJS Issue
         run: |
