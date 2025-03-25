@@ -34,7 +34,8 @@ jobs:
 
       - name: Install Playwright Dependencies
         run: |
-          sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-4-1 libgraphene-1.0-0 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libmanette-0.2-0 libgles2
+          sudo apt-get update
+          sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-4-1 libgraphene-1.0-0 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libmanette-0.2-0 libgles2 libsoup2.4 libpcre3 libvpx7
           sudo npx playwright install-deps
   
       - name: Fix PhantomJS Issue
@@ -66,4 +67,3 @@ jobs:
         run: |
           rm -rf node_modules
           rm -rf ~/.cache/ms-playwright
-
