@@ -319,6 +319,12 @@ class TalabatGroceries:
         return {"error": "Failed to extract categories after multiple attempts"}
 
 
+import os
+import json
+import re
+import pandas as pd
+import asyncio
+from playwright.async_api import async_playwright
 
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
@@ -551,7 +557,6 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-
 
 
 
