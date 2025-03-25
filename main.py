@@ -319,6 +319,7 @@ class TalabatGroceries:
         return {"error": "Failed to extract categories after multiple attempts"}
 
 
+
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
         self.target_url = target_url
@@ -550,6 +551,7 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
+
 
 
 
