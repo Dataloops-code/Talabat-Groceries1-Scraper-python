@@ -30,6 +30,7 @@ jobs:
           pip install playwright
           python -m playwright install
           python -m playwright install firefox  # Install Firefox browser
+          python -m playwright install-webkit
 
       - name: Install Playwright Dependencies
         run: |
