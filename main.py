@@ -131,6 +131,25 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
+    async def extract_item_details(self, item_link):
+        print(f"Attempting to extract item details for link: {item_link}")
+        browsers = ["chromium", "firefox", "webkit"]
+        for browser_type in browsers:
+            retries = 3
+            while retries > 0:
+                try:
+                    return await self.extract_item_details_new_tab(item_link, browser_type)
+                except Exception as e:
+                    print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
+                    retries -= 1
+                    print(f"Retries left: {retries}")
+                    await asyncio.sleep(5)
+        return {
+            "item_price": "N/A",
+            "item_description": "N/A",
+            "item_delivery_time_range": "N/A",
+            "item_images": []
+        }
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
@@ -189,26 +208,6 @@ class TalabatGroceries:
                 continue  # Try the next browser type
         return []
 
-    async def extract_item_details(self, item_link):
-        print(f"Attempting to extract item details for link: {item_link}")
-        browsers = ["chromium", "firefox", "webkit"]
-        for browser_type in browsers:
-            retries = 3
-            while retries > 0:
-                try:
-                    return await self.extract_item_details_new_tab(item_link, browser_type)
-                except Exception as e:
-                    print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    await asyncio.sleep(5)
-        return {
-            "item_price": "N/A",
-            "item_description": "N/A",
-            "item_delivery_time_range": "N/A",
-            "item_images": []
-        }
-    
     async def extract_item_details_new_tab(self, item_link, browser_type="chromium"):
         print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
         retries = 3
@@ -221,30 +220,30 @@ class TalabatGroceries:
                         browser = await p.webkit.launch(headless=True)  # Use Webkit browser instance
                     else:
                         browser = await p.chromium.launch(headless=True)  # Use Chromium browser instance
-    
+
                     page = await browser.new_page()
                     await page.goto(item_link, timeout=240000)
-    
+
                     await page.wait_for_load_state("networkidle", timeout=240000)
-    
+
                     item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
                     item_price = await item_price_element.inner_text() if item_price_element else "N/A"
                     print(f"Item price: {item_price}")
-    
+
                     item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
                     item_description = await item_description_element.inner_text() if item_description_element else "N/A"
                     print(f"Item description: {item_description}")
-    
+
                     delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
                     delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                     print(f"Delivery time range: {delivery_time}")
-    
+
                     item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
                     item_images = [await img.get_attribute('src') for img in item_image_elements]
                     print(f"Item images: {item_images}")
-    
+
                     await browser.close()
-    
+
                     return {
                         "item_price": item_price,
                         "item_description": item_description,
@@ -265,7 +264,7 @@ class TalabatGroceries:
             "item_delivery_time_range": "N/A",
             "item_images": []
         }
-    
+
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
@@ -282,6 +281,8 @@ class TalabatGroceries:
                 print(f"  Delivery fees: {delivery_fees}")
                 print(f"  Minimum order: {minimum_order}")
 
+                categories_data = []  # Initialize categories_data before using it
+
                 if view_all_link:
                     print(f"  Navigating to view all link: {view_all_link}")
                     async with async_playwright() as p:
@@ -295,7 +296,6 @@ class TalabatGroceries:
 
                         print(f"  Found {len(category_names)} categories")
 
-                        categories_data = []
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
                             print(f"  Processing category {index+1}/{len(category_names)}: {name}")
                             print(f"  Category link: {link}")
@@ -332,7 +332,7 @@ class TalabatGroceries:
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return {"error": "Failed to extract categories after multiple attempts"}
-
+        
 
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
