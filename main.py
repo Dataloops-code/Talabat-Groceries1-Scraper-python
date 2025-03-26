@@ -131,20 +131,6 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
-    async def extract_item_details(self, item_link):
-        print(f"Attempting to extract item details for link: {item_link}")
-        for browser_type in ["chromium", "firefox", "webkit"]:
-            try:
-                return await self.extract_item_details_new_tab(item_link, browser_type)
-            except Exception as e:
-                print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
-                continue  # Try the next browser type
-        return {
-            "item_price": "N/A",
-            "item_description": "N/A",
-            "item_delivery_time_range": "N/A",
-            "item_images": []
-        }
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
@@ -203,7 +189,27 @@ class TalabatGroceries:
                 continue  # Try the next browser type
         return []
 
-    async def extract_item_details_new_tab(self, item_link, browser_type="firefox"):
+    async def extract_item_details(self, item_link):
+        print(f"Attempting to extract item details for link: {item_link}")
+        browsers = ["chromium", "firefox", "webkit"]
+        for browser_type in browsers:
+            retries = 3
+            while retries > 0:
+                try:
+                    return await self.extract_item_details_new_tab(item_link, browser_type)
+                except Exception as e:
+                    print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
+                    retries -= 1
+                    print(f"Retries left: {retries}")
+                    await asyncio.sleep(5)
+        return {
+            "item_price": "N/A",
+            "item_description": "N/A",
+            "item_delivery_time_range": "N/A",
+            "item_images": []
+        }
+    
+    async def extract_item_details_new_tab(self, item_link, browser_type="chromium"):
         print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
         retries = 3
         while retries > 0:
