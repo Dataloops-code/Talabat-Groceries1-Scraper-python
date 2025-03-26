@@ -203,47 +203,48 @@ class TalabatGroceries:
                 continue  # Try the next browser type
         return []
 
-    async def extract_item_details_new_tab(self, item_link, browser_type):
-        print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
-        retries = 3
-        while retries > 0:
-            try:
-                async with async_playwright() as p:
-                    browser = await p[browser_type].launch(headless=True)
-                    page = await browser.new_page()
-                    await page.goto(item_link, timeout=300000)
-
-                    await page.wait_for_load_state("networkidle", timeout=300000)
-
-                    item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
-                    item_price = await item_price_element.inner_text() if item_price_element else "N/A"
-                    print(f"Item price: {item_price}")
-
-                    item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
-                    item_description = await item_description_element.inner_text() if item_description_element else "N/A"
-                    print(f"Item description: {item_description}")
-
-                    delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
-                    delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
-                    print(f"Delivery time range: {delivery_time}")
-
-                    item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
-                    item_images = [await img.get_attribute('src') for img in item_image_elements]
-                    print(f"Item images: {item_images}")
-
-                    await browser.close()
-
-                    return {
-                        "item_price": item_price,
-                        "item_description": item_description,
-                        "item_delivery_time_range": delivery_time,
-                        "item_images": item_images
-                    }
-            except Exception as e:
-                print(f"Error extracting item details for {item_link} in new tab using {browser_type}: {e}")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
+    async def extract_item_details_new_tab(self, item_link, browser_types=["chromium", "firefox", "webkit"]):
+        print(f"Attempting to extract item details for link: {item_link} with browsers: {browser_types}")
+        for browser_type in browser_types:
+            retries = 3
+            while retries > 0:
+                try:
+                    async with async_playwright() as p:
+                        browser = await p[browser_type].launch(headless=True)
+                        page = await browser.new_page()
+                        await page.goto(item_link, timeout=240000)
+    
+                        await page.wait_for_load_state("networkidle", timeout=240000)
+    
+                        item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
+                        item_price = await item_price_element.inner_text() if item_price_element else "N/A"
+                        print(f"Item price: {item_price}")
+    
+                        item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
+                        item_description = await item_description_element.inner_text() if item_description_element else "N/A"
+                        print(f"Item description: {item_description}")
+    
+                        delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
+                        delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
+                        print(f"Delivery time range: {delivery_time}")
+    
+                        item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
+                        item_images = [await img.get_attribute('src') for img in item_image_elements]
+                        print(f"Item images: {item_images}")
+    
+                        await browser.close()
+    
+                        return {
+                            "item_price": item_price,
+                            "item_description": item_description,
+                            "item_delivery_time_range": delivery_time,
+                            "item_images": item_images
+                        }
+                except Exception as e:
+                    print(f"Error extracting item details for {item_link} in new tab using {browser_type}: {e}")
+                    retries -= 1
+                    print(f"Retries left: {retries}")
+                    await asyncio.sleep(5)
         return {
             "item_price": "N/A",
             "item_description": "N/A",
