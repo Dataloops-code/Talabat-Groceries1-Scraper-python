@@ -253,6 +253,9 @@ class TalabatGroceries:
                     }
             except Exception as e:
                 print(f"Error extracting item details for {item_link} in new tab using {browser_type}: {e}")
+                if 'Host system is missing dependencies' in str(e):
+                    print("Attempting to install missing dependencies for webkit...")
+                    os.system('sudo playwright install-deps')
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
