@@ -203,9 +203,10 @@ class TalabatGroceries:
                 continue  # Try the next browser type
         return []
 
-    async def extract_item_details_new_tab(self, item_link, browser_types=["chromium", "firefox", "webkit"]):
-        print(f"Attempting to extract item details for link: {item_link} with browsers: {browser_types}")
-        for browser_type in browser_types:
+    async def extract_item_details_new_tab(self, item_link):
+        print(f"Attempting to extract item details for link: {item_link}")
+        browsers = ["chromium", "firefox", "webkit"]
+        for browser_type in browsers:
             retries = 3
             while retries > 0:
                 try:
@@ -251,7 +252,7 @@ class TalabatGroceries:
             "item_delivery_time_range": "N/A",
             "item_images": []
         }
-
+    
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
