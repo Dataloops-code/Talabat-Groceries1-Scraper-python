@@ -267,6 +267,8 @@ class TalabatGroceries:
                 print(f"  Delivery fees: {delivery_fees}")
                 print(f"  Minimum order: {minimum_order}")
 
+                categories_data = []
+
                 if view_all_link:
                     print(f"  Navigating to view all link: {view_all_link}")
                     async with async_playwright() as p:
@@ -280,7 +282,6 @@ class TalabatGroceries:
 
                         print(f"  Found {len(category_names)} categories")
 
-                        categories_data = []
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
                             print(f"  Processing category {index+1}/{len(category_names)}: {name}")
                             print(f"  Category link: {link}")
@@ -550,6 +551,9 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
+
+
+
 
 
 
