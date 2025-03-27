@@ -20,7 +20,7 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
-                link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=60000)
+                link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=20000)
                 if link_element:
                     full_link = self.base_url + await link_element.get_attribute('href')
                     print(f"General link found: {full_link}")
@@ -138,8 +138,8 @@ class TalabatGroceries:
                 async with async_playwright() as p:
                     browser = await p.chromium.launch(headless=True)
                     page = await browser.new_page()
-                    await page.goto(item_link, timeout=240000)
-                    await page.wait_for_load_state("networkidle", timeout=240000)
+                    await page.goto(item_link, timeout=120000)
+                    await page.wait_for_load_state("networkidle", timeout=120000)
 
                     item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
                     item_price = await item_price_element.inner_text() if item_price_element else "N/A"
@@ -182,8 +182,8 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
-                await page.goto(sub_category_link, timeout=240000)
-                await page.wait_for_load_state("networkidle", timeout=240000)
+                await page.goto(sub_category_link, timeout=120000)
+                await page.wait_for_load_state("networkidle", timeout=120000)
 
                 pagination_element = await page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
                 total_pages = 1
@@ -197,10 +197,10 @@ class TalabatGroceries:
                 for page_number in range(1, total_pages + 1):
                     print(f"      Processing page {page_number} of {total_pages}")
                     page_url = f"{sub_category_link}&page={page_number}"
-                    await page.goto(page_url, timeout=240000)
-                    await page.wait_for_load_state("networkidle", timeout=240000)
+                    await page.goto(page_url, timeout=120000)
+                    await page.wait_for_load_state("networkidle", timeout=120000)
 
-                    await page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+                    await page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=120000)
 
                     item_elements = await page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
                     print(f"        Found {len(item_elements)} items on page {page_number}")
@@ -238,8 +238,8 @@ class TalabatGroceries:
         while retries > 0:
             try:
                 categories_data = []  # Initialize before use
-                await page.goto(self.url, timeout=240000)
-                await page.wait_for_load_state("networkidle", timeout=240000)
+                await page.goto(self.url, timeout=120000)
+                await page.wait_for_load_state("networkidle", timeout=120000)
                 print("Page loaded successfully")
 
                 delivery_fees = await self.get_delivery_fees(page)
@@ -254,20 +254,26 @@ class TalabatGroceries:
                     async with async_playwright() as p:
                         browser = await p.chromium.launch(headless=True)
                         category_page = await browser.new_page()
-                        await category_page.goto(view_all_link, timeout=240000)
-                        await category_page.wait_for_load_state("networkidle", timeout=240000)
+                        await category_page.goto(view_all_link, timeout=120000)
+                        await category_page.wait_for_load_state("networkidle", timeout=120000)
 
                         category_names = await self.extract_category_names(category_page)
                         category_links = await self.extract_category_links(category_page)
 
                         print(f"  Found {len(category_names)} categories")
 
+                        tasks = []
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
                             print(f"  Processing category {index+1}/{len(category_names)}: {name}")
                             print(f"  Category link: {link}")
                             category_xpath = f'//div[@data-testid="category-item-component"][{index + 1}]'
-                            sub_categories = await self.extract_sub_categories(category_page, category_xpath)
+                            tasks.append(self.extract_sub_categories(category_page, category_xpath))
 
+                        sub_categories_list = await asyncio.gather(*tasks)
+
+                        for index, sub_categories in enumerate(sub_categories_list):
+                            name = category_names[index]
+                            link = category_links[index]
                             print(f"  Found {len(sub_categories)} sub-categories in {name}")
                             category_data = {
                                 "name": name,
