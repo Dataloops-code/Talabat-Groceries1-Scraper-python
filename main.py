@@ -280,7 +280,7 @@ class TalabatGroceries:
 
                             if item_details["item_price"] == "N/A" and item_details["item_description"] == "N/A" and item_details["item_delivery_time_range"] == "N/A":
                                 print(f"Retrying item details for link: {item_link}")
-                                item_details = await self.extract_item_details_new_tab(item_link, browser_type="firefox")
+                                item_details = await self.extract_item_details(item_link, browser_type="firefox")
 
                             items.append({
                                 "item_name": item_name,
