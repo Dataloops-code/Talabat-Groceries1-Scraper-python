@@ -131,6 +131,28 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
+    async def extract_item_details(self, item_link):
+        print(f"Attempting to extract item details for link: {item_link}")
+        browsers = ["chromium", "firefox", "webkit"]
+        for browser_type in browsers:
+            retries = 3
+            while retries > 0:
+                try:
+                    result = await self.extract_item_details_new_tab(item_link, browser_type)
+                    # Check if result contains valid data, otherwise, continue to the next browser
+                    if result["item_price"] != "N/A" or result["item_description"] != "N/A" or result["item_images"]:
+                        return result
+                except Exception as e:
+                    print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
+                    retries -= 1
+                    print(f"Retries left: {retries}")
+                    await asyncio.sleep(5)
+        return {
+            "item_price": "N/A",
+            "item_description": "N/A",
+            "item_delivery_time_range": "N/A",
+            "item_images": []
+        }
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
@@ -189,29 +211,6 @@ class TalabatGroceries:
                 continue  # Try the next browser type
         return []
 
-    async def extract_item_details(self, item_link):
-        print(f"Attempting to extract item details for link: {item_link}")
-        browsers = ["firefox", "chromium", "webkit"]
-        for browser_type in browsers:
-            retries = 3
-            while retries > 0:
-                try:
-                    result = await self.extract_item_details_new_tab(item_link, browser_type)
-                    # Check if result contains valid data, otherwise, continue to the next browser
-                    if result["item_price"] != "N/A" or result["item_description"] != "N/A" or result["item_images"]:
-                        return result
-                except Exception as e:
-                    print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    await asyncio.sleep(5)
-        return {
-            "item_price": "N/A",
-            "item_description": "N/A",
-            "item_delivery_time_range": "N/A",
-            "item_images": []
-        }
-    
     async def extract_item_details_new_tab(self, item_link, browser_type="chromium"):
         print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
         retries = 3
@@ -224,30 +223,30 @@ class TalabatGroceries:
                         browser = await p.webkit.launch(headless=True)  # Use Webkit browser instance
                     else:
                         browser = await p.chromium.launch(headless=True)  # Use Chromium browser instance
-    
+
                     page = await browser.new_page()
                     await page.goto(item_link, timeout=240000)
-    
+
                     await page.wait_for_load_state("networkidle", timeout=240000)
-    
+
                     item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
                     item_price = await item_price_element.inner_text() if item_price_element else "N/A"
                     print(f"Item price: {item_price}")
-    
+
                     item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
                     item_description = await item_description_element.inner_text() if item_description_element else "N/A"
                     print(f"Item description: {item_description}")
-    
+
                     delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
                     delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                     print(f"Delivery time range: {delivery_time}")
-    
+
                     item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
                     item_images = [await img.get_attribute('src') for img in item_image_elements]
                     print(f"Item images: {item_images}")
-    
+
                     await browser.close()
-    
+
                     return {
                         "item_price": item_price,
                         "item_description": item_description,
@@ -267,7 +266,7 @@ class TalabatGroceries:
             "item_description": "N/A",
             "item_delivery_time_range": "N/A",
             "item_images": []
-        }
+    }
 
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
@@ -336,7 +335,7 @@ class TalabatGroceries:
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return {"error": "Failed to extract categories after multiple attempts"}
-        
+
 
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
@@ -430,138 +429,67 @@ class MainScraper:
                 general_info = {
                     'grocery_title': grocery_title,
                     'delivery_time': grocery_data.get('delivery_time', 'N/A'),
-                    'delivery_fees': grocery_data.get('grocery_details', {}).get('delivery_fees', 'N/A'),
-                    'minimum_order': grocery_data.get('grocery_details', {}).get('minimum_order', 'N/A')
+                    'delivery_fees': grocery_data.get('delivery_fees', 'N/A'),
+                    'minimum_order': grocery_data.get('minimum_order', 'N/A')
                 }
 
-                categories = grocery_data.get('grocery_details', {}).get('categories', [])
-                for category in categories:
-                    category_name = category.get('name', 'N/A')
+                for category in grocery_data.get('categories', []):
                     for sub_category in category.get('sub_categories', []):
-                        sub_category_name = sub_category.get('sub_category_name', 'N/A')
                         for item in sub_category.get('Items', []):
-                            item_data = {
-                                **general_info,
-                                'category': category_name,
-                                'sub_category': sub_category_name,
-                                'item_name': item.get('item_name', 'N/A'),
-                                'item_price': item.get('item_price', 'N/A'),
-                                'item_description': item.get('item_description', 'N/A'),
-                                'item_link': item.get('item_link', 'N/A')
+                            item_info = {
+                                'category_name': category.get('name', 'N/A'),
+                                'sub_category_name': sub_category.get('sub_category_name', 'N/A'),
+                                **item
                             }
-                            flattened_data.append(item_data)
+                            flattened_data.append({**general_info, **item_info})
 
-                if not flattened_data:
-                    flattened_data.append(general_info)
-
-                safe_title = re.sub(r'[\\/*?:\[\]]', '_', grocery_title)[:31]
                 df = pd.DataFrame(flattened_data)
-                df.to_excel(writer, sheet_name=safe_title, index=False)
+                df.to_excel(writer, sheet_name=grocery_title[:31], index=False)
 
-            writer.close()
+            writer.save()
             print(f"Data saved to {self.excel_file}")
         except Exception as e:
-            print(f"Error saving to Excel: {e}")
+            print(f"Error saving to Excel file: {e}")
 
-    async def process_grocery(self, grocery_info):
-        """Process a single grocery using TalabatGroceries class"""
-        grocery_title = grocery_info['grocery_title']
-        grocery_link = grocery_info['grocery_link']
-        delivery_time = grocery_info['delivery_time']
+    async def scrape(self):
+        print(f"Starting scrape for target URL: {self.target_url}")
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=True)
+            page = await browser.new_page()
+            await page.goto(self.target_url, timeout=240000)
+            await page.wait_for_load_state("networkidle", timeout=240000)
+            print("Page loaded successfully")
 
-        print(f"Processing grocery: {grocery_title}")
+            groceries_info = await self.extract_grocery_info(page)
+            print(f"Extracted grocery info: {groceries_info}")
 
-        # Skip if already processed
-        if grocery_title in self.groceries_data:
-            print(f"Skipping {grocery_title} - already processed")
-            return
+            for grocery in groceries_info:
+                grocery_title = grocery['grocery_title']
+                grocery_link = grocery['grocery_link']
 
-        # Initialize TalabatGroceries with the grocery link
-        talabat_grocery = TalabatGroceries(grocery_link)
-
-        # Extract grocery details using Playwright
-        for browser_type in ["chromium", "firefox", "webkit"]:
-            try:
+                grocery_scraper = TalabatGroceries(grocery_link)
                 async with async_playwright() as p:
-                    browser = await p[browser_type].launch(headless=True)
+                    browser = await p.chromium.launch(headless=True)
                     page = await browser.new_page()
-
-                    grocery_details = await talabat_grocery.extract_categories(page)
-
-                    # Store data in groceries_data dictionary
-                    self.groceries_data[grocery_title] = {
-                        'grocery_link': grocery_link,
-                        'delivery_time': delivery_time,
-                        'grocery_details': grocery_details
-                    }
-
-                    # Save progress after each grocery
-                    self.save_to_json()
-                    print(f"Successfully processed and saved data for {grocery_title}")
-                    break  # Exit the loop if successful
-            except Exception as e:
-                print(f"Error processing {grocery_title} with {browser_type}: {e}")
-                continue  # Try the next browser type
-            finally:
-                await browser.close()
-
-    async def run(self):
-        """Main method to run the scraper"""
-        print("Starting the scraper")
-        retries = 3
-        while retries > 0:
-            try:
-                print(f"Target URL: {self.target_url}")
-
-                # Initialize playwright and navigate to target URL
-                async with async_playwright() as p:
-                    browser = await p.chromium.launch(headless=True)  # Always use headless mode
-                    page = await browser.new_page()
-
-                    # Set longer timeouts and wait for page load
-                    page.set_default_timeout(240000)  # 240 seconds
-
-                    # Navigate to the target URL
-                    await page.goto(self.target_url, timeout=240000)
-                    await page.wait_for_load_state("networkidle", timeout=240000)
-                    print("Page loaded successfully")
-
-                    # Wait for grocery vendor elements to load
-                    try:
-                        await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=240000)
-                        print("Grocery vendor elements found")
-                    except Exception as e:
-                        print(f"Error waiting for vendor elements: {e}")
-                        print("Attempting to continue anyway...")
-
-                    # Extract grocery information directly from page
-                    groceries_info = await self.extract_grocery_info(page)
+                    grocery_data = await grocery_scraper.extract_categories(page)
                     await browser.close()
 
-                    print(f"Found {len(groceries_info)} groceries to process")
+                self.groceries_data[grocery_title] = {
+                    'delivery_time': grocery['delivery_time'],
+                    **grocery_data
+                }
 
-                    # Process each grocery sequentially
-                    for grocery_info in groceries_info:
-                        await self.process_grocery(grocery_info)
-
-                    # Save all data to Excel
-                    self.save_to_excel()
-                    print("Scraping completed successfully")
-                break  # Exit retry loop if successful
-            except Exception as e:
-                print(f"Error in main scraper: {e}")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-                if retries == 0:
-                    print("Failed to complete the scraping process after multiple attempts.")
+            self.save_to_json()
+            self.save_to_excel()
+            await browser.close()
+            print("Scraping completed")
 
 
 # Main execution point - now compatible with notebook environments
 async def main():
     # Initialize and run the scraper
     scraper = MainScraper()
-    await scraper.run()
+    await scraper.scrape()
 
 # Handle both script and notebook execution
 if __name__ == "__main__":
@@ -569,10 +497,6 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-
-
-
-
 
 
                                 
