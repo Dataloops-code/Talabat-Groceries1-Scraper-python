@@ -313,6 +313,7 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
+                categories_data = []  # Initialize before use
                 await page.goto(self.url, timeout=240000)
                 await page.wait_for_load_state("networkidle", timeout=240000)
                 print("Page loaded successfully")
@@ -337,7 +338,6 @@ class TalabatGroceries:
 
                         print(f"  Found {len(category_names)} categories")
 
-                        categories_data = []
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
                             print(f"  Processing category {index+1}/{len(category_names)}: {name}")
                             print(f"  Category link: {link}")
@@ -606,7 +606,6 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
-
 
 
 
