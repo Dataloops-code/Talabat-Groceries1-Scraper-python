@@ -102,73 +102,51 @@ class TalabatGroceries:
     async def extract_sub_categories(self, page, category_xpath):
         print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
         retries = 3
-        browser_types = ["chromium", "firefox", "webkit"]
-        
         while retries > 0:
-            for browser_type in browser_types:
-                try:
-                    # Try finding sub-categories using the current method
-                    sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-                    
-                    if sub_category_elements:
-                        sub_categories = []
-                        for element in sub_category_elements:
-                            try:
-                                sub_category_name = await element.inner_text()
-                                sub_category_link = self.base_url + await element.get_attribute('href')
-                                print(f"    Processing sub-category: {sub_category_name}")
-                                print(f"    Sub-category link: {sub_category_link}")
-
-                                # Open a new tab for each sub-category link to ensure it loads successfully
-                                async with async_playwright() as p:
-                                    browser = await p[browser_type].launch(headless=True)
-                                    sub_page = await browser.new_page()
-                                    await sub_page.goto(sub_category_link, timeout=240000)
-                                    await sub_page.wait_for_load_state("networkidle", timeout=240000)
-                                    
-                                    # Try multiple selector strategies to find items
-                                    selector_strategies = [
-                                        '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]',
-                                        '//div[@data-testid="category-items-container"]//div[contains(@class, "product-card")]',
-                                        '//div[contains(@class, "product-grid")]//div[contains(@class, "product-item")]'
-                                    ]
-                                    
-                                    items = []
-                                    for selector in selector_strategies:
-                                        try:
-                                            await sub_page.wait_for_selector(selector, timeout=60000)
-                                            items = await self.extract_all_items_from_sub_category(sub_page, sub_category_link)
-                                            if items:
-                                                break
-                                        except Exception as e:
-                                            print(f"Failed with selector {selector}: {e}")
-                                    
-                                    await browser.close()
-
-                                sub_categories.append({
-                                    "sub_category_name": sub_category_name,
-                                    "sub_category_link": sub_category_link,
-                                    "Items": items
-                                })
-                            except Exception as e:
-                                print(f"Error processing sub-category: {e}")
-                        
-                        print(f"Found {len(sub_categories)} sub-categories")
-                        return sub_categories
-                    
-                    # If no sub-categories found with this browser type, continue to next
-                    print(f"No sub-categories found using {browser_type}")
+            try:
+                sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
                 
-                except Exception as e:
-                    print(f"Error extracting sub-categories with {browser_type}: {e}")
-            
-            retries -= 1
-            print(f"Retries left: {retries}")
-            await asyncio.sleep(5)
+                sub_categories = []
+                for element in sub_category_elements:
+                    try:
+                        sub_category_name = await element.inner_text()
+                        sub_category_link = self.base_url + await element.get_attribute('href')
+                        print(f"    Processing sub-category: {sub_category_name}")
+                        print(f"    Sub-category link: {sub_category_link}")
+
+                        # Open a new tab for each sub-category link to ensure it loads successfully
+                        async with async_playwright() as p:
+                            browser = await p.chromium.launch(headless=True)
+                            sub_page = await browser.new_page()
+                            await sub_page.goto(sub_category_link, timeout=240000)
+                            await sub_page.wait_for_load_state("networkidle", timeout=240000)
+                            
+                            # Attempt to find items
+                            await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=60000)
+                            
+                            items = await self.extract_all_items_from_sub_category(sub_page, sub_category_link)
+                            
+                            await browser.close()
+
+                        sub_categories.append({
+                            "sub_category_name": sub_category_name,
+                            "sub_category_link": sub_category_link,
+                            "Items": items
+                        })
+                    except Exception as e:
+                        print(f"Error processing sub-category: {e}")
+                
+                print(f"Found {len(sub_categories)} sub-categories")
+                return sub_categories
+            except Exception as e:
+                print(f"Error extracting sub-categories: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
         
         print("Failed to extract sub-categories after multiple attempts")
         return []
-    
+           
     async def extract_item_details(self, item_link):
         print(f"Attempting to extract item details for link: {item_link}")
         retries = 3
