@@ -99,37 +99,37 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
-    async def extract_sub_categories(self, page, category_xpath):
-        print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
-        retries = 3
-        while retries > 0:
-            try:
-                sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-                sub_categories = []
-                for element in sub_category_elements:
-                    try:
-                        sub_category_name = await element.inner_text()
-                        sub_category_link = self.base_url + await element.get_attribute('href')
-                        print(f"    Processing sub-category: {sub_category_name}")
-                        print(f"    Sub-category link: {sub_category_link}")
+    # async def extract_sub_categories(self, page, category_xpath):
+    #     print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
+    #     retries = 3
+    #     while retries > 0:
+    #         try:
+    #             sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
+    #             sub_categories = []
+    #             for element in sub_category_elements:
+    #                 try:
+    #                     sub_category_name = await element.inner_text()
+    #                     sub_category_link = self.base_url + await element.get_attribute('href')
+    #                     print(f"    Processing sub-category: {sub_category_name}")
+    #                     print(f"    Sub-category link: {sub_category_link}")
 
-                        # Open a new tab for each sub-category link to ensure it loads successfully
-                        items = await self.extract_all_items_from_sub_category(sub_category_link)
+    #                     # Open a new tab for each sub-category link to ensure it loads successfully
+    #                     items = await self.extract_all_items_from_sub_category(sub_category_link)
 
-                        sub_categories.append({
-                            "sub_category_name": sub_category_name,
-                            "sub_category_link": sub_category_link,
-                            "Items": items
-                        })
-                    except Exception as e:
-                        print(f"Error processing sub-category: {e}")
-                return sub_categories
-            except Exception as e:
-                print(f"Error extracting sub-categories: {e}")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-        return []
+    #                     sub_categories.append({
+    #                         "sub_category_name": sub_category_name,
+    #                         "sub_category_link": sub_category_link,
+    #                         "Items": items
+    #                     })
+    #                 except Exception as e:
+    #                     print(f"Error processing sub-category: {e}")
+    #             return sub_categories
+    #         except Exception as e:
+    #             print(f"Error extracting sub-categories: {e}")
+    #             retries -= 1
+    #             print(f"Retries left: {retries}")
+    #             await asyncio.sleep(5)
+    #     return []
 
     # async def extract_item_details(self, item_link):
     #     print(f"Attempting to extract item details for link: {item_link}")
@@ -146,8 +146,98 @@ class TalabatGroceries:
     #         "item_images": []
     #     }
 
+    # async def extract_all_items_from_sub_category(self, sub_category_link):
+    #     print(f"Attempting to extract all items from sub-category: {sub_category_link}")
+    #     for browser_type in ["chromium", "firefox", "webkit"]:
+    #         try:
+    #             async with async_playwright() as p:
+    #                 browser = await p[browser_type].launch(headless=True)
+    #                 sub_page = await browser.new_page()
+    #                 await sub_page.goto(sub_category_link, timeout=240000)
+    #                 await sub_page.wait_for_load_state("networkidle", timeout=240000)
+    #                 await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+
+    #                 pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
+    #                 total_pages = 1
+
+    #                 if pagination_element:
+    #                     page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
+    #                     total_pages = len(page_numbers) if page_numbers else 1
+    #                 print(f"      Found {total_pages} pages in this sub-category")
+
+    #                 items = []
+    #                 for page_number in range(1, total_pages + 1):
+    #                     print(f"      Processing page {page_number} of {total_pages}")
+    #                     page_url = f"{sub_category_link}&page={page_number}"
+    #                     await sub_page.goto(page_url, timeout=240000)
+    #                     await sub_page.wait_for_load_state("networkidle", timeout=240000)
+
+    #                     await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+
+    #                     item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
+    #                     print(f"        Found {len(item_elements)} items on page {page_number}")
+
+    #                     for i, element in enumerate(item_elements):
+    #                         try:
+    #                             item_name_element = await element.query_selector('div[data-test="item-name"]')
+    #                             item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
+    #                             print(f"        Item name: {item_name}")
+
+    #                             item_link = self.base_url + await element.get_attribute('href')
+    #                             print(f"        Item link: {item_link}")
+
+    #                             item_details = await self.extract_item_details(item_link)
+
+    #                             items.append({
+    #                                 "item_name": item_name,
+    #                                 "item_link": item_link,
+    #                                 **item_details
+    #                             })
+    #                         except Exception as e:
+    #                             print(f"        Error processing item {i+1}: {e}")
+
+    #                 await browser.close()
+    #                 return items
+    #         except Exception as e:
+    #             print(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
+    #             continue  # Try the next browser type
+    #     return []
+
+    async def extract_sub_categories(self, page, category_xpath):
+        print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
+        retries = 3
+        while retries > 0:
+            try:
+                sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
+                sub_categories = []
+                for element in sub_category_elements:
+                    try:
+                        sub_category_name = await element.inner_text()
+                        sub_category_link = self.base_url + await element.get_attribute('href')
+                        print(f"    Processing sub-category: {sub_category_name}")
+                        print(f"    Sub-category link: {sub_category_link}")
+    
+                        # Try extracting items from each sub-category link using different browsers
+                        items = await self.extract_all_items_from_sub_category(sub_category_link)
+    
+                        sub_categories.append({
+                            "sub_category_name": sub_category_name,
+                            "sub_category_link": sub_category_link,
+                            "Items": items
+                        })
+                    except Exception as e:
+                        print(f"Error processing sub-category: {e}")
+                return sub_categories
+            except Exception as e:
+                print(f"Error extracting sub-categories: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
+    
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
+        default_values = []
         for browser_type in ["chromium", "firefox", "webkit"]:
             try:
                 async with async_playwright() as p:
@@ -156,38 +246,38 @@ class TalabatGroceries:
                     await sub_page.goto(sub_category_link, timeout=240000)
                     await sub_page.wait_for_load_state("networkidle", timeout=240000)
                     await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-
+    
                     pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
                     total_pages = 1
-
+    
                     if pagination_element:
                         page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
                         total_pages = len(page_numbers) if page_numbers else 1
                     print(f"      Found {total_pages} pages in this sub-category")
-
+    
                     items = []
                     for page_number in range(1, total_pages + 1):
                         print(f"      Processing page {page_number} of {total_pages}")
                         page_url = f"{sub_category_link}&page={page_number}"
                         await sub_page.goto(page_url, timeout=240000)
                         await sub_page.wait_for_load_state("networkidle", timeout=240000)
-
+    
                         await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-
+    
                         item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
                         print(f"        Found {len(item_elements)} items on page {page_number}")
-
+    
                         for i, element in enumerate(item_elements):
                             try:
                                 item_name_element = await element.query_selector('div[data-test="item-name"]')
                                 item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
                                 print(f"        Item name: {item_name}")
-
+    
                                 item_link = self.base_url + await element.get_attribute('href')
                                 print(f"        Item link: {item_link}")
-
+    
                                 item_details = await self.extract_item_details(item_link)
-
+    
                                 items.append({
                                     "item_name": item_name,
                                     "item_link": item_link,
@@ -195,13 +285,14 @@ class TalabatGroceries:
                                 })
                             except Exception as e:
                                 print(f"        Error processing item {i+1}: {e}")
-
+    
                     await browser.close()
-                    return items
+                    if items != default_values:
+                        return items
             except Exception as e:
                 print(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
                 continue  # Try the next browser type
-        return []
+        return default_values
 
     async def extract_item_details_new_tab(self, item_link, browser_type):
         print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
