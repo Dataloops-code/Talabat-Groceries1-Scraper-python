@@ -260,7 +260,7 @@ class TalabatGroceries:
             "item_images": []
         }
         
-        for browser_type in ["chromium", "firefox"]:
+        for browser_type in ["chromium", "firefox", "webkit]:
             try:
                 result = await self.extract_item_details_new_tab(item_link, browser_type)
                 if result != default_values:
