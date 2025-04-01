@@ -134,7 +134,7 @@ class TalabatGroceries:
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         default_values = []
-        for browser_type in ["chromium", "firefox", "webkit"]:
+        for browser_type in ["chromium", "firefox"]:
             try:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
@@ -247,7 +247,7 @@ class TalabatGroceries:
             "item_images": []
         }
         
-        for browser_type in ["chromium", "firefox", "webkit"]:
+        for browser_type in ["chromium", "firefox"]:
             try:
                 result = await self.extract_item_details_new_tab(item_link, browser_type)
                 if result != default_values:
@@ -466,7 +466,7 @@ class MainScraper:
         talabat_grocery = TalabatGroceries(grocery_link)
 
         # Extract grocery details using Playwright
-        for browser_type in ["chromium", "firefox", "webkit"]:
+        for browser_type in ["chromium", "firefox"]:
             try:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
@@ -555,3 +555,5 @@ if __name__ == "__main__":
 else:
     # For notebook/IPython environment, use this method to run
     asyncio.get_event_loop().run_until_complete(main())
+
+
