@@ -5,7 +5,7 @@ import re
 import nest_asyncio
 from bs4 import BeautifulSoup
 import pandas as pd
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
@@ -13,10 +13,8 @@ import datetime
 
 nest_asyncio.apply()
 
-# SavingOnDrive class (unchanged)
 class SavingOnDrive:
     """Class to handle uploading files to Google Drive with date-based folders"""
-    
     def __init__(self, credentials_path='credentials.json'):
         self.credentials_path = credentials_path
         self.drive_service = None
@@ -41,10 +39,7 @@ class SavingOnDrive:
             today_date = datetime.datetime.now().strftime("%Y-%m-%d")
             query = f"name='{today_date}' and mimeType='application/vnd.google-apps.folder' and '{parent_folder_id}' in parents and trashed=false"
             results = self.drive_service.files().list(
-                q=query,
-                spaces='drive',
-                fields='files(id, name)'
-            ).execute()
+                q=query, spaces='drive', fields='files(id, name)').execute()
             existing_folders = results.get('files', [])
             if existing_folders:
                 print(f"Folder {today_date} already exists in parent folder {parent_folder_id}")
@@ -55,9 +50,7 @@ class SavingOnDrive:
                 'parents': [parent_folder_id]
             }
             folder = self.drive_service.files().create(
-                body=folder_metadata,
-                fields='id'
-            ).execute()
+                body=folder_metadata, fields='id').execute()
             folder_id = folder.get('id')
             print(f"Created folder {today_date} with ID: {folder_id} in parent folder {parent_folder_id}")
             return folder_id
@@ -67,28 +60,18 @@ class SavingOnDrive:
     
     def upload_file(self, file_path, folder_id, file_name=None):
         try:
-            if not self.drive_service:
-                if not self.authenticate():
-                    return None
+            if not self.drive_service and not self.authenticate():
+                return None
             if file_name is None:
                 file_name = os.path.basename(file_path)
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
             name_parts = os.path.splitext(file_name)
             unique_file_name = f"{name_parts[0]}_{timestamp}{name_parts[1]}"
-            file_metadata = {
-                'name': unique_file_name,
-                'parents': [folder_id]
-            }
+            file_metadata = {'name': unique_file_name, 'parents': [folder_id]}
             media = MediaFileUpload(
-                file_path,
-                mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                resumable=True
-            )
+                file_path, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', resumable=True)
             file = self.drive_service.files().create(
-                body=file_metadata,
-                media_body=media,
-                fields='id'
-            ).execute()
+                body=file_metadata, media_body=media, fields='id').execute()
             print(f"File uploaded successfully to folder {folder_id}")
             return file.get('id')
         except Exception as e:
@@ -126,11 +109,10 @@ class TalabatGroceries:
                     full_link = self.base_url + await link_element.get_attribute('href')
                     print(f"General link found: {full_link}")
                     return full_link
-                else:
-                    print("General link not found")
-                    return None
-            except Exception as e:
-                print(f"Error getting general link: {e}")
+                print("General link not found")
+                return None
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for general link")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -141,12 +123,12 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
-                delivery_fees_element = await page.query_selector('xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[1]')
+                delivery_fees_element = await page.query_selector('//div[contains(@class, "delivery-fee")]//span')
                 delivery_fees = await delivery_fees_element.inner_text() if delivery_fees_element else "N/A"
                 print(f"Delivery fees: {delivery_fees}")
                 return delivery_fees
-            except Exception as e:
-                print(f"Error getting delivery fees: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for delivery fees")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -157,12 +139,12 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
-                minimum_order_element = await page.query_selector('xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[3]')
+                minimum_order_element = await page.query_selector('//div[contains(@class, "minimum-order")]//span')
                 minimum_order = await minimum_order_element.inner_text() if minimum_order_element else "N/A"
                 print(f"Minimum order: {minimum_order}")
                 return minimum_order
-            except Exception as e:
-                print(f"Error getting minimum order: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for minimum order")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -173,12 +155,13 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
+                await page.wait_for_selector('//span[@data-testid="category-name"]', timeout=60000)
                 category_name_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
                 category_names = [await element.inner_text() for element in category_name_elements]
                 print(f"Category names extracted: {category_names}")
                 return category_names
-            except Exception as e:
-                print(f"Error extracting category names: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for category names")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -189,23 +172,25 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
+                await page.wait_for_selector('//a[@data-testid="category-item-container"]', timeout=60000)
                 category_link_elements = await page.query_selector_all('//a[@data-testid="category-item-container"]')
                 category_links = [self.base_url + await element.get_attribute('href') for element in category_link_elements]
                 print(f"Category links extracted: {category_links}")
                 return category_links
-            except Exception as e:
-                print(f"Error extracting category links: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for category links")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return []
 
-    async def extract_sub_categories(self, page, category_xpath):
-        print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
+    async def extract_sub_categories(self, page, category_link):
+        print(f"Attempting to extract sub-categories for category: {category_link}")
         retries = 3
         while retries > 0:
             try:
-                sub_category_elements = await page.query_selector_all(f'{category_xpath}//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
+                await page.wait_for_selector('//div[@data-test="sub-category-container"]', timeout=60000)
+                sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
                 sub_categories = []
                 for element in sub_category_elements:
                     try:
@@ -221,35 +206,37 @@ class TalabatGroceries:
                         })
                     except Exception as e:
                         print(f"Error processing sub-category: {e}")
+                print(f"Extracted {len(sub_categories)} sub-categories")
                 return sub_categories
-            except Exception as e:
-                print(f"Error extracting sub-categories: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for sub-categories")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return []
-    
+
     async def extract_item_details_new_tab(self, item_link, browser_type):
-        print(f"Attempting to extract item details in a new tab for link: {item_link} using {browser_type}")
+        print(f"Attempting to extract item details for {item_link} using {browser_type}")
         retries = 3
         while retries > 0:
             try:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
                     page = await browser.new_page()
-                    await page.goto(item_link, timeout=240000)
-                    await page.wait_for_load_state("networkidle", timeout=240000)
-                    item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
+                    await page.goto(item_link, timeout=60000)
+                    await page.wait_for_load_state("networkidle", timeout=60000)
+                    # Updated selectors based on common e-commerce patterns
+                    item_price_element = await page.query_selector('//div[contains(@class, "price")]//span | //span[contains(@class, "price")]')
                     item_price = await item_price_element.inner_text() if item_price_element else "N/A"
                     print(f"Item price: {item_price}")
-                    item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
+                    item_description_element = await page.query_selector('//div[contains(@class, "description")]//p | //p[@data-testid="item-description"]')
                     item_description = await item_description_element.inner_text() if item_description_element else "N/A"
                     print(f"Item description: {item_description}")
-                    delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
+                    delivery_time_element = await page.query_selector('//div[contains(@class, "delivery")]//span | //span[contains(@class, "delivery-time")]')
                     delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                     print(f"Delivery time range: {delivery_time}")
-                    item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
-                    item_images = [await img.get_attribute('src') for img in item_image_elements]
+                    item_image_elements = await page.query_selector_all('//img[contains(@class, "item-image")] | //div[@data-testid="item-image"]//img')
+                    item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                     print(f"Item images: {item_images}")
                     await browser.close()
                     return {
@@ -259,33 +246,19 @@ class TalabatGroceries:
                         "item_images": item_images
                     }
             except Exception as e:
-                print(f"Error extracting item details for {item_link} in new tab using {browser_type}: {e}")
+                print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
-        return {
-            "item_price": "N/A",
-            "item_description": "N/A",
-            "item_delivery_time_range": "N/A",
-            "item_images": []
-        }
+        return {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
 
     async def extract_item_details(self, item_link):
-        print(f"Attempting to extract item details for link: {item_link}")
-        default_values = {
-            "item_price": "N/A",
-            "item_description": "N/A",
-            "item_delivery_time_range": "N/A",
-            "item_images": []
-        }
+        print(f"Attempting to extract item details for {item_link}")
+        default_values = {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
         for browser_type in ["chromium", "firefox"]:
-            try:
-                result = await self.extract_item_details_new_tab(item_link, browser_type)
-                if result != default_values:
-                    return result
-            except Exception as e:
-                print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
-                continue
+            result = await self.extract_item_details_new_tab(item_link, browser_type)
+            if result != default_values:
+                return result
         return default_values
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
@@ -296,23 +269,23 @@ class TalabatGroceries:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
                     sub_page = await browser.new_page()
-                    await sub_page.goto(sub_category_link, timeout=240000)
-                    await sub_page.wait_for_load_state("networkidle", timeout=240000)
-                    await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-                    pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
+                    await sub_page.goto(sub_category_link, timeout=60000)
+                    await sub_page.wait_for_load_state("networkidle", timeout=60000)
+                    await sub_page.wait_for_selector('//div[@class="category-items-container"]', timeout=60000)
+                    pagination_element = await sub_page.query_selector('//ul[@class="paginate-wrap"]')
                     total_pages = 1
                     if pagination_element:
-                        page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
+                        page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li")]//a')
                         total_pages = len(page_numbers) if page_numbers else 1
                     print(f"      Found {total_pages} pages in this sub-category")
                     items = []
                     for page_number in range(1, total_pages + 1):
                         print(f"      Processing page {page_number} of {total_pages}")
-                        page_url = f"{sub_category_link}&page={page_number}"
-                        await sub_page.goto(page_url, timeout=240000)
-                        await sub_page.wait_for_load_state("networkidle", timeout=240000)
-                        await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-                        item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
+                        page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
+                        await sub_page.goto(page_url, timeout=60000)
+                        await sub_page.wait_for_load_state("networkidle", timeout=60000)
+                        await sub_page.wait_for_selector('//div[@class="category-items-container"]', timeout=60000)
+                        item_elements = await sub_page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow"]')
                         print(f"        Found {len(item_elements)} items on page {page_number}")
                         for i, element in enumerate(item_elements):
                             try:
@@ -322,15 +295,11 @@ class TalabatGroceries:
                                 item_link = self.base_url + await element.get_attribute('href')
                                 print(f"        Item link: {item_link}")
                                 item_details = await self.extract_item_details(item_link)
-                                items.append({
-                                    "item_name": item_name,
-                                    "item_link": item_link,
-                                    **item_details
-                                })
+                                items.append({"item_name": item_name, "item_link": item_link, **item_details})
                             except Exception as e:
                                 print(f"        Error processing item {i+1}: {e}")
                     await browser.close()
-                    if items != default_values:
+                    if items:
                         return items
             except Exception as e:
                 print(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
@@ -342,8 +311,8 @@ class TalabatGroceries:
         retries = 3
         while retries > 0:
             try:
-                await page.goto(self.url, timeout=240000)
-                await page.wait_for_load_state("networkidle", timeout=240000)
+                await page.goto(self.url, timeout=60000)
+                await page.wait_for_load_state("networkidle", timeout=60000)
                 print("Page loaded successfully")
                 delivery_fees = await self.get_delivery_fees(page)
                 minimum_order = await self.get_minimum_order(page)
@@ -355,8 +324,8 @@ class TalabatGroceries:
                     async with async_playwright() as p:
                         browser = await p.chromium.launch(headless=True)
                         category_page = await browser.new_page()
-                        await category_page.goto(view_all_link, timeout=240000)
-                        await category_page.wait_for_load_state("networkidle", timeout=240000)
+                        await category_page.goto(view_all_link, timeout=60000)
+                        await category_page.wait_for_load_state("networkidle", timeout=60000)
                         category_names = await self.extract_category_names(category_page)
                         category_links = await self.extract_category_links(category_page)
                         print(f"  Found {len(category_names)} categories")
@@ -364,28 +333,21 @@ class TalabatGroceries:
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
                             print(f"  Processing category {index+1}/{len(category_names)}: {name}")
                             print(f"  Category link: {link}")
-                            category_xpath = f'//div[@data-testid="category-item-component"][{index + 1}]'
                             async with async_playwright() as p:
                                 browser = await p.chromium.launch(headless=True)
                                 sub_category_page = await browser.new_page()
-                                await sub_category_page.goto(link, timeout=240000)
-                                await sub_category_page.wait_for_load_state("networkidle", timeout=240000)
-                                sub_categories = await self.extract_sub_categories(sub_category_page, category_xpath)
+                                await sub_category_page.goto(link, timeout=60000)
+                                await sub_category_page.wait_for_load_state("networkidle", timeout=60000)
+                                sub_categories = await self.extract_sub_categories(sub_category_page, link)
                                 await browser.close()
                             print(f"  Found {len(sub_categories)} sub-categories in {name}")
-                            category_data = {
-                                "name": name,
-                                "link": link,
-                                "sub_categories": sub_categories
-                            }
-                            categories_data.append(category_data)
+                            categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
                         await browser.close()
-                grocery_data = {
+                return {
                     "delivery_fees": delivery_fees,
                     "minimum_order": minimum_order,
                     "categories": categories_data
                 }
-                return grocery_data
             except Exception as e:
                 print(f"Error extracting categories: {e}")
                 retries -= 1
@@ -400,9 +362,8 @@ class MainScraper:
         self.json_file = "talabat_groceries.json"
         self.excel_file = "dhaher.xlsx"
         self.groceries_data = {}
-        self.drive_uploader = SavingOnDrive('credentials.json')  # Initialize SavingOnDrive
+        self.drive_uploader = SavingOnDrive('credentials.json')
         print(f"Initialized MainScraper with target URL: {self.target_url}")
-
         if not os.path.exists(self.json_file):
             print(f"Creating new JSON file: {self.json_file}")
             with open(self.json_file, 'w') as f:
@@ -412,7 +373,6 @@ class MainScraper:
             with open(self.json_file, 'r') as f:
                 try:
                     self.groceries_data = json.load(f)
-                    print(f"Loaded data: {self.groceries_data}")
                 except json.JSONDecodeError:
                     print("Error decoding JSON file. Starting with an empty dictionary.")
                     self.groceries_data = {}
@@ -422,6 +382,7 @@ class MainScraper:
         retries = 3
         while retries > 0:
             try:
+                await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
                 vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
                 print(f"Found {len(vendor_containers)} grocery vendors on page")
                 groceries_info = []
@@ -436,14 +397,9 @@ class MainScraper:
                         delivery_info = await container.query_selector('div.deliveryInfo')
                         delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
                         print(f"  Delivery time text: {delivery_time_text}")
-                        if delivery_time_text != "N/A":
-                            digits = re.findall(r'\d+', delivery_time_text)
-                            delivery_time = f"{digits[0]} mins" if digits else "N/A"
-                        else:
-                            delivery_time = "N/A"
+                        delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
                         print(f"  Delivery time: {delivery_time}")
-                        if grocery_title and grocery_link and delivery_time:
-                            print(f"Found grocery: {grocery_title}, Delivery time: {delivery_time}")
+                        if grocery_title and grocery_link and delivery_time != "N/A":
                             groceries_info.append({
                                 'grocery_title': grocery_title,
                                 'grocery_link': grocery_link,
@@ -452,8 +408,8 @@ class MainScraper:
                     except Exception as e:
                         print(f"Error processing grocery {i}: {e}")
                 return groceries_info
-            except Exception as e:
-                print(f"Error extracting grocery information: {e}")
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for grocery vendors")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
@@ -467,7 +423,7 @@ class MainScraper:
             print(f"Data saved to {self.json_file}")
         except Exception as e:
             print(f"Error saving to JSON file: {e}")
-               
+
     def save_to_excel(self):
         print("Saving data to Excel file")
         try:
@@ -486,7 +442,7 @@ class MainScraper:
                     for sub_category in category.get('sub_categories', []):
                         sub_category_name = sub_category.get('sub_category_name', 'N/A')
                         for item in sub_category.get('Items', []):
-                            item_data = {
+                            flattened_data.append({
                                 **general_info,
                                 'category': category_name,
                                 'sub_category': sub_category_name,
@@ -494,8 +450,7 @@ class MainScraper:
                                 'item_price': item.get('item_price', 'N/A'),
                                 'item_description': item.get('item_description', 'N/A'),
                                 'item_link': item.get('item_link', 'N/A')
-                            }
-                            flattened_data.append(item_data)
+                            })
                 if not flattened_data:
                     flattened_data.append(general_info)
                 safe_title = re.sub(r'[\\/*?:\[\]]', '_', grocery_title)[:31]
@@ -503,28 +458,20 @@ class MainScraper:
                 df.to_excel(writer, sheet_name=safe_title, index=False)
             writer.close()
             print(f"Data saved to {self.excel_file}")
-            # Upload to Google Drive after saving
             self.upload_to_drive()
         except Exception as e:
             print(f"Error saving to Excel: {e}")
 
     def upload_to_drive(self):
-        """Upload the Excel file to Google Drive"""
         print(f"\nUploading {self.excel_file} to Google Drive...")
         try:
-            if not self.drive_uploader.authenticate():
-                print("Failed to authenticate with Google Drive")
-                return False
             file_ids = self.drive_uploader.upload_to_multiple_folders(self.excel_file)
             if len(file_ids) == len(self.drive_uploader.target_folders):
                 print(f"Uploaded {self.excel_file} to Google Drive successfully")
-                return True
             else:
                 print(f"Failed to upload {self.excel_file} to all target folders")
-                return False
         except Exception as e:
             print(f"Error uploading to Google Drive: {str(e)}")
-            return False
 
     async def process_grocery(self, grocery_info):
         grocery_title = grocery_info['grocery_title']
@@ -548,12 +495,11 @@ class MainScraper:
                     }
                     self.save_to_json()
                     print(f"Successfully processed and saved data for {grocery_title}")
+                    await browser.close()
                     break
             except Exception as e:
                 print(f"Error processing {grocery_title} with {browser_type}: {e}")
                 continue
-            finally:
-                await browser.close()
 
     async def run(self):
         print("Starting the scraper")
@@ -564,16 +510,10 @@ class MainScraper:
                 async with async_playwright() as p:
                     browser = await p.chromium.launch(headless=True)
                     page = await browser.new_page()
-                    page.set_default_timeout(240000)
-                    await page.goto(self.target_url, timeout=240000)
-                    await page.wait_for_load_state("networkidle", timeout=240000)
+                    page.set_default_timeout(60000)
+                    await page.goto(self.target_url, timeout=60000)
+                    await page.wait_for_load_state("networkidle", timeout=60000)
                     print("Page loaded successfully")
-                    try:
-                        await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=240000)
-                        print("Grocery vendor elements found")
-                    except Exception as e:
-                        print(f"Error waiting for vendor elements: {e}")
-                        CHIprint("Attempting to continue anyway...")
                     groceries_info = await self.extract_grocery_info(page)
                     await browser.close()
                     print(f"Found {len(groceries_info)} groceries to process")
@@ -587,8 +527,6 @@ class MainScraper:
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
-                if retries == 0:
-                    print("Failed to complete the scraping process after multiple attempts.")
 
 async def main():
     if not os.path.exists('credentials.json'):
@@ -607,7 +545,6 @@ if __name__ == "__main__":
     asyncio.run(main())
 else:
     asyncio.get_event_loop().run_until_complete(main())
-
 
 
 # import asyncio
