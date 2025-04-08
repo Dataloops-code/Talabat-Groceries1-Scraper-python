@@ -238,7 +238,7 @@ class TalabatGroceries:
         return default_values
 
     async def extract_all_items_from_sub_category(self, sub_category_link, grocery_title, category_name, sub_category_name):
-        print(f"Attempting to extract all items from sub-category: {sub_category_link}")
+        logging.info(f"Attempting to extract all items from sub-category: {sub_category_link}")
         default_values = []
         for browser_type in ["chromium", "firefox"]:
             try:
@@ -253,18 +253,18 @@ class TalabatGroceries:
                     if pagination_element:
                         page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
                         total_pages = len(page_numbers) if page_numbers else 1
-                    print(f"      Found {total_pages} pages in this sub-category")
+                    logging.info(f"Found {total_pages} pages in this sub-category")
                     self.main_scraper.current_progress["current_progress"]["total_pages"] = total_pages
                     self.main_scraper.scraped_progress["current_progress"]["total_pages"] = total_pages
                     items = []
                     for page_number in range(1, total_pages + 1):
                         if page_number < self.main_scraper.current_progress["current_progress"]["current_page"]:
-                            print(f"      Skipping page {page_number} (already processed)")
+                            logging.info(f"Skipping page {page_number} (already processed)")
                             continue
                         elif page_number == self.main_scraper.current_progress["current_progress"]["current_page"]:
-                            print(f"      Resuming page {page_number}")
+                            logging.info(f"Resuming page {page_number}")
                         else:
-                            print(f"      Processing page {page_number} of {total_pages}")
+                            logging.info(f"Processing page {page_number} of {total_pages}")
                             self.main_scraper.current_progress["current_progress"]["current_page"] = page_number
                             self.main_scraper.scraped_progress["current_progress"]["current_page"] = page_number
                         page_url = f"{sub_category_link}&page={page_number}"
@@ -272,22 +272,22 @@ class TalabatGroceries:
                         await sub_page.wait_for_load_state("networkidle", timeout=240000)
                         await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
                         item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
-                        print(f"        Found {len(item_elements)} items on page {page_number}")
+                        logging.info(f"Found {len(item_elements)} items on page {page_number}")
                         self.main_scraper.current_progress["current_progress"]["total_items"] = len(item_elements)
                         self.main_scraper.scraped_progress["current_progress"]["total_items"] = len(item_elements)
                         for i, element in enumerate(item_elements):
                             item_num = i + 1
                             if page_number == self.main_scraper.current_progress["current_progress"]["current_page"] and item_num <= self.main_scraper.current_progress["current_progress"]["current_item"]:
-                                print(f"        Skipping item {item_num}/{len(item_elements)} (already processed)")
+                                logging.info(f"Skipping item {item_num}/{len(item_elements)} (already processed)")
                                 continue
                             try:
                                 item_name_element = await element.query_selector('div[data-test="item-name"]')
                                 item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {item_num}"
-                                print(f"        Item name: {item_name}")
+                                logging.info(f"Item name: {item_name}")
                                 item_link = self.base_url + await element.get_attribute('href')
-                                print(f"        Item link: {item_link}")
+                                logging.info(f"Item link: {item_link}")
                                 if item_name in self.main_scraper.current_progress["current_progress"]["processed_items"]:
-                                    print(f"        Skipping item {item_name} - already processed")
+                                    logging.info(f"Skipping item {item_name} - already processed")
                                     continue
                                 self.main_scraper.current_progress["current_progress"]["current_item"] = item_num
                                 self.main_scraper.scraped_progress["current_progress"]["current_item"] = item_num
@@ -305,17 +305,19 @@ class TalabatGroceries:
                                 self.main_scraper.save_current_progress()
                                 self.main_scraper.save_scraped_progress()
                                 self.main_scraper.commit_progress(f"Processed item {item_name} in sub-category {sub_category_name}, category {category_name}, grocery {grocery_title}")
-                                print(f"        Saved progress after processing item {item_name}")
+                                logging.info(f"Saved progress after processing item {item_name}")
                             except Exception as e:
-                                print(f"        Error processing item {item_num}: {e}")
-                                self.main_scraper.current_progress["current_progress"]["processed_items"].append(item_name)
-                                self.main_scraper.scraped_progress["current_progress"]["processed_items"].append(item_name)
+                                logging.error(f"Error processing item {item_num}: {e}")
+                                # Avoid adding area name as an item
+                                if item_name not in [area[0] for area in self.main_scraper.areas]:  # Assuming areas is accessible
+                                    self.main_scraper.current_progress["current_progress"]["processed_items"].append(item_name)
+                                    self.main_scraper.scraped_progress["current_progress"]["processed_items"].append(item_name)
                                 self.main_scraper.save_current_progress()
                                 self.main_scraper.save_scraped_progress()
                                 self.main_scraper.commit_progress(f"Error processing item {item_name} in sub-category {sub_category_name}, category {category_name}, grocery {grocery_title}")
                         self.main_scraper.current_progress["current_progress"]["completed_pages"].append(page_number)
                         self.main_scraper.scraped_progress["current_progress"]["completed_pages"].append(page_number)
-                        self.main_scraper.current_progress["current_progress"]["current_item"] = 0  # Reset for next page
+                        self.main_scraper.current_progress["current_progress"]["current_item"] = 0
                         self.main_scraper.scraped_progress["current_progress"]["current_item"] = 0
                         self.main_scraper.save_current_progress()
                         self.main_scraper.save_scraped_progress()
@@ -323,11 +325,11 @@ class TalabatGroceries:
                     await browser.close()
                     if items:
                         return items
-            except Exception as e:
-                print(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
-                continue
-        return default_values
-
+                except Exception as e:
+                    logging.error(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
+                    continue
+            return default_values
+    
     async def extract_sub_categories(self, page, category_xpath, grocery_title, category_name):
         print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
         retries = 3
