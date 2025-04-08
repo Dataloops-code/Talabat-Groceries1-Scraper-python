@@ -286,40 +286,54 @@ class TalabatGroceries:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
                     page = await browser.new_page()
-                    await page.goto(item_link, timeout=60000)
-                    await page.wait_for_load_state("networkidle", timeout=60000)
-                    
-                    # Updated price selector to capture full price
+                    await page.goto(item_link, timeout=90000)  # Increased to 90s
+                    await page.wait_for_load_state("networkidle", timeout=90000)
+                    # Scroll to trigger dynamic content
+                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                    await page.wait_for_timeout(5000)  # Wait 5s for content to load
+    
+                    # Price extraction
                     item_price_element = await page.query_selector(
                         '//div[contains(@class, "price")]//span[contains(text(), "KD")] | '
                         '//span[contains(@class, "price") and contains(text(), "KD")] | '
                         '//div[@data-testid="price"]//span | '
-                        '//span[contains(@class, "amount")]'
+                        '//span[contains(@class, "amount")] | '
+                        '//div[contains(@class, "price")]'
                     )
                     if item_price_element:
                         item_price = await item_price_element.inner_text()
-                        # If price is split, try to combine currency and amount
-                        currency_element = await page.query_selector('//span[contains(@class, "currency") or contains(text(), "KD")]')
-                        amount_element = await page.query_selector('//span[contains(@class, "amount")]')
+                        # Combine currency and amount if split
+                        currency_element = await page.query_selector('//span[contains(text(), "KD")]')
+                        amount_element = await page.query_selector('//span[contains(@class, "amount")] | //span[not(contains(text(), "KD")) and contains(., ".")]')
                         if currency_element and amount_element:
                             currency = await currency_element.inner_text()
                             amount = await amount_element.inner_text()
-                            item_price = f"{currency} {amount}"
+                            item_price = f"{currency} {amount}".strip()
+                        elif "KD" in item_price and any(c.isdigit() for c in item_price):
+                            pass  # Full price already captured
+                        else:
+                            item_price = "N/A"
                     else:
                         item_price = "N/A"
                     print(f"Item price: {item_price}")
-                    
-                    # Updated description selector to target actual content
+    
+                    # Description extraction
                     item_description_element = await page.query_selector(
-                        '//div[contains(@class, "description")]//p[not(contains(text(), "Description"))] | '
+                        '//div[contains(@class, "description")]//p[not(.="Description")] | '
                         '//p[@data-testid="item-description"] | '
-                        '//div[@data-testid="description"]//p | '
+                        '//div[@data-testid="description"]//p[not(.="Description")] | '
                         '//div[contains(@class, "product-details")]//p | '
-                        '//div[contains(@class, "about")]//p'
+                        '//div[contains(@class, "about")]//p | '
+                        '//p[contains(@class, "description") and not(.="Description")]'
                     )
                     item_description = await item_description_element.inner_text() if item_description_element else "N/A"
+                    # Fallback if description is empty or too short
+                    if item_description == "N/A" or len(item_description.strip()) < 5:
+                        fallback_desc = await page.query_selector('//div[contains(@class, "details")]//text()[normalize-space()]')
+                        item_description = await fallback_desc.inner_text() if fallback_desc else "N/A"
                     print(f"Item description: {item_description}")
-                    
+    
+                    # Delivery time (already working)
                     delivery_time_element = await page.query_selector(
                         '//div[@data-testid="delivery-tag"]//span | '
                         '//span[contains(@class, "delivery")] | '
@@ -327,7 +341,8 @@ class TalabatGroceries:
                     )
                     delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                     print(f"Delivery time range: {delivery_time}")
-                    
+    
+                    # Images (already working)
                     item_image_elements = await page.query_selector_all(
                         '//img[contains(@class, "item-image")] | '
                         '//div[@data-testid="item-image"]//img | '
@@ -335,7 +350,7 @@ class TalabatGroceries:
                     )
                     item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                     print(f"Item images: {item_images}")
-                    
+    
                     await browser.close()
                     return {
                         "item_price": item_price,
