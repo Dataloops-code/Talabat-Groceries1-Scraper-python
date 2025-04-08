@@ -215,43 +215,6 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
-    async def extract_item_details_new_tab(self, item_link, browser_type):
-        print(f"Attempting to extract item details for {item_link} using {browser_type}")
-        retries = 3
-        while retries > 0:
-            try:
-                async with async_playwright() as p:
-                    browser = await p[browser_type].launch(headless=True)
-                    page = await browser.new_page()
-                    await page.goto(item_link, timeout=60000)
-                    await page.wait_for_load_state("networkidle", timeout=60000)
-                    # Updated selectors based on common e-commerce patterns
-                    item_price_element = await page.query_selector('//div[contains(@class, "price")]//span | //span[contains(@class, "price")]')
-                    item_price = await item_price_element.inner_text() if item_price_element else "N/A"
-                    print(f"Item price: {item_price}")
-                    item_description_element = await page.query_selector('//div[contains(@class, "description")]//p | //p[@data-testid="item-description"]')
-                    item_description = await item_description_element.inner_text() if item_description_element else "N/A"
-                    print(f"Item description: {item_description}")
-                    delivery_time_element = await page.query_selector('//div[contains(@class, "delivery")]//span | //span[contains(@class, "delivery-time")]')
-                    delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
-                    print(f"Delivery time range: {delivery_time}")
-                    item_image_elements = await page.query_selector_all('//img[contains(@class, "item-image")] | //div[@data-testid="item-image"]//img')
-                    item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
-                    print(f"Item images: {item_images}")
-                    await browser.close()
-                    return {
-                        "item_price": item_price,
-                        "item_description": item_description,
-                        "item_delivery_time_range": delivery_time,
-                        "item_images": item_images
-                    }
-            except Exception as e:
-                print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-        return {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
-
     async def extract_item_details(self, item_link):
         print(f"Attempting to extract item details for {item_link}")
         default_values = {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
@@ -292,12 +255,13 @@ class TalabatGroceries:
                         page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
                         await sub_page.goto(page_url, timeout=120000)
                         await sub_page.wait_for_load_state("networkidle", timeout=120000)
-                        item_elements = await sub_page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow"] | //div[contains(@class, "item")]//a')
+                        # Filter for product-specific links only
+                        item_elements = await sub_page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow" and contains(@href, "/product/")]')
                         print(f"        Found {len(item_elements)} items on page {page_number}")
                         for i, element in enumerate(item_elements):
                             try:
-                                # Use valid CSS selector for item name
-                                item_name_element = await element.query_selector('div[data-test="item-name"], span[class*="name"]')
+                                # Broader selector for item name
+                                item_name_element = await element.query_selector('div[data-test="item-name"], span[class*="name"], h3, p[class*="title"], div[class*="name"]')
                                 item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
                                 print(f"        Item name: {item_name}")
                                 item_link = self.base_url + await element.get_attribute('href')
@@ -306,14 +270,52 @@ class TalabatGroceries:
                                 items.append({"item_name": item_name, "item_link": item_link, **item_details})
                             except Exception as e:
                                 print(f"        Error processing item {i+1}: {e}")
-                        await browser.close()
+                    await browser.close()
                     if items:
                         return items
             except Exception as e:
                 print(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
                 continue
         return default_values
-
+    
+    async def extract_item_details_new_tab(self, item_link, browser_type):
+        print(f"Attempting to extract item details for {item_link} using {browser_type}")
+        retries = 3
+        while retries > 0:
+            try:
+                async with async_playwright() as p:
+                    browser = await p[browser_type].launch(headless=True)
+                    page = await browser.new_page()
+                    await page.goto(item_link, timeout=60000)
+                    await page.wait_for_load_state("networkidle", timeout=60000)
+                    # Updated selectors
+                    item_price_element = await page.query_selector('//div[contains(@class, "price")]//span | //span[contains(@class, "price")] | //div[@data-testid="price"]')
+                    item_price = await item_price_element.inner_text() if item_price_element else "N/A"
+                    print(f"Item price: {item_price}")
+                    item_description_element = await page.query_selector('//div[contains(@class, "description")]//p | //p[@data-testid="item-description"] | //div[@data-testid="description"]')
+                    item_description = await item_description_element.inner_text() if item_description_element else "N/A"
+                    print(f"Item description: {item_description}")
+                    # Updated delivery time selector
+                    delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span | //span[contains(@class, "delivery")] | //div[contains(@class, "delivery-time")]//span')
+                    delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
+                    print(f"Delivery time range: {delivery_time}")
+                    item_image_elements = await page.query_selector_all('//img[contains(@class, "item-image")] | //div[@data-testid="item-image"]//img | //img[@alt="product image"]')
+                    item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
+                    print(f"Item images: {item_images}")
+                    await browser.close()
+                    return {
+                        "item_price": item_price,
+                        "item_description": item_description,
+                        "item_delivery_time_range": delivery_time,
+                        "item_images": item_images
+                    }
+            except Exception as e:
+                print(f"Error extracting item details for {item_link} using {browser_type}: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
+    
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
