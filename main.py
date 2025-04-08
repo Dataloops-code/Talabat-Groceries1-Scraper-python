@@ -288,20 +288,54 @@ class TalabatGroceries:
                     page = await browser.new_page()
                     await page.goto(item_link, timeout=60000)
                     await page.wait_for_load_state("networkidle", timeout=60000)
-                    # Updated selectors
-                    item_price_element = await page.query_selector('//div[contains(@class, "price")]//span | //span[contains(@class, "price")] | //div[@data-testid="price"]')
-                    item_price = await item_price_element.inner_text() if item_price_element else "N/A"
+                    
+                    # Updated price selector to capture full price
+                    item_price_element = await page.query_selector(
+                        '//div[contains(@class, "price")]//span[contains(text(), "KD")] | '
+                        '//span[contains(@class, "price") and contains(text(), "KD")] | '
+                        '//div[@data-testid="price"]//span | '
+                        '//span[contains(@class, "amount")]'
+                    )
+                    if item_price_element:
+                        item_price = await item_price_element.inner_text()
+                        # If price is split, try to combine currency and amount
+                        currency_element = await page.query_selector('//span[contains(@class, "currency") or contains(text(), "KD")]')
+                        amount_element = await page.query_selector('//span[contains(@class, "amount")]')
+                        if currency_element and amount_element:
+                            currency = await currency_element.inner_text()
+                            amount = await amount_element.inner_text()
+                            item_price = f"{currency} {amount}"
+                    else:
+                        item_price = "N/A"
                     print(f"Item price: {item_price}")
-                    item_description_element = await page.query_selector('//div[contains(@class, "description")]//p | //p[@data-testid="item-description"] | //div[@data-testid="description"]')
+                    
+                    # Updated description selector to target actual content
+                    item_description_element = await page.query_selector(
+                        '//div[contains(@class, "description")]//p[not(contains(text(), "Description"))] | '
+                        '//p[@data-testid="item-description"] | '
+                        '//div[@data-testid="description"]//p | '
+                        '//div[contains(@class, "product-details")]//p | '
+                        '//div[contains(@class, "about")]//p'
+                    )
                     item_description = await item_description_element.inner_text() if item_description_element else "N/A"
                     print(f"Item description: {item_description}")
-                    # Updated delivery time selector
-                    delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span | //span[contains(@class, "delivery")] | //div[contains(@class, "delivery-time")]//span')
+                    
+                    delivery_time_element = await page.query_selector(
+                        '//div[@data-testid="delivery-tag"]//span | '
+                        '//span[contains(@class, "delivery")] | '
+                        '//div[contains(@class, "delivery-time")]//span'
+                    )
                     delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                     print(f"Delivery time range: {delivery_time}")
-                    item_image_elements = await page.query_selector_all('//img[contains(@class, "item-image")] | //div[@data-testid="item-image"]//img | //img[@alt="product image"]')
+                    
+                    item_image_elements = await page.query_selector_all(
+                        '//img[contains(@class, "item-image")] | '
+                        '//div[@data-testid="item-image"]//img | '
+                        '//img[@alt="product image"]'
+                    )
                     item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                     print(f"Item images: {item_images}")
+                    
                     await browser.close()
                     return {
                         "item_price": item_price,
