@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}  # Enable Git push/pull with authentication
-          ref: main  # Adjust to 'master' if your default branch differs
+          ref: master  # Use 'master' as the default branch
           fetch-depth: 0  # Full history for Git operations
 
       - name: Verify Git Repository
@@ -68,7 +68,7 @@ jobs:
           git config --global user.email "action@github.com"
           git add current_progress.json scraped_progress.json talabat_groceries.json groceries.xlsx || true
           git commit -m "Update progress files after scraper run" || echo "Nothing to commit"
-          git pull --rebase origin main || git fetch origin main  # Fetch if rebase fails
+          git pull --rebase origin master || git fetch origin master  # Use 'master' instead of 'main'
           git push || git push --force  # Force push as fallback
 
       - name: Upload Artifacts
@@ -90,6 +90,7 @@ jobs:
           rm -rf ~/.cache/ms-playwright
           rm -rf *.log || true
 
+          
 
 # name: Daily Workflow
 
