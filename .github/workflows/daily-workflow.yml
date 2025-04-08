@@ -1,69 +1,160 @@
-name: Daily Workflow
+name: Daily Talabat Groceries Scraper
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"  # Runs every 6 hours
+  workflow_dispatch:  # Allows manual triggering
 
 concurrency:
-  group: workflow-group
-  cancel-in-progress: true
+  group: talabat-groceries-scraper  # Unique group name to prevent concurrent runs
+  cancel-in-progress: true  # Cancels any in-progress run if a new one starts
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 2000
+    timeout-minutes: 2000  # ~33 hours, generous timeout for large scraping tasks
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use GITHUB_TOKEN for Git operations
+          ref: main  # Assuming your default branch is 'main'; adjust if it's 'master'
+          fetch-depth: 0  # Full history for Git operations
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
-          
-      - name: Install Dependencies
+          python-version: '3.10'  # Matches your specification
+
+      - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          
-      - name: Install Playwright for Python
-        run: |
-          pip install playwright
-          python -m playwright install
-          python -m playwright install firefox  # Install Firefox browser
-          python -m playwright install webkit
+          pip install playwright google-auth-oauthlib google-auth-httplib2 google-api-python-client pandas xlsxwriter nest_asyncio beautifulsoup4
+          # Install specific versions if needed, otherwise latest compatible versions
 
-      - name: Install Playwright Dependencies
+      - name: Install Playwright Browsers
+        run: |
+          python -m playwright install chromium firefox  # Install Chromium and Firefox as used in the script
+
+      - name: Install Playwright System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-4-1 libgraphene-1.0-0 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libmanette-0.2-0 libgles2 libsoup2.4 libpcre3 libvpx-dev
+          sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
           sudo npx playwright install-deps
-  
-      - name: Fix PhantomJS Issue
-        run: |
-          npm uninstall phantomjs-prebuilt
-          npm install phantomjs-prebuilt@2.1.13
-          npm cache clear --force
-          npm install
-          
+
       - name: Debug Environment
         run: |
           python -m playwright --version
-          echo $PATH
-          
-      - name: Run the scraper
+          echo "Python version: $(python --version)"
+          echo "PATH: $PATH"
+          ls -la  # List directory contents for debugging
+
+      - name: Run the Scraper
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Pass GitHub token for Git commits
+          TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}  # Pass Google Cloud credentials
         run: |
-          python main.py
-          
-      - name: Upload Logs
-        if: always()
+          python main.py  # Replace with your script's filename if different
+
+      - name: Commit and Push Progress
+        if: always()  # Run even if the scraper fails to save partial progress
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add current_progress.json scraped_progress.json talabat_groceries.json groceries.xlsx || true
+          git commit -m "Update progress files after scraper run" || echo "Nothing to commit"
+          git pull --rebase origin main || true  # Attempt to sync with remote
+          git push || git push --force  # Force push if rebase fails
+
+      - name: Upload Artifacts
+        if: always()  # Upload even on failure for debugging
         uses: actions/upload-artifact@v4
         with:
-          name: scraper-logs
-          path: scraper.log
-          retention-days: 7
-      
+          name: scraper-outputs
+          path: |
+            current_progress.json
+            scraped_progress.json
+            talabat_groceries.json
+            groceries.xlsx
+            # scraper.log  # If your script generates a log file
+          retention-days: 7  # Keep artifacts for 7 days
+
       - name: Cleanup
-        if: always()
+        if: always()  # Ensure cleanup runs regardless of success/failure
         run: |
-          rm -rf node_modules
-          rm -rf ~/.cache/ms-playwright
+          rm -rf ~/.cache/ms-playwright  # Clear Playwright cache
+          rm -rf *.log || true  # Remove any log files if present
+
+
+
+# name: Daily Workflow
+
+# on:
+#   workflow_dispatch:
+
+# concurrency:
+#   group: workflow-group
+#   cancel-in-progress: true
+
+# jobs:
+#   scrape:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 2000
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v4
+        
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.10'
+          
+#       - name: Install Dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
+          
+#       - name: Install Playwright for Python
+#         run: |
+#           pip install playwright
+#           python -m playwright install
+#           python -m playwright install firefox  # Install Firefox browser
+#           python -m playwright install webkit
+
+#       - name: Install Playwright Dependencies
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-4-1 libgraphene-1.0-0 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libmanette-0.2-0 libgles2 libsoup2.4 libpcre3 libvpx-dev
+#           sudo npx playwright install-deps
+  
+#       - name: Fix PhantomJS Issue
+#         run: |
+#           npm uninstall phantomjs-prebuilt
+#           npm install phantomjs-prebuilt@2.1.13
+#           npm cache clear --force
+#           npm install
+          
+#       - name: Debug Environment
+#         run: |
+#           python -m playwright --version
+#           echo $PATH
+          
+#       - name: Run the scraper
+#         run: |
+#           python main.py
+          
+#       - name: Upload Logs
+#         if: always()
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: scraper-logs
+#           path: scraper.log
+#           retention-days: 7
+      
+#       - name: Cleanup
+#         if: always()
+#         run: |
+#           rm -rf node_modules
+#           rm -rf ~/.cache/ms-playwright
