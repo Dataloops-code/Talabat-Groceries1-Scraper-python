@@ -16,10 +16,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Use GITHUB_TOKEN for Git operations
-          ref: main  # Assuming your default branch is 'main'; adjust if it's 'master'
-          fetch-depth: 0  # Full history for Git operations
 
       - name: Set up Python
         uses: actions/setup-python@v5
