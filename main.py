@@ -269,27 +269,39 @@ class TalabatGroceries:
                 async with async_playwright() as p:
                     browser = await p[browser_type].launch(headless=True)
                     sub_page = await browser.new_page()
-                    await sub_page.goto(sub_category_link, timeout=60000)
-                    await sub_page.wait_for_load_state("networkidle", timeout=60000)
-                    await sub_page.wait_for_selector('//div[@class="category-items-container"]', timeout=60000)
+                    await sub_page.goto(sub_category_link, timeout=120000)  # Increased to 120s
+                    await sub_page.wait_for_load_state("networkidle", timeout=120000)
+                    # Updated selector to be more flexible and match current Talabat structure
+                    try:
+                        # Try the original selector first
+                        await sub_page.wait_for_selector('//div[contains(@class, "category-items-container")]', timeout=120000)
+                    except PlaywrightTimeoutError:
+                        # Fallback: Log page content and try a broader selector
+                        print(f"Timeout waiting for 'category-items-container' on {sub_category_link}")
+                        html_content = await sub_page.content()
+                        print(f"Page HTML excerpt: {html_content[:500]}...")  # Log first 500 chars for debugging
+                        # Broader selector for item containers
+                        await sub_page.wait_for_selector('//div[contains(@class, "items")] | //div[contains(@class, "products")]', timeout=60000)
+
                     pagination_element = await sub_page.query_selector('//ul[@class="paginate-wrap"]')
                     total_pages = 1
                     if pagination_element:
                         page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li")]//a')
                         total_pages = len(page_numbers) if page_numbers else 1
                     print(f"      Found {total_pages} pages in this sub-category")
+
                     items = []
                     for page_number in range(1, total_pages + 1):
                         print(f"      Processing page {page_number} of {total_pages}")
                         page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
-                        await sub_page.goto(page_url, timeout=60000)
-                        await sub_page.wait_for_load_state("networkidle", timeout=60000)
-                        await sub_page.wait_for_selector('//div[@class="category-items-container"]', timeout=60000)
-                        item_elements = await sub_page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow"]')
+                        await sub_page.goto(page_url, timeout=120000)
+                        await sub_page.wait_for_load_state("networkidle", timeout=120000)
+                        # Use broader selector for items
+                        item_elements = await sub_page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow"] | //div[contains(@class, "item")]//a')
                         print(f"        Found {len(item_elements)} items on page {page_number}")
                         for i, element in enumerate(item_elements):
                             try:
-                                item_name_element = await element.query_selector('div[data-test="item-name"]')
+                                item_name_element = await element.query_selector('div[data-test="item-name"] | span[contains(@class, "name")]')
                                 item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
                                 print(f"        Item name: {item_name}")
                                 item_link = self.base_url + await element.get_attribute('href')
