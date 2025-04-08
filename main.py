@@ -308,10 +308,8 @@ class TalabatGroceries:
                                 logging.info(f"Saved progress after processing item {item_name}")
                             except Exception as e:
                                 logging.error(f"Error processing item {item_num}: {e}")
-                                # Avoid adding area name as an item
-                                if item_name not in [area[0] for area in self.main_scraper.areas]:  # Assuming areas is accessible
-                                    self.main_scraper.current_progress["current_progress"]["processed_items"].append(item_name)
-                                    self.main_scraper.scraped_progress["current_progress"]["processed_items"].append(item_name)
+                                self.main_scraper.current_progress["current_progress"]["processed_items"].append(item_name)
+                                self.main_scraper.scraped_progress["current_progress"]["processed_items"].append(item_name)
                                 self.main_scraper.save_current_progress()
                                 self.main_scraper.save_scraped_progress()
                                 self.main_scraper.commit_progress(f"Error processing item {item_name} in sub-category {sub_category_name}, category {category_name}, grocery {grocery_title}")
@@ -325,10 +323,11 @@ class TalabatGroceries:
                     await browser.close()
                     if items:
                         return items
-                except Exception as e:
-                    logging.error(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
-                    continue
-            return default_values
+            except Exception as e:  # This might be line 328 or nearby
+                logging.error(f"Error extracting items from sub-category {sub_category_link} using {browser_type}: {e}")
+                continue
+        return default_values
+
     
     async def extract_sub_categories(self, page, category_xpath, grocery_title, category_name):
         print(f"Attempting to extract sub-categories using XPath: {category_xpath}")
