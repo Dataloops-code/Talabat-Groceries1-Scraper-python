@@ -13,6 +13,13 @@ import datetime
 
 nest_asyncio.apply()
 
+# Set up logging
+logging.basicConfig(
+    filename='scraper.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 class SavingOnDrive:
     """Class to handle uploading files to Google Drive with date-based folders"""
     def __init__(self, credentials_path='credentials.json'):
@@ -31,7 +38,7 @@ class SavingOnDrive:
             self.drive_service = build('drive', 'v3', credentials=credentials)
             return True
         except Exception as e:
-            print(f"Authentication error: {str(e)}")
+            logging.error(f"Authentication error: {str(e)}")
             return False
     
     def create_date_folder(self, parent_folder_id):
@@ -42,7 +49,7 @@ class SavingOnDrive:
                 q=query, spaces='drive', fields='files(id, name)').execute()
             existing_folders = results.get('files', [])
             if existing_folders:
-                print(f"Folder {today_date} already exists in parent folder {parent_folder_id}")
+                logging.info(f"Folder {today_date} already exists in parent folder {parent_folder_id}")
                 return existing_folders[0]['id']
             folder_metadata = {
                 'name': today_date,
@@ -52,10 +59,10 @@ class SavingOnDrive:
             folder = self.drive_service.files().create(
                 body=folder_metadata, fields='id').execute()
             folder_id = folder.get('id')
-            print(f"Created folder {today_date} with ID: {folder_id} in parent folder {parent_folder_id}")
+            logging.info(f"Created folder {today_date} with ID: {folder_id} in parent folder {parent_folder_id}")
             return folder_id
         except Exception as e:
-            print(f"Error creating date folder: {str(e)}")
+            logging.error(f"Error creating date folder: {str(e)}")
             return None
     
     def upload_file(self, file_path, folder_id, file_name=None):
@@ -72,15 +79,15 @@ class SavingOnDrive:
                 file_path, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', resumable=True)
             file = self.drive_service.files().create(
                 body=file_metadata, media_body=media, fields='id').execute()
-            print(f"File uploaded successfully to folder {folder_id}")
+            logging.info(f"File uploaded successfully to folder {folder_id}")
             return file.get('id')
         except Exception as e:
-            print(f"Upload error: {str(e)}")
+            logging.error(f"Upload error: {str(e)}")
             return None
     
     def upload_to_multiple_folders(self, file_path, file_name=None):
         if not self.authenticate():
-            print("Failed to authenticate with Google Drive")
+            logging.error("Failed to authenticate with Google Drive")
             return []
         file_ids = []
         for parent_folder_id in self.target_folders:
@@ -90,31 +97,31 @@ class SavingOnDrive:
                 if file_id:
                     file_ids.append(file_id)
             else:
-                print(f"Failed to create/find date folder in parent folder {parent_folder_id}")
+                logging.error(f"Failed to create/find date folder in parent folder {parent_folder_id}")
         return file_ids
 
 class TalabatGroceries:
     def __init__(self, url):
         self.url = url
         self.base_url = "https://www.talabat.com"
-        print(f"Initialized TalabatGroceries with URL: {self.url}")
+        logging.info(f"Initialized TalabatGroceries with URL: {self.url}")
 
     async def get_general_link(self, page):
-        print("Attempting to get general link")
+        logging.info("Attempting to get general link")
         retries = 3
         while retries > 0:
             try:
                 link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=60000)
                 if link_element:
                     full_link = self.base_url + await link_element.get_attribute('href')
-                    print(f"General link found: {full_link}")
+                    logging.info(f"General link found: {full_link}")
                     return full_link
-                print("General link not found")
+                logging.warning("General link not found")
                 return None
             except PlaywrightTimeoutError:
-                print("Timeout waiting for general link")
+                logging.warning("Timeout waiting for general link")
                 retries -= 1
-                print(f"Retries left: {retries}")
+                logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return None
 
@@ -431,7 +438,7 @@ class MainScraper:
         }
         self.all_results = {}
         self.drive_uploader = SavingOnDrive('credentials.json')
-        print(f"Initialized MainScraper with target URL: {self.target_url}")
+        logging.info(f"Initialized MainScraper with target URL: {self.target_url}")
         self.load_progress()
         self.load_results()
 
@@ -440,11 +447,11 @@ class MainScraper:
             with open(self.progress_file, 'r') as f:
                 try:
                     self.progress_data = json.load(f)
-                    print(f"Loaded progress from {self.progress_file}")
+                    logging.info(f"Loaded progress from {self.progress_file}")
                 except json.JSONDecodeError:
-                    print(f"Error decoding {self.progress_file}. Starting with default progress.")
+                    logging.error(f"Error decoding {self.progress_file}. Starting with default progress.")
         else:
-            print(f"Creating new progress file: {self.progress_file}")
+            logging.info(f"Creating new progress file: {self.progress_file}")
             self.save_progress()
 
     def load_results(self):
@@ -452,28 +459,28 @@ class MainScraper:
             with open(self.results_file, 'r') as f:
                 try:
                     self.all_results = json.load(f)
-                    print(f"Loaded results from {self.results_file}")
+                    logging.info(f"Loaded results from {self.results_file}")
                 except json.JSONDecodeError:
-                    print(f"Error decoding {self.results_file}. Starting with empty results.")
+                    logging.error(f"Error decoding {self.results_file}. Starting with empty results.")
         else:
-            print(f"Creating new results file: {self.results_file}")
+            logging.info(f"Creating new results file: {self.results_file}")
             self.save_results()
 
     def save_progress(self):
         try:
             with open(self.progress_file, 'w') as f:
                 json.dump(self.progress_data, f, indent=4)
-            print(f"Progress saved to {self.progress_file}")
+            logging.info(f"Progress saved to {self.progress_file}")
         except Exception as e:
-            print(f"Error saving progress: {e}")
+            logging.error(f"Error saving progress: {e}")
 
     def save_results(self):
         try:
             with open(self.results_file, 'w') as f:
                 json.dump(self.all_results, f, indent=4)
-            print(f"Results saved to {self.results_file}")
+            logging.info(f"Results saved to {self.results_file}")
         except Exception as e:
-            print(f"Error saving results: {e}")
+            logging.error(f"Error saving results: {e}")
 
     def save_to_excel(self):
         print("Saving data to Excel file")
@@ -525,27 +532,27 @@ class MainScraper:
             print(f"Error uploading to Google Drive: {str(e)}")
 
     async def extract_grocery_info(self, page):
-        print("Attempting to extract grocery information")
+        logging.info("Attempting to extract grocery information")
         retries = 3
         while retries > 0:
             try:
                 await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
                 vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
-                print(f"Found {len(vendor_containers)} grocery vendors on page")
+                logging.info(f"Found {len(vendor_containers)} grocery vendors on page")
                 groceries_info = []
                 for i, container in enumerate(vendor_containers, 1):
                     try:
                         title_element = await container.query_selector('a div h2')
                         grocery_title = await title_element.inner_text() if title_element else f"Unknown Grocery {i}"
-                        print(f"  Grocery title: {grocery_title}")
+                        logging.info(f"  Grocery title: {grocery_title}")
                         link_element = await container.query_selector('a')
                         grocery_link = self.base_url + await link_element.get_attribute('href') if link_element else None
-                        print(f"  Grocery link: {grocery_link}")
+                        logging.info(f"  Grocery link: {grocery_link}")
                         delivery_info = await container.query_selector('div.deliveryInfo')
                         delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
-                        print(f"  Delivery time text: {delivery_time_text}")
+                        logging.info(f"  Delivery time text: {delivery_time_text}")
                         delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
-                        print(f"  Delivery time: {delivery_time}")
+                        logging.info(f"  Delivery time: {delivery_time}")
                         if grocery_title and grocery_link and delivery_time != "N/A":
                             groceries_info.append({
                                 'grocery_title': grocery_title,
@@ -553,20 +560,20 @@ class MainScraper:
                                 'delivery_time': delivery_time
                             })
                     except Exception as e:
-                        print(f"Error processing grocery {i}: {e}")
+                        logging.error(f"Error processing grocery {i}: {e}")
                 return groceries_info
-            except Exception as e:  # Catch all exceptions, not just PlaywrightTimeoutError
-                print(f"Error extracting grocery info: {e}")
+            except Exception as e:
+                logging.error(f"Error extracting grocery info: {e}")
                 retries -= 1
-                print(f"Retries left: {retries}")
+                logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
-        print("Failed to extract grocery info after all retries")
+        logging.warning("Failed to extract grocery info after all retries")
         return []  # Always return a list
-
+        
     async def process_sub_category(self, grocery_title, category_name, sub_category_info, talabat_grocery, page):
         sub_category_name = sub_category_info['sub_category_name']
         sub_category_link = sub_category_info['sub_category_link']
-        print(f"Processing sub-category: {sub_category_name} in category: {category_name} of grocery: {grocery_title}")
+        logging.info(f"Processing sub-category: {sub_category_name} in category: {category_name} of grocery: {grocery_title}")
         
         self.progress_data['current_sub_category'] = sub_category_name
         self.save_progress()
@@ -574,7 +581,6 @@ class MainScraper:
         items = await talabat_grocery.extract_all_items_from_sub_category(sub_category_link)
         sub_category_info['Items'] = items
 
-        # Update all_results after each sub-category
         if grocery_title not in self.all_results:
             self.all_results[grocery_title] = {
                 'grocery_link': talabat_grocery.url,
@@ -594,7 +600,7 @@ class MainScraper:
             sub_category_exists['Items'] = items
 
         self.save_results()
-
+        
     async def process_category(self, grocery_title, category_info, talabat_grocery, page):
         category_name = category_info['name']
         category_link = category_info['link']
@@ -673,39 +679,38 @@ class MainScraper:
                 continue
 
     async def run(self):
-        print("Starting the scraper")
+        logging.info("Starting the scraper")
         retries = 3
         while retries > 0:
             try:
-                print(f"Target URL: {self.target_url}")
+                logging.info(f"Target URL: {self.target_url}")
                 async with async_playwright() as p:
                     browser = await p.chromium.launch(headless=True)
                     page = await browser.new_page()
                     page.set_default_timeout(60000)
                     await page.goto(self.target_url, timeout=60000)
                     await page.wait_for_load_state("networkidle", timeout=60000)
-                    print("Page loaded successfully")
+                    logging.info("Page loaded successfully")
                     groceries_info = await self.extract_grocery_info(page)
                     await browser.close()
-                    if groceries_info is None:  # Explicitly handle None case
-                        print("No groceries info retrieved, treating as empty list")
+                    if groceries_info is None:
+                        logging.warning("No groceries info retrieved, treating as empty list")
                         groceries_info = []
-                    print(f"Found {len(groceries_info)} groceries to process")
-    
-                    # Resume from last grocery
+                    logging.info(f"Found {len(groceries_info)} groceries to process")
+
                     start_processing = False if self.progress_data['current_grocery'] else True
                     for grocery_info in groceries_info:
                         if start_processing or grocery_info['grocery_title'] == self.progress_data['current_grocery']:
                             start_processing = True
                             await self.process_grocery(grocery_info)
-    
+
                     self.save_to_excel()
-                    print("Scraping completed successfully")
+                    logging.info("Scraping completed successfully")
                 break
             except Exception as e:
-                print(f"Error in main scraper: {e}")
+                logging.error(f"Error in main scraper: {e}")
                 retries -= 1
-                print(f"Retries left: {retries}")
+                logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
 
 async def main():
@@ -714,9 +719,9 @@ async def main():
         if credentials_json:
             with open('credentials.json', 'w') as f:
                 f.write(credentials_json)
-            print("Created credentials.json from environment variable")
+            logging.info("Created credentials.json from environment variable")
         else:
-            print("ERROR: credentials.json not found and TALABAT_GCLOUD_KEY_JSON not set!")
+            logging.error("ERROR: credentials.json not found and TALABAT_GCLOUD_KEY_JSON not set!")
             return
     scraper = MainScraper()
     await scraper.run()
