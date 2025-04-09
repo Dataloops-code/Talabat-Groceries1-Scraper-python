@@ -27,8 +27,8 @@ class SavingOnDrive:
         self.credentials_path = credentials_path
         self.drive_service = None
         self.target_folders = [
-            "1NzaP1VFqfSdzkCqfPkcpI5s_43nLDLAG",  # First folder
-            "1hxBqJwK5g7EXAV0JcVc0_YLtBReCkaRv"   # Second folder
+            "1NzaP1VFqfSdzkCqfPkcpI5s_43nLDLAG",
+            "1hxBqJwK5g7EXAV0JcVc0_YLtBReCkaRv"
         ]
     
     def authenticate(self):
@@ -375,20 +375,20 @@ class TalabatGroceries:
         return []
 
     async def extract_categories(self, page):
-        print(f"Processing grocery: {self.url}")
+        logging.info(f"Processing grocery: {self.url}")
         retries = 3
         while retries > 0:
             try:
                 await page.goto(self.url, timeout=60000)
                 await page.wait_for_load_state("networkidle", timeout=60000)
-                print("Page loaded successfully")
+                logging.info("Page loaded successfully")
                 delivery_fees = await self.get_delivery_fees(page)
                 minimum_order = await self.get_minimum_order(page)
                 view_all_link = await self.get_general_link(page)
-                print(f"  Delivery fees: {delivery_fees}")
-                print(f"  Minimum order: {minimum_order}")
+                logging.info(f"  Delivery fees: {delivery_fees}")
+                logging.info(f"  Minimum order: {minimum_order}")
                 if view_all_link:
-                    print(f"  Navigating to view all link: {view_all_link}")
+                    logging.info(f"  Navigating to view all link: {view_all_link}")
                     async with async_playwright() as p:
                         browser = await p.chromium.launch(headless=True)
                         category_page = await browser.new_page()
@@ -396,11 +396,11 @@ class TalabatGroceries:
                         await category_page.wait_for_load_state("networkidle", timeout=60000)
                         category_names = await self.extract_category_names(category_page)
                         category_links = await self.extract_category_links(category_page)
-                        print(f"  Found {len(category_names)} categories")
+                        logging.info(f"  Found {len(category_names)} categories")
                         categories_data = []
                         for index, (name, link) in enumerate(zip(category_names, category_links)):
-                            print(f"  Processing category {index+1}/{len(category_names)}: {name}")
-                            print(f"  Category link: {link}")
+                            logging.info(f"  Processing category {index+1}/{len(category_names)}: {name}")
+                            logging.info(f"  Category link: {link}")
                             async with async_playwright() as p:
                                 browser = await p.chromium.launch(headless=True)
                                 sub_category_page = await browser.new_page()
@@ -408,7 +408,7 @@ class TalabatGroceries:
                                 await sub_category_page.wait_for_load_state("networkidle", timeout=60000)
                                 sub_categories = await self.extract_sub_categories(sub_category_page, link)
                                 await browser.close()
-                            print(f"  Found {len(sub_categories)} sub-categories in {name}")
+                            logging.info(f"  Found {len(sub_categories)} sub-categories in {name}")
                             categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
                         await browser.close()
                 return {
@@ -417,11 +417,13 @@ class TalabatGroceries:
                     "categories": categories_data
                 }
             except Exception as e:
-                print(f"Error extracting categories: {e}")
+                logging.error(f"Error extracting categories: {e}", exc_info=True)
                 retries -= 1
-                print(f"Retries left: {retries}")
+                logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
+        logging.error("Failed to extract categories after multiple attempts")
         return {"error": "Failed to extract categories after multiple attempts"}
+
 
 class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
@@ -442,7 +444,6 @@ class MainScraper:
         logging.info(f"Initialized MainScraper with target URL: {self.target_url}")
         self.load_progress()
         self.load_results()
-        # Create an empty Excel file if it doesn’t exist
         if not os.path.exists(self.excel_file):
             pd.DataFrame().to_excel(self.excel_file, index=False)
             logging.info(f"Created empty Excel file: {self.excel_file}")
@@ -452,18 +453,9 @@ class MainScraper:
             with open(self.progress_file, 'r') as f:
                 try:
                     self.progress_data = json.load(f)
-                    if not isinstance(self.progress_data, dict) or 'current_area' not in self.progress_data:
-                        raise ValueError("Invalid progress data structure")
                     logging.info(f"Loaded progress from {self.progress_file}")
-                except (json.JSONDecodeError, ValueError) as e:
-                    logging.error(f"Error decoding or validating {self.progress_file}: {e}. Starting with default progress.")
-                    self.progress_data = {
-                        "current_area": "dhaher",
-                        "current_grocery": None,
-                        "current_category": None,
-                        "current_sub_category": None,
-                        "completed_groceries": {}
-                    }
+                except json.JSONDecodeError:
+                    logging.error(f"Error decoding {self.progress_file}. Starting with default progress.")
         else:
             logging.info(f"Creating new progress file: {self.progress_file}")
             self.save_progress()
@@ -592,8 +584,13 @@ class MainScraper:
         self.progress_data['current_sub_category'] = sub_category_name
         self.save_progress()
 
-        items = await talabat_grocery.extract_all_items_from_sub_category(sub_category_link)
-        sub_category_info['Items'] = items
+        try:
+            items = await talabat_grocery.extract_all_items_from_sub_category(sub_category_link)
+            sub_category_info['Items'] = items
+        except Exception as e:
+            logging.error(f"Error extracting items for sub-category {sub_category_name}: {e}", exc_info=True)
+            sub_category_info['Items'] = []
+            return  # Exit early but save progress below
 
         if grocery_title not in self.all_results:
             self.all_results[grocery_title] = {
@@ -614,41 +611,47 @@ class MainScraper:
             sub_category_exists['Items'] = items
 
         self.save_results()
-        
+        # Mark sub-category as completed
+        if grocery_title not in self.progress_data['completed_groceries']:
+            self.progress_data['completed_groceries'][grocery_title] = {'completed_categories': {}}
+        if 'completed_categories' not in self.progress_data['completed_groceries'][grocery_title]:
+            self.progress_data['completed_groceries'][grocery_title]['completed_categories'] = {}
+        if category_name not in self.progress_data['completed_groceries'][grocery_title]['completed_categories']:
+            self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name] = []
+        if sub_category_name not in self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name]:
+            self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name].append(sub_category_name)
+        self.save_progress()
+
     async def process_category(self, grocery_title, category_info, talabat_grocery, page):
         category_name = category_info['name']
         category_link = category_info['link']
-        print(f"Processing category: {category_name} in grocery: {grocery_title}")
+        logging.info(f"Processing category: {category_name} in grocery: {grocery_title}")
         
         self.progress_data['current_category'] = category_name
         self.save_progress()
 
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
-            sub_category_page = await browser.new_page()
-            await sub_category_page.goto(category_link, timeout=60000)
-            await sub_category_page.wait_for_load_state("networkidle", timeout=60000)
-            sub_categories = await talabat_grocery.extract_sub_categories(sub_category_page, category_link)
-            await browser.close()
+        try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                sub_category_page = await browser.new_page()
+                await sub_category_page.goto(category_link, timeout=60000)
+                await sub_category_page.wait_for_load_state("networkidle", timeout=60000)
+                sub_categories = await talabat_grocery.extract_sub_categories(sub_category_page, category_link)
+                await browser.close()
+        except Exception as e:
+            logging.error(f"Error extracting sub-categories for category {category_name}: {e}", exc_info=True)
+            sub_categories = []
 
-        # Check progress to resume from last sub-category
         completed_sub_categories = self.progress_data['completed_groceries'].get(grocery_title, {}).get('completed_categories', {}).get(category_name, [])
         for sub_category in sub_categories:
             if sub_category['sub_category_name'] not in completed_sub_categories:
                 await self.process_sub_category(grocery_title, category_name, sub_category, talabat_grocery, page)
-                # Mark sub-category as completed
-                if grocery_title not in self.progress_data['completed_groceries']:
-                    self.progress_data['completed_groceries'][grocery_title] = {'completed_categories': {}}
-                if category_name not in self.progress_data['completed_groceries'][grocery_title]['completed_categories']:
-                    self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name] = []
-                self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name].append(sub_category['sub_category_name'])
-                self.save_progress()
 
     async def process_grocery(self, grocery_info):
         grocery_title = grocery_info['grocery_title']
         grocery_link = grocery_info['grocery_link']
         delivery_time = grocery_info['delivery_time']
-        print(f"Processing grocery: {grocery_title}")
+        logging.info(f"Processing grocery: {grocery_title}")
         
         self.progress_data['current_grocery'] = grocery_title
         self.progress_data['completed_groceries'][grocery_title] = self.progress_data['completed_groceries'].get(grocery_title, {})
@@ -656,7 +659,7 @@ class MainScraper:
         self.save_progress()
 
         if grocery_title in self.progress_data['completed_groceries'] and 'completed' in self.progress_data['completed_groceries'][grocery_title]:
-            print(f"Skipping {grocery_title} - already fully processed")
+            logging.info(f"Skipping {grocery_title} - already fully processed")
             return
 
         talabat_grocery = TalabatGroceries(grocery_link)
@@ -673,25 +676,21 @@ class MainScraper:
                     }
                     self.save_results()
 
-                    # Process categories incrementally
                     completed_categories = self.progress_data['completed_groceries'].get(grocery_title, {}).get('completed_categories', {})
-                    for category in grocery_details['categories']:
-                        if category['name'] not in completed_categories or not completed_categories[category['name']]:
+                    for category in grocery_details.get('categories', []):
+                        if category['name'] not in completed_categories or not all(sub['sub_category_name'] in completed_categories.get(category['name'], []) for sub in category['sub_categories']):
                             await self.process_category(grocery_title, category, talabat_grocery, page)
-                            # Mark category as fully processed if all sub-categories are done
-                            if all(sub['sub_category_name'] in completed_categories.get(category['name'], []) for sub in category['sub_categories']):
-                                self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category['name']] = [s['sub_category_name'] for s in category['sub_categories']]
 
-                    # Mark grocery as completed if all categories are done
-                    if all(cat['name'] in completed_categories for cat in grocery_details['categories']):
+                    if all(cat['name'] in completed_categories and all(sub['sub_category_name'] in completed_categories[cat['name']] for sub in cat['sub_categories']) for cat in grocery_details.get('categories', [])):
                         self.progress_data['completed_groceries'][grocery_title]['completed'] = True
                     self.save_progress()
                     await browser.close()
                     break
             except Exception as e:
-                print(f"Error processing {grocery_title} with {browser_type}: {e}")
+                logging.error(f"Error processing {grocery_title} with {browser_type}: {e}", exc_info=True)
                 continue
 
+    
     async def run(self):
         logging.info("Starting the scraper")
         retries = 3
@@ -722,15 +721,16 @@ class MainScraper:
                     logging.info("Scraping completed successfully")
                 break
             except Exception as e:
-                logging.error(f"Error in main scraper: {e}", exc_info=True)  # Log full stack trace
+                logging.error(f"Error in main scraper: {e}", exc_info=True)
                 retries -= 1
                 logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         if retries == 0:
             logging.error("Scraping failed after all retries")
-            self.save_progress()  # Save progress even on failure
-            self.save_results()   # Save results even on failure
-            self.save_to_excel()  # Ensure Excel is updated even on failure
+            self.save_progress()
+            self.save_results()
+            self.save_to_excel()
+
 
 async def main():
     if not os.path.exists('credentials.json'):
