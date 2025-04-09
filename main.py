@@ -525,8 +525,43 @@ class MainScraper:
             print(f"Error uploading to Google Drive: {str(e)}")
 
     async def extract_grocery_info(self, page):
-        # [Existing method remains unchanged]
-        pass  # Use your original implementation
+        print("Attempting to extract grocery information")
+        retries = 3
+        while retries > 0:
+            try:
+                await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
+                vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
+                print(f"Found {len(vendor_containers)} grocery vendors on page")
+                groceries_info = []
+                for i, container in enumerate(vendor_containers, 1):
+                    try:
+                        title_element = await container.query_selector('a div h2')
+                        grocery_title = await title_element.inner_text() if title_element else f"Unknown Grocery {i}"
+                        print(f"  Grocery title: {grocery_title}")
+                        link_element = await container.query_selector('a')
+                        grocery_link = self.base_url + await link_element.get_attribute('href') if link_element else None
+                        print(f"  Grocery link: {grocery_link}")
+                        delivery_info = await container.query_selector('div.deliveryInfo')
+                        delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
+                        print(f"  Delivery time text: {delivery_time_text}")
+                        delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
+                        print(f"  Delivery time: {delivery_time}")
+                        if grocery_title and grocery_link and delivery_time != "N/A":
+                            groceries_info.append({
+                                'grocery_title': grocery_title,
+                                'grocery_link': grocery_link,
+                                'delivery_time': delivery_time
+                            })
+                    except Exception as e:
+                        print(f"Error processing grocery {i}: {e}")
+                return groceries_info
+            except Exception as e:  # Catch all exceptions, not just PlaywrightTimeoutError
+                print(f"Error extracting grocery info: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        print("Failed to extract grocery info after all retries")
+        return []  # Always return a list
 
     async def process_sub_category(self, grocery_title, category_name, sub_category_info, talabat_grocery, page):
         sub_category_name = sub_category_info['sub_category_name']
@@ -652,15 +687,18 @@ class MainScraper:
                     print("Page loaded successfully")
                     groceries_info = await self.extract_grocery_info(page)
                     await browser.close()
+                    if groceries_info is None:  # Explicitly handle None case
+                        print("No groceries info retrieved, treating as empty list")
+                        groceries_info = []
                     print(f"Found {len(groceries_info)} groceries to process")
-
+    
                     # Resume from last grocery
                     start_processing = False if self.progress_data['current_grocery'] else True
                     for grocery_info in groceries_info:
                         if start_processing or grocery_info['grocery_title'] == self.progress_data['current_grocery']:
                             start_processing = True
                             await self.process_grocery(grocery_info)
-
+    
                     self.save_to_excel()
                     print("Scraping completed successfully")
                 break
