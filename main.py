@@ -447,9 +447,18 @@ class MainScraper:
             with open(self.progress_file, 'r') as f:
                 try:
                     self.progress_data = json.load(f)
+                    if not isinstance(self.progress_data, dict) or 'current_area' not in self.progress_data:
+                        raise ValueError("Invalid progress data structure")
                     logging.info(f"Loaded progress from {self.progress_file}")
-                except json.JSONDecodeError:
-                    logging.error(f"Error decoding {self.progress_file}. Starting with default progress.")
+                except (json.JSONDecodeError, ValueError) as e:
+                    logging.error(f"Error decoding or validating {self.progress_file}: {e}. Starting with default progress.")
+                    self.progress_data = {
+                        "current_area": "dhaher",
+                        "current_grocery": None,
+                        "current_category": None,
+                        "current_sub_category": None,
+                        "completed_groceries": {}
+                    }
         else:
             logging.info(f"Creating new progress file: {self.progress_file}")
             self.save_progress()
