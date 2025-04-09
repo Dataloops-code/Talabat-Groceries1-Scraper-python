@@ -52,12 +52,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
 
+      - name: Debug file presence
+        if: always()
+        run: |
+          ls -la
+          cat progress.json || echo "progress.json not found"
+          cat all_results.json || echo "all_results.json not found"
+          ls dhaher.xlsx || echo "dhaher.xlsx not found"
+
       - name: Commit progress updates
-        if: always()  # Run even if previous steps fail/cancel
+        if: always()
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add progress.json all_results.json dhaher.xlsx
+          git add progress.json all_results.json dhaher.xlsx || true  # Proceed even if files are missing
           git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
           git push
         env:
@@ -72,7 +80,7 @@ jobs:
           key: talabat-groceries-progress-${{ github.run_id }}
 
       - name: Upload progress artifacts
-        if: always()  # Run even if cancelled
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: talabat-groceries-progress-files
@@ -80,6 +88,7 @@ jobs:
             progress.json
             all_results.json
             dhaher.xlsx
+            scraper.log
           retention-days: 7
 
       - name: Cleanup
