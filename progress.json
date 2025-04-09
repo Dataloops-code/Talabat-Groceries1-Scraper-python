@@ -1,0 +1,11 @@
+{
+    "current_area": "dhaher",
+    "current_grocery": "Elite One Grocery",
+    "current_category": null,
+    "current_sub_category": null,
+    "completed_groceries": {
+        "Elite One Grocery": {
+            "delivery_time": "31 mins"
+        }
+    }
+}
