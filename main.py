@@ -441,6 +441,10 @@ class MainScraper:
         logging.info(f"Initialized MainScraper with target URL: {self.target_url}")
         self.load_progress()
         self.load_results()
+        # Create an empty Excel file if it doesn’t exist
+        if not os.path.exists(self.excel_file):
+            pd.DataFrame().to_excel(self.excel_file, index=False)
+            logging.info(f"Created empty Excel file: {self.excel_file}")
 
     def load_progress(self):
         if os.path.exists(self.progress_file):
@@ -717,10 +721,15 @@ class MainScraper:
                     logging.info("Scraping completed successfully")
                 break
             except Exception as e:
-                logging.error(f"Error in main scraper: {e}")
+                logging.error(f"Error in main scraper: {e}", exc_info=True)  # Log full stack trace
                 retries -= 1
                 logging.info(f"Retries left: {retries}")
                 await asyncio.sleep(5)
+        if retries == 0:
+            logging.error("Scraping failed after all retries")
+            self.save_progress()  # Save progress even on failure
+            self.save_results()   # Save results even on failure
+            self.save_to_excel()  # Ensure Excel is updated even on failure
 
 async def main():
     if not os.path.exists('credentials.json'):
