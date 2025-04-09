@@ -5,6 +5,7 @@ import re
 import nest_asyncio
 from bs4 import BeautifulSoup
 import pandas as pd
+import logging
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
