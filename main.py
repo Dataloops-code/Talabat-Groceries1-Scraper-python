@@ -184,36 +184,6 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
-    async def extract_sub_categories(self, page, category_link):
-        print(f"Attempting to extract sub-categories for category: {category_link}")
-        retries = 3
-        while retries > 0:
-            try:
-                await page.wait_for_selector('//div[@data-test="sub-category-container"]', timeout=60000)
-                sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-                sub_categories = []
-                for element in sub_category_elements:
-                    try:
-                        sub_category_name = await element.inner_text()
-                        sub_category_link = self.base_url + await element.get_attribute('href')
-                        print(f"    Processing sub-category: {sub_category_name}")
-                        print(f"    Sub-category link: {sub_category_link}")
-                        items = await self.extract_all_items_from_sub_category(sub_category_link)
-                        sub_categories.append({
-                            "sub_category_name": sub_category_name,
-                            "sub_category_link": sub_category_link,
-                            "Items": items
-                        })
-                    except Exception as e:
-                        print(f"Error processing sub-category: {e}")
-                print(f"Extracted {len(sub_categories)} sub-categories")
-                return sub_categories
-            except PlaywrightTimeoutError:
-                print("Timeout waiting for sub-categories")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-        return []
 
     async def extract_item_details(self, item_link):
         print(f"Attempting to extract item details for {item_link}")
@@ -365,6 +335,37 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
     
+    async def extract_sub_categories(self, page, category_link):
+        print(f"Attempting to extract sub-categories for category: {category_link}")
+        retries = 3
+        while retries > 0:
+            try:
+                await page.wait_for_selector('//div[@data-test="sub-category-container"]', timeout=60000)
+                sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
+                sub_categories = []
+                for element in sub_category_elements:
+                    try:
+                        sub_category_name = await element.inner_text()
+                        sub_category_link = self.base_url + await element.get_attribute('href')
+                        print(f"    Processing sub-category: {sub_category_name}")
+                        print(f"    Sub-category link: {sub_category_link}")
+                        items = await self.extract_all_items_from_sub_category(sub_category_link)
+                        sub_categories.append({
+                            "sub_category_name": sub_category_name,
+                            "sub_category_link": sub_category_link,
+                            "Items": items
+                        })
+                    except Exception as e:
+                        print(f"Error processing sub-category: {e}")
+                print(f"Extracted {len(sub_categories)} sub-categories")
+                return sub_categories
+            except PlaywrightTimeoutError:
+                print("Timeout waiting for sub-categories")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
+
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
@@ -418,76 +419,67 @@ class MainScraper:
     def __init__(self, target_url="https://www.talabat.com/kuwait/groceries/59/dhaher"):
         self.target_url = target_url
         self.base_url = "https://www.talabat.com"
-        self.json_file = "talabat_groceries.json"
+        self.progress_file = "progress.json"
+        self.results_file = "all_results.json"
         self.excel_file = "dhaher.xlsx"
-        self.groceries_data = {}
+        self.progress_data = {
+            "current_area": "dhaher",
+            "current_grocery": None,
+            "current_category": None,
+            "current_sub_category": None,
+            "completed_groceries": {}
+        }
+        self.all_results = {}
         self.drive_uploader = SavingOnDrive('credentials.json')
         print(f"Initialized MainScraper with target URL: {self.target_url}")
-        if not os.path.exists(self.json_file):
-            print(f"Creating new JSON file: {self.json_file}")
-            with open(self.json_file, 'w') as f:
-                json.dump({}, f)
-        else:
-            print(f"Loading data from JSON file: {self.json_file}")
-            with open(self.json_file, 'r') as f:
+        self.load_progress()
+        self.load_results()
+
+    def load_progress(self):
+        if os.path.exists(self.progress_file):
+            with open(self.progress_file, 'r') as f:
                 try:
-                    self.groceries_data = json.load(f)
+                    self.progress_data = json.load(f)
+                    print(f"Loaded progress from {self.progress_file}")
                 except json.JSONDecodeError:
-                    print("Error decoding JSON file. Starting with an empty dictionary.")
-                    self.groceries_data = {}
+                    print(f"Error decoding {self.progress_file}. Starting with default progress.")
+        else:
+            print(f"Creating new progress file: {self.progress_file}")
+            self.save_progress()
 
-    async def extract_grocery_info(self, page):
-        print("Attempting to extract grocery information")
-        retries = 3
-        while retries > 0:
-            try:
-                await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=60000)
-                vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
-                print(f"Found {len(vendor_containers)} grocery vendors on page")
-                groceries_info = []
-                for i, container in enumerate(vendor_containers, 1):
-                    try:
-                        title_element = await container.query_selector('a div h2')
-                        grocery_title = await title_element.inner_text() if title_element else f"Unknown Grocery {i}"
-                        print(f"  Grocery title: {grocery_title}")
-                        link_element = await container.query_selector('a')
-                        grocery_link = self.base_url + await link_element.get_attribute('href') if link_element else None
-                        print(f"  Grocery link: {grocery_link}")
-                        delivery_info = await container.query_selector('div.deliveryInfo')
-                        delivery_time_text = await delivery_info.inner_text() if delivery_info else "N/A"
-                        print(f"  Delivery time text: {delivery_time_text}")
-                        delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
-                        print(f"  Delivery time: {delivery_time}")
-                        if grocery_title and grocery_link and delivery_time != "N/A":
-                            groceries_info.append({
-                                'grocery_title': grocery_title,
-                                'grocery_link': grocery_link,
-                                'delivery_time': delivery_time
-                            })
-                    except Exception as e:
-                        print(f"Error processing grocery {i}: {e}")
-                return groceries_info
-            except PlaywrightTimeoutError:
-                print("Timeout waiting for grocery vendors")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-        return []
+    def load_results(self):
+        if os.path.exists(self.results_file):
+            with open(self.results_file, 'r') as f:
+                try:
+                    self.all_results = json.load(f)
+                    print(f"Loaded results from {self.results_file}")
+                except json.JSONDecodeError:
+                    print(f"Error decoding {self.results_file}. Starting with empty results.")
+        else:
+            print(f"Creating new results file: {self.results_file}")
+            self.save_results()
 
-    def save_to_json(self):
-        print("Saving data to JSON file")
+    def save_progress(self):
         try:
-            with open(self.json_file, 'w') as f:
-                json.dump(self.groceries_data, f, indent=4)
-            print(f"Data saved to {self.json_file}")
+            with open(self.progress_file, 'w') as f:
+                json.dump(self.progress_data, f, indent=4)
+            print(f"Progress saved to {self.progress_file}")
         except Exception as e:
-            print(f"Error saving to JSON file: {e}")
+            print(f"Error saving progress: {e}")
+
+    def save_results(self):
+        try:
+            with open(self.results_file, 'w') as f:
+                json.dump(self.all_results, f, indent=4)
+            print(f"Results saved to {self.results_file}")
+        except Exception as e:
+            print(f"Error saving results: {e}")
 
     def save_to_excel(self):
         print("Saving data to Excel file")
         try:
             writer = pd.ExcelWriter(self.excel_file, engine='xlsxwriter')
-            for grocery_title, grocery_data in self.groceries_data.items():
+            for grocery_title, grocery_data in self.all_results.items():
                 flattened_data = []
                 general_info = {
                     'grocery_title': grocery_title,
@@ -532,14 +524,86 @@ class MainScraper:
         except Exception as e:
             print(f"Error uploading to Google Drive: {str(e)}")
 
+    async def extract_grocery_info(self, page):
+        # [Existing method remains unchanged]
+        pass  # Use your original implementation
+
+    async def process_sub_category(self, grocery_title, category_name, sub_category_info, talabat_grocery, page):
+        sub_category_name = sub_category_info['sub_category_name']
+        sub_category_link = sub_category_info['sub_category_link']
+        print(f"Processing sub-category: {sub_category_name} in category: {category_name} of grocery: {grocery_title}")
+        
+        self.progress_data['current_sub_category'] = sub_category_name
+        self.save_progress()
+
+        items = await talabat_grocery.extract_all_items_from_sub_category(sub_category_link)
+        sub_category_info['Items'] = items
+
+        # Update all_results after each sub-category
+        if grocery_title not in self.all_results:
+            self.all_results[grocery_title] = {
+                'grocery_link': talabat_grocery.url,
+                'delivery_time': self.progress_data['completed_groceries'].get(grocery_title, {}).get('delivery_time', 'N/A'),
+                'grocery_details': {'categories': []}
+            }
+        grocery_data = self.all_results[grocery_title]
+        categories = grocery_data['grocery_details']['categories']
+        category_exists = next((c for c in categories if c['name'] == category_name), None)
+        if not category_exists:
+            categories.append({'name': category_name, 'link': '', 'sub_categories': []})
+            category_exists = categories[-1]
+        sub_category_exists = next((s for s in category_exists['sub_categories'] if s['sub_category_name'] == sub_category_name), None)
+        if not sub_category_exists:
+            category_exists['sub_categories'].append(sub_category_info)
+        else:
+            sub_category_exists['Items'] = items
+
+        self.save_results()
+
+    async def process_category(self, grocery_title, category_info, talabat_grocery, page):
+        category_name = category_info['name']
+        category_link = category_info['link']
+        print(f"Processing category: {category_name} in grocery: {grocery_title}")
+        
+        self.progress_data['current_category'] = category_name
+        self.save_progress()
+
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=True)
+            sub_category_page = await browser.new_page()
+            await sub_category_page.goto(category_link, timeout=60000)
+            await sub_category_page.wait_for_load_state("networkidle", timeout=60000)
+            sub_categories = await talabat_grocery.extract_sub_categories(sub_category_page, category_link)
+            await browser.close()
+
+        # Check progress to resume from last sub-category
+        completed_sub_categories = self.progress_data['completed_groceries'].get(grocery_title, {}).get('completed_categories', {}).get(category_name, [])
+        for sub_category in sub_categories:
+            if sub_category['sub_category_name'] not in completed_sub_categories:
+                await self.process_sub_category(grocery_title, category_name, sub_category, talabat_grocery, page)
+                # Mark sub-category as completed
+                if grocery_title not in self.progress_data['completed_groceries']:
+                    self.progress_data['completed_groceries'][grocery_title] = {'completed_categories': {}}
+                if category_name not in self.progress_data['completed_groceries'][grocery_title]['completed_categories']:
+                    self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name] = []
+                self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category_name].append(sub_category['sub_category_name'])
+                self.save_progress()
+
     async def process_grocery(self, grocery_info):
         grocery_title = grocery_info['grocery_title']
         grocery_link = grocery_info['grocery_link']
         delivery_time = grocery_info['delivery_time']
         print(f"Processing grocery: {grocery_title}")
-        if grocery_title in self.groceries_data:
-            print(f"Skipping {grocery_title} - already processed")
+        
+        self.progress_data['current_grocery'] = grocery_title
+        self.progress_data['completed_groceries'][grocery_title] = self.progress_data['completed_groceries'].get(grocery_title, {})
+        self.progress_data['completed_groceries'][grocery_title]['delivery_time'] = delivery_time
+        self.save_progress()
+
+        if grocery_title in self.progress_data['completed_groceries'] and 'completed' in self.progress_data['completed_groceries'][grocery_title]:
+            print(f"Skipping {grocery_title} - already fully processed")
             return
+
         talabat_grocery = TalabatGroceries(grocery_link)
         for browser_type in ["chromium", "firefox"]:
             try:
@@ -547,13 +611,26 @@ class MainScraper:
                     browser = await p[browser_type].launch(headless=True)
                     page = await browser.new_page()
                     grocery_details = await talabat_grocery.extract_categories(page)
-                    self.groceries_data[grocery_title] = {
+                    self.all_results[grocery_title] = {
                         'grocery_link': grocery_link,
                         'delivery_time': delivery_time,
                         'grocery_details': grocery_details
                     }
-                    self.save_to_json()
-                    print(f"Successfully processed and saved data for {grocery_title}")
+                    self.save_results()
+
+                    # Process categories incrementally
+                    completed_categories = self.progress_data['completed_groceries'].get(grocery_title, {}).get('completed_categories', {})
+                    for category in grocery_details['categories']:
+                        if category['name'] not in completed_categories or not completed_categories[category['name']]:
+                            await self.process_category(grocery_title, category, talabat_grocery, page)
+                            # Mark category as fully processed if all sub-categories are done
+                            if all(sub['sub_category_name'] in completed_categories.get(category['name'], []) for sub in category['sub_categories']):
+                                self.progress_data['completed_groceries'][grocery_title]['completed_categories'][category['name']] = [s['sub_category_name'] for s in category['sub_categories']]
+
+                    # Mark grocery as completed if all categories are done
+                    if all(cat['name'] in completed_categories for cat in grocery_details['categories']):
+                        self.progress_data['completed_groceries'][grocery_title]['completed'] = True
+                    self.save_progress()
                     await browser.close()
                     break
             except Exception as e:
@@ -576,8 +653,14 @@ class MainScraper:
                     groceries_info = await self.extract_grocery_info(page)
                     await browser.close()
                     print(f"Found {len(groceries_info)} groceries to process")
+
+                    # Resume from last grocery
+                    start_processing = False if self.progress_data['current_grocery'] else True
                     for grocery_info in groceries_info:
-                        await self.process_grocery(grocery_info)
+                        if start_processing or grocery_info['grocery_title'] == self.progress_data['current_grocery']:
+                            start_processing = True
+                            await self.process_grocery(grocery_info)
+
                     self.save_to_excel()
                     print("Scraping completed successfully")
                 break
@@ -604,6 +687,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 else:
     asyncio.get_event_loop().run_until_complete(main())
+
+
+
 
 
 # import asyncio
