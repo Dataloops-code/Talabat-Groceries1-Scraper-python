@@ -3,35 +3,25 @@ name: Daily Talabat Groceries Scraper
 on:
   schedule:
     - cron: "0 */6 * * *"  # Runs every 6 hours
-  workflow_dispatch:  # Allows manual triggering
-
-concurrency:
-  group: talabat-groceries-scraper
-  cancel-in-progress: true
+  workflow_dispatch:     # Allows manual triggering
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 2000
+    timeout-minutes: 120  # Adjusted to 2 hours, tweak as needed
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  # Enable Git push/pull with authentication
-          ref: master  # Use 'master' as the default branch
-          fetch-depth: 0  # Full history for Git operations
-
-      - name: Verify Git Repository
-        run: |
-          git status || (echo "Git repository not initialized properly" && exit 1)
-          echo "Repository branch: $(git branch --show-current)"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: master  # Assuming 'master' is your default branch; adjust if it's 'main'
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
-      - name: Install Python Dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install playwright google-auth-oauthlib google-auth-httplib2 google-api-python-client pandas xlsxwriter nest_asyncio beautifulsoup4
@@ -45,51 +35,57 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
 
-      - name: Debug Environment
-        run: |
-          python -m playwright --version
-          echo "Python version: $(python --version)"
-          echo "PATH: $PATH"
-          ls -la
+      - name: Restore cached progress
+        id: cache-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            progress.json
+          key: talabat-groceries-progress-${{ github.run_id }}
+          restore-keys: |
+            talabat-groceries-progress-
 
-      - name: Run the Scraper
+      - name: Run Talabat Groceries Scraper
+        run: |
+          python main.py || true  # Allow partial failure to save progress
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
-        run: |
-          python main.py || true  # Continue even if script fails partially
 
-      - name: Commit and Push Progress
-        if: always()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit progress updates
+        if: always()  # Run even if previous steps fail/cancel
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add current_progress.json scraped_progress.json talabat_groceries.json groceries.xlsx || true
-          git commit -m "Update progress files after scraper run" || echo "Nothing to commit"
-          git pull --rebase origin master || git fetch origin master  # Use 'master' instead of 'main'
-          git push || git push --force  # Force push as fallback
+          git add progress.json all_results.json dhaher.xlsx
+          git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Artifacts
-        if: always()
+      - name: Save progress to cache
+        if: always()  # Run even if previous steps fail/cancel
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            progress.json
+          key: talabat-groceries-progress-${{ github.run_id }}
+
+      - name: Upload progress artifacts
+        if: always()  # Run even if cancelled
         uses: actions/upload-artifact@v4
         with:
-          name: scraper-outputs
+          name: talabat-groceries-progress-files
           path: |
-            current_progress.json
-            scraped_progress.json
-            talabat_groceries.json
-            groceries.xlsx
-            scraper.log  # Include log file for debugging
+            progress.json
+            all_results.json
+            dhaher.xlsx
           retention-days: 7
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
-          rm -rf *.log || true
-
           
 
 # name: Daily Workflow
