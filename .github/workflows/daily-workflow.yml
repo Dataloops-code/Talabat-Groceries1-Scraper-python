@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Installs all dependencies including openpyxl
+          pip install -r requirements.txt  # Installs all dependencies including Google libraries
 
       - name: Install Playwright Browsers
         run: |
@@ -47,7 +47,7 @@ jobs:
 
       - name: Run Talabat Groceries Scraper
         run: |
-          python main.py || true  # Allow partial failure to save progress
+          python main.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
@@ -65,7 +65,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add current_progress.json scraped_progress.json output/ || true  # Updated to match new file names
+          git add current_progress.json scraped_progress.json output/ || true  # Proceed even if files are missing
           git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
           git push
         env:
@@ -95,7 +95,6 @@ jobs:
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
-
           
 
 # name: Daily Workflow
