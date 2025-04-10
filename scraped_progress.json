@@ -3,37 +3,21 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T09:13:31.292854",
+  "last_updated": "2025-04-10T09:52:49.944689",
   "all_results": {
     "الظهر": {
       "Candy mart": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
-        "delivery_time": "31 mins",
+        "delivery_time": "32 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
-          "categories": [
-            {
-              "name": "Bakery",
-              "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/bakery/freshly-baked?aid=59",
-              "sub_categories": []
-            },
-            {
-              "name": "Fruits & Vegetables",
-              "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/fruits-vegetables/vegetables?aid=59",
-              "sub_categories": []
-            },
-            {
-              "name": "Snacks & Candy",
-              "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/snacks-candy/chips-dips?aid=59",
-              "sub_categories": []
-            }
-          ]
+          "categories": []
         }
       },
       "Elite One Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
-        "delivery_time": "28 mins",
+        "delivery_time": "30 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -42,32 +26,176 @@
       },
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
-        "delivery_time": "22 mins",
+        "delivery_time": "21 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Alfa Market": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=59",
+        "delivery_time": "32 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Ghozlan Al Egaila Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
+        "delivery_time": "23 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
           "categories": [
             {
-              "name": "Deals",
-              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/organic-special-diet/special-diet?aid=59",
               "sub_categories": []
             },
             {
               "name": "Bakery",
-              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/freshly-baked?aid=59",
               "sub_categories": []
             },
             {
               "name": "Fruits & Vegetables",
-              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=59",
+              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/fruits-vegetables/vegetables?aid=59",
               "sub_categories": []
             }
           ]
         }
       },
-      "Alfa Market": {
-        "grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=59",
-        "delivery_time": "30 mins",
+      "Talabat Mart": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain?aid=59",
+        "delivery_time": "28 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "LuLu Hypermarket": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59",
+        "delivery_time": "46 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Sultan Center": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59",
+        "delivery_time": "44 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Sabah AlSalem Co-Op": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/653942/sabah-alsalem-co-opsabah-al-salem?aid=59",
+        "delivery_time": "46 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "MONOPRIX": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59",
+        "delivery_time": "34 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Hi and Buy": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
+        "delivery_time": "25 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Oncost powered by talabat": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain?aid=59",
+        "delivery_time": "28 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "City Hypermarket": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
+        "delivery_time": "51 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Seven Star Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo?aid=59",
+        "delivery_time": "32 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Trolley": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall?aid=59",
+        "delivery_time": "26 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "City Star Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
+        "delivery_time": "35 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "KFM - Kuwait Flour Mills & Bakeries": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/677484/kuwait-flour-mills-bakeries--fahad-al-ahmed?aid=59",
+        "delivery_time": "31 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Dana Grocery Store": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-?aid=59",
+        "delivery_time": "32 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Kinder Joy Express Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej?aid=59",
+        "delivery_time": "60 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
+      },
+      "Sala Market": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/721674/sala-market-al-ahmadi-tgo?aid=59",
+        "delivery_time": "29 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -84,8 +212,8 @@
     "current_category": "Fruits & Vegetables",
     "current_sub_category": null,
     "completed_categories": {
-      "Hala Store": {
-        "Deals": [],
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [],
         "Bakery": [],
         "Fruits & Vegetables": []
       }

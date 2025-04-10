@@ -3,7 +3,7 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T09:13:31.292639",
+  "last_updated": "2025-04-10T09:52:49.944474",
   "current_progress": {
     "area_name": null,
     "current_grocery": 0,
@@ -12,8 +12,8 @@
     "current_category": "Fruits & Vegetables",
     "current_sub_category": null,
     "completed_categories": {
-      "Hala Store": {
-        "Deals": [],
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [],
         "Bakery": [],
         "Fruits & Vegetables": []
       }
