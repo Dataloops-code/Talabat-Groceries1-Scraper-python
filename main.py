@@ -368,8 +368,11 @@ class MainScraper:
             for container in vendor_containers:
                 title_element = await container.query_selector('a div h2')
                 title = await title_element.inner_text() if title_element else "Unknown Grocery"
-                link = "https://www.talabat.com" + await (await container.query_selector('a'))?.get_attribute('href')
-                delivery_time = re.findall(r'\d+', await (await container.query_selector('div.deliveryInfo'))?.inner_text() or "")[0] + " mins" if await container.query_selector('div.deliveryInfo') else "N/A"
+                link_element = await container.query_selector('a')
+                link = "https://www.talabat.com" + await link_element.get_attribute('href') if link_element else None
+                delivery_info = await container.query_selector('div.deliveryInfo')
+                delivery_time_text = await delivery_info.inner_text() if delivery_info else ""
+                delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
                 if link:
                     groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": delivery_time})
             return groceries_info
