@@ -3,7 +3,7 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T09:52:49.944689",
+  "last_updated": "2025-04-10T10:21:58.436180",
   "all_results": {
     "الظهر": {
       "Candy mart": {
@@ -17,7 +17,7 @@
       },
       "Elite One Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
-        "delivery_time": "30 mins",
+        "delivery_time": "31 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -26,7 +26,7 @@
       },
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
-        "delivery_time": "21 mins",
+        "delivery_time": "23 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -35,11 +35,27 @@
       },
       "Alfa Market": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=59",
-        "delivery_time": "32 mins",
+        "delivery_time": "33 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
-          "categories": []
+          "categories": [
+            {
+              "name": "Special Offers",
+              "link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula/special-offers/promotions?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            }
+          ]
         }
       },
       "Ghozlan Al Egaila Grocery": {
@@ -48,23 +64,7 @@
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
-          "categories": [
-            {
-              "name": "Organic & Special Diet",
-              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/organic-special-diet/special-diet?aid=59",
-              "sub_categories": []
-            },
-            {
-              "name": "Bakery",
-              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/freshly-baked?aid=59",
-              "sub_categories": []
-            },
-            {
-              "name": "Fruits & Vegetables",
-              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/fruits-vegetables/vegetables?aid=59",
-              "sub_categories": []
-            }
-          ]
+          "categories": []
         }
       },
       "Talabat Mart": {
@@ -78,7 +78,7 @@
       },
       "LuLu Hypermarket": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59",
-        "delivery_time": "46 mins",
+        "delivery_time": "48 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -87,7 +87,7 @@
       },
       "Sultan Center": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59",
-        "delivery_time": "44 mins",
+        "delivery_time": "40 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -96,7 +96,7 @@
       },
       "Sabah AlSalem Co-Op": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/653942/sabah-alsalem-co-opsabah-al-salem?aid=59",
-        "delivery_time": "46 mins",
+        "delivery_time": "50 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -105,7 +105,7 @@
       },
       "MONOPRIX": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59",
-        "delivery_time": "34 mins",
+        "delivery_time": "30 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -114,7 +114,7 @@
       },
       "Hi and Buy": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
-        "delivery_time": "25 mins",
+        "delivery_time": "26 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -123,7 +123,7 @@
       },
       "Oncost powered by talabat": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain?aid=59",
-        "delivery_time": "28 mins",
+        "delivery_time": "27 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -132,7 +132,7 @@
       },
       "City Hypermarket": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
-        "delivery_time": "51 mins",
+        "delivery_time": "49 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -150,7 +150,7 @@
       },
       "Trolley": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall?aid=59",
-        "delivery_time": "26 mins",
+        "delivery_time": "25 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -159,7 +159,7 @@
       },
       "City Star Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
-        "delivery_time": "35 mins",
+        "delivery_time": "34 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -195,7 +195,7 @@
       },
       "Sala Market": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/721674/sala-market-al-ahmadi-tgo?aid=59",
-        "delivery_time": "29 mins",
+        "delivery_time": "31 mins",
         "grocery_details": {
           "delivery_fees": "N/A",
           "minimum_order": "N/A",
@@ -212,8 +212,8 @@
     "current_category": "Fruits & Vegetables",
     "current_sub_category": null,
     "completed_categories": {
-      "Ghozlan Al Egaila Grocery": {
-        "Organic & Special Diet": [],
+      "Alfa Market": {
+        "Special Offers": [],
         "Bakery": [],
         "Fruits & Vegetables": []
       }
