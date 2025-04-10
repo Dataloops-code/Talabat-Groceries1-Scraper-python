@@ -18,7 +18,7 @@ from datetime import datetime
 # Set up logging
 logging.basicConfig(
     filename='scraper.log',
-    level=logging.INFO,  # Reduced verbosity for faster execution; use DEBUG for detailed troubleshooting
+    level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
@@ -26,13 +26,13 @@ class TalabatGroceries:
     def __init__(self, url, browser):
         self.url = url
         self.base_url = "https://www.talabat.com"
-        self.browser = browser  # Reuse browser instance
+        self.browser = browser
         logging.info(f"Initialized TalabatGroceries with URL: {self.url}")
 
     async def get_general_link(self, page):
         logging.info("Attempting to get general link")
         try:
-            link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=30000)  # Reduced timeout
+            link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=30000)
             full_link = self.base_url + await link_element.get_attribute('href') if link_element else None
             logging.info(f"General link: {full_link}")
             return full_link
@@ -96,7 +96,7 @@ class TalabatGroceries:
             total_pages = 1
             if pagination_element:
                 page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li")]//a')
-                total_pages = min(len(page_numbers), 3) if page_numbers else 1  # Limit to 3 pages for speed
+                total_pages = min(len(page_numbers), 3) if page_numbers else 1
             logging.info(f"Found {total_pages} pages in sub-category")
 
             items = []
@@ -105,7 +105,7 @@ class TalabatGroceries:
                 await page.goto(page_url, timeout=60000)
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 item_elements = await page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow" and contains(@href, "/product/")]')
-                for element in item_elements[:10]:  # Limit to 10 items per page for testing
+                for element in item_elements[:10]:
                     item_name = await (await element.query_selector('div[data-test="item-name"]') or element).inner_text() or "Unknown Item"
                     item_link = self.base_url + await element.get_attribute('href')
                     item_details = await self.extract_item_details(item_link)
@@ -150,7 +150,7 @@ class TalabatGroceries:
             await page.wait_for_load_state("networkidle", timeout=60000)
             sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
             sub_categories = []
-            for element in sub_category_elements[:5]:  # Limit to 5 sub-categories for speed
+            for element in sub_category_elements[:5]:
                 sub_category_name = await element.inner_text()
                 sub_category_link = self.base_url + await element.get_attribute('href')
                 items = await self.extract_all_items_from_sub_category(sub_category_link)
@@ -175,7 +175,7 @@ class TalabatGroceries:
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 category_names = await self.extract_category_names(page)
                 category_links = await self.extract_category_links(page)
-                for name, link in zip(category_names[:3], category_links[:3]):  # Limit to 3 categories
+                for name, link in zip(category_names[:3], category_links[:3]):
                     sub_categories = await self.extract_sub_categories(page, link)
                     categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
             return {"delivery_fees": delivery_fees, "minimum_order": minimum_order, "categories": categories_data}
@@ -295,7 +295,7 @@ class MainScraper:
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
 
-        for grocery_idx, grocery in enumerate(groceries_on_page[:2]):  # Limit to 2 groceries for testing
+        for grocery_idx, grocery in enumerate(groceries_on_page[:2]):
             grocery_num = grocery_idx + 1
             if grocery_num <= start_grocery:
                 continue
@@ -419,7 +419,7 @@ class MainScraper:
 
     async def run(self):
         ahmadi_areas = [
-            ("الظهر", "https://www.talabat.com/kuwait/groceries/59/dhaher"),  # Limited to 1 area for testing
+            ("الظهر", "https://www.talabat.com/kuwait/groceries/59/dhaher"),
         ]
         excel_filename = os.path.join(self.output_dir, "الاحمدي_groceries.xlsx")
         workbook = Workbook()
@@ -434,7 +434,7 @@ class MainScraper:
                 self.current_progress["current_area_index"] = idx
                 self.scraped_progress["current_area_index"] = idx
                 area_results = await self.scrape_and_save_area(area_name, area_url, browser)
-                self.create_excel_sheet(workbook, area_name, {g["grocery_title"]: g for g in area_results})
+                self.create_excel_sheet(workbook, area_name, self.scraped_progress["all_results"][area_name])
                 workbook.save(excel_filename)
                 self.current_progress["completed_areas"].append(area_name)
                 self.scraped_progress["completed_areas"].append(area_name)
@@ -444,8 +444,8 @@ class MainScraper:
             await browser.close()
 
         print(f"SCRAPING COMPLETED\nExcel file saved: {excel_filename}")
-        if self.upload_to_drive(excel_filename):
-            print("Uploaded Excel to Google Drive")
+        self.upload_to_drive(excel_filename)
+        print("Uploaded Excel to Google Drive")
 
 def create_credentials_file():
     credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
@@ -464,7 +464,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 
