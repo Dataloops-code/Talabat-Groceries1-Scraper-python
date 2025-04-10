@@ -18,7 +18,7 @@ from datetime import datetime
 # Set up logging
 logging.basicConfig(
     filename='scraper.log',
-    level=logging.INFO,
+    level=logging.DEBUG,  # Increased verbosity to debug scraping issues
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
@@ -34,7 +34,7 @@ class TalabatGroceries:
         try:
             link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=30000)
             full_link = self.base_url + await link_element.get_attribute('href') if link_element else None
-            logging.info(f"General link: {full_link}")
+            logging.info(f"General link found: {full_link}")
             return full_link
         except PlaywrightTimeoutError:
             logging.warning("Timeout waiting for general link")
@@ -47,8 +47,8 @@ class TalabatGroceries:
             delivery_fees = await delivery_fees_element.inner_text() if delivery_fees_element else "N/A"
             logging.info(f"Delivery fees: {delivery_fees}")
             return delivery_fees
-        except Exception:
-            logging.warning("Failed to get delivery fees")
+        except Exception as e:
+            logging.error(f"Failed to get delivery fees: {e}")
             return "N/A"
 
     async def get_minimum_order(self, page):
@@ -58,8 +58,8 @@ class TalabatGroceries:
             minimum_order = await minimum_order_element.inner_text() if minimum_order_element else "N/A"
             logging.info(f"Minimum order: {minimum_order}")
             return minimum_order
-        except Exception:
-            logging.warning("Failed to get minimum order")
+        except Exception as e:
+            logging.error(f"Failed to get minimum order: {e}")
             return "N/A"
 
     async def extract_category_names(self, page):
@@ -68,10 +68,10 @@ class TalabatGroceries:
             await page.wait_for_selector('//span[@data-testid="category-name"]', timeout=30000)
             category_name_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
             category_names = [await element.inner_text() for element in category_name_elements]
-            logging.info(f"Extracted {len(category_names)} category names")
+            logging.info(f"Extracted {len(category_names)} category names: {category_names}")
             return category_names
-        except Exception:
-            logging.warning("Failed to extract category names")
+        except Exception as e:
+            logging.error(f"Failed to extract category names: {e}")
             return []
 
     async def extract_category_links(self, page):
@@ -80,10 +80,10 @@ class TalabatGroceries:
             await page.wait_for_selector('//a[@data-testid="category-item-container"]', timeout=30000)
             category_link_elements = await page.query_selector_all('//a[@data-testid="category-item-container"]')
             category_links = [self.base_url + await element.get_attribute('href') for element in category_link_elements]
-            logging.info(f"Extracted {len(category_links)} category links")
+            logging.info(f"Extracted {len(category_links)} category links: {category_links}")
             return category_links
-        except Exception:
-            logging.warning("Failed to extract category links")
+        except Exception as e:
+            logging.error(f"Failed to extract category links: {e}")
             return []
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
@@ -105,12 +105,14 @@ class TalabatGroceries:
                 await page.goto(page_url, timeout=60000)
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 item_elements = await page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow" and contains(@href, "/product/")]')
-                for element in item_elements[:10]:
-                    item_name = await (await element.query_selector('div[data-test="item-name"]') or element).inner_text() or "Unknown Item"
+                logging.debug(f"Found {len(item_elements)} item elements on page {page_number}")
+                for element in item_elements[:10]:  # Still limited for testing; remove if full scrape needed
+                    item_name_element = await element.query_selector('div[data-test="item-name"]') or element
+                    item_name = await item_name_element.inner_text() or "Unknown Item"
                     item_link = self.base_url + await element.get_attribute('href')
                     item_details = await self.extract_item_details(item_link)
                     items.append({"item_name": item_name, "item_link": item_link, **item_details})
-                logging.info(f"Extracted {len(item_elements)} items from page {page_number}")
+                logging.info(f"Extracted {len(items)} items from page {page_number}")
             return items
         except Exception as e:
             logging.error(f"Error extracting items from {sub_category_link}: {e}")
@@ -131,6 +133,7 @@ class TalabatGroceries:
             time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
             delivery_time = await time_element.inner_text() if time_element else "N/A"
             item_images = [await img.get_attribute('src') for img in await page.query_selector_all('//img[contains(@class, "item-image")]') if await img.get_attribute('src')]
+            logging.debug(f"Item details: price={item_price}, desc={item_description}, time={delivery_time}, images={item_images}")
             return {
                 "item_price": item_price,
                 "item_description": item_description,
@@ -150,7 +153,7 @@ class TalabatGroceries:
             await page.wait_for_load_state("networkidle", timeout=60000)
             sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
             sub_categories = []
-            for element in sub_category_elements[:5]:
+            for element in sub_category_elements[:5]:  # Still limited for testing; remove if full scrape needed
                 sub_category_name = await element.inner_text()
                 sub_category_link = self.base_url + await element.get_attribute('href')
                 items = await self.extract_all_items_from_sub_category(sub_category_link)
@@ -175,9 +178,10 @@ class TalabatGroceries:
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 category_names = await self.extract_category_names(page)
                 category_links = await self.extract_category_links(page)
-                for name, link in zip(category_names[:3], category_links[:3]):
+                for name, link in zip(category_names[:3], category_links[:3]):  # Still limited; remove if full scrape needed
                     sub_categories = await self.extract_sub_categories(page, link)
                     categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
+            logging.debug(f"Categories extracted: {categories_data}")
             return {"delivery_fees": delivery_fees, "minimum_order": minimum_order, "categories": categories_data}
         except Exception as e:
             logging.error(f"Error extracting categories: {e}")
@@ -295,7 +299,7 @@ class MainScraper:
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
 
-        for grocery_idx, grocery in enumerate(groceries_on_page[:2]):
+        for grocery_idx, grocery in enumerate(groceries_on_page):  # Removed [:2] limit
             grocery_num = grocery_idx + 1
             if grocery_num <= start_grocery:
                 continue
@@ -375,6 +379,7 @@ class MainScraper:
                 delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
                 if link:
                     groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": delivery_time})
+            logging.info(f"Extracted {len(groceries_info)} groceries: {[g['grocery_title'] for g in groceries_info]}")
             return groceries_info
         except Exception as e:
             logging.error(f"Error extracting groceries: {e}")
@@ -403,11 +408,14 @@ class MainScraper:
                             "Item Description": item.get("item_description", "N/A"),
                             "Item Link": item.get("item_link", "N/A")
                         })
+        logging.debug(f"Simplified data for Excel: {simplified_data}")
         if simplified_data:
             df = pd.DataFrame(simplified_data)
             for r_idx, row in enumerate(dataframe_to_rows(df, index=False, header=True), 1):
                 for c_idx, value in enumerate(row, 1):
                     sheet.cell(row=r_idx, column=c_idx, value=value)
+        else:
+            logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
 
     def upload_to_drive(self, file_path):
         print(f"Uploading {file_path} to Google Drive...")
@@ -464,7 +472,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 # import asyncio
