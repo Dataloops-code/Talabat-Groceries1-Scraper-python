@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T12:52:36.338388",
+  "last_updated": "2025-04-10T15:13:27.429449",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
+    "current_grocery": 5,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Cakes",
+    "current_sub_category": "Popcorn",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -38,6 +38,38 @@
       "Sala Market": {
         "Chocolate & Candy ": [
           "Chocolate"
+        ],
+        "Snacks": [
+          "Chocolate"
+        ]
+      },
+      "Candy mart": {
+        "Bakery": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
+          "Cakes",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
         ]
       }
     }
