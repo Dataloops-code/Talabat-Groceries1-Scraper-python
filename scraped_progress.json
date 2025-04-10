@@ -1,0 +1,503 @@
+{
+  "completed_areas": [],
+  "current_area_index": 0,
+  "last_updated": "2025-04-10T12:52:36.338805",
+  "all_results": {
+    "الظهر": {
+      "Ghozlan Al Egaila Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
+        "delivery_time": "N/A",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": [
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/freshly-baked?aid=59",
+              "sub_categories": [
+                {
+                  "sub_category_name": "Special Diet",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/organic-special-diet/special-diet?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "Steviana Sweetener Slim 37.5 g x 25 Sticks",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/steviana-sweetener-slim-375-g-x-25-sticks/s/5285000910237?aid=59",
+                      "item_price": "1.950",
+                      "item_description": "Natural sweetener from stevia leaves. Steviana is sweetener that contain of stevia rebaudiana which is an outstanding sweet tasting herb that has remarkable health promoting qualities, contains zero calories. It has many favorable and exciting health benefits and is completely non toxic. INGREDIENTS: Stevia Leaves Extract• Acesulfame Potassium• Sucralose And Sorbitol. STORAGE INSTRUCTIONS: Keep In A Cool And Dry Place",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_5285000910237.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Netscribe%20Images%28don%27t%20touch%29/Other%201/5285000910237_1.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sweet'N Low Sachets 200 Sachets 160 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sweetn-low-sachets-200-sachets-160-g/s/5011862872020?aid=59",
+                      "item_price": "5.950",
+                      "item_description": "Low calorie sugar similar to the taste of your regular sugar with a sweet sensation that is specifically for diabetics weight watchers and green lovers - 200 Pcs",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-5011862872020.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Freshly Baked",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/freshly-baked?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "KFM Arabic White Bread, 75g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-arabic-white-bread-75g/s/6271003081011?aid=59",
+                      "item_price": "0.050",
+                      "item_description": "Plain white arabic bread made from quality local flour",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a5c547f2c37c8a5088edcb.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Soft Bread, 300g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-white-soft-bread-300g/s/4901515118968?aid=59",
+                      "item_price": "0.050",
+                      "item_description": "• Fresh and Soft: KFM White Soft Bread is baked fresh daily for a consistently soft texture. • Versatile Flavor: Its subtly sweet and mild flavor pairs well with a variety of spreads and fillings. • Nutrient-Rich: Each 300g loaf is packed with essential nutrients, contributing to a balanced diet. • Long Shelf Life: This bread remains fresh for longer, reducing waste and promoting convenience.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e2b45207ada6dba36d04d8.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Toast",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/toast?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "L'usine White Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-white-sliced-bread-600g/s/6281100081036?aid=59",
+                      "item_price": "0.990",
+                      "item_description": "Pack 1 x 600 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6281100081036.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/615d9c2123fbc74443853f60.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914591.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Sliced Milk Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-sliced-milk-bread-600g/s/6281007036849?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "Product Descriptions: Make yourself a delicious and healthy breakfast each morning with the Lusine Sliced Milk Bread. This bread is made from the choicest of ingredients and the goodness of milk. This makes the bread a highly nutritious meal for the morning. The bread slices provide you with ample energy to function enthusiastically all throughout the day. You can eat this bread as it is or toast it and spread some butter, jam or other seasonings. The delicious taste of these bread slices also makes your little one eat it without any fuss. Benefits: • Made from high-quality ingredients for softness • Loaded with the goodness of milk for making the bread healthy • Provides energy and nourishment to your body • Ideal pick for your child's lunch box • Tasty bread slices make a lovely breakfast",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KWPD5EDK.png?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0c4ec6b6f22ea491e91.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0e9ec6b6f22ea491e92.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Toast Bread Square, 450g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-white-toast-bread-square-450g/s/6271003041060?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "Description: •Enjoy the superior quality and taste of KFM Square White Bread Toast. •Hailing from the trusted house of Kuwait Flour Mills, this premium white bread is all you need for a delightful breakfast or fulfilling sandwich. •Responsibly crafted in a square shape for convenience, this bread is soft, fluffy and full of flavour. •Made according to the highest standards of quality, each slice promises to elevate your everyday meals. •Step into the world of KFM and delight in a toast experience like never before. Ingredients: Wheat Flour Fortified With Iron And Folic Acid• Water• Sugar• Vegetable Oil• Salt• Yeast• Skimmed Milk Powder Or Its Derivatves• Wheat Gluten• Vegetable Bread Improver (E300-E 481)• Vegetable Emulsifiers (E471- E472E) And Preservative (E282). How to use: Ready to eat. Storage Instructions: Keep refrigerated.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d6fbb088d2ba7e05f1725.jpg-1200Wx1200H?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d6fbc088d2ba7e05f1726.jpg-1200Wx1200H?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Brown Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-brown-sliced-bread-600g/s/6281100081029?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "This classic everyday brown bread is a rich source of fibre and is bursting with delicious goodness. It's sliced and perfect for making sandwiches and toast. Superior quality ingredients make the bread healthy. Loaded with nutrients for an energetic start to the day. Easy to digest healthy and delicious bread for breakfast and supper - 600 gm.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A6C9.png?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914590.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/6526dcede455c96e26f62f9b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Rusk 315 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sara-cake-rusk-315-g/s/6271026101147?aid=59",
+                      "item_price": "1.450",
+                      "item_description": "Quick and easy snack ideal with a cup of tea. Made of high quality materials with the most modern technology to give you a delicious cake in its freshest state - 315 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/612f2e6a2a70f6a0d2af5edc.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Diet Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-diet-rusk-400g/s/2002283109218?aid=59",
+                      "item_price": "1.390",
+                      "item_description": "• Al Faysal Diet Rusk comes in a generous 400g pack, providing long-lasting enjoyment. • Made with high-quality ingredients, it offers a delicious and satisfying taste. • With a low-calorie count, these Rusks support your healthy lifestyle and diet plans. • Convenient and ready-to-eat, Al Faysal Diet Rusk is perfect for snacking on the go or as a complement to your favorite beverages.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953eb69cfd64741b7dc4f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Sweet Baksam with Sesame, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-sweet-baksam-with-sesame-1kg/s/2002283108310?aid=59",
+                      "item_price": "1.690",
+                      "item_description": "Indulge in the rich, traditional taste of Al Faysal Sweet Baksam with Sesame. This 1 kg pack offers a delightful blend of sweet and nutty flavors, perfect for satisfying your sweet tooth. Each piece is carefully crafted with the finest ingredients, featuring a scrumptious layer of sesame seeds that adds a unique crunch and an extra layer of flavor. Ideal for sharing with family and friends or for special occasions, this sweet treat is sure to impress. So, treat yourself and your loved ones to this delicious and authentic Middle Eastern delicacy.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fb69cfd64741b7dd14.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Black Cumin Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-black-cumin-rusk-400g/s/2002283107115?aid=59",
+                      "item_price": "1.390",
+                      "item_description": "Al Faysal Rusk Black Cumin is a delightful snack perfect for any time of the day. Each pack contains 400g of crispy, light rusks infused with the aromatic flavor of black cumin. These rusks are baked to perfection, offering a satisfying crunch with every bite. They are an excellent accompaniment to your tea or coffee, and can also be enjoyed on their own. The black cumin adds a unique twist, enhancing the overall taste and making it a delightful treat. Al Faysal Rusk Black Cumin is packaged in a convenient, resealable bag to maintain freshness and crunchiness. Enjoy a wholesome snack with a distinct taste!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4d.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Rusk Bag, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-rusk-bag-400g/s/2002283106118?aid=59",
+                      "item_price": "1.390",
+                      "item_description": "• Al Faysal Rusk Bag contains 400g of crispy and light rusk. • These rusks are baked to perfection, providing a satisfying crunch at every bite. • Our rusk are ideal for pairing with your favorite tea or coffee, enhancing your snack time. • Conveniently packed in a resealable bag for lasting freshness and easy storage.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Baksam, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-baksam-1kg/s/2002283101717?aid=59",
+                      "item_price": "1.690",
+                      "item_description": "• Al Faysal Baksam is a 1kg product, offering a generous quantity, ideal for large families or frequent use. • Capturing authentic Middle Eastern flavor, it allows you to bring exotic cuisine right into your home kitchen. • Its well-packaged design ensures the product remains fresh and retains its potent flavor over time. • The product is sourced from high-quality ingredients, resulting in a rich and robust taste.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953e069cfd64741b7dbce.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Original Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-original-toast-with-vitamin-d3/s/06271003041183?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "• Delicious Treat: KFM Original Toast is a scrumptious blend of crunchiness and lightness, made to satisfy your cravings. • Enriched with Vitamin D3: Formulated with Vitamin D3, it helps in promoting healthy bones and teeth, and boosting your immune system. • Healthy Option: It is low in sugar and saturated fats, making it a nutritious and heart-healthy snack for all ages. • Convenient Packaging: Comes in a resealable packet, ensuring the toasts stay fresh and crispy for longer. Enjoy it anytime, anywhere.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041183.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Plain Burger Bun, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-plain-burger-bun-400g/s/06281007042864?aid=59",
+                      "item_price": "0.790",
+                      "item_description": "Description: •These buns are so good that the whole family will love them •Delivers consistently delicious flavour •Enriched with high-quality ingredients that make eating an amazing experience Ingredients: Wheat flour• water• sugar• yeast• wheat gluten• vegetable oil (palm)• salt• full fat soya flour• emulsifiers (vegetable oil origin E471• E472e• E481)• preservative 9E282)• flour treatment agent 9E300). Storage Instructions: Keep in a cool & dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914601.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Buns & Rolls",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/buns-rolls?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "KFM White Hot Dog Roll Bread Small, 6 Pieces",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-white-hot-dog-roll-bread-small-6-pieces/s/6271003044016?aid=59",
+                      "item_price": "0.250",
+                      "item_description": "Product Description: Kuwait Flour Mills And Bakeries White Hot Dog Roll Bread is soft, spongy, has a crisp crust and is perfect to be your morning breakfast buddy. Freshly baked with handpicked ingredients, this big bread loaf is great to make tasty snacks. Toast it with butter or have it with jam. You can also go all the way to make great sandwiches with your favourite spread and veggies. Grill it, toast it or even make plain bread sandwiches. Ingredients: Enriched Wheat Flour (Wheat Flour, Malted Barley Flour, Niacin, Iron, Thiamin Mononitrate, Riboflavin, Folic Acid), Water, Sugar, Soybean Oil, Wheat Gluten, Contains 2% Or Less Of The Following: Yeast, Salt, Dough Conditioners (Monoglycerides, Sodium Stearoyl Lactylate, Ascorbic Acid, Calcium Peroxide, Enzymes), Calcium Propionate (Preservative), Yeast Nutrients (Monocalcium Phosphate, Calcium Sulfate, Ammonium Sulfate). Storage Condition: Keep Frozen Brand Message: Since its independence in 1961, the State of Kuwait has taken major steps in enhancing food security. Kuwait Flour Mills Company, which later was merged with the Kuwait Bakeries Company in 1990 (KFMB), became a key pillar of the food industry in the State of Kuwait.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/610109733431b64aecbea44d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/65951ad039b388b71267f3a9.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine White Sandwich Roll, 200g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-white-sandwich-roll-200g/s/6281007042840?aid=59",
+                      "item_price": "0.490",
+                      "item_description": "Pack 1 x 200 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Almarai/6281007042840.png?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A847.png?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914604.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Hamburger Buns, 8x480g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kfm-hamburger-buns-8x480g/s/6271003042012?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "Seasame Burger Buns - 480 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/619a3b095854c098cb410334.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Sesame Burger Bun, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/lusine-sesame-burger-bun-400g/s/6281007042871?aid=59",
+                      "item_price": "0.790",
+                      "item_description": "Description: •l'usine Sesame Seed Burger Buns is made from finest quality ingredient •Enjoy this sumptuous bread by sharing it with your friends Ingredients: Wheat flour• water• sugar• yeast• wheat gluten• sesame seeds• vegetable oil (palm)• salt• full fat soya flour• preservative 9E282)• emulsifiers (Vegetable oil origin E471• E472e• E481)• flour treatment agent 9E300). Storage Instructions: Keep in a cool & dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914600.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Cakes",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/cakes?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "Kinder Delice Cacao Cake, 39g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/kinder-delice-cacao-cake-39g/s/8000500267035?aid=59",
+                      "item_price": "0.490",
+                      "item_description": "Make the little moments count with the Kinder Delice bar! Kinder Delice is a delicious candy bar sure to indulge your chocolaty craving. A layer of rich chocolate coating breaks to reveal a soft cocoa sponge cake with a milky centre that can be enjoyed by both adults and kids. Treat yourself and your loved ones to a delicious snack at home or on the go. Pack it in your child's school bag for a tasty surprise or take it with you on bike rides and days out to satisfy little hunger. Kinder Delice is made from a unique fulfilling recipe with no artificial colour or preservatives. A perfect treat for all ages!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Tmart_Oman/08000500267035.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Vanilla Cake Slices 200 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sara-cake-vanilla-cake-slices-200-g/s/6271026081074?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "Slice is incredibly moist flavorful and tastes like home. You'll love the smooth texture and the sweet delicious vanilla taste of this cake bar. Perfect as a snack with coffee or tea - 2 x 200 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_905620.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/al-faysal-slice-cake-90g/s/2001176070611?aid=59",
+                      "item_price": "0.340",
+                      "item_description": "• Al Faysal Slice Cake is a delightful 90g snack, perfect for on-the-go munching. • This treat comes in a compact, easy-to-open packaging ensuring freshness and convenience. • Crafted with premium ingredients, offering the delectable taste of a homemade slice cake. • Savor the delightful blend of flavors, making it a great accompaniment for coffee or tea.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fc69cfd64741b7dd46.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Chocolate Cake Slices 200 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sara-cake-chocolate-cake-slices-200-g/s/6271026082071?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "Lice is incredibly moist flavorful and tastes like home. You'll love the smooth texture and the sweet delicious chocolate taste of this cake bar. Perfect as a snack with coffee or tea - 2 x 200 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e6f2bd2acb530d462a573f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Milk Cake, 30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/barni-milk-cake-30g/s/7622300660970?aid=59",
+                      "item_price": "0.390",
+                      "item_description": "Discover the World of Barni. Barni Cake with Milk features a bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with milk filling can be served as a dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b718fc84edaf6e0476.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b918fc84edaf6e0477.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91ba18fc84edaf6e0478.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bb18fc84edaf6e0479.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bc18fc84edaf6e047a.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Milk Cake, 12x30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/barni-milk-cake-12x30g/s/7622210282644?aid=59",
+                      "item_price": "3.980",
+                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90b718fc84edaf6e00e9.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90b918fc84edaf6e00ea.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90ba18fc84edaf6e00eb.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90bb18fc84edaf6e00ec.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90bc18fc84edaf6e00ed.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Chocolate Cake, 12x30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/barni-chocolate-cake-12x30g/s/7622210282682?aid=59",
+                      "item_price": "3.980",
+                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90c818fc84edaf6e012a.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90c818fc84edaf6e012b.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90c918fc84edaf6e012c.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90ca18fc84edaf6e012d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee90ca18fc84edaf6e012e.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Switz Party Vanilla Cake, 70g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/switz-party-vanilla-cake-70g/s/6281123033227?aid=59",
+                      "item_price": "0.320",
+                      "item_description": "Indulge your taste buds with the Switz Party Cake in Vanilla flavor. This 70g cake is perfect for those who love a sweet treat without the guilt. Its light and fluffy texture, combined with the rich, creamy taste of vanilla, makes it a delightful snack for any time of the day. Each bite will transport you to a world of pure indulgence. The Switz Party Cake is also a great option for celebrations or a quick dessert for unexpected guests. It's conveniently packaged, ensuring freshness and easy transportation. So, whether you're at home, at work, or on the go, you can enjoy a slice of this heavenly cake. Give in to your sweet cravings with the Switz Party Cake Vanilla.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6281123033227.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Banana Walnut Muffin Cake",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sabahoo-banana-walnut-muffin-cake/s/6281123034934?aid=59",
+                      "item_price": "0.490",
+                      "item_description": "- Made with luscious ripe bananas and crunchy walnuts, providing a delightful taste and texture - Individually wrapped for freshness, ensuring each muffin is perfectly moist every time - Handmade using all-natural ingredients for a guilt-free indulgent treat - Perfect for breakfast, a snack, or a dessert, offering a versatile choice for all hours of the day",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/616298c920c92d0f83b8c1b3.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Butter Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sabahoo-butter-slice-cake-90g/s/6281123034279?aid=59",
+                      "item_price": "0.490",
+                      "item_description": "Indulge in the delightful taste of Sabahoo's Butter Slice Cake. This 90g package is filled with a moist, buttery cake that melts in your mouth, offering a delicious treat that's perfect for any time of the day. The cake is baked to perfection, with a rich buttery flavor that's not too sweet, making it a great companion for your coffee or tea. Sabahoo uses only the finest ingredients, ensuring a high-quality product that you can enjoy guilt-free. The cake is individually wrapped, making it easy to pack for a quick snack on-the-go. Whether you're looking for a sweet treat to enjoy at home, or you need a convenient snack for your busy day, Sabahoo's Butter Slice Cake is a delightful choice.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d0694628b3c65fad7afdb?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d0695628b3c65fad7afdc?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Chocolate Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sabahoo-chocolate-slice-cake-90g/s/6281123034262?aid=59",
+                      "item_price": "0.490",
+                      "item_description": "Indulge your sweet tooth with Sabahoos Chocolate Cake slice. This delectable treat is made from high-quality ingredients, featuring a rich, moist chocolate sponge layered with creamy chocolate frosting. Each bite sends waves of heavenly cocoa flavor that melts smoothly in your mouth. The cake is perfect for a quick snack, a dessert after a meal, or a treat to satisfy your midnight cravings. Note: This product contains eggs, dairy, and wheat, so it may not be suitable for those with allergies to these ingredients. Enjoy the perfect balance of sweetness and chocolatey goodness with Sabahoos Chocolate Cake slice.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a5d390540689bfedaa6895.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Mini Vanilla Swiss Roll, 12x20g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/7days-mini-vanilla-swiss-roll-12x20g/s/6281183000306?aid=59",
+                      "item_price": "1.980",
+                      "item_description": "Get ready to indulge in the delightful taste of 7 Days Swiss Roll with Vanilla Filling. This pack contains 12 individually wrapped Swiss Rolls, each weighing 20g, perfect for a quick snack on the go or a sweet treat after a meal. Made with soft, fluffy sponge cake, these Swiss Rolls are filled with a creamy, rich vanilla filling that melts in your mouth with every bite. The combination of the moist cake and the smooth vanilla cream delivers a harmonious blend of taste and texture that will leave you craving for more. These Swiss Rolls are perfect for school lunches, office snacks, or just to satisfy your sweet tooth. Enjoy a moment of bliss with 7 Days Swiss Roll with Vanilla Filling.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_914424v1.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Fruit Cake Slices 200 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/sara-fruit-cake-slices-200-g/s/6271026083078?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "Savor the taste of Saras Fruit Cake Slices, a 200g pack of delight that brings the essence of homemade baking to your table. Each slice is a blend of rich, moist cake infused with a variety of succulent fruits. The perfect balance of sweetness and texture makes it a delightful treat for any time of the day. Whether its a quick breakfast, a mid-afternoon snack, or a dessert after dinner, these fruit cake slices are sure to satisfy your sweet tooth. The package is easy to open and resealable, ensuring the slices stay fresh for longer. Enjoy the convenience and deliciousness of Saras Fruit Cake Slices.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e6ec85c1cab2f2d9cec195.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Mini Chocolate Swiss Roll, 12x20g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/7days-mini-chocolate-swiss-roll-12x20g/s/06281183001655?aid=59",
+                      "item_price": "1.980",
+                      "item_description": "Description: •Incredibly delicious sweet treat that has a chocolate flavour •Convenient to carry for a quick snack at any time •It is ideal to pass around at a picnic tea and can even be consumed as dessert after your regular meal Ingredients: Sugar• Water• Glucose Syrup• Vegetable Oil (Palm)• Wheat Flour• Wheat Starch• Humectants (E420• E422• E1520)• Cocoa Powder• Sunflower Oil• Whole Egg Powder• Glucose Fructose Syrup• Dextrose• Emulsifier: Vegetable Oil Origin: E471• Soya Lecithin• E475• E477• E470a• E492)• Raising Agents (E450• E500• E503(ii))• Preservative (E202• E282• E330)• Skim Milk Powder• Salt• Cocoa Butter• Natural And Artificial Vanilla Flavour• Stabilizer(e415)• Natural Flavour (Vanilla) Storage Instructions: Store in a cool, dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61adadcbe7788d0b4d959c4c.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914638.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Chocolate Mini Swiss Roll, 20g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/7days-chocolate-mini-swiss-roll-20g/s/06281183001648?aid=59",
+                      "item_price": "0.170",
+                      "item_description": "• Drizzled with lines of chocolate sauce on top to accentuate the flavours • Prepared from carefully sourced ingredients for a delightful taste • Features a thin layer of sponge cake with a cocoa filling • Serve as is or top it with nuts and raisins to create a delicious dessert serving",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/654765ffc961dcb8a4d36a2b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Strawberry Mini Swiss Roll, 20g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/7days-strawberry-mini-swiss-roll-20g/s/6281183000276?aid=59",
+                      "item_price": "0.170",
+                      "item_description": "• Smooth-textured thin sponge melts in your mouth with every bite • Delicious strawberry filling features a combination of sweet and tart flavours • Ideal dessert treat for tea time, lunch, and various other occasions • Baked from the finest ingredients for a savoury taste",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61acb50b0a695bec6e218fc9.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914636.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Vanilla Pound Cake, 2x300g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/americana-vanilla-pound-cake-2x300g/s/06281033453610?aid=59",
+                      "item_price": "3.990",
+                      "item_description": "Indulge in the sweet, comforting taste of Americana Pound Cake Vanilla. This delightful pack contains two 300g cakes, making it a perfect treat for sharing or satisfying your sweet tooth. These cakes are crafted with high-quality ingredients, ensuring a rich, moist, and delicious vanilla flavor that will leave you craving more. The Americana Pound Cake Vanilla is carefully baked to perfection, offering a soft and fluffy texture that melts in your mouth. Whether you're hosting a tea party, looking for a quick snack, or want a dessert to pair with your coffee, these cakes are a fantastic choice. This special offer allows you to enjoy more of your favorite vanilla pound cake without breaking the bank. Treat yourself to the decadent flavor of Americana Pound Cake Vanilla today!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6739a775b79dcfd1fe085ea6.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Vanilla Mini Swiss Roll, 20g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/product/7days-vanilla-mini-swiss-roll-20g/s/06281183000290?aid=59",
+                      "item_price": "0.170",
+                      "item_description": "• Baked from the finest ingredients for a savoury taste • Smooth-textured thin sponge melts in your mouth with every bite • Delicious vanilla filling satiates your sweet tooth cravings • Ideal dessert treat for tea time, lunch, and various other occasions • Hygienically packed to preserved its quality",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61010b58c91f2e17c6cb5f21.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Netscribe%20Images%28don%27t%20touch%29/Other%201/6281183000290_1.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914637.jpg?size=122"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "current_progress": {
+    "area_name": "الظهر",
+    "current_grocery": 3,
+    "total_groceries": 20,
+    "processed_groceries": [],
+    "current_category": "Bakery",
+    "current_sub_category": "Cakes",
+    "completed_categories": {
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Eggs"
+        ],
+        "Bakery": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes"
+        ]
+      },
+      "Sala Market": {
+        "Chocolate & Candy ": [
+          "Chocolate"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "completed_areas": [],
+  "current_area_index": 0,
+  "last_updated": "2025-04-10T12:52:36.338388",
+  "current_progress": {
+    "area_name": "الظهر",
+    "current_grocery": 3,
+    "total_groceries": 20,
+    "processed_groceries": [],
+    "current_category": "Bakery",
+    "current_sub_category": "Cakes",
+    "completed_categories": {
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Eggs"
+        ],
+        "Bakery": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes"
+        ]
+      },
+      "Sala Market": {
+        "Chocolate & Candy ": [
+          "Chocolate"
+        ]
+      }
+    }
+  }
+}
