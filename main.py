@@ -9,7 +9,6 @@ from typing import Dict, List
 import pandas as pd
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
-from openpyxl.utils import get_column_letter
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from SavingOnDrive import SavingOnDrive
 import logging
@@ -199,6 +198,11 @@ class MainScraper:
         self.scraped_progress = self.load_scraped_progress()
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.ensure_playwright_browsers()
+        # Force reset completed_areas to ensure scraping
+        self.current_progress["completed_areas"] = []
+        self.scraped_progress["completed_areas"] = []
+        self.save_current_progress()
+        self.save_scraped_progress()
 
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
@@ -264,10 +268,6 @@ class MainScraper:
             subprocess.run(["git", "push"], check=True, env={"GIT_AUTH_TOKEN": self.github_token})
             print(f"Committed progress: {message}")
 
-    def print_progress_details(self):
-        with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
-            print("\nCurrent Progress:", json.dumps(json.load(f), indent=2))
-
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         all_area_results = self.scraped_progress["all_results"].get(area_name, {})
@@ -298,6 +298,7 @@ class MainScraper:
         current_progress["total_groceries"] = len(groceries_on_page)
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
+        await page.close()  # Close initial page after getting groceries
 
         for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
@@ -311,14 +312,17 @@ class MainScraper:
             scraped_current_progress["current_grocery"] = grocery_num
             print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title}")
 
+            # Use a fresh page for each grocery
+            grocery_page = await browser.new_page()
             talabat_grocery = TalabatGroceries(grocery["grocery_link"], browser)
-            grocery_details = await talabat_grocery.extract_categories(page)
+            grocery_details = await talabat_grocery.extract_categories(grocery_page)
             all_area_results[grocery_title] = {
                 "grocery_link": grocery["grocery_link"],
                 "delivery_time": grocery["delivery_time"],
                 "grocery_details": grocery_details
             }
-            await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, page)
+            await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page)
+            await grocery_page.close()
 
             current_progress["processed_groceries"].append(grocery_title)
             scraped_current_progress["processed_groceries"].append(grocery_title)
@@ -327,7 +331,6 @@ class MainScraper:
             self.save_scraped_progress()
             self.commit_progress(f"Processed {grocery_title}")
 
-        await page.close()
         json_filename = os.path.join(self.output_dir, f"{area_name}.json")
         with open(json_filename, 'w', encoding='utf-8') as f:
             json.dump(all_area_results, f, indent=2)
@@ -437,11 +440,6 @@ class MainScraper:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             for idx, (area_name, area_url) in enumerate(ahmadi_areas):
-                # Temporarily ignore completed_areas to force scraping
-                # if area_name in self.current_progress["completed_areas"]:
-                #     continue
-                self.current_progress["completed_areas"] = []  # Reset for this run
-                self.scraped_progress["completed_areas"] = []  # Reset for this run
                 self.current_progress["current_area_index"] = idx
                 self.scraped_progress["current_area_index"] = idx
                 area_results = await self.scrape_and_save_area(area_name, area_url, browser)
@@ -475,7 +473,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 # import asyncio
