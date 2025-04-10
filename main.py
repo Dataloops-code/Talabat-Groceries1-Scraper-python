@@ -15,8 +15,6 @@ from SavingOnDrive import SavingOnDrive
 import logging
 from datetime import datetime
 
-nest_asyncio.apply()
-
 # Set up logging
 logging.basicConfig(
     filename='scraper.log',
