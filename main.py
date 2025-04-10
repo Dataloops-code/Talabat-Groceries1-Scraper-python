@@ -136,21 +136,33 @@ class TalabatGroceries:
                         sub_categories.append(sub_category_data)
 
                         # Update current_progress
+                        print(f"Before update - current_progress: {json.dumps(main_scraper.current_progress, indent=2)}")
                         main_scraper.current_progress["current_progress"]["current_sub_category"] = sub_category_name
-                        main_scraper.current_progress["current_progress"]["completed_categories"].setdefault(grocery_title, {}).setdefault(category_info["name"], []).append(sub_category_name)
+                        completed_cats = main_scraper.current_progress["current_progress"]["completed_categories"].setdefault(grocery_title, {})
+                        completed_cats.setdefault(category_info["name"], []).append(sub_category_name)
                         main_scraper.scraped_progress["current_progress"]["current_sub_category"] = sub_category_name
-                        main_scraper.scraped_progress["current_progress"]["completed_categories"].setdefault(grocery_title, {}).setdefault(category_info["name"], []).append(sub_category_name)
+                        main_scraper.scraped_progress["current_progress"]["completed_categories"] = main_scraper.current_progress["current_progress"]["completed_categories"]
 
                         # Update scraped_progress with the new sub-category data
                         area_name = main_scraper.current_progress["current_progress"]["area_name"]
                         if area_name:
-                            grocery_data = main_scraper.scraped_progress["all_results"].get(area_name, {}).get(grocery_title, {})
-                            if "grocery_details" in grocery_data and "categories" in grocery_data["grocery_details"]:
-                                for cat in grocery_data["grocery_details"]["categories"]:
-                                    if cat["name"] == category_info["name"]:
-                                        cat["sub_categories"] = sub_categories  # Replace with current sub-categories
-                                        break
-                            main_scraper.scraped_progress["all_results"].setdefault(area_name, {})[grocery_title] = grocery_data
+                            grocery_data = main_scraper.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {
+                                "grocery_link": self.url,
+                                "delivery_time": "N/A",  # Will be set later by MainScraper
+                                "grocery_details": {"delivery_fees": "N/A", "minimum_order": "N/A", "categories": []}
+                            })
+                            # Ensure categories are initialized if not present
+                            if not grocery_data["grocery_details"]["categories"]:
+                                grocery_data["grocery_details"]["categories"] = [{"name": cat["name"], "link": cat["link"], "sub_categories": []} for cat in category_info.get("categories", [category_info])]
+                            # Update sub-categories for the current category
+                            for cat in grocery_data["grocery_details"]["categories"]:
+                                if cat["name"] == category_info["name"]:
+                                    cat["sub_categories"] = sub_categories  # Replace with current sub-categories
+                                    break
+                            main_scraper.scraped_progress["all_results"][area_name][grocery_title] = grocery_data
+
+                        print(f"After update - current_progress: {json.dumps(main_scraper.current_progress, indent=2)}")
+                        print(f"After update - scraped_progress all_results: {json.dumps(main_scraper.scraped_progress['all_results'], indent=2)}")
 
                         # Save progress after each sub-category
                         main_scraper.save_current_progress()
@@ -632,7 +644,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 # import asyncio
