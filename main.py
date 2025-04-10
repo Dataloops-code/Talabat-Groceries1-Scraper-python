@@ -152,23 +152,64 @@ class TalabatGroceries:
                 page = await self.browser.new_page()
                 await page.goto(item_link, timeout=240000)
                 await page.wait_for_load_state("networkidle", timeout=240000)
-
-                item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
-                item_price = await item_price_element.inner_text() if item_price_element else "N/A"
-                print(f"Item price: {item_price}")
-
-                item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
-                item_description = await item_description_element.inner_text() if item_description_element else "N/A"
-                print(f"Item description: {item_description}")
-
+                # Add a small delay and scroll to ensure dynamic content loads
+                await page.wait_for_timeout(5000)  # Wait 5 seconds
+                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")  # Scroll to bottom
+                await page.wait_for_load_state("networkidle", timeout=240000)
+    
+                # Try multiple price selectors
+                price_selectors = [
+                    '//div[@class="price"]//span[@class="currency "]',
+                    '//span[contains(@class, "price")]',
+                    '//div[contains(@class, "price")]//text()'
+                ]
+                item_price = "N/A"
+                for selector in price_selectors:
+                    price_element = await page.query_selector(selector)
+                    if price_element:
+                        item_price = await price_element.inner_text()
+                        print(f"Item price found with selector '{selector}': {item_price}")
+                        break
+                if item_price == "N/A":
+                    print("No price found with any selector")
+    
+                # Try multiple description selectors
+                desc_selectors = [
+                    '//div[@class="description"]//p[@data-testid="item-description"]',
+                    '//div[contains(@class, "description")]//p',
+                    '//p[contains(@class, "description")]'
+                ]
+                item_description = "N/A"
+                for selector in desc_selectors:
+                    desc_element = await page.query_selector(selector)
+                    if desc_element:
+                        item_description = await desc_element.inner_text()
+                        print(f"Item description found with selector '{selector}': {item_description}")
+                        break
+                if item_description == "N/A":
+                    print("No description found with any selector")
+    
+                # Delivery time selector
                 delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
                 delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
                 print(f"Delivery time range: {delivery_time}")
-
-                item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
-                item_images = [await img.get_attribute('src') for img in item_image_elements]
-                print(f"Item images: {item_images}")
-
+    
+                # Image selector with fallback
+                image_selectors = [
+                    '//div[@data-testid="item-image"]//img',
+                    '//img[contains(@class, "item-image")]',
+                    '//img[@alt="product image"]'
+                ]
+                item_images = []
+                for selector in image_selectors:
+                    item_image_elements = await page.query_selector_all(selector)
+                    if item_image_elements:
+                        item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
+                        print(f"Item images found with selector '{selector}': {item_images}")
+                        break
+                if not item_images:
+                    print("No images found with any selector")
+    
                 await page.close()
                 return {
                     "item_price": item_price,
@@ -181,6 +222,7 @@ class TalabatGroceries:
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
+        print(f"Failed to extract details for {item_link} after all retries")
         return {
             "item_price": "N/A",
             "item_description": "N/A",
