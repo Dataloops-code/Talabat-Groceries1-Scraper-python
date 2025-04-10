@@ -1,14 +1,20 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T07:26:21.142000",
+  "last_updated": "2025-04-10T09:02:31.790778",
   "current_progress": {
-    "area_name": "الظهر",
+    "area_name": null,
     "current_grocery": 0,
     "total_groceries": 0,
     "processed_groceries": [],
-    "current_category": null,
+    "current_category": "Snacks & Candy",
     "current_sub_category": null,
-    "completed_categories": {}
+    "completed_categories": {
+      "Candy mart": {
+        "Bakery": [],
+        "Fruits & Vegetables": [],
+        "Snacks & Candy": []
+      }
+    }
   }
 }

@@ -1,0 +1,36 @@
+{
+  "Candy mart": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
+    "delivery_time": "31 mins",
+    "grocery_details": {
+      "delivery_fees": "N/A",
+      "minimum_order": "N/A",
+      "categories": [
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/snacks-candy/chips-dips?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Elite One Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
+    "delivery_time": "28 mins",
+    "grocery_details": {
+      "delivery_fees": "N/A",
+      "minimum_order": "N/A",
+      "categories": []
+    }
+  }
+}
