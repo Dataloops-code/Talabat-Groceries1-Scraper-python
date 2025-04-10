@@ -38,3 +38,4 @@ numpy>=1.22.0
 pandas>=2.2.0
 xlsxwriter>=3.1.2
 playwright==1.29.1
+openpyxl==3.1.2
