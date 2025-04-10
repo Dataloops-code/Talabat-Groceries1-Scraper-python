@@ -32,5 +32,39 @@
       "minimum_order": "N/A",
       "categories": []
     }
+  },
+  "Hala Store": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+    "delivery_time": "22 mins",
+    "grocery_details": {
+      "delivery_fees": "N/A",
+      "minimum_order": "N/A",
+      "categories": [
+        {
+          "name": "Deals",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Alfa Market": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=59",
+    "delivery_time": "30 mins",
+    "grocery_details": {
+      "delivery_fees": "N/A",
+      "minimum_order": "N/A",
+      "categories": []
+    }
   }
 }

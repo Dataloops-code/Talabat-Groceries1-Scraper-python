@@ -1,7 +1,9 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "الظهر"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T09:02:31.791141",
+  "last_updated": "2025-04-10T09:13:31.292854",
   "all_results": {
     "الظهر": {
       "Candy mart": {
@@ -37,6 +39,40 @@
           "minimum_order": "N/A",
           "categories": []
         }
+      },
+      "Hala Store": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+        "delivery_time": "22 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": [
+            {
+              "name": "Deals",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Alfa Market": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=59",
+        "delivery_time": "30 mins",
+        "grocery_details": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": []
+        }
       }
     }
   },
@@ -45,13 +81,13 @@
     "current_grocery": 0,
     "total_groceries": 0,
     "processed_groceries": [],
-    "current_category": "Snacks & Candy",
+    "current_category": "Fruits & Vegetables",
     "current_sub_category": null,
     "completed_categories": {
-      "Candy mart": {
+      "Hala Store": {
+        "Deals": [],
         "Bakery": [],
-        "Fruits & Vegetables": [],
-        "Snacks & Candy": []
+        "Fruits & Vegetables": []
       }
     }
   }
