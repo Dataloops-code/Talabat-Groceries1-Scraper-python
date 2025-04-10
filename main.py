@@ -168,10 +168,7 @@ class TalabatGroceries:
                     price_element = await page.query_selector(selector)
                     if price_element:
                         item_price = await price_element.inner_text()
-                        print(f"Item price found with selector '{selector}': {item_price}")
                         break
-                if item_price == "N/A":
-                    print("No price found with any selector")
     
                 # Try multiple description selectors
                 desc_selectors = [
@@ -184,15 +181,11 @@ class TalabatGroceries:
                     desc_element = await page.query_selector(selector)
                     if desc_element:
                         item_description = await desc_element.inner_text()
-                        print(f"Item description found with selector '{selector}': {item_description}")
                         break
-                if item_description == "N/A":
-                    print("No description found with any selector")
     
                 # Delivery time selector
                 delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
                 delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
-                print(f"Delivery time range: {delivery_time}")
     
                 # Image selector with fallback
                 image_selectors = [
@@ -205,10 +198,13 @@ class TalabatGroceries:
                     item_image_elements = await page.query_selector_all(selector)
                     if item_image_elements:
                         item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
-                        print(f"Item images found with selector '{selector}': {item_images}")
                         break
-                if not item_images:
-                    print("No images found with any selector")
+    
+                # Print in the desired format
+                print(f"Item price: {item_price}")
+                print(f"Item description: {item_description}")
+                print(f"Delivery time range: {delivery_time}")
+                print(f"Item images: {item_images}")
     
                 await page.close()
                 return {
@@ -228,8 +224,7 @@ class TalabatGroceries:
             "item_description": "N/A",
             "item_delivery_time_range": "N/A",
             "item_images": []
-        }
-
+        } 
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         retries = 3
