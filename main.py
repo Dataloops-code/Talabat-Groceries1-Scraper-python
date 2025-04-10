@@ -124,9 +124,12 @@ class TalabatGroceries:
         try:
             await page.goto(item_link, timeout=30000)
             await page.wait_for_load_state("networkidle", timeout=30000)
-            item_price = await (await page.query_selector('//div[contains(@class, "price")]//span'))?.inner_text() or "N/A"
-            item_description = await (await page.query_selector('//div[contains(@class, "description")]//p'))?.inner_text() or "N/A"
-            delivery_time = await (await page.query_selector('//div[@data-testid="delivery-tag"]//span'))?.inner_text() or "N/A"
+            price_element = await page.query_selector('//div[contains(@class, "price")]//span')
+            item_price = await price_element.inner_text() if price_element else "N/A"
+            desc_element = await page.query_selector('//div[contains(@class, "description")]//p')
+            item_description = await desc_element.inner_text() if desc_element else "N/A"
+            time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
+            delivery_time = await time_element.inner_text() if time_element else "N/A"
             item_images = [await img.get_attribute('src') for img in await page.query_selector_all('//img[contains(@class, "item-image")]') if await img.get_attribute('src')]
             return {
                 "item_price": item_price,
