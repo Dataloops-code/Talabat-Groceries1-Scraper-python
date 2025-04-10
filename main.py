@@ -14,7 +14,7 @@ from SavingOnDrive import SavingOnDrive
 import logging
 from datetime import datetime
 
-# Set up logging
+# Set up logging (used by MainScraper)
 logging.basicConfig(
     filename='scraper.log',
     level=logging.DEBUG,
@@ -26,165 +26,275 @@ class TalabatGroceries:
         self.url = url
         self.base_url = "https://www.talabat.com"
         self.browser = browser
-        logging.info(f"Initialized TalabatGroceries with URL: {self.url}")
+        print(f"Initialized TalabatGroceries with URL: {self.url}")
 
     async def get_general_link(self, page):
-        logging.info("Attempting to get general link")
-        try:
-            link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=30000)
-            full_link = self.base_url + await link_element.get_attribute('href') if link_element else None
-            logging.info(f"General link found: {full_link}")
-            return full_link
-        except PlaywrightTimeoutError:
-            logging.warning("Timeout waiting for general link")
-            return None
+        print("Attempting to get general link")
+        retries = 3
+        while retries > 0:
+            try:
+                link_element = await page.wait_for_selector('//a[@data-testid="view-all-link"]', timeout=60000)
+                if link_element:
+                    full_link = self.base_url + await link_element.get_attribute('href')
+                    print(f"General link found: {full_link}")
+                    return full_link
+                else:
+                    print("General link not found")
+                    return None
+            except Exception as e:
+                print(f"Error getting general link: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return None
 
     async def get_delivery_fees(self, page):
-        logging.info("Attempting to get delivery fees")
-        try:
-            delivery_fees_element = await page.query_selector('//div[contains(@class, "delivery-fee")]//span')
-            delivery_fees = await delivery_fees_element.inner_text() if delivery_fees_element else "N/A"
-            logging.info(f"Delivery fees: {delivery_fees}")
-            return delivery_fees
-        except Exception as e:
-            logging.error(f"Failed to get delivery fees: {e}")
-            return "N/A"
+        print("Attempting to get delivery fees")
+        retries = 3
+        while retries > 0:
+            try:
+                delivery_fees_element = await page.query_selector('xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[1]')
+                delivery_fees = await delivery_fees_element.inner_text() if delivery_fees_element else "N/A"
+                print(f"Delivery fees: {delivery_fees}")
+                return delivery_fees
+            except Exception as e:
+                print(f"Error getting delivery fees: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return "N/A"
 
     async def get_minimum_order(self, page):
-        logging.info("Attempting to get minimum order")
-        try:
-            minimum_order_element = await page.query_selector('//div[contains(@class, "minimum-order")]//span')
-            minimum_order = await minimum_order_element.inner_text() if minimum_order_element else "N/A"
-            logging.info(f"Minimum order: {minimum_order}")
-            return minimum_order
-        except Exception as e:
-            logging.error(f"Failed to get minimum order: {e}")
-            return "N/A"
+        print("Attempting to get minimum order")
+        retries = 3
+        while retries > 0:
+            try:
+                minimum_order_element = await page.query_selector('xpath=/html/body/div/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div[1]/div/div[2]/span[3]')
+                minimum_order = await minimum_order_element.inner_text() if minimum_order_element else "N/A"
+                print(f"Minimum order: {minimum_order}")
+                return minimum_order
+            except Exception as e:
+                print(f"Error getting minimum order: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return "N/A"
 
     async def extract_category_names(self, page):
-        logging.info("Attempting to extract category names")
-        try:
-            await page.wait_for_selector('//span[@data-testid="category-name"]', timeout=30000)
-            category_name_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
-            category_names = [await element.inner_text() for element in category_name_elements]
-            logging.info(f"Extracted {len(category_names)} category names: {category_names}")
-            return category_names
-        except Exception as e:
-            logging.error(f"Failed to extract category names: {e}")
-            return []
+        print("Attempting to extract category names")
+        retries = 3
+        while retries > 0:
+            try:
+                category_name_elements = await page.query_selector_all('//span[@data-testid="category-name"]')
+                category_names = [await element.inner_text() for element in category_name_elements]
+                print(f"Category names extracted: {category_names}")
+                return category_names
+            except Exception as e:
+                print(f"Error extracting category names: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
 
     async def extract_category_links(self, page):
-        logging.info("Attempting to extract category links")
-        try:
-            await page.wait_for_selector('//a[@data-testid="category-item-container"]', timeout=30000)
-            category_link_elements = await page.query_selector_all('//a[@data-testid="category-item-container"]')
-            category_links = [self.base_url + await element.get_attribute('href') for element in category_link_elements]
-            logging.info(f"Extracted {len(category_links)} category links: {category_links}")
-            return category_links
-        except Exception as e:
-            logging.error(f"Failed to extract category links: {e}")
-            return []
-
-    async def extract_all_items_from_sub_category(self, sub_category_link):
-        logging.info(f"Extracting items from sub-category: {sub_category_link}")
-        page = await self.browser.new_page()
-        try:
-            await page.goto(sub_category_link, timeout=60000)
-            await page.wait_for_load_state("networkidle", timeout=60000)
-            pagination_element = await page.query_selector('//ul[@class="paginate-wrap"]')
-            total_pages = 1
-            if pagination_element:
-                page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li")]//a')
-                total_pages = min(len(page_numbers), 3) if page_numbers else 1
-            logging.info(f"Found {total_pages} pages in sub-category")
-
-            items = []
-            for page_number in range(1, total_pages + 1):
-                page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
-                await page.goto(page_url, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
-                item_elements = await page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow" and contains(@href, "/product/")]')
-                logging.debug(f"Found {len(item_elements)} item elements on page {page_number}")
-                for element in item_elements[:10]:
-                    item_name_element = await element.query_selector('div[data-test="item-name"]') or element
-                    item_name = await item_name_element.inner_text() or "Unknown Item"
-                    item_link = self.base_url + await element.get_attribute('href')
-                    item_details = await self.extract_item_details(item_link)
-                    items.append({"item_name": item_name, "item_link": item_link, **item_details})
-                logging.info(f"Extracted {len(items)} items from page {page_number}")
-            return items
-        except Exception as e:
-            logging.error(f"Error extracting items from {sub_category_link}: {e}")
-            return []
-        finally:
-            await page.close()
-
-    async def extract_item_details(self, item_link):
-        logging.info(f"Extracting item details for {item_link}")
-        page = await self.browser.new_page()
-        try:
-            await page.goto(item_link, timeout=30000)
-            await page.wait_for_load_state("networkidle", timeout=30000)
-            price_element = await page.query_selector('//div[contains(@class, "price")]//span')
-            item_price = await price_element.inner_text() if price_element else "N/A"
-            desc_element = await page.query_selector('//div[contains(@class, "description")]//p')
-            item_description = await desc_element.inner_text() if desc_element else "N/A"
-            time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
-            delivery_time = await time_element.inner_text() if time_element else "N/A"
-            item_images = [await img.get_attribute('src') for img in await page.query_selector_all('//img[contains(@class, "item-image")]') if await img.get_attribute('src')]
-            logging.debug(f"Item details: price={item_price}, desc={item_description}, time={delivery_time}, images={item_images}")
-            return {
-                "item_price": item_price,
-                "item_description": item_description,
-                "item_delivery_time_range": delivery_time,
-                "item_images": item_images
-            }
-        except Exception as e:
-            logging.error(f"Error extracting item details for {item_link}: {e}")
-            return {"item_price": "N/A", "item_description": "N/A", "item_delivery_time_range": "N/A", "item_images": []}
-        finally:
-            await page.close()
+        print("Attempting to extract category links")
+        retries = 3
+        while retries > 0:
+            try:
+                category_link_elements = await page.query_selector_all('//a[@data-testid="category-item-container"]')
+                category_links = [self.base_url + await element.get_attribute('href') for element in category_link_elements]
+                print(f"Category links extracted: {category_links}")
+                return category_links
+            except Exception as e:
+                print(f"Error extracting category links: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
 
     async def extract_sub_categories(self, page, category_link):
-        logging.info(f"Extracting sub-categories for {category_link}")
-        try:
-            await page.goto(category_link, timeout=60000)
-            await page.wait_for_load_state("networkidle", timeout=60000)
-            sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-            sub_categories = []
-            for element in sub_category_elements[:5]:
-                sub_category_name = await element.inner_text()
-                sub_category_link = self.base_url + await element.get_attribute('href')
-                items = await self.extract_all_items_from_sub_category(sub_category_link)
-                sub_categories.append({"sub_category_name": sub_category_name, "sub_category_link": sub_category_link, "Items": items})
-            logging.info(f"Extracted {len(sub_categories)} sub-categories")
-            return sub_categories
-        except Exception as e:
-            logging.error(f"Error extracting sub-categories for {category_link}: {e}")
-            return []
+        print(f"Attempting to extract sub-categories for: {category_link}")
+        retries = 3
+        while retries > 0:
+            try:
+                await page.goto(category_link, timeout=240000)
+                await page.wait_for_load_state("networkidle", timeout=240000)
+                sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
+                sub_categories = []
+                for element in sub_category_elements:  # Removed [:5] limit
+                    try:
+                        sub_category_name = await element.inner_text()
+                        sub_category_link = self.base_url + await element.get_attribute('href')
+                        print(f"    Processing sub-category: {sub_category_name}")
+                        print(f"    Sub-category link: {sub_category_link}")
+                        items = await self.extract_all_items_from_sub_category(sub_category_link)
+                        sub_categories.append({
+                            "sub_category_name": sub_category_name,
+                            "sub_category_link": sub_category_link,
+                            "Items": items
+                        })
+                    except Exception as e:
+                        print(f"Error processing sub-category: {e}")
+                print(f"Extracted {len(sub_categories)} sub-categories")
+                return sub_categories
+            except Exception as e:
+                print(f"Error extracting sub-categories: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
+
+    async def extract_item_details(self, item_link):
+        print(f"Attempting to extract item details for link: {item_link}")
+        retries = 3
+        while retries > 0:
+            try:
+                page = await self.browser.new_page()
+                await page.goto(item_link, timeout=240000)
+                await page.wait_for_load_state("networkidle", timeout=240000)
+
+                item_price_element = await page.query_selector('//div[@class="price"]//span[@class="currency "]')
+                item_price = await item_price_element.inner_text() if item_price_element else "N/A"
+                print(f"Item price: {item_price}")
+
+                item_description_element = await page.query_selector('//div[@class="description"]//p[@data-testid="item-description"]')
+                item_description = await item_description_element.inner_text() if item_description_element else "N/A"
+                print(f"Item description: {item_description}")
+
+                delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
+                delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
+                print(f"Delivery time range: {delivery_time}")
+
+                item_image_elements = await page.query_selector_all('//div[@data-testid="item-image"]//img')
+                item_images = [await img.get_attribute('src') for img in item_image_elements]
+                print(f"Item images: {item_images}")
+
+                await page.close()
+                return {
+                    "item_price": item_price,
+                    "item_description": item_description,
+                    "item_delivery_time_range": delivery_time,
+                    "item_images": item_images
+                }
+            except Exception as e:
+                print(f"Error extracting item details for {item_link}: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return {
+            "item_price": "N/A",
+            "item_description": "N/A",
+            "item_delivery_time_range": "N/A",
+            "item_images": []
+        }
+
+    async def extract_all_items_from_sub_category(self, sub_category_link):
+        print(f"Attempting to extract all items from sub-category: {sub_category_link}")
+        retries = 3
+        while retries > 0:
+            try:
+                sub_page = await self.browser.new_page()
+                await sub_page.goto(sub_category_link, timeout=240000)
+                await sub_page.wait_for_load_state("networkidle", timeout=240000)
+                await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+
+                pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
+                total_pages = 1
+                if pagination_element:
+                    page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
+                    total_pages = len(page_numbers) if page_numbers else 1
+                print(f"      Found {total_pages} pages in this sub-category")
+
+                items = []
+                for page_number in range(1, total_pages + 1):  # Removed page limit
+                    print(f"      Processing page {page_number} of {total_pages}")
+                    page_url = f"{sub_category_link}&page={page_number}"
+                    await sub_page.goto(page_url, timeout=240000)
+                    await sub_page.wait_for_load_state("networkidle", timeout=240000)
+                    await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+
+                    item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
+                    print(f"        Found {len(item_elements)} items on page {page_number}")
+
+                    for i, element in enumerate(item_elements):  # Removed [:10] limit
+                        try:
+                            item_name_element = await element.query_selector('div[data-test="item-name"]')
+                            item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
+                            print(f"        Item name: {item_name}")
+
+                            item_link = self.base_url + await element.get_attribute('href')
+                            print(f"        Item link: {item_link}")
+
+                            item_details = await self.extract_item_details(item_link)
+                            items.append({
+                                "item_name": item_name,
+                                "item_link": item_link,
+                                **item_details
+                            })
+                        except Exception as e:
+                            print(f"        Error processing item {i+1}: {e}")
+                await sub_page.close()
+                return items
+            except Exception as e:
+                print(f"Error extracting items from sub-category {sub_category_link}: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return []
 
     async def extract_categories(self, page):
-        logging.info(f"Processing grocery: {self.url}")
-        try:
-            await page.goto(self.url, timeout=60000)
-            await page.wait_for_load_state("networkidle", timeout=60000)
-            delivery_fees = await self.get_delivery_fees(page)
-            minimum_order = await self.get_minimum_order(page)
-            view_all_link = await self.get_general_link(page)
-            categories_data = []
-            if view_all_link:
-                await page.goto(view_all_link, timeout=60000)
-                await page.wait_for_load_state("networkidle", timeout=60000)
-                category_names = await self.extract_category_names(page)
-                category_links = await self.extract_category_links(page)
-                for name, link in zip(category_names[:3], category_links[:3]):
-                    sub_categories = await self.extract_sub_categories(page, link)
-                    categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
-            logging.debug(f"Categories extracted: {categories_data}")
-            return {"delivery_fees": delivery_fees, "minimum_order": minimum_order, "categories": categories_data}
-        except Exception as e:
-            logging.error(f"Error extracting categories: {e}")
-            return {"error": str(e)}
+        print(f"Processing grocery: {self.url}")
+        retries = 3
+        while retries > 0:
+            try:
+                await page.goto(self.url, timeout=240000)
+                await page.wait_for_load_state("networkidle", timeout=240000)
+                print("Page loaded successfully")
+
+                delivery_fees = await self.get_delivery_fees(page)
+                minimum_order = await self.get_minimum_order(page)
+                view_all_link = await self.get_general_link(page)
+
+                print(f"  Delivery fees: {delivery_fees}")
+                print(f"  Minimum order: {minimum_order}")
+
+                categories_data = []
+                if view_all_link:
+                    print(f"  Navigating to view all link: {view_all_link}")
+                    category_page = await self.browser.new_page()
+                    await category_page.goto(view_all_link, timeout=240000)
+                    await category_page.wait_for_load_state("networkidle", timeout=240000)
+
+                    category_names = await self.extract_category_names(category_page)
+                    category_links = await self.extract_category_links(category_page)
+
+                    print(f"  Found {len(category_names)} categories")
+
+                    for index, (name, link) in enumerate(zip(category_names, category_links)):  # Removed [:3] limit
+                        print(f"  Processing category {index+1}/{len(category_names)}: {name}")
+                        print(f"  Category link: {link}")
+                        sub_category_page = await self.browser.new_page()
+                        sub_categories = await self.extract_sub_categories(sub_category_page, link)
+                        await sub_category_page.close()
+                        print(f"  Found {len(sub_categories)} sub-categories in {name}")
+                        categories_data.append({
+                            "name": name,
+                            "link": link,
+                            "sub_categories": sub_categories
+                        })
+                    await category_page.close()
+
+                return {
+                    "delivery_fees": delivery_fees,
+                    "minimum_order": minimum_order,
+                    "categories": categories_data
+                }
+            except Exception as e:
+                print(f"Error extracting categories: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return {"error": "Failed to extract categories after multiple attempts"}
 
 class MainScraper:
     CURRENT_PROGRESS_FILE = "current_progress.json"
@@ -298,7 +408,7 @@ class MainScraper:
         current_progress["total_groceries"] = len(groceries_on_page)
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
-        await page.close()  # Close initial page after getting groceries
+        await page.close()
 
         for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
@@ -312,7 +422,6 @@ class MainScraper:
             scraped_current_progress["current_grocery"] = grocery_num
             print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title}")
 
-            # Use a fresh page for each grocery
             grocery_page = await browser.new_page()
             talabat_grocery = TalabatGroceries(grocery["grocery_link"], browser)
             grocery_details = await talabat_grocery.extract_categories(grocery_page)
@@ -473,6 +582,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 # import asyncio
