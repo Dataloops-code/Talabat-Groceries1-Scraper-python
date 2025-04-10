@@ -18,7 +18,7 @@ from datetime import datetime
 # Set up logging
 logging.basicConfig(
     filename='scraper.log',
-    level=logging.DEBUG,  # Increased verbosity to debug scraping issues
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
@@ -106,7 +106,7 @@ class TalabatGroceries:
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 item_elements = await page.query_selector_all('//a[@data-testid="grocery-item-link-nofollow" and contains(@href, "/product/")]')
                 logging.debug(f"Found {len(item_elements)} item elements on page {page_number}")
-                for element in item_elements[:10]:  # Still limited for testing; remove if full scrape needed
+                for element in item_elements[:10]:
                     item_name_element = await element.query_selector('div[data-test="item-name"]') or element
                     item_name = await item_name_element.inner_text() or "Unknown Item"
                     item_link = self.base_url + await element.get_attribute('href')
@@ -153,7 +153,7 @@ class TalabatGroceries:
             await page.wait_for_load_state("networkidle", timeout=60000)
             sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
             sub_categories = []
-            for element in sub_category_elements[:5]:  # Still limited for testing; remove if full scrape needed
+            for element in sub_category_elements[:5]:
                 sub_category_name = await element.inner_text()
                 sub_category_link = self.base_url + await element.get_attribute('href')
                 items = await self.extract_all_items_from_sub_category(sub_category_link)
@@ -178,7 +178,7 @@ class TalabatGroceries:
                 await page.wait_for_load_state("networkidle", timeout=60000)
                 category_names = await self.extract_category_names(page)
                 category_links = await self.extract_category_links(page)
-                for name, link in zip(category_names[:3], category_links[:3]):  # Still limited; remove if full scrape needed
+                for name, link in zip(category_names[:3], category_links[:3]):
                     sub_categories = await self.extract_sub_categories(page, link)
                     categories_data.append({"name": name, "link": link, "sub_categories": sub_categories})
             logging.debug(f"Categories extracted: {categories_data}")
@@ -299,7 +299,7 @@ class MainScraper:
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
 
-        for grocery_idx, grocery in enumerate(groceries_on_page):  # Removed [:2] limit
+        for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
             if grocery_num <= start_grocery:
                 continue
@@ -437,8 +437,11 @@ class MainScraper:
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             for idx, (area_name, area_url) in enumerate(ahmadi_areas):
-                if area_name in self.current_progress["completed_areas"]:
-                    continue
+                # Temporarily ignore completed_areas to force scraping
+                # if area_name in self.current_progress["completed_areas"]:
+                #     continue
+                self.current_progress["completed_areas"] = []  # Reset for this run
+                self.scraped_progress["completed_areas"] = []  # Reset for this run
                 self.current_progress["current_area_index"] = idx
                 self.scraped_progress["current_area_index"] = idx
                 area_results = await self.scrape_and_save_area(area_name, area_url, browser)
@@ -472,6 +475,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 # import asyncio
