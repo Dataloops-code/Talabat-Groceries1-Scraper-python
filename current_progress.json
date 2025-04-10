@@ -1,13 +1,13 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T15:13:27.429449",
+  "last_updated": "2025-04-10T20:10:20.309622",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 5,
+    "current_grocery": 6,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Bakery",
+    "current_category": "Fruits & Vegetables",
     "current_sub_category": "Popcorn",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
@@ -45,6 +45,33 @@
       },
       "Candy mart": {
         "Bakery": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
+          "Cakes",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
+        ],
+        "Fruits & Vegetables": [
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",

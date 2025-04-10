@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T15:13:27.429965",
+  "last_updated": "2025-04-10T20:10:20.310231",
   "all_results": {
     "الظهر": {
       "Ghozlan Al Egaila Grocery": {
@@ -460,7 +460,7 @@
       },
       "Candy mart": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
-        "delivery_time": "30 mins",
+        "delivery_time": "32 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
@@ -468,6 +468,11 @@
             {
               "name": "Bakery",
               "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/fruits-vegetables/vegetables?aid=59",
               "sub_categories": [
                 {
                   "sub_category_name": "Freshly Baked",
@@ -1433,6 +1438,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee90b918fc84edaf6e00ea.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90ba18fc84edaf6e00eb.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90bb18fc84edaf6e00ec.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90bc18fc84edaf6e00ed.jpg?size=122"
                       ]
                     },
@@ -1447,6 +1453,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee90c818fc84edaf6e012b.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90c918fc84edaf6e012c.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90ca18fc84edaf6e012d.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee90ca18fc84edaf6e012e.jpg?size=122"
                       ]
                     },
@@ -2762,6 +2769,16 @@
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/dill-bunch.jpg?size=122"
                       ]
+                    },
+                    {
+                      "item_name": "Kuwaiti Rocket Bunch",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kuwaiti-rocket-bunch/s/9960966000005?aid=59",
+                      "item_price": "0.150",
+                      "item_description": "• Fresh and green rocket leaves that gives a perfect flavour and crispy texture • High in vitamin K, vitamin C and calcium • Rich in antioxidants • Carefully sourced to preserve freshness • Can be eaten raw or as toppings for other dishes • Used in the preparation of pasta, pizza, salads, and various side dishes",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/rocket-bunch.jpg?size=122"
+                      ]
                     }
                   ]
                 },
@@ -2947,6 +2964,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d6782088d2ba7e05ee378.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6782088d2ba7e05ee379.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6783088d2ba7e05ee37a.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d6783088d2ba7e05ee37b.jpg?size=122"
                       ]
                     },
@@ -3091,9 +3109,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4255570b0c2d2a2d3149b.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4255570b0c2d2a2d3149c.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4255670b0c2d2a2d3149d.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4255770b0c2d2a2d3149e.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4255770b0c2d2a2d3149f.jpg?size=122"
                       ]
                     },
@@ -3525,10 +3541,12 @@
                         "https://images.deliveryhero.io/image/product-information-management/65896ec5396e69d36f2cd773.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65896eca492e501db64a6677.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65896ed0396e69d36f2cd774.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65896ed5492e501db64a6678.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65896eda070a8d0ff2e8e239.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65896ee0492e501db64a6679.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65896ee5492e501db64a667a.jpg?size=122"
                       ]
                     },
@@ -3723,10 +3741,13 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f2380060d824a27a10dde4.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380060d824a27a10dde5.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380160d824a27a10dde6.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380160d824a27a10dde7.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380260d824a27a10dde8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380260d824a27a10dde9.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380360d824a27a10ddea.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f2380360d824a27a10ddeb.jpg?size=122"
                       ]
                     },
@@ -3811,7 +3832,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7ba1088d2ba7e05f9d35.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7ba1088d2ba7e05f9d36.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7ba2088d2ba7e05f9d37.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7ba2088d2ba7e05f9d38.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7ba3088d2ba7e05f9d39.jpg?size=122"
                       ]
                     },
@@ -3850,6 +3873,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4a088d2ba7e05ef595.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4b088d2ba7e05ef596.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4b088d2ba7e05ef597.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4b088d2ba7e05ef598.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4c088d2ba7e05ef599.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6c4c088d2ba7e05ef59a.jpg?size=122"
@@ -3877,7 +3901,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f424f170b0c2d2a2d312ee.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f424f270b0c2d2a2d312ef.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f424f370b0c2d2a2d312f0.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f424f570b0c2d2a2d312f1.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f424f770b0c2d2a2d312f2.jpg?size=122"
                       ]
                     },
@@ -3920,7 +3946,6 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294017109373-1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294017109373-2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294017109373-3.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294017109373-4.jpg?size=122"
                       ]
                     },
@@ -4001,7 +4026,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f424ed70b0c2d2a2d312e2.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f424ee70b0c2d2a2d312e3.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f424ef70b0c2d2a2d312e4.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f424ef70b0c2d2a2d312e5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f424ef70b0c2d2a2d312e6.jpg?size=122"
                       ]
                     },
@@ -4089,9 +4116,13 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7c10088d2ba7e05fa134.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c11088d2ba7e05fa135.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c11088d2ba7e05fa136.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c12088d2ba7e05fa137.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c12088d2ba7e05fa138.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c13088d2ba7e05fa139.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7c13088d2ba7e05fa13a.jpg?size=122"
                       ]
                     },
@@ -4295,6 +4326,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/672cb00a1bf7f32b7666914c.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/672cb009d87a5aa921b5121f.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/672cb00a61f95f0f36d864ba.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/672cb0091bf7f32b7666914b.jpg?size=122"
                       ]
                     },
@@ -4309,9 +4341,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_3.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_5.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/80176732_6.jpg?size=122"
                       ]
@@ -4364,7 +4394,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/65aa33520d5150fa32f537be.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65aa335227651a0205a00e55.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65aa33512aa9c3d079e2a683.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65aa33522aa9c3d079e2a684.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65aa335227651a0205a00e56.jpg?size=122"
                       ]
                     },
@@ -4380,6 +4412,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4225c70b0c2d2a2d30868.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4225c70b0c2d2a2d30869.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4225e70b0c2d2a2d3086a.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4225f70b0c2d2a2d3086b.jpg?size=122"
                       ]
                     },
@@ -4454,6 +4487,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/8000500346273_1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/8000500346273_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/8000500346273_3.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Kinder/8000500346273_4.jpg?size=122"
                       ]
                     },
@@ -4532,6 +4566,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4204f70b0c2d2a2d2ff9a.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4205170b0c2d2a2d2ff9b.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4205270b0c2d2a2d2ff9c.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4205270b0c2d2a2d2ff9d.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4205270b0c2d2a2d2ff9e.jpg?size=122"
                       ]
@@ -4608,6 +4643,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7968088d2ba7e05f8934.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d796a088d2ba7e05f8935.webp?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d796b088d2ba7e05f8937.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d796d088d2ba7e05f8938.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d796f088d2ba7e05f8939.jpg?size=122"
                       ]
@@ -4624,7 +4660,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7b11088d2ba7e05f98f8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7b11088d2ba7e05f98f9.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7b12088d2ba7e05f98fa.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7b12088d2ba7e05f98fb.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7b12088d2ba7e05f98fc.jpg?size=122"
                       ]
                     },
@@ -5068,7 +5106,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f22fdf60d824a27a10be9b.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22fe060d824a27a10be9c.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22fe060d824a27a10be9d.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f22fe160d824a27a10be9e.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f22fe160d824a27a10be9f.jpg?size=122"
                       ]
                     },
@@ -5084,6 +5124,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f234e560d824a27a10d1d7.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f234e560d824a27a10d1d8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f234e660d824a27a10d1d9.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f234e660d824a27a10d1da.jpg?size=122"
                       ]
                     },
@@ -5286,6 +5327,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/652c20c5458305155b35e548.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/652c20cd52d72bba648328ea.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/652c20d3458305155b35e549.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/652c20d852d72bba648328eb.jpg?size=122"
                       ]
                     },
@@ -5300,8 +5342,10 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7bd8088d2ba7e05f9f64.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bd9088d2ba7e05f9f65.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bd9088d2ba7e05f9f66.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bda088d2ba7e05f9f67.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bda088d2ba7e05f9f68.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bdb088d2ba7e05f9f69.jpeg?size=122"
                       ]
                     },
@@ -5414,9 +5458,13 @@
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fdeb4bac5792b24d98.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fdeb4bac5792b24d97.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fd8e8f4cbd52918bb5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fd8e8f4cbd52918bb7.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fdeb4bac5792b24d96.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/630cc0fd8e8f4cbd52918bb6.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_902654.jpg?size=122"
                       ]
                     },
@@ -5432,7 +5480,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/630cbdd08e8f4cbd52918ad4.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/630cbdcfeb4bac5792b24c28.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/630cbdd0ec94e0ed7da1642e.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/630cbdcfec94e0ed7da1642d.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/630cbdcfec94e0ed7da1642c.jpg?size=122"
                       ]
                     },
@@ -5578,8 +5628,10 @@
                         "https://images.deliveryhero.io/image/product-information-management/671f53dd7b1edc30e30019a5.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53de7b1edc30e30019a6.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53df7b1edc30e30019a7.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e07b1edc30e30019a8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e07b1edc30e30019a9.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e17b1edc30e30019aa.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e27b1edc30e30019ab.jpg?size=122"
                       ]
@@ -5608,8 +5660,10 @@
                         "https://images.deliveryhero.io/image/product-information-management/671f53e37b1edc30e30019b5.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e37b1edc30e30019b6.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e37b1edc30e30019b7.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e47b1edc30e30019b8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e57b1edc30e30019b9.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/671f53e77b1edc30e30019ba.jpg?size=122"
                       ]
                     },
@@ -5709,7 +5763,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d78c6088d2ba7e05f8352.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d78c7088d2ba7e05f8353.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d78c7088d2ba7e05f8354.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d78c7088d2ba7e05f8355.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d78c8088d2ba7e05f8356.jpg?size=122"
                       ]
                     },
@@ -5880,9 +5936,13 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fc118fc84edaf6dfdaf.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fc218fc84edaf6dfdb0.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fc318fc84edaf6dfdb1.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fc518fc84edaf6dfdb2.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fc818fc84edaf6dfdb3.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fca18fc84edaf6dfdb4.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8fcb18fc84edaf6dfdb5.jpg?size=122"
                       ]
                     },
@@ -6174,6 +6234,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d6bac088d2ba7e05ef349?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6bad088d2ba7e05ef34a.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6bad088d2ba7e05ef34b.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d6bad088d2ba7e05ef34c.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6bae088d2ba7e05ef34d.jpg?size=122"
                       ]
@@ -6211,6 +6272,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee8f6f18fc84edaf6dfcd9.jpeg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8f7018fc84edaf6dfcda.jpeg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8f7018fc84edaf6dfcdb.jpeg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8f7318fc84edaf6dfcdc.jpeg?size=122"
                       ]
                     },
@@ -6252,6 +6314,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/678378048c63a3ec3ae21e04.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/678378048c63a3ec3ae21e05.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/678378058c63a3ec3ae21e06.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/678378058c63a3ec3ae21e07.jpg?size=122"
                       ]
                     },
@@ -6276,6 +6339,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Pepsico/6281036284105_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Pepsico/6281036284105_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Pepsico/6281036284105_4.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Pepsico/6281036284105_5.jpg?size=122"
                       ]
                     },
@@ -6327,9 +6391,13 @@
                         "https://images.deliveryhero.io/image/product-information-management/6544b3aa05aa0c09f5bbb9a9.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3afc961dcb8a4d36114.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3b605aa0c09f5bbb9aa.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3bc05aa0c09f5bbb9ab.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3c1c961dcb8a4d36115.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3c6c961dcb8a4d36116.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/6544b3cb05aa0c09f5bbb9ac.jpg?size=122"
                       ]
                     },
@@ -6381,6 +6449,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7bf6088d2ba7e05fa039.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bf6088d2ba7e05fa03a.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bf6088d2ba7e05fa03b.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bf7088d2ba7e05fa03c.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7bf7088d2ba7e05fa03d.jpg?size=122",
@@ -6399,13 +6468,10 @@
                         "https://images.deliveryhero.io/image/product-information-management/658971aa396e69d36f2cd79e.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/658971b9070a8d0ff2e8e266.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65897208070a8d0ff2e8e26a.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/658971c3070a8d0ff2e8e267.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/658971c9396e69d36f2cd7a0.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/658971ce070a8d0ff2e8e268.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/658971be396e69d36f2cd79f.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/658971d7070a8d0ff2e8e269.jpg?size=122"
                       ]
                     },
@@ -6442,6 +6508,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4cc4a1666aedfb61fc9c8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4cc4b1666aedfb61fc9c9.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4cc4b1666aedfb61fc9ca.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4cc4b1666aedfb61fc9cb.jpg?size=122"
                       ]
                     },
@@ -6603,23 +6670,6 @@
                       ]
                     },
                     {
-                      "item_name": "Galaxy Crispy Chocolate Bar, 36g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/galaxy-crispy-chocolate-bar-36g/s/6294001800279?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "FIND YOUR MOMENT: Seek out the things that make you happy. Celebrate indulging in Galaxy Chocolate moments while having a self care night in or watching your favorite series. Treat yourself with the rich flavor of Galaxy chocolate with pieces of crispy MILK CHOCOLATE BEYOND WORDS WITH A TWIST: Indulge in the smooth taste of Galaxy Chocolate and savor the smooth milk chocolate filled with pieces of crispy taste when you’re in the mood for something sublime. CELEBRATORY CHOCOLATE CANDY: Enjoy the moments with those who matter most when you indulge in silky smooth Galaxy Chocolate filled with pieces of crispy CHOOSE INDULGENCE WITH GALAXY: Let yourself be whisked away on a sensory journey, as the silky texture melts in your mouth. Whether savoring it alone or sharing with friends, Galaxy Chocolate is the way to enjoy a moment of pure indulgence. INVESTING IN WOMEN’S EMPOWERMENT: Galaxy Chocolate is not just about the pleasure that comes out from the taste of the chocolate, it’s also about fulfilling pleasure by proudly supporting and advocating women's choices and achievements",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a770b0c2d2a2d30df9.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a770b0c2d2a2d30dfa.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a870b0c2d2a2d30dfb.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a870b0c2d2a2d30dfc.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a870b0c2d2a2d30dfd.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
-                        "https://images.deliveryhero.io/image/product-information-management/67f423a970b0c2d2a2d30dfe.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Kit Kat Silver 2 Finger",
                       "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kit-kat-silver-2-finger/s/66666?aid=59",
                       "item_price": "0.150",
@@ -6661,6 +6711,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4239e70b0c2d2a2d30def.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4239f70b0c2d2a2d30df0.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4239f70b0c2d2a2d30df1.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f423a270b0c2d2a2d30df2.jpg?size=122"
                       ]
                     },
@@ -6724,7 +6775,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee8b7e18fc84edaf6df074.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8b7e18fc84edaf6df075.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8b7f18fc84edaf6df076.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8b8018fc84edaf6df077.jpeg?size=122"
                       ]
                     },
@@ -6822,7 +6872,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/67b48c944b5229b89536a03f.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c954b5229b89536a040.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c954b5229b89536a041.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c954b5229b89536a042.jpg?size=122"
                       ]
                     },
@@ -6839,12 +6888,10 @@
                     {
                       "item_name": "Milka Bubbly Alpine Milk Chocolate, 90g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/milka-bubbly-alpine-milk-chocolate-90g/s/7622201098483?aid=59",
-                      "item_price": "1.250",
-                      "item_description": "• Bubbly alpine milk chocolate",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7622201098483.jpg?size=122"
-                      ]
+                      "item_price": "N/A",
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
                     },
                     {
                       "item_name": "Lindt Swiss Classic Milk Chocolate, 100g",
@@ -6859,6 +6906,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7a81088d2ba7e05f93c2.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a81088d2ba7e05f93c3.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a81088d2ba7e05f93c4.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a82088d2ba7e05f93c5.jpg?size=122"
                       ]
                     },
@@ -6874,7 +6922,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7a83088d2ba7e05f93cf.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a84088d2ba7e05f93d0.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a84088d2ba7e05f93d1.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a84088d2ba7e05f93d2.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a85088d2ba7e05f93d3.jpg?size=122"
                       ]
                     },
@@ -6953,6 +7003,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7255088d2ba7e05f36b1.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7255088d2ba7e05f36b2.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7255088d2ba7e05f36b3.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7256088d2ba7e05f36b4.jpg?size=122"
                       ]
                     },
@@ -7010,6 +7061,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67b48c844b5229b895369fbb.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c844b5229b895369fbc.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c854b5229b895369fbd.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b48c854b5229b895369fbe.jpg?size=122"
                       ]
                     },
@@ -7078,10 +7130,8 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_02.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_03.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_04.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_05.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_06.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723644_07.jpg?size=122"
                       ]
                     },
@@ -7096,11 +7146,8 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_02.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_03.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_04.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_05.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_06.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723637_07.jpg?size=122"
                       ]
                     },
@@ -7115,11 +7162,8 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_02.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_03.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_04.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_05.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_06.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6942836723668_07.jpg?size=122"
                       ]
                     },
@@ -7134,15 +7178,10 @@
                         "https://images.deliveryhero.io/image/product-information-management/67b490ae4b5229b89536bc16.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b490ae4b5229b89536bc17.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67b490af4b5229b89536bc18.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b490af4b5229b89536bc19.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b490af4b5229b89536bc1a.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b490af4b5229b89536bc1b.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b490b04b5229b89536bc1c.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67b490b04b5229b89536bc1d.jpg?size=122"
                       ]
                     },
@@ -7211,6 +7250,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/65aa320d0d5150fa32f5373f.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65aa320d27651a0205a00e27.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65aa320d2aa9c3d079e2a67d.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65aa320d27651a0205a00e28.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65aa320e0d5150fa32f53740.jpg?size=122"
                       ]
@@ -7257,7 +7297,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/67ee8ce318fc84edaf6df436.jpeg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8ce518fc84edaf6df437.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8ce518fc84edaf6df438.jpeg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67ee8ce618fc84edaf6df439.jpeg?size=122"
                       ]
                     },
@@ -7355,9 +7394,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_02.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_03.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_04.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_05.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_06.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/753854500119_07.jpg?size=122"
@@ -7919,6 +7956,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7273088d2ba7e05f3846.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7273088d2ba7e05f3847.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7273088d2ba7e05f3848.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7274088d2ba7e05f3849.jpg?size=122"
                       ]
                     },
@@ -8112,6 +8150,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4209d70b0c2d2a2d300f5.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4209f70b0c2d2a2d300f6.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f420a170b0c2d2a2d300f7.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f420a270b0c2d2a2d300f8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f420a370b0c2d2a2d300f9.jpg?size=122"
                       ]
@@ -8191,6 +8230,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f4210e70b0c2d2a2d302e8.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4210e70b0c2d2a2d302e9.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f4210f70b0c2d2a2d302ea.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f4210f70b0c2d2a2d302eb.jpg?size=122"
                       ]
                     },
@@ -8225,6 +8265,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/42113362.0_1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/42113362.0_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/42113362.0_3.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/42113362.0_4.jpg?size=122"
                       ]
                     },
@@ -8334,7 +8375,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/67f426e170b0c2d2a2d31a63.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f426e170b0c2d2a2d31a64.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67f426e270b0c2d2a2d31a65.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f426e270b0c2d2a2d31a66.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67f426e570b0c2d2a2d31a67.jpg?size=122"
                       ]
                     },
@@ -8775,8 +8818,8 @@
                         "https://images.deliveryhero.io/image/product-information-management/668fb394fad0798c5ef5547c.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/668fb39b8e96697701da663b.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/668fb3a08e96697701da663c.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/668fb3a68e96697701da663d.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/668fb3ae8e96697701da6640.jpg?size=122"
@@ -8889,11 +8932,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "name": "Fruits & Vegetables",
-              "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/fruits-vegetables/vegetables?aid=59",
-              "sub_categories": []
             },
             {
               "name": "Snacks & Candy",
@@ -9047,10 +9085,10 @@
   },
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 5,
+    "current_grocery": 6,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Bakery",
+    "current_category": "Fruits & Vegetables",
     "current_sub_category": "Popcorn",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
@@ -9088,6 +9126,33 @@
       },
       "Candy mart": {
         "Bakery": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
+          "Cakes",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
+        ],
+        "Fruits & Vegetables": [
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",
