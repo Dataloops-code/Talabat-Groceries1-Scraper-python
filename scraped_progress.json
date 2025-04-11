@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-11T08:00:43.959190",
+  "last_updated": "2025-04-11T14:00:44.008548",
   "all_results": {
     "الظهر": {
       "Ghozlan Al Egaila Grocery": {
@@ -16883,7 +16883,7 @@
       },
       "Sultan Center": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59",
-        "delivery_time": "41 mins",
+        "delivery_time": "36 mins",
         "grocery_details": {
           "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
@@ -16891,6 +16891,11 @@
             {
               "name": "Fruit & Veg ",
               "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/bakery/toast?aid=59",
               "sub_categories": [
                 {
                   "sub_category_name": "Fresh Fruit",
@@ -17011,6 +17016,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/715756100019_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/715756100019_4.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/715756100019_5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/715756100019_6.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/715756100019_7.jpg?size=122"
                       ]
@@ -17122,16 +17128,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Images/6135ded448b85f738fafc6dd.png?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jumbo Granny Smith Apple - USA",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/jumbo-granny-smith-apple-usa/s/100452660?aid=59",
-                      "item_price": "2.495",
-                      "item_description": "Jumbo Granny Smith Apple - USA 1kg is sold on Talabat by Sultan Center and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/sultan_2024/100452660.jpg?size=122"
                       ]
                     },
                     {
@@ -17794,16 +17790,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Sultan/100456253.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Carrot Bag, 1kg",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/carrot-bag-1kg/s/100455753?aid=59",
-                      "item_price": "0.695",
-                      "item_description": "• Contains high percentage of dietary fibre, beta carotene, and more for nutrition • Cultivated using finest techniques and high expertise for good quality • Versatile spice works well for a diverse range of cuisines",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/642acb3d377d19906f10670c.jpg?size=122"
                       ]
                     },
                     {
@@ -19205,24 +19191,12 @@
                   "sub_category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/bakery/flatbread?aid=59",
                   "Items": [
                     {
-                      "item_name": "Gulf Mirror Kuwaiti Saj Bread 5 Pcs",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/gulf-mirror-kuwaiti-saj-bread-5-pcs/s/100447497?aid=59",
-                      "item_price": "0.250",
-                      "item_description": "Gulf Mirror Kuwaiti Saj Bread 5 Pcs",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image-nocache/talabat/MenuItems/100447497_636986405855031911.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "KFM White Soft Bread, 300g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/kfm-white-soft-bread-300g/s/100900599?aid=59",
-                      "item_price": "0.050",
-                      "item_description": "• Fresh and Soft: KFM White Soft Bread is baked fresh daily for a consistently soft texture. • Versatile Flavor: Its subtly sweet and mild flavor pairs well with a variety of spreads and fillings. • Nutrient-Rich: Each 300g loaf is packed with essential nutrients, contributing to a balanced diet. • Long Shelf Life: This bread remains fresh for longer, reducing waste and promoting convenience.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/60e2b45207ada6dba36d04d8.jpg?size=122"
-                      ]
+                      "item_price": "N/A",
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
                     },
                     {
                       "item_name": "KFM Arabic White Bread, 75g",
@@ -19232,16 +19206,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/61a5c547f2c37c8a5088edcb.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "KFM Arabic Brown Bread, 6 Pieces, 300g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/kfm-arabic-brown-bread-6-pieces-300g/s/100900619?aid=59",
-                      "item_price": "0.075",
-                      "item_description": "• Fresh and wholesome: KFM Arabic Brown Bread is baked to perfection to maintain freshness and taste. • Natural ingredients: This healthy bread is crafted with natural and nutritious ingredients to add value to your meal. • Compact size: Each pack contains 6 easy-to-consume pieces, making it a convenient choice for quick meals and snacks. • Low in calories: With only 300g per pack, it fits perfectly into a low-calorie diet for those conscious of their intake.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/615d57f7602d3e2800e05582.jpg?size=122"
                       ]
                     },
                     {
@@ -19522,16 +19486,6 @@
                       ]
                     },
                     {
-                      "item_name": "Wooden Bakery Pita White, 6 Pieces, 210g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/wooden-bakery-pita-white-6-pieces-210g/s/304100246?aid=59",
-                      "item_price": "0.100",
-                      "item_description": "The Wooden Bakery Pita White is a pack of six fresh, fluffy pitas, each weighing 35g, for a total of 210g per pack. Crafted from premium quality wheat flour, these pitas are perfect for your homemade sandwiches or as a tasty accompaniment to your meals. They are baked to perfection, offering a soft texture and a subtle, delightful flavor. These pitas are also versatile, as they can be toasted, grilled, or used straight from the pack. Enjoy the authentic taste of bakery-fresh pita bread with Wooden Bakery Pita White.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Sultan_Center_New/2004246550006.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Aly Pre-Grilled Tortilla, 25cm, 8 Pieces",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/aly-pre-grilled-tortilla-25cm-8-pieces/s/304013492?aid=59",
                       "item_price": "1.500",
@@ -19562,16 +19516,6 @@
                       ]
                     },
                     {
-                      "item_name": "KFM Arabic Nokhala Bread, 375g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/kfm-arabic-nokhala-bread-375g/s/100402505?aid=59",
-                      "item_price": "0.075",
-                      "item_description": "• Authentic Arabic Flavor: Enjoy the rich, traditional taste of KFM Arabic Nokhala Bread, crafted from an original recipe. • 375g pack: Perfectly sized package, offering enough bread to share or enjoy over multiple meals. • High Quality Ingredients: Made using only high-quality, carefully sourced ingredients to ensure a delicious and healthy product. • Versatile use: This bread is a great accompaniment for any meal, whether you're making wraps, sandwiches, or just enjoying it on its own.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/60f7f5e421e90c3363b71cc5.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Cantina Maria Tortilla Mini Plain Soft, 250g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/cantina-maria-tortilla-mini-plain-soft-250g/s/303413152?aid=59",
                       "item_price": "0.890",
@@ -19590,16 +19534,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/759992905069.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Wooden Bakery Pita White Big, 570g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/wooden-bakery-pita-white-big-570g/s/304100254?aid=59",
-                      "item_price": "0.250",
-                      "item_description": "The Wooden Bakery Pita White Big is a pack of 10 large, fluffy pita breads each weighing 57g, giving you a total of 570g. Made from high-quality ingredients, these pita breads are a perfect choice for your everyday meals. Their soft texture and mild flavor make them versatile for a variety of dishes - from wraps and sandwiches to dipping in hummus or serving alongside a hearty stew. These are not just bread, but a wholesome addition to your balanced diet. Enjoy the convenience of having fresh, ready-to-eat pita bread at your fingertips.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Sultan_Center_New/2002133680003.jpg?size=122"
                       ]
                     },
                     {
@@ -20919,16 +20853,6 @@
                       ]
                     },
                     {
-                      "item_name": "Al Faysal Plain Croissant, 8x400g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/al-faysal-plain-croissant-8x400g/s/303362105?aid=59",
-                      "item_price": "0.950",
-                      "item_description": "Enjoy the delicious taste of Al Faysal croissants, delicate and flakey.Fresh & delicious croissant filled with mixed flavors.Not greasy & soft and chewy interior.A perfect choice for breakfast or for an afternoon snack",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67c953f669cfd64741b7dcaa.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Al Faysal Mini Oregano Croissant, 8x20g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/al-faysal-mini-oregano-croissant-8x20g/s/100416667?aid=59",
                       "item_price": "0.290",
@@ -20936,16 +20860,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/67c953e469cfd64741b7dc0e.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Al Faysal Mini Chocolate Croissant, 8x20g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/al-faysal-mini-chocolate-croissant-8x20g/s/300767810?aid=59",
-                      "item_price": "0.290",
-                      "item_description": "Indulge in the sweet delight of Al Faysal Mini Chocolate Croissants. This pack contains 8 pieces, each weighing 20 grams, perfect for a light snack or a quick breakfast. These mini croissants are made from high-quality ingredients, ensuring a taste thats rich, buttery, and deliciously chocolatey. They are individually wrapped for convenience and freshness. Enjoy these mini croissants straight from the package or warm them up for a comforting treat. Ideal for both adults and kids, they make a great addition to lunch boxes, picnics, or any snack time. Experience the perfect blend of flaky pastry and creamy chocolate with Al Faysal Mini Chocolate Croissants.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67c953e569cfd64741b7dc12.jpg?size=122"
                       ]
                     },
                     {
@@ -21237,6 +21151,16 @@
                       ]
                     },
                     {
+                      "item_name": "Americana Feta Cheese Bunzz Pie, 100g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/americana-feta-cheese-bunzz-pie-100g/s/303447740?aid=59",
+                      "item_price": "0.150",
+                      "item_description": "• Unique Taste: Enjoy the authentic flavor of feta cheese smoothly blended into a scrumptious Bunzz Pie. • Compact Packaging: Comes in a handy 100g pack, perfect for an on-the-go snack or a single serving. • Quality Ingredients: Crafted with 100% real, high-quality feta cheese for a rich and creamy taste. • Made in America: This culinary delight, baked in the USA, brings you the taste of traditional Americana cuisine.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Saveco/6270024002265.jpg?size=122"
+                      ]
+                    },
+                    {
                       "item_name": "L'usine Biscuit Cream Butter Croissant, 83g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/lusine-biscuit-cream-butter-croissant-83g/s/303808402?aid=59",
                       "item_price": "0.220",
@@ -21438,16 +21362,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_917680.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "KFM Cheese Croissant, 75g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/kfm-cheese-croissant-75g/s/302130716?aid=59",
-                      "item_price": "0.100",
-                      "item_description": "• Light and flaky: The KFM Cheese Croissant is expertly baked to give a light and flaky texture that melts in your mouth. • Generous cheese filling: Enjoy the rich and delicious taste of a generous cheese filling in each bite. • Convenient packaging: With its easy-to-open 75g package, this croissant is perfect for a quick and portable meal. • No artificial flavorings: Made with the finest natural ingredients, there are no artificial flavorings and preservatives in our product.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003043330.jpg?size=122"
                       ]
                     },
                     {
@@ -21761,6 +21675,26 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/08002371007901.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Butter Croissant With Cheese Filling, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/butter-croissant-with-cheese-filling-90g/s/304205566?aid=59",
+                      "item_price": "0.390",
+                      "item_description": "Butter Croissant With Cheese Filling, 90g is sold on Talabat by Sultan Center and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67e28132c9c50458e2ae0522.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Kuwaitia Chocolate Croissant 55Gx8",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/kuwaitia-chocolate-croissant-55gx8/s/304751410?aid=59",
+                      "item_price": "0.595",
+                      "item_description": "Kuwaitia Chocolate Croissant 55Gx8 is sold on Talabat by Sultan Center and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6270025002448.jpg?size=122"
                       ]
                     }
                   ]
@@ -22171,20 +22105,6 @@
                   "sub_category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/coffee-tea/coffee?aid=59",
                   "Items": [
                     {
-                      "item_name": "Nescafe Red Mug Instant Coffee, 190g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/nescafe-red-mug-instant-coffee-190g/s/304085672?aid=59",
-                      "item_price": "1.890",
-                      "item_description": "Description: •PACK CONTENT: This pack contains 1 Jar of NESCAFE Classic Instant Coffee Powder and a FREE Iconic Red Mug •100% PURE COFFEE: We carefully combine high quality Robusta beans and slow-roast them to a rich medium-dark perfection, ensuring that every cup of NESCAFE Classic delivers the delightful experience you love! •QUICK & EASY PREPARATION: With its quick-dissolving formula, you can make a delicious cup of coffee in seconds. Be your own coffee artist & enjoy a delightful coffee experience at home with this instant coffee •RICH AROMA & FLAVOUR: Experience a full-bodied coffee experience with the rich aroma of NESCAFE Classic, awakening your senses with every cup. •RICH HERITAGE: With over 75 years of experience, we work with coffee farmers to grow sustainable coffee and deliver the best in class coffee through careful selection, roasting, and blending methods. Ingredients: Coffee Beans Storage Instructions: ‎Store in a cool, dark, and airtight container.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67bd9c06999ae043d182480a.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67bd9c07999ae043d182480b.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67bd9c06999ae043d1824809.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67bd9c071f7a53d6e55a822f.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67bd9c061f7a53d6e55a822e.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Nescafe Classic 3 in 1 Coffee Sachet, 20g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/nescafe-classic-3-in-1-coffee-sachet-20g/s/100392014?aid=59",
                       "item_price": "0.065",
@@ -22196,6 +22116,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Tmart_UAE/8850124037350-3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Tmart_UAE/8850124037350-4.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Tmart_UAE/8850124037350-5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/Tmart_UAE/8850124037350-6.jpg?size=122"
                       ]
                     },
@@ -22224,6 +22145,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/67bd9b95999ae043d1824804.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67bd9b95999ae043d1824802.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/67bd9b951f7a53d6e55a8227.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/67bd9b951f7a53d6e55a8226.jpg?size=122"
                       ]
                     },
@@ -22249,6 +22171,20 @@
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003570361v2.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003570361v3.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003570361v4.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Nescafe Red Mug Instant Coffee, 190g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/nescafe-red-mug-instant-coffee-190g/s/304085672?aid=59",
+                      "item_price": "1.890",
+                      "item_description": "Description: •PACK CONTENT: This pack contains 1 Jar of NESCAFE Classic Instant Coffee Powder and a FREE Iconic Red Mug •100% PURE COFFEE: We carefully combine high quality Robusta beans and slow-roast them to a rich medium-dark perfection, ensuring that every cup of NESCAFE Classic delivers the delightful experience you love! •QUICK & EASY PREPARATION: With its quick-dissolving formula, you can make a delicious cup of coffee in seconds. Be your own coffee artist & enjoy a delightful coffee experience at home with this instant coffee •RICH AROMA & FLAVOUR: Experience a full-bodied coffee experience with the rich aroma of NESCAFE Classic, awakening your senses with every cup. •RICH HERITAGE: With over 75 years of experience, we work with coffee farmers to grow sustainable coffee and deliver the best in class coffee through careful selection, roasting, and blending methods. Ingredients: Coffee Beans Storage Instructions: ‎Store in a cool, dark, and airtight container.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67bd9c06999ae043d182480a.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67bd9c07999ae043d182480b.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67bd9c06999ae043d1824809.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67bd9c071f7a53d6e55a822f.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67bd9c061f7a53d6e55a822e.jpg?size=122"
                       ]
                     },
                     {
@@ -22343,9 +22279,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/7613036300827_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/7613036300827_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/7613036300827_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/7613036300827_5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/7613036300827_6.jpg?size=122"
                       ]
                     },
@@ -22360,7 +22294,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f22b3e60d824a27a10abd3.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22b3f60d824a27a10abd4.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22b3f60d824a27a10abd5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f22b4060d824a27a10abd6.jpg?size=122"
                       ]
                     },
@@ -22434,25 +22367,20 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_6.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_7.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003598433_8.jpg?size=122"
                       ]
                     },
                     {
                       "item_name": "Al Rifai Hazelnut Flavor French Coffee, 250g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/al-rifai-hazelnut-flavor-french-coffee-250g/s/100440068?aid=59",
-                      "item_price": "1.130",
-                      "item_description": "Al Rifai French Cafe is finely blended coffee. It is delicately roasted and ground using a traditional old process. It creates a harmony of superb flavours with a rich aroma and smooth incomparable taste. It boosts confidence and gives a sense of freshness after consumption. Ideal for day and evening consumption. How to Use: Preheat your press. Measure/weigh your coffee grounds. Measure/weigh water and check temperature. Add coffee grounds and hot water. Put the lid on and start timing. Slowly press plunger down.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/678f54b75b763d0119f2b3e0.jpg?size=122"
-                      ]
+                      "item_price": "N/A",
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
                     },
                     {
                       "item_name": "Natureland Barley Coffee, 100g",
@@ -22480,22 +22408,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f22d4860d824a27a10b472.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22d4960d824a27a10b473.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/65f22d4960d824a27a10b474.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Starbucks Decaf Espresso Roast Coffee Capsules, 57g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/starbucks-decaf-espresso-roast-coffee-capsules-57g/s/303286907?aid=59",
-                      "item_price": "1.980",
-                      "item_description": "Every espresso beverage we handcraft for you started right here. The quest began in 1975 with a search for the perfect melding of beans and roast, ending months of intense experimentation later with the coffee you’re holding in your hand. A recipe for caramelly sweetness – so right it's never been changed. Years of focus and expertise have led to the STARBUCKS Roast Spectrum. Each coffee bean requires a unique balance of temperature and time to reach its individual peak of aroma, acidity, body and flavour. Fuller-bodied and bold, our dark-roast coffees feature robust flavours and the characteristic essence of an intense roast. STARBUCKS coffee capsules by NESPRESSO, compatible with NESPRESSO coffee machines.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67b6eb91d33327cffdff5705.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_2.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_3.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_4.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_5.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_6.jpg?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-7613036984454_7.jpg?size=122"
                       ]
                     },
                     {
@@ -22547,7 +22459,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d784e088d2ba7e05f7e8d.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d784e088d2ba7e05f7e8e.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d784f088d2ba7e05f7e8f.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d784f088d2ba7e05f7e90.jpg?size=122"
                       ]
                     },
@@ -22758,6 +22669,17 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8003753158587.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Ali Cafe Black Gold Instant Coffee, 40x2.5g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/ali-cafe-black-gold-instant-coffee-40x25g/s/302061474?aid=59",
+                      "item_price": "1.705",
+                      "item_description": "Description: Premium Instant Black Coffee With Essence Of Tongkat Ali And Ginseng Ingredients: Instant Coffee Powder● Instant Tongkat Ali Essence● Instant Ginseng Essence● Maltodextrin And Anticaking Agent (E551).",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-bh/Product_Images/BH_902779.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Netscribe%20Images%28don%27t%20touch%29/Other%201/9555021502701_1.jpg?size=122"
                       ]
                     },
                     {
@@ -22977,7 +22899,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7a9e088d2ba7e05f94c3.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a9e088d2ba7e05f94c4.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a9f088d2ba7e05f94c5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7a9f088d2ba7e05f94c6.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7aa0088d2ba7e05f94c7.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7aa0088d2ba7e05f94c8.jpg?size=122"
@@ -23014,16 +22935,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/64620114d0bd58d1e4d976c4.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Belmio Espresso 12 Dark Roast Capsules",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/belmio-espresso-12-dark-roast-capsules/s/303446392?aid=59",
-                      "item_price": "1.800",
-                      "item_description": "• Premium Quality: Belmio Espresso Dark Roast Capsules deliver a rich and full-bodied coffee experience. • Easy to Use: Designed for compatibility with Nespresso machines, these capsules are easy and convenient to use. • Bold Flavor: The dark roast profile offers bold depth of flavor and a satisfyingly strong espresso. • Sustainable Packaging: Provided in environmentally-friendly packaging, these capsules are perfect for the eco-conscious coffee lover.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-om/Product_Images/OM_5415150313217.png?size=122"
                       ]
                     },
                     {
@@ -23212,7 +23123,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/673082ea07fe0f24371e6e98.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/673082eb07fe0f24371e6e99.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/673082eb07fe0f24371e6e9a.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/673082ec07fe0f24371e6e9b.jpg?size=122"
                       ]
                     },
@@ -23227,21 +23137,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/655c67bff7449be90e6ecc88.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/655c67bf6df2dd5ecdce7862.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/655c67bff7449be90e6ecc87.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/655c67cf6df2dd5ecdce7865.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Davidoff Rich Aroma 10/12 Intensity Coffee Capsules, 10 Capsules, 55g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/davidoff-rich-aroma-1012-intensity-coffee-capsules-10-capsules-55g/s/304269519?aid=59",
-                      "item_price": "1.900",
-                      "item_description": "• Vivid & spicy rich aroma coffee capsules • 10 Capsules of roasted and ground coffee • >100% Arabica coffee bean and the intensity level 10 • Enticingly fragrant coffee that will awaken your senses and treat your taste buds to an immersive experience • Each sip is an invitation to discover its subtle composition of surprising flavors and delicate finish • Compatible with Nespresso Machines",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/667e92e94985339ad3cadbdc.jpg?size=122",
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/4061445226680.0_1.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/667e93014985339ad3cadbdd.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/667e93014985339ad3cadbde.jpg?size=122"
                       ]
                     },
                     {
@@ -23360,15 +23256,36 @@
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/61e410fee7f8904999069341.jpg?size=122"
                       ]
+                    },
+                    {
+                      "item_name": "Nescafe Red Mug Coffee Glass Jar, 190g + Nestle Coffeemate Original Non Dairy Coffee Creamer, 170g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/nescafe-red-mug-coffee-glass-jar-190g-nestle-coffeemate-original-non-dairy-coffee-creamer-170g/s/304474336?aid=59",
+                      "item_price": "2.480",
+                      "item_description": "Description: •Discover NESCAFÉ Red Mug, our fullest and boldest coffee flavour, perfectly roasted for your morning rituals. •A blend of carefully selected, high quality coffee beans, freshly packed and expertly roasted to perfection to create our signature full-flavoured taste and rich aroma that you love. •Enjoy 100 cups of delicious NESCAFÉ coffee in each jar. Ingredients: 100% pure coffee",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67b6ebc9d33327cffdff5a01.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67b6ebcad33327cffdff5a02.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d6537088d2ba7e05ed957.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d6538088d2ba7e05ed958.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Davidoff Espresso 57 Intensity 11/12 Coffee Capsules, 10 Capsules, 55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/product/davidoff-espresso-57-intensity-1112-coffee-capsules-10-capsules-55g/s/304269501?aid=59",
+                      "item_price": "1.900",
+                      "item_description": "• Dark & chocolatey espresso 57 coffee capsules • 10 Capsules of roasted and ground coffee • 100% Arabica coffee bean and the intensity level 11 • Tantalizing layers of taste and aroma overlap to deliver long lasting satisfaction • Each sip is an invitation to discover its subtle composition of surprising flavors and delicate finish • Compatible with Nespresso Machines",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/667e93474985339ad3cadc0d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/4061445226666.0_1.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/667e935a4748b09efbd9b8a7.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/667e935a4985339ad3cadc0e.jpg?size=122"
+                      ]
                     }
                   ]
                 }
               ]
-            },
-            {
-              "name": "Bakery ",
-              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/bakery/toast?aid=59",
-              "sub_categories": []
             },
             {
               "name": "Poultry, Meat & Seafood ",
@@ -23489,6 +23406,11 @@
               "name": "Imports",
               "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/imports/chocolate?aid=59",
               "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/tobacco/vape?aid=59",
+              "sub_categories": []
             }
           ]
         }
@@ -23497,10 +23419,10 @@
   },
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 8,
+    "current_grocery": 9,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruit & Veg ",
+    "current_category": "Bakery ",
     "current_sub_category": "Coffee",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
@@ -23611,6 +23533,20 @@
       },
       "Sultan Center": {
         "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Coffee"
+        ],
+        "Bakery ": [
           "Fresh Fruit",
           "Fresh Vegetables",
           "Herbs & Leafy Greens",

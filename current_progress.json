@@ -1,13 +1,13 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-11T08:00:43.958709",
+  "last_updated": "2025-04-11T14:00:44.007845",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 8,
+    "current_grocery": 9,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruit & Veg ",
+    "current_category": "Bakery ",
     "current_sub_category": "Coffee",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
@@ -118,6 +118,20 @@
       },
       "Sultan Center": {
         "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Coffee"
+        ],
+        "Bakery ": [
           "Fresh Fruit",
           "Fresh Vegetables",
           "Herbs & Leafy Greens",
