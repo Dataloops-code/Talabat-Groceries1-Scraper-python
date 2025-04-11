@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-10T20:10:20.309622",
+  "last_updated": "2025-04-11T02:38:23.618568",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 6,
+    "current_grocery": 7,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruits & Vegetables",
-    "current_sub_category": "Popcorn",
+    "current_category": "Fruit & Veg ",
+    "current_sub_category": "Beef & Veal",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -97,6 +97,23 @@
           "Biscuits & Cookies",
           "Candy & Gum",
           "Popcorn"
+        ]
+      },
+      "LuLu Hypermarket": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal"
         ]
       }
     }
