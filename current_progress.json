@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-11T02:38:23.618568",
+  "last_updated": "2025-04-11T08:00:43.958709",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 7,
+    "current_grocery": 8,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Fruit & Veg ",
-    "current_sub_category": "Beef & Veal",
+    "current_sub_category": "Coffee",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -114,6 +114,22 @@
           "Gluten-Free",
           "Chicken & Poultry",
           "Beef & Veal"
+        ]
+      },
+      "Sultan Center": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Coffee"
         ]
       }
     }
