@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-11T14:00:44.007845",
+  "last_updated": "2025-04-11T20:07:16.207914",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 9,
+    "current_grocery": 10,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Bakery ",
-    "current_sub_category": "Coffee",
+    "current_category": "Fruit & Veg ",
+    "current_sub_category": "Eggs",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -144,6 +144,30 @@
           "Crispbread & Rusk",
           "Chicken & Poultry",
           "Coffee"
+        ]
+      },
+      "MONOPRIX": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Ready To Drink",
+          "Eggs"
         ]
       }
     }
