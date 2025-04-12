@@ -365,19 +365,6 @@ class MainScraper:
     CURRENT_PROGRESS_FILE = "current_progress.json"
     SCRAPED_PROGRESS_FILE = "scraped_progress.json"
 
-    # def __init__(self):
-    #     self.output_dir = "output"
-    #     self.drive_uploader = SavingOnDrive('credentials.json')
-    #     os.makedirs(self.output_dir, exist_ok=True)
-    #     self.current_progress = self.load_current_progress()
-    #     self.scraped_progress = self.load_scraped_progress()
-    #     self.github_token = os.environ.get('GITHUB_TOKEN')
-    #     self.ensure_playwright_browsers()
-    #     # Force reset completed_areas to ensure scraping
-    #     self.current_progress["completed_areas"] = []
-    #     self.scraped_progress["completed_areas"] = []
-    #     self.save_current_progress()
-    #     self.save_scraped_progress()
     def __init__(self):
         self.output_dir = "output"
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
@@ -624,14 +611,6 @@ class MainScraper:
         else:
             logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
 
-    # def upload_to_drive(self, file_path):
-    #     print(f"Uploading {file_path} to Google Drive...")
-    #     try:
-    #         file_ids = self.drive_uploader.upload_to_multiple_folders(file_path)
-    #         print(f"Uploaded {file_path} successfully" if len(file_ids) == 2 else "Upload failed")
-    #     except Exception as e:
-    #         print(f"Error uploading to Drive: {e}")
-
     @retry(tries=3, delay=2, backoff=2)
     def upload_to_drive(self, file_path):
         logging.info(f"Uploading {file_path} to Google Drive...")
@@ -686,15 +665,6 @@ class MainScraper:
         print(f"SCRAPING COMPLETED\nExcel file saved: {excel_filename}")
         self.upload_to_drive(excel_filename)
         print("Uploaded Excel to Google Drive")
-
-# def create_credentials_file():
-#     credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
-#     if credentials_json:
-#         with open('credentials.json', 'w') as f:
-#             f.write(credentials_json)
-#         return True
-#     print("ERROR: TALABAT_GCLOUD_KEY_JSON not set!")
-#     return False
 
 async def main():
     scraper = MainScraper()
