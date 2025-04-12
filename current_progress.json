@@ -1,13 +1,13 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-12T02:36:32.570722",
+  "last_updated": "2025-04-12T07:59:09.483090",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 11,
+    "current_grocery": 12,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Chocolate & Candy ",
+    "current_category": "Snacks",
     "current_sub_category": "Soft Drinks",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
@@ -172,6 +172,19 @@
       },
       "Hi and Buy": {
         "Chocolate & Candy ": [
+          "Chocolate",
+          "Biscuits & Cakes",
+          "Candy",
+          "Gums & Drops",
+          "Chips",
+          "Nuts, Seeds & Fruits",
+          "Popcorn",
+          "Crackers & Pretzels",
+          "Rice Cakes & Others",
+          "Water",
+          "Soft Drinks"
+        ],
+        "Snacks": [
           "Chocolate",
           "Biscuits & Cakes",
           "Candy",
