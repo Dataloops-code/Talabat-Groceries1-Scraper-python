@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-11T20:07:16.207914",
+  "last_updated": "2025-04-12T02:36:32.570722",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 10,
+    "current_grocery": 11,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruit & Veg ",
-    "current_sub_category": "Eggs",
+    "current_category": "Chocolate & Candy ",
+    "current_sub_category": "Soft Drinks",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -168,6 +168,21 @@
           "Creamers",
           "Ready To Drink",
           "Eggs"
+        ]
+      },
+      "Hi and Buy": {
+        "Chocolate & Candy ": [
+          "Chocolate",
+          "Biscuits & Cakes",
+          "Candy",
+          "Gums & Drops",
+          "Chips",
+          "Nuts, Seeds & Fruits",
+          "Popcorn",
+          "Crackers & Pretzels",
+          "Rice Cakes & Others",
+          "Water",
+          "Soft Drinks"
         ]
       }
     }
