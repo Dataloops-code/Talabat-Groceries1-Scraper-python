@@ -1,14 +1,14 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-12T14:03:35.126139",
+  "last_updated": "2025-04-12T20:03:07.552707",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 13,
+    "current_grocery": 14,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Bakery ",
-    "current_sub_category": "Eggs",
+    "current_category": "Fruit & Veg ",
+    "current_sub_category": "Chilled Desserts",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -218,6 +218,31 @@
           "Rice Cakes & Others",
           "Water",
           "Soft Drinks"
+        ]
+      },
+      "Oncost powered by talabat": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Fish & Seafood",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Eggs",
+          "Cheese",
+          "Yoghurts & Labneh",
+          "Butter",
+          "Cream",
+          "Chilled Desserts"
         ]
       }
     }
