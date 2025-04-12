@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-12T07:59:09.483889",
+  "last_updated": "2025-04-12T14:03:35.126979",
   "all_results": {
     "الظهر": {
       "Ghozlan Al Egaila Grocery": {
@@ -23417,14 +23417,19 @@
       },
       "MONOPRIX": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59",
-        "delivery_time": "35 mins",
+        "delivery_time": "34 mins",
         "grocery_details": {
-          "delivery_fees": "KD 1.000",
+          "delivery_fees": "KD 0.000",
           "minimum_order": "KD 2.000",
           "categories": [
             {
               "name": "Fruit & Veg ",
               "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/bakery/toast?aid=59",
               "sub_categories": [
                 {
                   "sub_category_name": "Fresh Fruit",
@@ -24293,16 +24298,6 @@
                       ]
                     },
                     {
-                      "item_name": "Natureland Celery 400 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-celery-400-g/s/709993336225?aid=59",
-                      "item_price": "2.225",
-                      "item_description": "• Fresh celery with an earthy flavour • High in Vitamins A, K, C, Potassium, and folates • Contains dietary fibre and beta carotene • Sourced carefully to ensure good quality • Can be eaten raw or used to prepare smoothies and juices • Goes great in soups and salads • Can be used to make stir fries",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Natureland-Celery-Bag.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Corn Up Popped Black Olives & Sundried Tomatoes Tortilla Chips, 60g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/corn-up-popped-black-olives-sundried-tomatoes-tortilla-chips-60g/s/3800233075342?aid=59",
                       "item_price": "1.380",
@@ -24315,7 +24310,7 @@
                     {
                       "item_name": "Natureland Cherry Plums Tomatoes 250G Punnet",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-cherry-plums-tomatoes-250g-punnet/s/709993336119?aid=59",
-                      "item_price": "1.975",
+                      "item_price": "1.900",
                       "item_description": "• Fresh and small tomatoes that have a thin peel and a juicy centre • Adds a slightly tart and sour taste to dishes • They are low in calories and high in vital nutrients, with 95% water • A good source of potassium, folate, vitamin C and K • Suitable for a low carb and the keto diet • Sourced carefully to ensure good quality • A healthy addition to curries, sauces, and salsas • An ideal choice for salads, sandwiches, wraps, and burritos",
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
@@ -24350,16 +24345,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image-nocache/talabat/MenuItems/301597402_636988171781137151.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Mushroom White Holland, 250G",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/mushroom-white-holland-250g/s/2000000762081?aid=59",
-                      "item_price": "1.155",
-                      "item_description": "Mushroom White Holland, 250G is sold on Talabat by MONOPRIX and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67e26c15d0aa0b709813bb79.png?size=122"
                       ]
                     },
                     {
@@ -24433,16 +24418,6 @@
                       ]
                     },
                     {
-                      "item_name": "Green Beans - Kuwaiti, 1kg",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/green-beans-kuwaiti-1kg/s/2000000737140?aid=59",
-                      "item_price": "1.435",
-                      "item_description": "•Green Beans Rich source of antioxidants, proteins, fibre, vitamins, and minerals for nutrition • Grown using advanced cultivation techniques for superior quality • Helps support crucial body processes for its normal functioning",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Images/KW11AEDA.png?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Natureland Organic Rucola Packet 125 g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-organic-rucola-packet-125-g/s/709993336898?aid=59",
                       "item_price": "1.525",
@@ -24513,16 +24488,6 @@
                       ]
                     },
                     {
-                      "item_name": "Natureland Carrot 700g Organic",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-carrot-700g-organic/s/709993337512?aid=59",
-                      "item_price": "2.875",
-                      "item_description": "Naturelands Organic Carrots are a wholesome addition to your daily diet. Weighing 700g, these carrots are grown using organic farming methods, ensuring that they are free from harmful pesticides and chemicals. They are packed with essential nutrients like beta-carotene, fiber, vitamin K1, and antioxidants that contribute to your overall health. Enjoy them raw in salads, cooked in soups, or juiced for a nutritious drink. These carrots offer a sweet and earthy flavor that can enhance any dish. Naturelands Organic Carrots are not just a vegetable; theyre a healthy lifestyle choice.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_917316.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Fehlbergs Sweet & Hot Chipotle Cucumbers 470G",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/fehlbergs-sweet-hot-chipotle-cucumbers-470g/s/9300602364069?aid=59",
                       "item_price": "1.750",
@@ -24562,16 +24527,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "/assets/images/grocery-placeholder.svg"
-                      ]
-                    },
-                    {
-                      "item_name": "Long Beans - Kuwait, 1kg",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/long-beans-kuwait-1kg/s/2000000737133?aid=59",
-                      "item_price": "3.595",
-                      "item_description": "• Non-GMO green beans • Grown on fertile land under perfect climatic conditions • Snap-frozen to lock in nutrients and freshness • Known to contain ample essential nutrients • Steam or bake them with other vegetables for a healthy salad or soup • Cook them with spices and serve with rice or noodles",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM_1/2885920000006.jpg?size=122"
                       ]
                     },
                     {
@@ -24768,7 +24723,7 @@
                     {
                       "item_name": "Earth Organic Lettuce Romaine Bunch 250 g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/earth-organic-lettuce-romaine-bunch-250-g/s/709993343230?aid=59",
-                      "item_price": "0.595",
+                      "item_price": "0.500",
                       "item_description": "•Crispy and fresh green lettuce •Rich in vitamins and minerals •A perfect choice for any weight-loss diet •Sourced carefully to ensure good quality •A healthy addition to your meals that elevates the taste of the food",
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
@@ -24783,6 +24738,16 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/6162a9e80caf51ca5eb907ac.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Potato Egypt 2Kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/potato-egypt-2kg/s/2000000764658?aid=59",
+                      "item_price": "0.990",
+                      "item_description": "Potato Egypt 2Kg is sold on Talabat by MONOPRIX and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/UAE/Grocery/Potato_bag.jpg?size=122"
                       ]
                     },
                     {
@@ -24843,26 +24808,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_902457v2.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Green Asparagus - Holland, 450g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/green-asparagus-holland-450g/s/2000000737355?aid=59",
-                      "item_price": "4.520",
-                      "item_description": "Green Asparagus - Holland, 450g is sold on Talabat by MONOPRIX and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67349a88fcfcb148d7cb2521.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Natureland Pepper Mix 300 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-pepper-mix-300-g/s/709993336027?aid=59",
-                      "item_price": "2.075",
-                      "item_description": "• Rich essence adds a delightful flavour to your food • Cultivated using finest techniques and high expertise for good quality • Helps enrich your lifestyle and promote better diet habits",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Natureland-Mix-Pepper-Flowpack.jpg?size=122"
                       ]
                     },
                     {
@@ -25006,6 +24951,26 @@
                       ]
                     },
                     {
+                      "item_name": "Natureland Organic Leeks 500 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-organic-leeks-500-g/s/709993336386?aid=59",
+                      "item_price": "2.775",
+                      "item_description": "Naturelands Organic Leeks, weighing 500g, are a fresh and healthy addition to your kitchen. Grown without the use of synthetic pesticides and GMOs, these leeks are as pure as nature intended. They have a mild, onion-like taste thats perfect for adding a subtle flavor to soups, stews, and stir-fries. Rich in vitamins and minerals, they offer a range of health benefits. Enjoy the natural goodness of these organic leeks, which are carefully harvested and packed to maintain their freshness and nutritional value. Note: Store in a cool, dry place for optimal freshness.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/610650fe8a477b4e518fca2b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Cucumber - Kuwait, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/cucumber-kuwait-1kg/s/2000000736921?aid=59",
+                      "item_price": "0.435",
+                      "item_description": "• Fresh and cool cucumbers • Contains a significant percentage of vitamins and minerals • Has low calories and high-water content • Ideal for several healthy diets • Sourced carefully to ensure good quality • A great addition to salads, and other versatile recipes • Perfect ingredient in making juices and other beverages.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Kuwait_FnV/202300047.jpg?size=122"
+                      ]
+                    },
+                    {
                       "item_name": "White Eggplant - Saudi, 500g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/white-eggplant-saudi-500g/s/2000000737218?aid=59",
                       "item_price": "0.800",
@@ -25023,6 +24988,16 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/product-information-management/67e26ccdd0aa0b709813bbbc.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Baby Cucumber - Kuwait, 500g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/baby-cucumber-kuwait-500g/s/2000000737287?aid=59",
+                      "item_price": "2.195",
+                      "item_description": "• Fresh and firm snack cucumbers • Small in size with high water content for hydration • Contains a significant portion of vitamins and minerals • Sourced carefully to ensure good quality • A handy and healthy snack for any time of the day • Can be added to salads and smoothies",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_903469.jpg?size=122"
                       ]
                     },
                     {
@@ -25216,16 +25191,6 @@
                       ]
                     },
                     {
-                      "item_name": "Celery Usa 1Kg",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/celery-usa-1kg/s/2000000685847?aid=59",
-                      "item_price": "2.995",
-                      "item_description": "• Fresh celery with an earthy flavour • High in Vitamins A, K, C, Potassium, and folates • Contains dietary fibre and beta carotene • Sourced carefully to ensure good quality • Can be eaten raw or used to prepare smoothies and juices • Goes great in soups and salads • Can be used to make stir fries",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/monoprix%20without%202023/2000000685847.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Earth Organic Green Beans, 500g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/earth-organic-green-beans-500g/s/709993343476?aid=59",
                       "item_price": "1.350",
@@ -25283,6 +25248,46 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image-nocache/talabat/MenuItems/301607893_636988168381806941.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Natureland Cut Leek 600g Organic",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/natureland-cut-leek-600g-organic/s/709993337505?aid=59",
+                      "item_price": "3.625",
+                      "item_description": "Naturelands Organic Cut Leek, weighing in at 600g, is a premium quality product perfect for your culinary needs. Grown without the use of any harmful pesticides or synthetic fertilizers, these leeks are harvested at the peak of their ripeness to ensure maximum flavor and nutritional value. They are carefully cut and packaged to maintain freshness, ready for your kitchen. Add them to your soups, stews or salads for a burst of natural, earthy flavor. The package is easy to store and use, making it a convenient addition to your pantry. Enjoy the wholesome taste of organic leeks with Natureland.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_917315.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Iceland Chopped Garlic 100G",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/iceland-chopped-garlic-100g/s/5010482706289?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Iceland Chopped Garlic 100G",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/monoprix%20without%202023/5010482706289.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Okra - India, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/okra-india-1kg/s/2000000737713?aid=59",
+                      "item_price": "1.855",
+                      "item_description": "• Fresh and flavorful okra • Healthy dietary choice to fulfil the nutritional requirements • Rich source of vitamins, antioxidants, and minerals • Sourced carefully to ensure good quality • Can be fried, pickled, or grilled • Suitable for use in the preparation of curries",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/0213070000003.JPG?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Kuwait Eggplant Kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kuwait-eggplant-kg/s/2000000737799?aid=59",
+                      "item_price": "0.820",
+                      "item_description": "Kuwait Eggplant Kg is sold on Talabat by MONOPRIX and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2881370000009.jpg?size=122"
                       ]
                     }
                   ]
@@ -26045,6 +26050,16 @@
                       ]
                     },
                     {
+                      "item_name": "KFM Original Toast With Vitamin D 500G",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-original-toast-with-vitamin-d-500g/s/6271003041183?aid=59",
+                      "item_price": "0.200",
+                      "item_description": "KFM Original Toast With Vitamin D 500G",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/monoprix%20without%202023/6271003041183.jpg?size=122"
+                      ]
+                    },
+                    {
                       "item_name": "Wheat Valley Belgian Style Waffles, 75g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/wheat-valley-belgian-style-waffles-75g/s/6271100335093?aid=59",
                       "item_price": "0.640",
@@ -26123,6 +26138,16 @@
                   "sub_category_name": "Flatbread",
                   "sub_category_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/bakery/flatbread?aid=59",
                   "Items": [
+                    {
+                      "item_name": "KFM Shawerma Bread, 162g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-shawerma-bread-162g/s/6271003046300?aid=59",
+                      "item_price": "0.150",
+                      "item_description": "• KFM Shawerma Bread is a 162g quality product; perfect for creating your favourite Arabic dishes. • Made from premium ingredients, ensuring the taste and texture is just right for your delicious shawermas. • Lightweight and easy to handle, making it convenient for stuffing and rolling. • Comes in a well-sealed package, ensuring freshness and durability of the product.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6735be2f29a9d360601b026b.png?size=122"
+                      ]
+                    },
                     {
                       "item_name": "Mf Whole Wheat Wrap Tortillas 320 pcs",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/mf-whole-wheat-wrap-tortillas-320-pcs/s/6271100330494?aid=59",
@@ -26273,16 +26298,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix22/6271100331408.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Kfm Barley Bread 250G",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-barley-bread-250g/s/6271003045068?aid=59",
-                      "item_price": "0.100",
-                      "item_description": "Arabic bread sprinkled with barely made with quality local flour",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix/6271003045068.jpg?size=122"
                       ]
                     },
                     {
@@ -26538,16 +26553,6 @@
                       ]
                     },
                     {
-                      "item_name": "KMF White French Baguette, 240g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kmf-white-french-baguette-240g/s/6271003045020?aid=59",
-                      "item_price": "0.200",
-                      "item_description": "Since its independence in 1961, the State of Kuwait has taken major steps in enhancing food security. Kuwait Flour Mills Company, which later was merged with the Kuwait Bakeries Company in 1988 (KFMB), became a key pillar of the food industry in the State of Kuwait. STORAGE INSTRUCTIONS: Store in a Cool & Dry Place",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix/6271003045020.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "La Boulanger Bread Chocolate 8's 360 g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/la-boulanger-bread-chocolate-8s-360-g/s/3760049791457?aid=59",
                       "item_price": "2.420",
@@ -26782,16 +26787,6 @@
                       ]
                     },
                     {
-                      "item_name": "Kfm Multi Grain French Bread 240G",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-multi-grain-french-bread-240g/s/6271003045051?aid=59",
-                      "item_price": "0.200",
-                      "item_description": "Since its independence in 1961, the State of Kuwait has taken major steps in enhancing food security. Kuwait Flour Mills Company, which later was merged with the Kuwait Bakeries Company in 1988 (KFMB), became a key pillar of the food industry in the State of Kuwait. STORAGE INSTRUCTIONS: Store in a Cool & Dry Place",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores/nv-global-catalog/kw/f7652963-d644-4503-9bb5-f28e4d59d3c2.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "KFM Brioche Hamburger Buns 4Pcs 252G",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-brioche-hamburger-buns-4pcs-252g/s/6271003131099?aid=59",
                       "item_price": "0.380",
@@ -26829,7 +26824,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d7885088d2ba7e05f8112.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7886088d2ba7e05f8113.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d7886088d2ba7e05f8114.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d7886088d2ba7e05f8115.jpg?size=122"
                       ]
                     },
@@ -27541,6 +27535,16 @@
                       ]
                     },
                     {
+                      "item_name": "KFM Mini Thyme Croissant, 8x35g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-mini-thyme-croissant-8x35g/s/6271003043422?aid=59",
+                      "item_price": "0.400",
+                      "item_description": "Mini Thyme Croissant - 35 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix/6271003043422.jpg?size=122"
+                      ]
+                    },
+                    {
                       "item_name": "L'Usine Feta Cheese Flaky Butter Puff, 80g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/lusine-feta-cheese-flaky-butter-puff-80g/s/6281007066563?aid=59",
                       "item_price": "0.240",
@@ -27558,6 +27562,16 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11AC71.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Strawberry Croissant, 5x75g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/kfm-strawberry-croissant-5x75g/s/6271003043842?aid=59",
+                      "item_price": "0.500",
+                      "item_description": "Strawberry Croissant - 450 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix/6271003043842.jpg?size=122"
                       ]
                     },
                     {
@@ -27599,18 +27613,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix22/6281007047043.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "L'usine Cream Cheese Sandwich 112.5 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/lusine-cream-cheese-sandwich-1125-g/s/6281007036023?aid=59",
-                      "item_price": "0.230",
-                      "item_description": "Description:•They are the classic go-anywhere snack that is loved by both kids and adults •Each has a layer of mouthwatering cheese spread which is made with real cheese Ingrediants:Wheat Flour• Milk• Milk Cream• Milk Powder• Whey Powder• Cheese• Sugar• Salt Storage:Store in cool and dry place.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/670d7261088d2ba7e05f3759.jpg-1200Wx1200H?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7261088d2ba7e05f375a.JPG?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7262088d2ba7e05f375b.JPG?size=122"
                       ]
                     },
                     {
@@ -28317,26 +28319,6 @@
                       ]
                     },
                     {
-                      "item_name": "Alyoum Fresh Premium Whole Chicken Sealed Pack Tray 900 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/alyoum-fresh-premium-whole-chicken-sealed-pack-tray-900-g/s/6281007025263?aid=59",
-                      "item_price": "1.650",
-                      "item_description": "Alyoums Fresh Premium Whole Chicken is a high-quality poultry product, perfect for your culinary needs. Weighing in at 900g, this chicken comes in a sealed pack tray to ensure freshness and prevent contamination. The chicken is sourced from trusted farms, guaranteeing a healthy, hormone-free product. Its versatile, suitable for a variety of dishes, whether youre planning to roast, grill, or stew. With its natural flavor and tender meat, its sure to elevate your meals. Please remember to cook thoroughly before consumption.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/6694ed0ec16344ec9dc47eac.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Alyoum Fresh Chicken Gizzards 450 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/alyoum-fresh-chicken-gizzards-450-g/s/6281007057158?aid=59",
-                      "item_price": "0.710",
-                      "item_description": "Ù‚ÙˆØ§Ù†Øµ Ø¯Ø¬Ø§Ø¬ Ø·Ø§Ø²Ø¬Ø© - 450 Ø¬Ù…",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/6694ed09c16344ec9dc47e47.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Alyoum Fresh Chicken Wings 900G",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/alyoum-fresh-chicken-wings-900g/s/6281007071116?aid=59",
                       "item_price": "1.070",
@@ -28376,16 +28358,6 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Park_N_Shop/1021571.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/7894904048212.0_1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/7894904048212.0_2.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Alyoum Fresh Chicken Breast Cubes 400 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/alyoum-fresh-chicken-breast-cubes-400-g/s/6281007055598?aid=59",
-                      "item_price": "1.900",
-                      "item_description": "Alyoum Fresh Chicken Breast Cubes are a versatile and nutritious addition to your meals. Each 400g pack contains tender, boneless cubes of chicken breast, sourced from healthy chickens and prepared with care. These cubes are fresh, never frozen, ensuring the best texture and flavor. Theyre perfect for a variety of dishes, from stir-fries and salads to skewers and stews. The packaging is designed for easy storage and use, keeping the chicken fresh until youre ready to cook. Enjoy the convenience and quality of Alyoum Fresh Chicken Breast Cubes in your kitchen.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Monoprix22/6281007055598.jpg?size=122"
                       ]
                     },
                     {
@@ -28728,13 +28700,9 @@
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8000070053472v1.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8000070053472v2.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/679cfab1af6a08cd7ded4898.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/679cfab3af6a08cd7ded4899.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/679cfaaf232363ad207cc4c6.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/679cfaaeaf6a08cd7ded4897.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/679cfab6232363ad207cc4c7.jpg?size=122"
                       ]
                     },
@@ -28986,16 +28954,6 @@
                       ]
                     },
                     {
-                      "item_name": "Barista Espresso Intenso Coffee Capsules, 120g, Pack of 20",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/barista-espresso-intenso-coffee-capsules-120g-pack-of-20/s/5281009440225?aid=59",
-                      "item_price": "1.990",
-                      "item_description": "Indulge in the rich, bold flavors of Barista Espresso Intenso Coffee Capsules. Each 120g pack contains 20 single-serve capsules filled with premium, dark-roasted coffee. The Intenso blend offers a full-bodied experience, with intense aromas and a strong, lingering aftertaste. Perfect for espresso lovers, these capsules are compatible with most coffee machines. Enjoy the convenience of a barista-quality coffee right at home, any time of the day.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/64620116d0bd58d1e4d97714.jpg?size=122"
-                      ]
-                    },
-                    {
                       "item_name": "Starbucks Guatamela Capsules Coffee Capsules, 52g",
                       "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/starbucks-guatamela-capsules-coffee-capsules-52g/s/7613287855565?aid=59",
                       "item_price": "2.270",
@@ -29010,7 +28968,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/65f2280260d824a27a109db9.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f2280260d824a27a109dba.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/65f2280260d824a27a109dbb.jpg?size=122"
                       ]
                     },
@@ -29058,7 +29015,6 @@
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8000070053465v1.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8000070053465v2.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/679cf9b6af6a08cd7ded4892.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/679cf9b7232363ad207cc48f.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/679cf9b6232363ad207cc48e.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/679cf9b6232363ad207cc48d.jpg?size=122",
@@ -29249,17 +29205,13 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_5.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_6.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_7.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_8.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_9.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580421_10.jpg?size=122"
                       ]
                     },
@@ -29373,11 +29325,9 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_5.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_6.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_7.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/6294003580476_8.jpg?size=122"
                       ]
                     },
@@ -29399,16 +29349,6 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/7613035397934.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Beanies Instant Coffee Hazelnut 50 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/beanies-instant-coffee-hazelnut-50-g/s/5060169982024?aid=59",
-                      "item_price": "2.750",
-                      "item_description": "•Nut Free, No Added Sugar, Suitable for Vegans, Dairy & Gluten Free. No added preservatives, colors or additives. •Best before 24 Months from the date of manufacture. To enjoy your beanies at it's best, please consume within 3 months of breaking the seal. •2 Calories per Cup INGREDIENTS: Premium freeze dried instant coffee, Flavouring. 50g Glass Jar. HOW TO USE: Make the perfect Coffee Use one heaped teaspoon (2g) per cup, add freshly boiled water/Milk (200ml) and enjoy!",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-5060169982024.JPG?size=122"
                       ]
                     },
                     {
@@ -29494,7 +29434,6 @@
                         "https://images.deliveryhero.io/image/product-information-management/670d6e46088d2ba7e05f04cc.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6e46088d2ba7e05f04cd.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/670d6e46088d2ba7e05f04ce.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/670d6e47088d2ba7e05f04cf.jpg?size=122"
                       ]
                     },
@@ -29521,7 +29460,6 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/CPG_Images/7613287630926_4.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/CPG_Images/7613287630926_5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images_2024/CPG_Images/7613287630926_6.jpg?size=122"
                       ]
                     },
@@ -29617,7 +29555,6 @@
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003562540v1.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003562540v2.jpg?size=122",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003562540v3.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6294003562540v4.jpg?size=122"
                       ]
                     },
@@ -29705,6 +29642,35 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6287006530142.jpeg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/6287006530142.0_1.jpg?size=122"
                       ]
+                    },
+                    {
+                      "item_name": "Nescafe Instant Coffee 190 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/nescafe-instant-coffee-190-g/s/8445290249203?aid=59",
+                      "item_price": "2.730",
+                      "item_description": "Description: •PACK CONTENT: This pack contains 1 Jar of NESCAFE Classic Instant Coffee Powder and a FREE Iconic Red Mug •100% PURE COFFEE: We carefully combine high quality Robusta beans and slow-roast them to a rich medium-dark perfection, ensuring that every cup of NESCAFE Classic delivers the delightful experience you love! •QUICK & EASY PREPARATION: With its quick-dissolving formula, you can make a delicious cup of coffee in seconds. Be your own coffee artist & enjoy a delightful coffee experience at home with this instant coffee •RICH AROMA & FLAVOUR: Experience a full-bodied coffee experience with the rich aroma of NESCAFE Classic, awakening your senses with every cup. •RICH HERITAGE: With over 75 years of experience, we work with coffee farmers to grow sustainable coffee and deliver the best in class coffee through careful selection, roasting, and blending methods. Ingredients: Coffee Beans Storage Instructions: ‎Store in a cool, dark, and airtight container.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v1.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v2.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v3.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v4.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_8445290249203v6.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Baraka Arabic Coffee Mix 800 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/baraka-arabic-coffee-mix-800-g/s/5811100308003?aid=59",
+                      "item_price": "4.380",
+                      "item_description": "Blond Arabic coffee from Baraka prepared from the finest Arabica coffee - 800 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/5811100308003.jpg?size=122"
+                      ]
                     }
                   ]
                 },
@@ -29761,6 +29727,17 @@
                       "item_delivery_time_range": "Get it within 30 mins",
                       "item_images": [
                         "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/3422150000490.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Yorkshire Gold Tea Bags, 100x2.4g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/yorkshire-gold-tea-bags-100x24g/s/5010357556865?aid=59",
+                      "item_price": "1.840",
+                      "item_description": "Indulge in the rich and robust flavor of Yorkshire Gold tea. Each tea bag contains 2.4 grams of premium quality tea leaves, carefully selected from the finest tea gardens in the world. This pack of 100 tea bags is perfect for tea lovers who want to enjoy a cup of tea anytime, anywhere. Yorkshire Gold tea is known for its smooth and full-bodied taste, making it a perfect choice for breakfast or afternoon tea. So, sit back, relax, and savor the taste of Yorkshire Gold tea.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/5010357556865.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Netscribe%20Images(don't%20touch)/Other%201/5010357556865_1.jpg?size=122"
                       ]
                     },
                     {
@@ -29824,9 +29801,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8bf0df50577dfbe8368.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8cf5dca411b90b202da.jpg?size=122",
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8ce5dca411b90b202d9.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8c35dca411b90b202d7.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8cf5dca411b90b202db.jpg?size=122",
                         "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/product-information-management/63b5a8cc5dca411b90b202d8.jpg?size=122"
@@ -30034,6 +30009,7 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608617036_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608617036_4.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608617036_5.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608617036_6.jpg?size=122"
                       ]
                     },
@@ -30204,6 +30180,7 @@
                         "https://images.deliveryhero.io/image/product-information-management/6659b84deb1df59879c21224.gif?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608628520_2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608628520_3.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608628520_4.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608628520_5.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608628520_6.jpg?size=122"
@@ -30308,12 +30285,9 @@
                         "https://images.deliveryhero.io/image/product-information-management/6659adc90b396d48142da0ed.gif?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_1.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_2.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_5.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/UAE/tMart/8720608614011_6.jpg?size=122"
                       ]
                     },
@@ -30789,17 +30763,6 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608616893_5.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Lipton/8720608616893_6.jpg?size=122"
                       ]
-                    },
-                    {
-                      "item_name": "Al Attar Hibiscus Tea 20 Bags",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/product/al-attar-hibiscus-tea-20-bags/s/6212900002112?aid=59",
-                      "item_price": "0.780",
-                      "item_description": "20 bags",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6212900002112.JPG?size=122",
-                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_909771.jpg?size=122"
-                      ]
                     }
                   ]
                 },
@@ -30918,7 +30881,6 @@
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/8850124020550-2.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/8850124020550-3.jpg?size=122",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/8850124020550-4.jpg?size=122",
-                        "/assets/images/grocery-placeholder.svg",
                         "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Nestle/8850124020550-5.jpg?size=122"
                       ]
                     },
@@ -31206,11 +31168,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "name": "Bakery ",
-              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/bakery/toast?aid=59",
-              "sub_categories": []
             },
             {
               "name": "Poultry, Meat & Seafood ",
@@ -39640,11 +39597,11 @@
   },
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 12,
+    "current_grocery": 13,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Snacks",
-    "current_sub_category": "Soft Drinks",
+    "current_category": "Bakery ",
+    "current_sub_category": "Eggs",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -39784,6 +39741,28 @@
       },
       "MONOPRIX": {
         "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Ready To Drink",
+          "Eggs"
+        ],
+        "Bakery ": [
           "Fresh Fruit",
           "Fresh Vegetables",
           "Herbs & Leafy Greens",
