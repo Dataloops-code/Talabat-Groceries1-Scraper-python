@@ -13,6 +13,7 @@ from playwright.async_api import async_playwright, TimeoutError as PlaywrightTim
 from SavingOnDrive import SavingOnDrive
 import logging
 from datetime import datetime
+from retry import retry
 
 # Set up logging (used by MainScraper)
 logging.basicConfig(
@@ -364,13 +365,45 @@ class MainScraper:
     CURRENT_PROGRESS_FILE = "current_progress.json"
     SCRAPED_PROGRESS_FILE = "scraped_progress.json"
 
+    # def __init__(self):
+    #     self.output_dir = "output"
+    #     self.drive_uploader = SavingOnDrive('credentials.json')
+    #     os.makedirs(self.output_dir, exist_ok=True)
+    #     self.current_progress = self.load_current_progress()
+    #     self.scraped_progress = self.load_scraped_progress()
+    #     self.github_token = os.environ.get('GITHUB_TOKEN')
+    #     self.ensure_playwright_browsers()
+    #     # Force reset completed_areas to ensure scraping
+    #     self.current_progress["completed_areas"] = []
+    #     self.scraped_progress["completed_areas"] = []
+    #     self.save_current_progress()
+    #     self.save_scraped_progress()
     def __init__(self):
         self.output_dir = "output"
-        self.drive_uploader = SavingOnDrive('credentials.json')
+        credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
+        # Validate credentials_json
+        if not credentials_json:
+            logging.warning("TALABAT_GCLOUD_KEY_JSON is not set. Google Drive uploads will fail.")
+            self.drive_uploader = SavingOnDrive(credentials_json=None)
+        else:
+            try:
+                import json
+                credentials_dict = json.loads(credentials_json)
+                if not credentials_dict.get('type') == 'service_account':
+                    logging.warning("TALABAT_GCLOUD_KEY_JSON is not a valid service account key. Google Drive uploads will fail.")
+                    self.drive_uploader = SavingOnDrive(credentials_json=None)
+                else:
+                    self.drive_uploader = SavingOnDrive(credentials_json=credentials_json)
+            except json.JSONDecodeError as e:
+                logging.warning(f"TALABAT_GCLOUD_KEY_JSON is invalid JSON: {str(e)}. Google Drive uploads will fail.")
+                self.drive_uploader = SavingOnDrive(credentials_json=None)
+        
         os.makedirs(self.output_dir, exist_ok=True)
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.github_token = os.environ.get('GITHUB_TOKEN')
+        if not self.github_token:
+            logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         self.ensure_playwright_browsers()
         # Force reset completed_areas to ensure scraping
         self.current_progress["completed_areas"] = []
@@ -591,13 +624,40 @@ class MainScraper:
         else:
             logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
 
+    # def upload_to_drive(self, file_path):
+    #     print(f"Uploading {file_path} to Google Drive...")
+    #     try:
+    #         file_ids = self.drive_uploader.upload_to_multiple_folders(file_path)
+    #         print(f"Uploaded {file_path} successfully" if len(file_ids) == 2 else "Upload failed")
+    #     except Exception as e:
+    #         print(f"Error uploading to Drive: {e}")
+
+    @retry(tries=3, delay=2, backoff=2)
     def upload_to_drive(self, file_path):
-        print(f"Uploading {file_path} to Google Drive...")
+        logging.info(f"Uploading {file_path} to Google Drive...")
         try:
+            # Verify credentials are available
+            if not self.drive_uploader.credentials_json:
+                logging.error("TALABAT_GCLOUD_KEY_JSON is not set or invalid.")
+                return False
+            # Authenticate
+            if not self.drive_uploader.authenticate():
+                logging.error("Failed to authenticate with Google Drive. Check TALABAT_GCLOUD_KEY_JSON validity.")
+                return False
+            # Upload file
             file_ids = self.drive_uploader.upload_to_multiple_folders(file_path)
-            print(f"Uploaded {file_path} successfully" if len(file_ids) == 2 else "Upload failed")
+            success = len(file_ids) == 2
+            if success:
+                logging.info(f"Successfully uploaded {file_path} to Google Drive")
+            else:
+                logging.error(f"Failed to upload {file_path}: Incomplete upload to folders")
+            return success
         except Exception as e:
-            print(f"Error uploading to Drive: {e}")
+            if "429" in str(e) or "rate limit" in str(e).lower():
+                logging.error(f"Rate limit exceeded while uploading to Google Drive: {str(e)}")
+            else:
+                logging.error(f"Error uploading to Google Drive: {str(e)}")
+            return False
 
     async def run(self):
         ahmadi_areas = [
@@ -627,18 +687,16 @@ class MainScraper:
         self.upload_to_drive(excel_filename)
         print("Uploaded Excel to Google Drive")
 
-def create_credentials_file():
-    credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
-    if credentials_json:
-        with open('credentials.json', 'w') as f:
-            f.write(credentials_json)
-        return True
-    print("ERROR: TALABAT_GCLOUD_KEY_JSON not set!")
-    return False
+# def create_credentials_file():
+#     credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
+#     if credentials_json:
+#         with open('credentials.json', 'w') as f:
+#             f.write(credentials_json)
+#         return True
+#     print("ERROR: TALABAT_GCLOUD_KEY_JSON not set!")
+#     return False
 
 async def main():
-    if not create_credentials_file():
-        sys.exit(1)
     scraper = MainScraper()
     await scraper.run()
 
