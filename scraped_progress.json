@@ -1,0 +1,1358 @@
+{
+  "completed_areas": [],
+  "current_area_index": 0,
+  "last_updated": "2025-04-13T00:10:54.600938",
+  "all_results": {
+    "الظهر": {
+      "Mega Mart": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59",
+        "delivery_time": "27 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Special Offers",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/special-offers/promotions?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/grab-go/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat and Poultry",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fresh-meat-and-poultry/fresh-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/baby/baby-bath-body-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/toys/game-console?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/electronics/wires-plugs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/gift-items/birthday-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/stationery/stationary-office-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/tobacco-shop/lighters?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Hala Store": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+        "delivery_time": "20 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Deals",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+              "sub_categories": [
+                {
+                  "sub_category_name": "Promotions",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "KDD Mango Nectar Drinks, 8x125ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-mango-nectar-drinks-8x125ml/s/6271002285182?aid=59",
+                      "item_price": "1.350",
+                      "item_description": "KDD mango nectar is concentrated and sweet in taste - Pack 8 Ã— 125 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a370f8571bcd8c6e1796a7.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Chocolate Flavored Milk, 6x125ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-chocolate-flavored-milk-6x125ml/s/6271002161967?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "KDD 1 2 3 Chocolate Milk is a long life homogenized milk with no preservatives and no added colour. This milk is rich with vitamins A and D that are essential for keeping strong bones - 6 x 125 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6231e0a782f117d3f8a21aa0.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD UHT Banana Flavoured Milk, 6x125ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-uht-banana-flavoured-milk-6x125ml/s/6271002161868?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Ingredients: Low Fat Banana Flavored Milk Longlife Homegenised No Preservatives, Enriched With Vitamins (A) And (D) Contains A Minimum Of 8.5% Non-Fat Milk Solid And Maximum 2% Butterfat ( Low Fat Milk ).",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6231d037b45b17a7c2696ac7.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Pineapple Juice, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-pineapple-juice-6x250ml/s/6271002280866?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "100% natural juice for an irresistible delicious taste rich in vitamin C - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a369d87363df9dee4ee344.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Strawberry UHT Milk, 6x125ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-strawberry-uht-milk-6x125ml/s/6271002162063?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Long life strawberry milk. Rich in vitamins A and D. No preservatives and artificial colors - 6 Ã— 125 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6231cfaf8cedb2848666c3fc.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Chocolate Flavour Milk Lactose Free, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-chocolate-flavour-milk-lactose-free-6x250ml/s/6271002106340?aid=59",
+                      "item_price": "2.950",
+                      "item_description": "Low fat chocolate milk. Rich in vitamins A and D. Lactose-free no preservatives and artificial colors - 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60f6a45283663b91ddd74f93.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_909113.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Grape Juice, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-grape-juice-6x250ml/s/6271002282662?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "A delicious natural juice with a wonderful rich taste - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a36a4c571bcd8c6e1796a0.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Peach Nectar Juice, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-peach-nectar-juice-6x250ml/s/6271002211860?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "Special Peach Nectar the true summer freshness - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a366cbe5e92f613eb43f31.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Mango Juice, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-mango-juice-6x250ml/s/6271002280569?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "KDD mango nectar is concentrated and sweet in taste - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/63d8e5d8863381b8de2b4f67.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Tabasco Red Pepper Sauce 12 pcs x 60 ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/tabasco-red-pepper-sauce-12-pcs-x-60-ml/s/011210116702?aid=59",
+                      "item_price": "9.950",
+                      "item_description": "Product Description: Tabasco Red Pepper Sauce (12 pcs x 60 ml) is your secret ingredient to turn any meal into an unforgettable flavor experience. A treasured inclusion in the kitchen, each bottle unleashes a fusion of piquant taste and distinct spicy aroma. Carefully produced from exclusively harvested and hand-picked tabasco peppers, this sauce is versatile and pairs incredibly with everything from eggs at breakfast to your late-night pizza. It comes in a pack of 12 compact 60 ml bottles, making it easy to have one on hand wherever culinary inspiration strikes.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Bin%20Habib/11210116702.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Apple Juice, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-apple-juice-6x250ml/s/6271002282563?aid=59",
+                      "item_price": "1.600",
+                      "item_description": "KDD Apple Juice 100% natural red apple juice for an irresistibly rich taste - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Item%20Images/JO-6271002282563.PNG?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD Strawberry Flavored Milk, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-strawberry-flavored-milk-6x250ml/s/6271002162469?aid=59",
+                      "item_price": "2.250",
+                      "item_description": "KDD Strawberry Milk keeps you refreshed with a delicious taste. Suitable for preparing a wide range of desserts drinks and more. Ideal for storing in the refrigerator for later use - 6 x 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/62289d9c8c94e76cee9c12f7.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Kdd Apricot Nectar 6 pcs x 250 ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-apricot-nectar-6-pcs-x-250-ml/s/6271002281061?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "KDD Apricot Nectar has a rich and intense apricot flavor - Pack 6 Ã— 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Blob_Images/KWF2HWDW.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD UHT Chocolate Flavoured Milk, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-uht-chocolate-flavoured-milk-6x250ml/s/6271002162360?aid=59",
+                      "item_price": "2.250",
+                      "item_description": "KDD Chocolate Milk keeps you refreshed with a delicious taste. Suitable for preparing a wide range of desserts drinks and more. Ideal for storing in the refrigerator for later use - 6 x 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/62289dda8c94e76cee9c12f8.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KDD UHT Banana Flavoured Milk, 6x250ml",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kdd-uht-banana-flavoured-milk-6x250ml/s/6271002162261?aid=59",
+                      "item_price": "2.250",
+                      "item_description": "KDD Banana Milk keeps you refreshed with a delicious taste. Suitable for preparing a wide range of desserts drinks and more. Ideal for storing in the refrigerator for later use - 6 x 250 ml",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/62289e7fdd9a096f5d06d18c.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Freshly Baked",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "KFM White Soft Bread, 300g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kfm-white-soft-bread-300g/s/V2UCVC?aid=59",
+                      "item_price": "0.050",
+                      "item_description": "• Fresh and Soft: KFM White Soft Bread is baked fresh daily for a consistently soft texture. • Versatile Flavor: Its subtly sweet and mild flavor pairs well with a variety of spreads and fillings. • Nutrient-Rich: Each 300g loaf is packed with essential nutrients, contributing to a balanced diet. • Long Shelf Life: This bread remains fresh for longer, reducing waste and promoting convenience.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e2b45207ada6dba36d04d8.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Arabic White Bread, 75g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kfm-arabic-white-bread-75g/s/6271003081011?aid=59",
+                      "item_price": "0.050",
+                      "item_description": "Plain white arabic bread made from quality local flour",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a5c547f2c37c8a5088edcb.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jawharat Lebanani Arabic Bread 5Pcs",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jawharat-lebanani-arabic-bread-5pcs/s/00000004044239?aid=59",
+                      "item_price": "0.050",
+                      "item_description": "Jawharat Lebanani Arabic Bread is a pack of 5 traditional, authentic Lebanese flatbreads. These breads are made using high-quality ingredients, ensuring a fresh and delicious taste in every bite. They are versatile and can be used in a variety of dishes - from wraps and sandwiches to pizzas and dips. The bread is soft and fluffy, yet sturdy enough to hold your favorite fillings. Enjoy the convenience of having fresh Arabic bread at your fingertips with this pack. Perfect for those who love Middle Eastern cuisine or anyone looking to try something new and exciting.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_903730_1.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_903730_2.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Tortilla Wraps, 8 inch, 2x350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-tortilla-wraps-8-inch-2x350g/s/6271026236214?aid=59",
+                      "item_price": "2.350",
+                      "item_description": "- These Sara Cake Tortilla Wraps are sized at 8 inches, ensuring a generous surface area for your delicious fillings. - Packaged in a set of two with each pack weighing 350g, they are delectable and value for money. - Easy to use, these wraps can evolve any meal into a gourmet experience with a simple addition of your favorite fillings. - The freshness and quality of Sara Cake products ensure that each tortilla wrap delivers a soft, pliable, and tasty base for your meal.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM_1/6271026236214.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Tortilla Wraps, 8 inch, 350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-tortilla-wraps-8-inch-350g/s/6271026236153?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "- Sara Cake Tortilla Wraps are 8-inch size, perfect for rolling up your favorite fillings for burritos, soft tacos, or wraps. - This pack weighs 350g, providing a substantial amount of wraps for multiple meal preparations. - They are versatile and can be used in a variety of dishes, making your meal times exciting and delicious. - Made with high-quality standards, these wraps are perfect for keeping your healthy diet on track with no compromise on taste.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67040e95258ec80a05ccdca9.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Buns & Rolls",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/buns-rolls?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "L'usine Sesame Burger Bun, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-sesame-burger-bun-400g/s/6281007042871?aid=59",
+                      "item_price": "0.550",
+                      "item_description": "Description: •l'usine Sesame Seed Burger Buns is made from finest quality ingredient •Enjoy this sumptuous bread by sharing it with your friends Ingredients: Wheat flour• water• sugar• yeast• wheat gluten• sesame seeds• vegetable oil (palm)• salt• full fat soya flour• preservative 9E282)• emulsifiers (Vegetable oil origin E471• E472e• E481)• flour treatment agent 9E300). Storage Instructions: Keep in a cool & dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914600.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine White Sandwich Roll, 200g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-white-sandwich-roll-200g/s/6281007042840?aid=59",
+                      "item_price": "0.400",
+                      "item_description": "Pack 1 x 200 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Almarai/6281007042840.png?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A847.png?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914604.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Plain Burger Bun, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-plain-burger-bun-400g/s/6281007042864?aid=59",
+                      "item_price": "0.550",
+                      "item_description": "Description: •These buns are so good that the whole family will love them •Delivers consistently delicious flavour •Enriched with high-quality ingredients that make eating an amazing experience Ingredients: Wheat flour• water• sugar• yeast• wheat gluten• vegetable oil (palm)• salt• full fat soya flour• emulsifiers (vegetable oil origin E471• E472e• E481)• preservative 9E282)• flour treatment agent 9E300). Storage Instructions: Keep in a cool & dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914601.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Toast",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/toast?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "L'usine White Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-white-sliced-bread-600g/s/6281100081036?aid=59",
+                      "item_price": "0.850",
+                      "item_description": "Pack 1 x 600 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6281100081036.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/615d9c2123fbc74443853f60.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914591.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Sliced Milk Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-sliced-milk-bread-600g/s/6281007036849?aid=59",
+                      "item_price": "0.850",
+                      "item_description": "Product Descriptions: Make yourself a delicious and healthy breakfast each morning with the Lusine Sliced Milk Bread. This bread is made from the choicest of ingredients and the goodness of milk. This makes the bread a highly nutritious meal for the morning. The bread slices provide you with ample energy to function enthusiastically all throughout the day. You can eat this bread as it is or toast it and spread some butter, jam or other seasonings. The delicious taste of these bread slices also makes your little one eat it without any fuss. Benefits: • Made from high-quality ingredients for softness • Loaded with the goodness of milk for making the bread healthy • Provides energy and nourishment to your body • Ideal pick for your child's lunch box • Tasty bread slices make a lovely breakfast",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KWPD5EDK.png?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0c4ec6b6f22ea491e91.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0e9ec6b6f22ea491e92.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Brown Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/lusine-brown-sliced-bread-600g/s/6281100081029?aid=59",
+                      "item_price": "0.850",
+                      "item_description": "This classic everyday brown bread is a rich source of fibre and is bursting with delicious goodness. It's sliced and perfect for making sandwiches and toast. Superior quality ingredients make the bread healthy. Loaded with nutrients for an energetic start to the day. Easy to digest healthy and delicious bread for breakfast and supper - 600 gm.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A6C9.png?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914590.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/6526dcede455c96e26f62f9b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Rusk 315 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-rusk-315-g/s/6271026101147?aid=59",
+                      "item_price": "1.450",
+                      "item_description": "Quick and easy snack ideal with a cup of tea. Made of high quality materials with the most modern technology to give you a delicious cake in its freshest state - 315 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/612f2e6a2a70f6a0d2af5edc.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Sweet Baksam with Sesame, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/al-faysal-sweet-baksam-with-sesame-1kg/s/2002283108310?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "Indulge in the rich, traditional taste of Al Faysal Sweet Baksam with Sesame. This 1 kg pack offers a delightful blend of sweet and nutty flavors, perfect for satisfying your sweet tooth. Each piece is carefully crafted with the finest ingredients, featuring a scrumptious layer of sesame seeds that adds a unique crunch and an extra layer of flavor. Ideal for sharing with family and friends or for special occasions, this sweet treat is sure to impress. So, treat yourself and your loved ones to this delicious and authentic Middle Eastern delicacy.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fb69cfd64741b7dd14.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Sweet Milk Rusk, 170g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-sweet-milk-rusk-170g/s/6271026155065?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Delicious as it perfectly mixes between milk and fennel. A quick and easy snack ideal with a cup of tea. Made of high quality materials with the most modern technology to give you a delicious cake in its freshest state - 170 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67040e90258ec80a05ccdc76.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Rich Diet Rusk with Grain, 385g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-rich-diet-rusk-with-grain-385g/s/6281033217151?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Rich Rusk, Diet Rusk With Grains, Ingredients : Whole Wheat Glour, Water,Rye Meal, Flatted Wheat, Maize Grits, Malt, Line Seed, Barley Flakes, Oat Flakes, Sesame Seed, Soya Grits Toasted, Pealed Millet,Red Millet,Food Grade Enzymes, Ascorbic Acid (E300), Sugar, Full Cream Milk Powder (Cow'S Milk), Skimmed Milk Powder ( Coow'S Milk), Wheat Gluten, Wheat Fiber,Yeast, Dough Improver, [Anti- Caking Agent, Calcium Carbonate(E170)- Tricalcium Phosphate,Emulsifier,(E472E From Palm Oil ), Wheat Flour,Dextrose,Antioxidant, Ascorbic Acid (E300)-Amylase Enzyme],Fennel,Black Cumin,Salt, Vitamins, (B1,B2,B6,B12,A),Aniseed,Cumin.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61221c72b7120511c90cd919.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Netscribe%20Images%28don%27t%20touch%29/Other%201/6281033217151_1.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Orginal Rich Rusk with Grain, 385g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-orginal-rich-rusk-with-grain-385g/s/6281033217137?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Children who are learning to self-feed will like these rusks as a snack at home or on the road - 1 x 385 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a4a5e51d0a072214530e49.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Diet Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/al-faysal-diet-rusk-400g/s/2002283109218?aid=59",
+                      "item_price": "0.950",
+                      "item_description": "• Al Faysal Diet Rusk comes in a generous 400g pack, providing long-lasting enjoyment. • Made with high-quality ingredients, it offers a delicious and satisfying taste. • With a low-calorie count, these Rusks support your healthy lifestyle and diet plans. • Convenient and ready-to-eat, Al Faysal Diet Rusk is perfect for snacking on the go or as a complement to your favorite beverages.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953eb69cfd64741b7dc4f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Sweet Baksam with Sesame, 500g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/al-faysal-sweet-baksam-with-sesame-500g/s/2002283105319?aid=59",
+                      "item_price": "0.950",
+                      "item_description": "Indulge in the rich, sweet flavor of Al Faysal Sweet Baksam with Sesame. This 500g pack is filled with delicious treats, each one a perfect blend of sweet syrup and crunchy sesame seeds. The Baksam is traditionally prepared, capturing the authentic taste of Middle Eastern cuisine. Enjoy it as a dessert after meals, or as a snack during the day. The resealable pack ensures freshness and quality, making it a perfect choice for those who appreciate good food. Please note, this product contains sesame and may not be suitable for those with allergies.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fb69cfd64741b7dd16.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Square Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kfm-white-square-toast-with-vitamin-d3/s/6271003041220?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "• Enriched with Vitamin D3: KFM White Square Toast is fortified with essential Vitamin D3 to support your daily nutrient intake. • Delicious White Square Toast: Perfectly toasted and squared for a crunchy and delightful snacking experience. • Versatile Product: Ideal for a simple breakfast feast, snack-time, or complementing your favorite meals. • Convenient Packaging: Comes in a sturdy, resealable pack to retain the product’s freshness for long periods, ensuring the perfect crunch with every bite.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041220.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Rusk Bag, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/al-faysal-rusk-bag-400g/s/2002283106118?aid=59",
+                      "item_price": "0.950",
+                      "item_description": "• Al Faysal Rusk Bag contains 400g of crispy and light rusk. • These rusks are baked to perfection, providing a satisfying crunch at every bite. • Our rusk are ideal for pairing with your favorite tea or coffee, enhancing your snack time. • Conveniently packed in a resealable bag for lasting freshness and easy storage.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Original Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kfm-original-toast-with-vitamin-d3/s/6271003041183?aid=59",
+                      "item_price": "0.400",
+                      "item_description": "• Delicious Treat: KFM Original Toast is a scrumptious blend of crunchiness and lightness, made to satisfy your cravings. • Enriched with Vitamin D3: Formulated with Vitamin D3, it helps in promoting healthy bones and teeth, and boosting your immune system. • Healthy Option: It is low in sugar and saturated fats, making it a nutritious and heart-healthy snack for all ages. • Convenient Packaging: Comes in a resealable packet, ensuring the toasts stay fresh and crispy for longer. Enjoy it anytime, anywhere.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041183.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Whole Wheat Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/kfm-whole-wheat-toast-with-vitamin-d3/s/6271003041206?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "• Made from 100% whole wheat, KFM toast promises a high fiber content appropriate for a healthy diet. • Enriched with Vitamin D3 which supports bone and immune health. • Perfect for a quick breakfast or a convenient snack, providing sustained energy due to whole grains. • Comes in a resealable packaging, ensuring the product remains fresh and tasty over time.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041206.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Rich Brown Rusk with Grains, 385g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-rich-brown-rusk-with-grains-385g/s/6281033217144?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Children who are learning to self-feed will like these rusks as a snack at home or on the road - 2 x 385 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a5f9f4854a720f1502e8fa.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Black Cumin Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/al-faysal-black-cumin-rusk-400g/s/2002283107115?aid=59",
+                      "item_price": "0.950",
+                      "item_description": "Al Faysal Rusk Black Cumin is a delightful snack perfect for any time of the day. Each pack contains 400g of crispy, light rusks infused with the aromatic flavor of black cumin. These rusks are baked to perfection, offering a satisfying crunch with every bite. They are an excellent accompaniment to your tea or coffee, and can also be enjoyed on their own. The black cumin adds a unique twist, enhancing the overall taste and making it a delightful treat. Al Faysal Rusk Black Cumin is packaged in a convenient, resealable bag to maintain freshness and crunchiness. Enjoy a wholesome snack with a distinct taste!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4d.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Cakes",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/cakes?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "Oreo Cadbury Chocolate Coated Cake, 24g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/oreo-cadbury-chocolate-coated-cake-24g/s/7622210785114?aid=59",
+                      "item_price": "0.250",
+                      "item_description": "OREO Cadbury Cake is baked from the finest ingredients, this chocolate cake bring forth the best quality to make your experience all the more relishing. They are filled with vanilla to keep your taste buds in a perpetual state of bliss the moment you take the first bite. Dunk these cocoa cake with vanilla flavored filling and covered with chocolate in your tea to enjoy a delightful snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee913718fc84edaf6e028b.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee913818fc84edaf6e028c.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee913818fc84edaf6e028d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee913a18fc84edaf6e028e.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee913a18fc84edaf6e028f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Chocolate Coated Chocolate Cake Bar, 35g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-chocolate-coated-chocolate-cake-bar-35g/s/6281033471645?aid=59",
+                      "item_price": "0.200",
+                      "item_description": "Indulge in the delightful taste of Americana Chocolate Sandwich Cake Batman edition. This 35g treat is a perfect blend of rich, creamy chocolate sandwiched between two moist and fluffy sponge cakes. Each bite will transport you to a world of chocolaty goodness, with a subtle hint of vanilla adding an extra layer of flavor. The fun Batman-themed packaging makes it a hit among kids and comic book fans alike. It's not just a cake, but a treat for the senses, offering a delectable taste and a playful design that you can't resist. Perfect for snacking, dessert, or as a lunchbox surprise, this Americana Chocolate Sandwich Cake is the superhero of all treats. Enjoy it on its own, or pair it with a glass of milk for a truly satisfying experience.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Dabur/6281033471645.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Batman Chocolate Sandwich Cake, 12x35g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-batman-chocolate-sandwich-cake-12x35g/s/6281033271641?aid=59",
+                      "item_price": "1.950",
+                      "item_description": "Americana Batman chocolate sandwich cake is a soft and delicious coated rolls with chocolate. They will put sweet note to everyday family moments. Chocolate cake are not only incredibly delicious, they allow to express our creativity by creating our own succulent dessert, and with a number of mouth-watering flavours.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_921086_01.png?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/619b97b71db16b4d9598fa47.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Chocolate Cake, 30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-chocolate-cake-30g/s/7622300661106?aid=59",
+                      "item_price": "0.250",
+                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bd18fc84edaf6e0480.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91be18fc84edaf6e0481.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91be18fc84edaf6e0482.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bf18fc84edaf6e0483.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bf18fc84edaf6e0484.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Eti Pop Kek Cocoa Coated Cake with Chocolate Sauce, 45g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/eti-pop-kek-cocoa-coated-cake-with-chocolate-sauce-45g/s/8690526023755?aid=59",
+                      "item_price": "0.300",
+                      "item_description": "Delicious high quality cake and perfect as a snack meal - 6 Ã— 45 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_920902.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Milk Cake, 30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-milk-cake-30g/s/7622300660970?aid=59",
+                      "item_price": "0.250",
+                      "item_description": "Discover the World of Barni. Barni Cake with Milk features a bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with milk filling can be served as a dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b718fc84edaf6e0476.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b918fc84edaf6e0477.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91ba18fc84edaf6e0478.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bb18fc84edaf6e0479.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91bc18fc84edaf6e047a.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Orion Choco Pie, 12x28g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/orion-choco-pie-12x28g/s/8801117807634?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "Description: Orion Each pack contains 12 Choco pies dipped in Hot Chocolate, Centre Filled with Marshmallow. Ingredients: ‎Sugar, Wheat Flour, Glucose Syrup, Vegetable Shortening (Palm Oil, Fully Hydrogenated Coconut Oil). Non Hydrogenated Vegetable Fat, Cocoa Powder, Contains Milk, Wheat and Soy Ingredients, Cheese, Milk solids, Emulsifier (E452, E339, E331).",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/65ace7300d5150fa32f53c46.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/658bf395396e69d36f2ce5bb.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/658bf395402b8886af2174cd.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/658bf395396e69d36f2ce5bc.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Switz Fruit Slice Cake, 70g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-fruit-slice-cake-70g/s/6281123034118?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "Delight your taste buds with the Switz Fruit Slice Cake. Weighing in at a convenient 70 grams, this delightful treat is perfect for on-the-go snacking or as a sweet addition to your afternoon tea. Each slice is packed with a medley of succulent fruits that add a burst of natural sweetness and texture. The cake is moist and tender, offering a mouthful of rich flavors with every bite. The fruit pieces are evenly distributed throughout the cake, ensuring you get a taste of fruity goodness in every bite. Its compact size makes it an ideal choice for those looking to satisfy their sweet tooth without going overboard. Whether you're planning a picnic, packing a lunchbox, or simply craving a delicious snack, the Switz Fruit Slice Cake is sure to hit the spot.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6281123034118.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Chocolate Cake Slices 200 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-chocolate-cake-slices-200-g/s/6271026082071?aid=59",
+                      "item_price": "0.750",
+                      "item_description": "Lice is incredibly moist flavorful and tastes like home. You'll love the smooth texture and the sweet delicious chocolate taste of this cake bar. Perfect as a snack with coffee or tea - 2 x 200 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e6f2bd2acb530d462a573f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Murouj English Cake Fruits, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-english-cake-fruits-90g/s/6287014261205?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "- Delightfully aromatic Murouj English Cake Fruits, weighing 90g, perfect for a small treat. - Packed with a rich variety of dried fruits, offering an explosion of flavor with every bite. - Conveniently pre-packaged, making it an excellent on-the-go snack or addition to your picnic basket. - Prepared with premium quality ingredients, ensuring you a delightful and indulgent tea-time experience.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/929327.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jordina Junior Cake with Vanilla Cream, 12x40g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-junior-cake-with-vanilla-cream-12x40g/s/6253002479631?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "• Deliciously indulgent: Delight your taste buds with Jordina Junior Cake, packed with creamy vanilla flavor. • Convenient pack size: Contains 12 individual cakes, each weighing 40g, perfect for on-the-go snacking. • Ideal for various occasions: A fitting dessert option for parties, picnics, snack time, or whenever you crave a sweet treat. • High-quality Ingredients: Made from the finest ingredients, ensuring a fresh and delicious cake experience every time.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Item%20Images/JO-6253002479631.PNG?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jordina Mini Cake, 24 Pieces",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-mini-cake-24-pieces/s/6253002434418?aid=59",
+                      "item_price": "2.250",
+                      "item_description": "• Contains 24 pieces, making Jordina Mini Cake an excellent option for parties and gatherings. • Each mini cake is carefully crafted, letting you enjoy gourmet quality at home. • Stored securely in unique packaging to help maintain their freshness and quality. • They offer a delicious taste to please both children and adults, making it a versatile dessert option.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/PIM/6253002434418.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Orion Choco Pie 30 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/orion-choco-pie-30-g/s/8801117907006?aid=59",
+                      "item_price": "0.150",
+                      "item_description": "- Delightfully bite-sized: The Orion Choco Pie is 30 grams, perfect for a satisfying yet lightweight treat. - Chocolatey goodness: Covered in a rich, velvety coating, this pie promises a burst of chocolate flavor with each bite. - Soft and moist filling: The texture of this pie is soft and moist, ensuring a pleasant eating experience. - Conveniently packaged: Individually wrapped for freshness, the Orion Choco Pie is easy to carry around and perfect for on-the-go snacking.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8801117907006.JPG?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jordina Strawberry Cake, 12x40g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-strawberry-cake-12x40g/s/6253002479624?aid=59",
+                      "item_price": "1.750",
+                      "item_description": "• Delicious and moist, Jordina Strawberry Cake offers the perfect blend of sweet and tangy flavors in each bite. • Packaged as 12 individual 40g servings, it provides perfect portion control for a sweet treat. • Made with high-quality, natural ingredients ensures a fruity, fresh strawberry taste that will satisfy your sweet tooth. • The convenient and secure packaging allows for easy transportation, making it an ideal snack for picnics, lunches, or on-the-go.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67b2f63bebd915b8141a9009.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Choco Cake 12x30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-choco-cake-12x30g/s/7622300661090?aid=59",
+                      "item_price": "2.650",
+                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91c718fc84edaf6e04c1.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91c918fc84edaf6e04c2.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91ca18fc84edaf6e04c3.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91cb18fc84edaf6e04c4.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91cc18fc84edaf6e04c5.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Switz Party Vanilla Cake, 70g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-party-vanilla-cake-70g/s/6281123033227?aid=59",
+                      "item_price": "0.300",
+                      "item_description": "Indulge your taste buds with the Switz Party Cake in Vanilla flavor. This 70g cake is perfect for those who love a sweet treat without the guilt. Its light and fluffy texture, combined with the rich, creamy taste of vanilla, makes it a delightful snack for any time of the day. Each bite will transport you to a world of pure indulgence. The Switz Party Cake is also a great option for celebrations or a quick dessert for unexpected guests. It's conveniently packaged, ensuring freshness and easy transportation. So, whether you're at home, at work, or on the go, you can enjoy a slice of this heavenly cake. Give in to your sweet cravings with the Switz Party Cake Vanilla.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6281123033227.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Mini Vanilla Cake Bar, 12x25g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/7days-mini-vanilla-cake-bar-12x25g/s/6281183000245?aid=59",
+                      "item_price": "1.500",
+                      "item_description": "Indulge your sweet tooth with the Seven Days Vanilla Mini Cake Bar. This delightful pack contains 12 pieces of 25g mini cake bars, each one filled with rich, creamy vanilla flavor. These bite-sized treats are perfect for snacking on the go or sharing with friends and family. Each cake bar is individually wrapped, ensuring freshness and convenience. Made with high-quality ingredients, every bite offers a soft, moist texture and a burst of sweet vanilla. Perfect for a mid-day pick-me-up, a quick breakfast, or a dessert after dinner. Enjoy the Seven Days Vanilla Mini Cake Bar anytime, anywhere. Treat yourself to a little piece of heaven that is not only delicious but also easy to carry and store. It's the perfect sweet treat that you can enjoy every day of the week!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d7095088d2ba7e05f210a.png?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d7095088d2ba7e05f210b.jpg-1200Wx1200H?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d7096088d2ba7e05f210c.webp?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d7097088d2ba7e05f210d.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Banana Walnut Muffin Cake",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-banana-walnut-muffin-cake/s/6281123034934?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "- Made with luscious ripe bananas and crunchy walnuts, providing a delightful taste and texture - Individually wrapped for freshness, ensuring each muffin is perfectly moist every time - Handmade using all-natural ingredients for a guilt-free indulgent treat - Perfect for breakfast, a snack, or a dessert, offering a versatile choice for all hours of the day",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/616298c920c92d0f83b8c1b3.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Barni Milk Sponge Cake, 12x30g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-milk-sponge-cake-12x30g/s/7622300660956?aid=59",
+                      "item_price": "2.650",
+                      "item_description": "Discover the World of Barni. Barni Cake with Milk features a bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with milk filling can be served as a dessert or enjoyed as a teatime snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b118fc84edaf6e046c.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b218fc84edaf6e046d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b318fc84edaf6e046e.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b418fc84edaf6e046f.jpg?size=122",
+                        "/assets/images/grocery-placeholder.svg",
+                        "https://images.deliveryhero.io/image/product-information-management/67ee91b518fc84edaf6e0470.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "7Days Mini Choco Cake Bar, 12x25g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/7days-mini-choco-cake-bar-12x25g/s/6281183001488?aid=59",
+                      "item_price": "1.500",
+                      "item_description": "Description: •This Cake bar with chocolate filling offers an ideal way of indulging your sweet tooth and is an excellent snack during breaks •Rich and smooth texture offers a relishing experience Ingredients: Sugar• Water• Glucose Syrup• Vegetable Oil (Palm)• Wheat Flour• Wheat Starch• Humectants (E420• E422• E1520)• Cocoa Powder• Sunflower Oil• Whole Egg Powder• Glucose Fructose Syrup• Dextrose• Emulsifier/Vegetable Oil origin: E471• Soya Lecithin• E475• E477• E470a• E492)• Raising Agents (E450• E500• E503(ii))• Preservative (E202• E282• E330)• Skim Milk Powder• Salt• Cocoa Butter• Natural and Artificial Vanilla Flavour• Stabilizer(E415)• Natural Flavour (Vanilla) Storage Instructions: Store in cool and Dry place",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67584f2398bbd0ceea554f51.webp?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d7094088d2ba7e05f2106.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d7094088d2ba7e05f2107.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Fruit Slice Cakes 90 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-fruit-slice-cakes-90-g/s/6271005020384?aid=59",
+                      "item_price": "0.300",
+                      "item_description": "- Delicious Treat: Sara Fruit Slice Cakes are delightfully sweet, offering an irresistible taste every time. - Healthy Fruits: Each cake is filled with real fruit slices, providing natural flavor and added nutritional value. - Convenient Packaging: Comes in a 90g pack, perfectly size for a quick snack or to share with a friend. - High Quality: Made from premium ingredients, ensuring you enjoy a top-notch product with every bite.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e6e22d20bb79c940139b89.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jordina Jr Cake Topped with Raspberry Jelly and Coconut Powder, 40g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-jr-cake-topped-with-raspberry-jelly-and-coconut-powder-40g/s/6253002479594?aid=59",
+                      "item_price": "0.200",
+                      "item_description": "• Luxurious Taste: Offers a delightful combination of a rich cake base topped with distinctive raspberry jelly. • Coated in Coconut: Enhanced with a dusting of finely ground coconut powder for an additional tropical flavor. • Portion-Control Size: Conveniently portioned at 40g each, perfect for an individual treat or a petite dessert offering. • High-Quality Ingredients: Made using premium ingredients to ensure a scrumptious and high-standard product.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6253002479594.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Fruit Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-fruit-slice-cake-90g/s/6281123034293?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "• Made with best tasting and high quality ingredients for a rich taste • Carefully sourced to ensure the perfect taste and flavour • Delicious and healthy bread perfect pair with coffee, tea milk and juices • Comes ready to eat for relishing during travels, adding to kid's snack box, or carrying to work",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Istanbul/6281123034293.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Fruit Cake Slices 200 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-fruit-cake-slices-200-g/s/6271026083078?aid=59",
+                      "item_price": "0.750",
+                      "item_description": "Savor the taste of Saras Fruit Cake Slices, a 200g pack of delight that brings the essence of homemade baking to your table. Each slice is a blend of rich, moist cake infused with a variety of succulent fruits. The perfect balance of sweetness and texture makes it a delightful treat for any time of the day. Whether its a quick breakfast, a mid-afternoon snack, or a dessert after dinner, these fruit cake slices are sure to satisfy your sweet tooth. The package is easy to open and resealable, ensuring the slices stay fresh for longer. Enjoy the convenience and deliciousness of Saras Fruit Cake Slices.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/60e6ec85c1cab2f2d9cec195.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Butter Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-butter-slice-cake-90g/s/6281123034279?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "Indulge in the delightful taste of Sabahoo's Butter Slice Cake. This 90g package is filled with a moist, buttery cake that melts in your mouth, offering a delicious treat that's perfect for any time of the day. The cake is baked to perfection, with a rich buttery flavor that's not too sweet, making it a great companion for your coffee or tea. Sabahoo uses only the finest ingredients, ensuring a high-quality product that you can enjoy guilt-free. The cake is individually wrapped, making it easy to pack for a quick snack on-the-go. Whether you're looking for a sweet treat to enjoy at home, or you need a convenient snack for your busy day, Sabahoo's Butter Slice Cake is a delightful choice.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d0694628b3c65fad7afdb?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d0695628b3c65fad7afdc?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Switz Mini Strawberry Roll, 69g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-mini-strawberry-roll-69g/s/6281123036396?aid=59",
+                      "item_price": "0.300",
+                      "item_description": "Product Description: Rediscover the delightful taste of your childhood with the Switz Mini Strawberry Roll, 69g. This irresistibly delicious snack is perfect for individuals who enjoy the sweet and tangy flavor of strawberries engulfed in a soft, luscious cake. With every bite, you'll experience a fusion of rich, smooth cream and ripe strawberries, all wrapped up in a moist, fluffy pastry. Conveniently packaged in a compact, easy-to-carry size, it's an ideal on-the-go snack, offering a burst of wholesome energy and a sweet treat, no matter where your day takes you.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6162982cd39b97f4cef79014.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Swits Mountain Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/swits-mountain-cake-90g/s/6281123034194?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "• Soft and spongy texture delights your taste buds • Prepared using premium-grade ingredients for a great flavour • Makes a great addition to your dessert menu • Ideal snack for parties, events, or picnics",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/6256aa1f6ab3c2302b7fa804.jpg?size=122",
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/6281123034194.0_1.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Jordina Junior Vanilla Cake Filled with Vanilla Cream, 40g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-junior-vanilla-cake-filled-with-vanilla-cream-40g/s/6253002479600?aid=59",
+                      "item_price": "0.200",
+                      "item_description": "• The Jordina Junior cake is a delightful 40g snack sized treat, perfect for on-the-go. • This product features a classic and crowd-pleasing vanilla cake base, loved by all ages. • It comes with a rich, creamy vanilla filling that elevates every bite to a decadent experience. • Made with quality ingredients, its smooth texture and comforting flavor makes for a satisfying dessert or snack.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6253002479600.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Switz Madeira Slice, 70g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-madeira-slice-70g/s/6281123034200?aid=59",
+                      "item_price": "0.350",
+                      "item_description": "• Soft and spongy texture delights your taste buds • Prepared using premium-grade ingredients for a great flavour • Makes a great addition to your dessert menu • Ideal snack for parties, events, or picnics",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Almuntazah%20BH/6281123034200.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Murouj Orange English Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-orange-english-cake-90g/s/6287014261199?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "- Deliciously Soft: The Murouj Orange English Cake is a soft, melt-in-your-mouth treat, ensuring a delightful experience with every bite. - Bursting with Flavor: Infused with the zesty taste of fresh oranges, this cake offers a perfect balance of sweetness and citrusy tang. - Convenient Size: With its 90g packaging, this cake is perfect for a quick snack on the go or an ideal portion for a single serving dessert. - Quality Ingredients: Crafted with high-quality ingredients, this cake promises a guilt-free indulgence that doesn't compromise on the taste.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_6287014261199.jpeg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sabahoo Chocolate Slice Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-chocolate-slice-cake-90g/s/6281123034262?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "Indulge your sweet tooth with Sabahoos Chocolate Cake slice. This delectable treat is made from high-quality ingredients, featuring a rich, moist chocolate sponge layered with creamy chocolate frosting. Each bite sends waves of heavenly cocoa flavor that melts smoothly in your mouth. The cake is perfect for a quick snack, a dessert after a meal, or a treat to satisfy your midnight cravings. Note: This product contains eggs, dairy, and wheat, so it may not be suitable for those with allergies to these ingredients. Enjoy the perfect balance of sweetness and chocolatey goodness with Sabahoos Chocolate Cake slice.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a5d390540689bfedaa6895.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Murouj Marble English Cake, 10x90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-marble-english-cake-10x90g/s/6287014261212?aid=59",
+                      "item_price": "0.450",
+                      "item_description": "Murouj Marble English Cake, 10x90g is sold on Talabat by Hala Store and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/929326.jpg?size=122"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Delicatessen",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/delicatessen/deli-meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/canned-jarred/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/organic-special-diet/healthy-protein-snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/breakfast-food/cocoa-powder?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/beverages/juices-packs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/water/mineral-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/baby/baby-bath-body-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pharmacy/medications-first-aid?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/electronics/mobile-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imported Items",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/imported-items/imported?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/tobacco-shop/vape-disposables?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      }
+    }
+  },
+  "current_progress": {
+    "area_name": null,
+    "current_grocery": 2,
+    "current_grocery_title": "Hala Store",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+    "total_groceries": 20,
+    "processed_groceries": [
+      "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59"
+    ],
+    "current_category": "Deals",
+    "current_sub_category": "Cakes",
+    "completed_categories": {
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Eggs"
+        ],
+        "Bakery": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes"
+        ]
+      },
+      "Sala Market": {
+        "Chocolate & Candy ": [
+          "Chocolate"
+        ],
+        "Snacks": [
+          "Chocolate"
+        ]
+      },
+      "Candy mart": {
+        "Bakery": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
+          "Cakes",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
+        ],
+        "Fruits & Vegetables": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
+          "Cakes",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
+        ]
+      },
+      "LuLu Hypermarket": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal"
+        ]
+      },
+      "Sultan Center": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Coffee"
+        ],
+        "Bakery ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Coffee"
+        ]
+      },
+      "MONOPRIX": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Ready To Drink",
+          "Eggs"
+        ],
+        "Bakery ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Ready To Drink",
+          "Eggs"
+        ]
+      },
+      "Hi and Buy": {
+        "Chocolate & Candy ": [
+          "Chocolate",
+          "Biscuits & Cakes",
+          "Candy",
+          "Gums & Drops",
+          "Chips",
+          "Nuts, Seeds & Fruits",
+          "Popcorn",
+          "Crackers & Pretzels",
+          "Rice Cakes & Others",
+          "Water",
+          "Soft Drinks"
+        ],
+        "Snacks": [
+          "Chocolate",
+          "Biscuits & Cakes",
+          "Candy",
+          "Gums & Drops",
+          "Chips",
+          "Nuts, Seeds & Fruits",
+          "Popcorn",
+          "Crackers & Pretzels",
+          "Rice Cakes & Others",
+          "Water",
+          "Soft Drinks"
+        ]
+      },
+      "Oncost powered by talabat": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Chicken & Poultry",
+          "Fish & Seafood",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Eggs",
+          "Cheese",
+          "Yoghurts & Labneh",
+          "Butter",
+          "Cream",
+          "Chilled Desserts"
+        ]
+      },
+      "Hala Store": {
+        "Deals": [
+          "Promotions",
+          "Freshly Baked",
+          "Buns & Rolls",
+          "Toast",
+          "Cakes"
+        ]
+      }
+    }
+  }
+}
