@@ -115,82 +115,91 @@ class TalabatGroceries:
 
     async def extract_sub_categories(self, page, category_link, main_scraper, grocery_title, category_info, last_sub_category=None):
         """
-        Extract sub-categories, skipping the last processed sub-category to start at the next one.
-        Matches Restaurants by advancing to the next menu item after completion.
+        Extract sub-categories, starting at the next sub-category after last_sub_category.
+        Updates current_sub_category to the next unprocessed sub-category after completion.
         """
         print(f"Attempting to extract sub-categories for: {category_link}")
         retries = 3
         sub_categories = []
         completed_sub_categories = main_scraper.current_progress["current_progress"]["completed_categories"].get(grocery_title, {}).get(category_info["name"], [])
         is_resuming = last_sub_category is not None
-        skip_last = is_resuming  # Flag to skip the last sub-category
 
         while retries > 0:
             try:
                 await page.goto(category_link, timeout=240000)
                 await page.wait_for_load_state("networkidle", timeout=240000)
                 sub_category_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-                for element in sub_category_elements:
-                    try:
-                        sub_category_name = await element.inner_text()
-                        sub_category_link = self.base_url + await element.get_attribute('href')
+                sub_category_names = [await el.inner_text() for el in sub_category_elements]
+                sub_category_links = [self.base_url + await el.get_attribute('href') for el in sub_category_elements]
 
-                        # Skip the last sub-category if resuming
-                        if is_resuming and skip_last and sub_category_name == last_sub_category:
-                            print(f"    Skipping last processed sub-category: {sub_category_name}")
-                            skip_last = False  # Process the next sub-category
-                            continue
+                # Find the next sub-category to process
+                start_processing = not is_resuming
+                for idx, (sub_category_name, sub_category_link) in enumerate(zip(sub_category_names, sub_category_links)):
+                    # Skip completed sub-categories
+                    if sub_category_name in completed_sub_categories:
+                        print(f"    Skipping completed sub-category: {sub_category_name}")
+                        continue
 
-                        # Skip already completed sub-categories
-                        if sub_category_name in completed_sub_categories:
-                            print(f"    Skipping completed sub-category: {sub_category_name}")
-                            continue
+                    # If resuming, skip until after last_sub_category
+                    if is_resuming and not start_processing:
+                        if sub_category_name == last_sub_category:
+                            print(f"    Found last processed sub-category: {sub_category_name}, starting next")
+                            start_processing = True
+                        continue
 
-                        print(f"    Processing sub-category: {sub_category_name}")
-                        print(f"    Sub-category link: {sub_category_link}")
-                        items = await self.extract_all_items_from_sub_category(sub_category_link)
-                        sub_category_data = {
-                            "sub_category_name": sub_category_name,
-                            "sub_category_link": sub_category_link,
-                            "Items": items
-                        }
-                        sub_categories.append(sub_category_data)
+                    if not start_processing:
+                        continue
 
-                        # Update progress
-                        print(f"Before update - current_progress: {json.dumps(main_scraper.current_progress, indent=2)}")
-                        main_scraper.current_progress["current_progress"]["current_sub_category"] = sub_category_name
-                        completed_cats = main_scraper.current_progress["current_progress"]["completed_categories"].setdefault(grocery_title, {})
-                        completed_cats.setdefault(category_info["name"], []).append(sub_category_name)
-                        main_scraper.scraped_progress["current_progress"]["current_sub_category"] = sub_category_name
-                        main_scraper.scraped_progress["current_progress"]["completed_categories"] = main_scraper.current_progress["current_progress"]["completed_categories"]
+                    print(f"    Processing sub-category: {sub_category_name}")
+                    print(f"    Sub-category link: {sub_category_link}")
+                    items = await self.extract_all_items_from_sub_category(sub_category_link)
+                    sub_category_data = {
+                        "sub_category_name": sub_category_name,
+                        "sub_category_link": sub_category_link,
+                        "Items": items
+                    }
+                    sub_categories.append(sub_category_data)
 
-                        # Update scraped_progress
-                        area_name = main_scraper.current_progress["current_progress"]["area_name"]
-                        if area_name:
-                            grocery_data = main_scraper.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {
-                                "grocery_link": self.url,
-                                "delivery_time": "N/A",
-                                "grocery_details": {"delivery_fees": "N/A", "minimum_order": "N/A", "categories": []}
-                            })
-                            if not grocery_data["grocery_details"]["categories"]:
-                                grocery_data["grocery_details"]["categories"] = [{"name": cat["name"], "link": cat["link"], "sub_categories": []} for cat in category_info.get("categories", [category_info])]
-                            for cat in grocery_data["grocery_details"]["categories"]:
-                                if cat["name"] == category_info["name"]:
-                                    cat["sub_categories"] = sub_categories
-                                    break
-                            main_scraper.scraped_progress["all_results"][area_name][grocery_title] = grocery_data
+                    # Update progress to mark this sub-category complete
+                    completed_cats = main_scraper.current_progress["current_progress"]["completed_categories"].setdefault(grocery_title, {})
+                    completed_cats.setdefault(category_info["name"], []).append(sub_category_name)
+                    main_scraper.scraped_progress["current_progress"]["completed_categories"] = main_scraper.current_progress["current_progress"]["completed_categories"]
 
-                        print(f"After update - current_progress: {json.dumps(main_scraper.current_progress, indent=2)}")
-                        print(f"After update - scraped_progress all_results: {json.dumps(main_scraper.scraped_progress['all_results'], indent=2)}")
+                    # Set current_sub_category to the NEXT sub-category (or None if last)
+                    next_sub_idx = idx + 1
+                    if next_sub_idx < len(sub_category_names):
+                        next_sub_name = sub_category_names[next_sub_idx]
+                        if next_sub_name not in completed_sub_categories:
+                            main_scraper.current_progress["current_progress"]["current_sub_category"] = next_sub_name
+                            main_scraper.scraped_progress["current_progress"]["current_sub_category"] = next_sub_name
+                        else:
+                            main_scraper.current_progress["current_progress"]["current_sub_category"] = None
+                            main_scraper.scraped_progress["current_progress"]["current_sub_category"] = None
+                    else:
+                        main_scraper.current_progress["current_progress"]["current_sub_category"] = None
+                        main_scraper.scraped_progress["current_progress"]["current_sub_category"] = None
 
-                        # Save and commit progress, matching Restaurants
-                        main_scraper.save_current_progress()
-                        main_scraper.save_scraped_progress()
-                        main_scraper.commit_progress(f"Processed sub-category {sub_category_name} for {grocery_title} in {category_info['name']}")
+                    # Update scraped_progress results
+                    area_name = main_scraper.current_progress["current_progress"]["area_name"]
+                    if area_name:
+                        grocery_data = main_scraper.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {
+                            "grocery_link": self.url,
+                            "delivery_time": "N/A",
+                            "grocery_details": {"delivery_fees": "N/A", "minimum_order": "N/A", "categories": []}
+                        })
+                        if not grocery_data["grocery_details"]["categories"]:
+                            grocery_data["grocery_details"]["categories"] = [{"name": cat["name"], "link": cat["link"], "sub_categories": []} for cat in category_info.get("categories", [category_info])]
+                        for cat in grocery_data["grocery_details"]["categories"]:
+                            if cat["name"] == category_info["name"]:
+                                cat["sub_categories"] = sub_categories
+                                break
+                        main_scraper.scraped_progress["all_results"][area_name][grocery_title] = grocery_data
 
-                    except Exception as e:
-                        print(f"Error processing sub-category {sub_category_name}: {e}")
-                        logging.error(f"Error processing sub-category {sub_category_name}: {e}")
+                    # Save and commit progress
+                    main_scraper.save_current_progress()
+                    main_scraper.save_scraped_progress()
+                    main_scraper.commit_progress(f"Processed sub-category {sub_category_name} for {grocery_title} in {category_info['name']}")
+
                 print(f"Extracted {len(sub_categories)} new sub-categories")
                 return sub_categories
             except Exception as e:
@@ -590,35 +599,50 @@ class MainScraper:
 
     async def process_grocery_categories(self, grocery_title, grocery_details, talabat_grocery, page, last_category=None, last_sub_category=None):
         """
-        Process categories, skipping the last category if all sub-categories are complete.
-        Matches Restaurants by advancing to the next category after completion.
+        Process categories, starting at the next unprocessed category after last_category.
+        Sets current_category to the next unprocessed category after completion.
         """
         completed_categories = self.current_progress["current_progress"]["completed_categories"].get(grocery_title, {})
-        is_resuming_category = last_category is not None
-        skip_last_category = is_resuming_category
+        is_resuming = last_category is not None
+        start_processing = not is_resuming
 
-        for category in grocery_details.get("categories", []):
+        categories = grocery_details.get("categories", [])
+        for idx, category in enumerate(categories):
             category_name = category["name"]
-            # Check if category is fully processed
             completed_sub_cats = completed_categories.get(category_name, [])
-            sub_cat_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-            all_sub_cats = [await el.inner_text() for el in sub_cat_elements]
-            is_category_complete = all_sub_cats and all(sub_cat in completed_sub_cats for sub_cat in all_sub_cats)
 
-            # Skip last category if resuming and complete
-            if skip_last_category and category_name == last_category and is_category_complete:
-                logging.info(f"Skipping completed last category {category_name} for {grocery_title}")
-                skip_last_category = False
+            # Skip if resuming until after last_category
+            if is_resuming and not start_processing:
+                if category_name == last_category:
+                    print(f"Found last processed category: {category_name}, starting next")
+                    start_processing = True
                 continue
 
             # Skip fully completed categories
-            if is_category_complete:
-                logging.info(f"Skipping fully completed category {category_name} for {grocery_title}")
+            if "sub_categories" in category and all(sub_cat["sub_category_name"] in completed_sub_cats for sub_cat in category["sub_categories"]):
+                print(f"Skipping fully completed category: {category_name}")
                 continue
 
-            # Process category, passing last_sub_category only for the last category
-            last_sub_cat_for_category = last_sub_category if category_name == last_category else None
+            # Process category
+            last_sub_cat_for_category = last_sub_category if category_name == last_category and is_resuming else None
+            self.current_progress["current_progress"]["current_category"] = category_name
+            self.scraped_progress["current_progress"]["current_category"] = category_name
             await self.process_category(grocery_title, category, talabat_grocery, page, last_sub_cat_for_category)
+
+            # Set current_category to the next unprocessed category (or None if last)
+            next_cat_idx = idx + 1
+            if next_cat_idx < len(categories):
+                next_cat_name = categories[next_cat_idx]["name"]
+                next_sub_cats = categories[next_cat_idx].get("sub_categories", [])
+                if not all(sub_cat["sub_category_name"] in completed_categories.get(next_cat_name, []) for sub_cat in next_sub_cats):
+                    self.current_progress["current_progress"]["current_category"] = next_cat_name
+                    self.scraped_progress["current_progress"]["current_category"] = next_cat_name
+                else:
+                    self.current_progress["current_progress"]["current_category"] = None
+                    self.scraped_progress["current_progress"]["current_category"] = None
+            else:
+                self.current_progress["current_progress"]["current_category"] = None
+                self.scraped_progress["current_progress"]["current_category"] = None
 
             self.save_current_progress()
             self.save_scraped_progress()
@@ -626,8 +650,8 @@ class MainScraper:
 
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
         """
-        Scrape groceries, advancing to the next grocery if the last one is complete.
-        Matches Restaurants by skipping completed restaurants.
+        Scrape groceries, starting at the next unprocessed grocery after last_grocery_link.
+        Marks groceries complete only after all categories are processed.
         """
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         all_area_results = self.scraped_progress["all_results"].get(area_name, {})
@@ -667,6 +691,7 @@ class MainScraper:
         await page.close()
 
         processed_grocery_links = set(current_progress["processed_groceries"])
+        start_processing = not is_resuming
 
         for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
@@ -678,29 +703,16 @@ class MainScraper:
                 logging.info(f"Skipping already processed grocery {grocery_title} (link: {grocery_link})")
                 continue
 
-            # Check if last grocery is complete
-            if is_resuming and last_grocery_link == grocery_link:
-                # Verify if all categories are complete
-                grocery_page_temp = await browser.new_page()
-                talabat_grocery_temp = TalabatGroceries(grocery["grocery_link"], browser)
-                grocery_details_temp = await talabat_grocery_temp.extract_categories(grocery_page_temp)
-                await grocery_page_temp.close()
-                is_grocery_complete = True
-                for cat in grocery_details_temp.get("categories", []):
-                    completed_sub_cats = completed_categories.get(grocery_title, {}).get(cat["name"], [])
-                    sub_cat_elements = await page.query_selector_all('//div[@data-test="sub-category-container"]//a[@data-testid="subCategory-a"]')
-                    all_sub_cats = [await el.inner_text() for el in sub_cat_elements]
-                    if not all(sub_cat in completed_sub_cats for sub_cat in all_sub_cats):
-                        is_grocery_complete = False
-                        break
-                if is_grocery_complete:
-                    logging.info(f"Skipping completed last grocery {grocery_title} (link: {grocery_link})")
-                    processed_grocery_links.add(grocery_link)
-                    current_progress["processed_groceries"].append(grocery_link)
-                    scraped_current_progress["processed_groceries"].append(grocery_link)
-                    continue
+            # Skip until after last_grocery_link
+            if is_resuming and not start_processing:
+                if grocery_link == last_grocery_link:
+                    print(f"Found last processed grocery: {grocery_title}, starting next")
+                    start_processing = True
+                continue
 
-            is_resuming = False
+            if not start_processing:
+                continue
+
             current_progress["current_grocery"] = grocery_num
             current_progress["current_grocery_title"] = grocery_title
             current_progress["current_grocery_link"] = grocery_link
@@ -718,20 +730,54 @@ class MainScraper:
                 "grocery_details": grocery_details
             }
 
-            # Process categories, passing last_category and last_sub_category only for the last grocery
-            last_cat = last_category if last_grocery_link == grocery_link else None
-            last_sub_cat = last_sub_category if last_grocery_link == grocery_link else None
+            # Process categories
+            last_cat = last_category if grocery_link == last_grocery_link and is_resuming else None
+            last_sub_cat = last_sub_category if grocery_link == last_grocery_link and is_resuming else None
             await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, last_cat, last_sub_cat)
 
-            await grocery_page.close()
+            # Mark grocery as processed only if all categories are complete
+            completed_cats = self.current_progress["current_progress"]["completed_categories"].get(grocery_title, {})
+            is_grocery_complete = all(
+                all(sub_cat["sub_category_name"] in completed_cats.get(cat["name"], [])
+                    for sub_cat in cat.get("sub_categories", []))
+                for cat in grocery_details.get("categories", [])
+            )
+            if is_grocery_complete:
+                current_progress["processed_groceries"].append(grocery_link)
+                scraped_current_progress["processed_groceries"].append(grocery_link)
+                processed_grocery_links.add(grocery_link)
+                # Set current_grocery to the next unprocessed grocery
+                next_grocery_idx = grocery_idx + 1
+                if next_grocery_idx < len(groceries_on_page):
+                    next_grocery = groceries_on_page[next_grocery_idx]
+                    if next_grocery["grocery_link"] not in processed_grocery_links:
+                        current_progress["current_grocery"] = next_grocery_idx + 1
+                        current_progress["current_grocery_title"] = next_grocery["grocery_title"]
+                        current_progress["current_grocery_link"] = next_grocery["grocery_link"]
+                        scraped_current_progress["current_grocery"] = next_grocery_idx + 1
+                        scraped_current_progress["current_grocery_title"] = next_grocery["grocery_title"]
+                        scraped_current_progress["current_grocery_link"] = next_grocery["grocery_link"]
+                    else:
+                        current_progress["current_grocery"] = 0
+                        current_progress["current_grocery_title"] = None
+                        current_progress["current_grocery_link"] = None
+                        scraped_current_progress["current_grocery"] = 0
+                        scraped_current_progress["current_grocery_title"] = None
+                        scraped_current_progress["current_grocery_link"] = None
+                else:
+                    current_progress["current_grocery"] = 0
+                    current_progress["current_grocery_title"] = None
+                    current_progress["current_grocery_link"] = None
+                    scraped_current_progress["current_grocery"] = 0
+                    scraped_current_progress["current_grocery_title"] = None
+                    scraped_current_progress["current_grocery_link"] = None
 
-            current_progress["processed_groceries"].append(grocery_link)
-            scraped_current_progress["processed_groceries"].append(grocery_link)
-            processed_grocery_links.add(grocery_link)
             self.scraped_progress["all_results"][area_name] = all_area_results
             self.save_current_progress()
             self.save_scraped_progress()
             self.commit_progress(f"Processed {grocery_title} (link: {grocery_link})")
+
+            await grocery_page.close()
 
         json_filename = os.path.join(self.output_dir, f"{area_name}.json")
         with open(json_filename, 'w', encoding='utf-8') as f:
@@ -762,7 +808,7 @@ class MainScraper:
         self.save_scraped_progress()
         self.commit_progress(f"Completed {area_name}")
         return list(all_area_results.values())
-
+        
     async def process_category(self, grocery_title, category_info, talabat_grocery, page, last_sub_category=None):
         category_name = category_info["name"]
         self.current_progress["current_progress"]["current_category"] = category_name
@@ -887,6 +933,7 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
 
