@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-13T04:03:04.268095",
+  "last_updated": "2025-04-13T07:59:16.440026",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 4,
+    "current_grocery": 6,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Seeds & Nuts",
+    "current_sub_category": "Juices Single",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -51,9 +51,46 @@
           "Candy & Gum",
           "Popcorn"
         ]
+      },
+      "Mega Mart": {
+        "Special Offers": [
+          "Promotions",
+          "Gluten Free Food & Snacks",
+          "Sugar Free Food & Snacks",
+          "Special Diet",
+          "Healthy & Protein Snacks",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Eggs",
+          "Slice Cheese & Shredded",
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi",
+          "Block Cheese & Feta",
+          "Butter & Margarine",
+          "Yoghurt & Labneh",
+          "Cream",
+          "Dairy Products",
+          "Desserts",
+          "Cereals",
+          "Cocoa Powder",
+          "Syrups",
+          "Spreads & Honey",
+          "Salads",
+          "Ready Meals"
+        ]
       }
     },
-    "current_grocery_title": "Candy mart",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59"
+    "current_grocery_title": "Mega Mart",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59"
   }
 }
