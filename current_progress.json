@@ -3,16 +3,28 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-13T01:10:34.091119",
+  "last_updated": "2025-04-13T01:38:39.750726",
   "current_progress": {
-    "area_name": null,
-    "current_grocery": 0,
-    "total_groceries": 0,
+    "area_name": "الظهر",
+    "current_grocery": 1,
+    "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": null,
-    "completed_categories": {},
-    "current_grocery_title": null,
-    "current_grocery_link": null
+    "current_sub_category": "Pastries",
+    "completed_categories": {
+      "Ghozlan Al Egaila Grocery": {
+        "Organic & Special Diet": [
+          "Special Diet",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs"
+        ]
+      }
+    },
+    "current_grocery_title": "Ghozlan Al Egaila Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59"
   }
 }
