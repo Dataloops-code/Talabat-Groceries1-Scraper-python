@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-13T14:12:10.203059",
+  "last_updated": "2025-04-13T20:06:52.976636",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 5,
+    "current_grocery": 3,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Frozen Ready Meals",
+    "current_sub_category": "Frozen Fruits & Vegetables",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -20,7 +20,43 @@
           "Buns & Rolls",
           "Cakes",
           "Croissant Single",
-          "Croissant Packs"
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Eggs",
+          "Slice Cheese & Shredded",
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi",
+          "Block Cheese & Feta",
+          "Butter & Margarine",
+          "Yoghurt & Labneh",
+          "Cream",
+          "Dairy Products",
+          "Desserts",
+          "Cereals",
+          "Cocoa Powder",
+          "Syrups",
+          "Spreads & Honey",
+          "Juices Single",
+          "Juices Packs",
+          "Juices Sharing",
+          "Soft Drinks",
+          "Sports & Energy Drinks",
+          "Malt Drinks",
+          "Powdered & Concentrated Juices",
+          "Iced Tea",
+          "Specialty Drinks",
+          "Drinking Water",
+          "Mineral Water",
+          "Sparkling Water",
+          "Flavoured Water",
+          "Ice",
+          "Frozen Poultry",
+          "Frozen Meat & Seafood"
         ]
       },
       "Candy mart": {
@@ -126,7 +162,7 @@
         ]
       }
     },
-    "current_grocery_title": "Kiki Market Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59"
+    "current_grocery_title": "Ghozlan Al Egaila Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59"
   }
 }
