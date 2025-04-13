@@ -1,7 +1,9 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "الظهر"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-13T00:21:46.301449",
+  "last_updated": "2025-04-13T01:10:34.092059",
   "all_results": {
     "الظهر": {
       "Mega Mart": {
@@ -166,7 +168,7 @@
       },
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
-        "delivery_time": "20 mins",
+        "delivery_time": "21 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
@@ -174,365 +176,7 @@
             {
               "name": "Deals",
               "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
-              "sub_categories": [
-                {
-                  "sub_category_name": "Cakes",
-                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/cakes?aid=59",
-                  "Items": [
-                    {
-                      "item_name": "Oreo Cadbury Chocolate Coated Cake, 24g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/oreo-cadbury-chocolate-coated-cake-24g/s/7622210785114?aid=59",
-                      "item_price": "0.250",
-                      "item_description": "OREO Cadbury Cake is baked from the finest ingredients, this chocolate cake bring forth the best quality to make your experience all the more relishing. They are filled with vanilla to keep your taste buds in a perpetual state of bliss the moment you take the first bite. Dunk these cocoa cake with vanilla flavored filling and covered with chocolate in your tea to enjoy a delightful snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67ee913718fc84edaf6e028b.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee913818fc84edaf6e028c.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee913818fc84edaf6e028d.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee913a18fc84edaf6e028e.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee913a18fc84edaf6e028f.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Americana Chocolate Coated Chocolate Cake Bar, 35g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-chocolate-coated-chocolate-cake-bar-35g/s/6281033471645?aid=59",
-                      "item_price": "0.200",
-                      "item_description": "Indulge in the delightful taste of Americana Chocolate Sandwich Cake Batman edition. This 35g treat is a perfect blend of rich, creamy chocolate sandwiched between two moist and fluffy sponge cakes. Each bite will transport you to a world of chocolaty goodness, with a subtle hint of vanilla adding an extra layer of flavor. The fun Batman-themed packaging makes it a hit among kids and comic book fans alike. It's not just a cake, but a treat for the senses, offering a delectable taste and a playful design that you can't resist. Perfect for snacking, dessert, or as a lunchbox surprise, this Americana Chocolate Sandwich Cake is the superhero of all treats. Enjoy it on its own, or pair it with a glass of milk for a truly satisfying experience.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Dabur/6281033471645.png?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Americana Batman Chocolate Sandwich Cake, 12x35g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/americana-batman-chocolate-sandwich-cake-12x35g/s/6281033271641?aid=59",
-                      "item_price": "1.950",
-                      "item_description": "Americana Batman chocolate sandwich cake is a soft and delicious coated rolls with chocolate. They will put sweet note to everyday family moments. Chocolate cake are not only incredibly delicious, they allow to express our creativity by creating our own succulent dessert, and with a number of mouth-watering flavours.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_921086_01.png?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/619b97b71db16b4d9598fa47.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Barni Chocolate Cake, 30g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-chocolate-cake-30g/s/7622300661106?aid=59",
-                      "item_price": "0.250",
-                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91bd18fc84edaf6e0480.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91be18fc84edaf6e0481.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91be18fc84edaf6e0482.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91bf18fc84edaf6e0483.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91bf18fc84edaf6e0484.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Eti Pop Kek Cocoa Coated Cake with Chocolate Sauce, 45g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/eti-pop-kek-cocoa-coated-cake-with-chocolate-sauce-45g/s/8690526023755?aid=59",
-                      "item_price": "0.300",
-                      "item_description": "Delicious high quality cake and perfect as a snack meal - 6 Ã— 45 gm",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_920902.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Barni Milk Cake, 30g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-milk-cake-30g/s/7622300660970?aid=59",
-                      "item_price": "0.250",
-                      "item_description": "Discover the World of Barni. Barni Cake with Milk features a bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with milk filling can be served as a dessert or enjoyed as a teatime snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b718fc84edaf6e0476.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b918fc84edaf6e0477.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91ba18fc84edaf6e0478.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91bb18fc84edaf6e0479.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91bc18fc84edaf6e047a.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Orion Choco Pie, 12x28g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/orion-choco-pie-12x28g/s/8801117807634?aid=59",
-                      "item_price": "1.750",
-                      "item_description": "Description: Orion Each pack contains 12 Choco pies dipped in Hot Chocolate, Centre Filled with Marshmallow. Ingredients: ‎Sugar, Wheat Flour, Glucose Syrup, Vegetable Shortening (Palm Oil, Fully Hydrogenated Coconut Oil). Non Hydrogenated Vegetable Fat, Cocoa Powder, Contains Milk, Wheat and Soy Ingredients, Cheese, Milk solids, Emulsifier (E452, E339, E331).",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/65ace7300d5150fa32f53c46.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/658bf395396e69d36f2ce5bb.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/658bf395402b8886af2174cd.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/658bf395396e69d36f2ce5bc.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Switz Fruit Slice Cake, 70g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-fruit-slice-cake-70g/s/6281123034118?aid=59",
-                      "item_price": "0.350",
-                      "item_description": "Delight your taste buds with the Switz Fruit Slice Cake. Weighing in at a convenient 70 grams, this delightful treat is perfect for on-the-go snacking or as a sweet addition to your afternoon tea. Each slice is packed with a medley of succulent fruits that add a burst of natural sweetness and texture. The cake is moist and tender, offering a mouthful of rich flavors with every bite. The fruit pieces are evenly distributed throughout the cake, ensuring you get a taste of fruity goodness in every bite. Its compact size makes it an ideal choice for those looking to satisfy their sweet tooth without going overboard. Whether you're planning a picnic, packing a lunchbox, or simply craving a delicious snack, the Switz Fruit Slice Cake is sure to hit the spot.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6281123034118.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sara Cake Chocolate Cake Slices 200 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-cake-chocolate-cake-slices-200-g/s/6271026082071?aid=59",
-                      "item_price": "0.750",
-                      "item_description": "Lice is incredibly moist flavorful and tastes like home. You'll love the smooth texture and the sweet delicious chocolate taste of this cake bar. Perfect as a snack with coffee or tea - 2 x 200 gm",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/60e6f2bd2acb530d462a573f.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Murouj English Cake Fruits, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-english-cake-fruits-90g/s/6287014261205?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "- Delightfully aromatic Murouj English Cake Fruits, weighing 90g, perfect for a small treat. - Packed with a rich variety of dried fruits, offering an explosion of flavor with every bite. - Conveniently pre-packaged, making it an excellent on-the-go snack or addition to your picnic basket. - Prepared with premium quality ingredients, ensuring you a delightful and indulgent tea-time experience.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/929327.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jordina Junior Cake with Vanilla Cream, 12x40g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-junior-cake-with-vanilla-cream-12x40g/s/6253002479631?aid=59",
-                      "item_price": "1.750",
-                      "item_description": "• Deliciously indulgent: Delight your taste buds with Jordina Junior Cake, packed with creamy vanilla flavor. • Convenient pack size: Contains 12 individual cakes, each weighing 40g, perfect for on-the-go snacking. • Ideal for various occasions: A fitting dessert option for parties, picnics, snack time, or whenever you crave a sweet treat. • High-quality Ingredients: Made from the finest ingredients, ensuring a fresh and delicious cake experience every time.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Item%20Images/JO-6253002479631.PNG?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jordina Mini Cake, 24 Pieces",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-mini-cake-24-pieces/s/6253002434418?aid=59",
-                      "item_price": "2.250",
-                      "item_description": "• Contains 24 pieces, making Jordina Mini Cake an excellent option for parties and gatherings. • Each mini cake is carefully crafted, letting you enjoy gourmet quality at home. • Stored securely in unique packaging to help maintain their freshness and quality. • They offer a delicious taste to please both children and adults, making it a versatile dessert option.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/PIM/6253002434418.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Orion Choco Pie 30 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/orion-choco-pie-30-g/s/8801117907006?aid=59",
-                      "item_price": "0.150",
-                      "item_description": "- Delightfully bite-sized: The Orion Choco Pie is 30 grams, perfect for a satisfying yet lightweight treat. - Chocolatey goodness: Covered in a rich, velvety coating, this pie promises a burst of chocolate flavor with each bite. - Soft and moist filling: The texture of this pie is soft and moist, ensuring a pleasant eating experience. - Conveniently packaged: Individually wrapped for freshness, the Orion Choco Pie is easy to carry around and perfect for on-the-go snacking.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8801117907006.JPG?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jordina Strawberry Cake, 12x40g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-strawberry-cake-12x40g/s/6253002479624?aid=59",
-                      "item_price": "1.750",
-                      "item_description": "• Delicious and moist, Jordina Strawberry Cake offers the perfect blend of sweet and tangy flavors in each bite. • Packaged as 12 individual 40g servings, it provides perfect portion control for a sweet treat. • Made with high-quality, natural ingredients ensures a fruity, fresh strawberry taste that will satisfy your sweet tooth. • The convenient and secure packaging allows for easy transportation, making it an ideal snack for picnics, lunches, or on-the-go.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67b2f63bebd915b8141a9009.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Barni Choco Cake 12x30g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-choco-cake-12x30g/s/7622300661090?aid=59",
-                      "item_price": "2.650",
-                      "item_description": "Discover the World of Barni. Barni Cake With Chocolate features is bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with chocolate filling can be served as dessert or enjoyed as a teatime snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91c718fc84edaf6e04c1.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91c918fc84edaf6e04c2.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91ca18fc84edaf6e04c3.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91cb18fc84edaf6e04c4.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91cc18fc84edaf6e04c5.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Switz Party Vanilla Cake, 70g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-party-vanilla-cake-70g/s/6281123033227?aid=59",
-                      "item_price": "0.300",
-                      "item_description": "Indulge your taste buds with the Switz Party Cake in Vanilla flavor. This 70g cake is perfect for those who love a sweet treat without the guilt. Its light and fluffy texture, combined with the rich, creamy taste of vanilla, makes it a delightful snack for any time of the day. Each bite will transport you to a world of pure indulgence. The Switz Party Cake is also a great option for celebrations or a quick dessert for unexpected guests. It's conveniently packaged, ensuring freshness and easy transportation. So, whether you're at home, at work, or on the go, you can enjoy a slice of this heavenly cake. Give in to your sweet cravings with the Switz Party Cake Vanilla.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6281123033227.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "7Days Mini Vanilla Cake Bar, 12x25g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/7days-mini-vanilla-cake-bar-12x25g/s/6281183000245?aid=59",
-                      "item_price": "1.500",
-                      "item_description": "Indulge your sweet tooth with the Seven Days Vanilla Mini Cake Bar. This delightful pack contains 12 pieces of 25g mini cake bars, each one filled with rich, creamy vanilla flavor. These bite-sized treats are perfect for snacking on the go or sharing with friends and family. Each cake bar is individually wrapped, ensuring freshness and convenience. Made with high-quality ingredients, every bite offers a soft, moist texture and a burst of sweet vanilla. Perfect for a mid-day pick-me-up, a quick breakfast, or a dessert after dinner. Enjoy the Seven Days Vanilla Mini Cake Bar anytime, anywhere. Treat yourself to a little piece of heaven that is not only delicious but also easy to carry and store. It's the perfect sweet treat that you can enjoy every day of the week!",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/670d7095088d2ba7e05f210a.png?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7095088d2ba7e05f210b.jpg-1200Wx1200H?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7096088d2ba7e05f210c.webp?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7097088d2ba7e05f210d.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sabahoo Banana Walnut Muffin Cake",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-banana-walnut-muffin-cake/s/6281123034934?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "- Made with luscious ripe bananas and crunchy walnuts, providing a delightful taste and texture - Individually wrapped for freshness, ensuring each muffin is perfectly moist every time - Handmade using all-natural ingredients for a guilt-free indulgent treat - Perfect for breakfast, a snack, or a dessert, offering a versatile choice for all hours of the day",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/616298c920c92d0f83b8c1b3.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Barni Milk Sponge Cake, 12x30g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/barni-milk-sponge-cake-12x30g/s/7622300660956?aid=59",
-                      "item_price": "2.650",
-                      "item_description": "Discover the World of Barni. Barni Cake with Milk features a bear-shaped and perfectly baked cake with high-quality ingredients. There are no added preservatives or colours in this Barni cake, making it safe for your kids to consume. This sponge cake with milk filling can be served as a dessert or enjoyed as a teatime snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b118fc84edaf6e046c.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b218fc84edaf6e046d.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b318fc84edaf6e046e.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b418fc84edaf6e046f.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/67ee91b518fc84edaf6e0470.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "7Days Mini Choco Cake Bar, 12x25g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/7days-mini-choco-cake-bar-12x25g/s/6281183001488?aid=59",
-                      "item_price": "1.500",
-                      "item_description": "Description: •This Cake bar with chocolate filling offers an ideal way of indulging your sweet tooth and is an excellent snack during breaks •Rich and smooth texture offers a relishing experience Ingredients: Sugar• Water• Glucose Syrup• Vegetable Oil (Palm)• Wheat Flour• Wheat Starch• Humectants (E420• E422• E1520)• Cocoa Powder• Sunflower Oil• Whole Egg Powder• Glucose Fructose Syrup• Dextrose• Emulsifier/Vegetable Oil origin: E471• Soya Lecithin• E475• E477• E470a• E492)• Raising Agents (E450• E500• E503(ii))• Preservative (E202• E282• E330)• Skim Milk Powder• Salt• Cocoa Butter• Natural and Artificial Vanilla Flavour• Stabilizer(E415)• Natural Flavour (Vanilla) Storage Instructions: Store in cool and Dry place",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/67584f2398bbd0ceea554f51.webp?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7094088d2ba7e05f2106.jpg?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d7094088d2ba7e05f2107.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sara Fruit Slice Cakes 90 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-fruit-slice-cakes-90-g/s/6271005020384?aid=59",
-                      "item_price": "0.300",
-                      "item_description": "- Delicious Treat: Sara Fruit Slice Cakes are delightfully sweet, offering an irresistible taste every time. - Healthy Fruits: Each cake is filled with real fruit slices, providing natural flavor and added nutritional value. - Convenient Packaging: Comes in a 90g pack, perfectly size for a quick snack or to share with a friend. - High Quality: Made from premium ingredients, ensuring you enjoy a top-notch product with every bite.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/60e6e22d20bb79c940139b89.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jordina Jr Cake Topped with Raspberry Jelly and Coconut Powder, 40g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-jr-cake-topped-with-raspberry-jelly-and-coconut-powder-40g/s/6253002479594?aid=59",
-                      "item_price": "0.200",
-                      "item_description": "• Luxurious Taste: Offers a delightful combination of a rich cake base topped with distinctive raspberry jelly. • Coated in Coconut: Enhanced with a dusting of finely ground coconut powder for an additional tropical flavor. • Portion-Control Size: Conveniently portioned at 40g each, perfect for an individual treat or a petite dessert offering. • High-Quality Ingredients: Made using premium ingredients to ensure a scrumptious and high-standard product.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6253002479594.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sabahoo Fruit Slice Cake, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-fruit-slice-cake-90g/s/6281123034293?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "• Made with best tasting and high quality ingredients for a rich taste • Carefully sourced to ensure the perfect taste and flavour • Delicious and healthy bread perfect pair with coffee, tea milk and juices • Comes ready to eat for relishing during travels, adding to kid's snack box, or carrying to work",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Istanbul/6281123034293.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sara Fruit Cake Slices 200 g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sara-fruit-cake-slices-200-g/s/6271026083078?aid=59",
-                      "item_price": "0.750",
-                      "item_description": "Savor the taste of Saras Fruit Cake Slices, a 200g pack of delight that brings the essence of homemade baking to your table. Each slice is a blend of rich, moist cake infused with a variety of succulent fruits. The perfect balance of sweetness and texture makes it a delightful treat for any time of the day. Whether its a quick breakfast, a mid-afternoon snack, or a dessert after dinner, these fruit cake slices are sure to satisfy your sweet tooth. The package is easy to open and resealable, ensuring the slices stay fresh for longer. Enjoy the convenience and deliciousness of Saras Fruit Cake Slices.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/60e6ec85c1cab2f2d9cec195.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sabahoo Butter Slice Cake, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-butter-slice-cake-90g/s/6281123034279?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "Indulge in the delightful taste of Sabahoo's Butter Slice Cake. This 90g package is filled with a moist, buttery cake that melts in your mouth, offering a delicious treat that's perfect for any time of the day. The cake is baked to perfection, with a rich buttery flavor that's not too sweet, making it a great companion for your coffee or tea. Sabahoo uses only the finest ingredients, ensuring a high-quality product that you can enjoy guilt-free. The cake is individually wrapped, making it easy to pack for a quick snack on-the-go. Whether you're looking for a sweet treat to enjoy at home, or you need a convenient snack for your busy day, Sabahoo's Butter Slice Cake is a delightful choice.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/670d0694628b3c65fad7afdb?size=122",
-                        "https://images.deliveryhero.io/image/product-information-management/670d0695628b3c65fad7afdc?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Switz Mini Strawberry Roll, 69g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-mini-strawberry-roll-69g/s/6281123036396?aid=59",
-                      "item_price": "0.300",
-                      "item_description": "Product Description: Rediscover the delightful taste of your childhood with the Switz Mini Strawberry Roll, 69g. This irresistibly delicious snack is perfect for individuals who enjoy the sweet and tangy flavor of strawberries engulfed in a soft, luscious cake. With every bite, you'll experience a fusion of rich, smooth cream and ripe strawberries, all wrapped up in a moist, fluffy pastry. Conveniently packaged in a compact, easy-to-carry size, it's an ideal on-the-go snack, offering a burst of wholesome energy and a sweet treat, no matter where your day takes you.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/6162982cd39b97f4cef79014.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Swits Mountain Cake, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/swits-mountain-cake-90g/s/6281123034194?aid=59",
-                      "item_price": "0.350",
-                      "item_description": "• Soft and spongy texture delights your taste buds • Prepared using premium-grade ingredients for a great flavour • Makes a great addition to your dessert menu • Ideal snack for parties, events, or picnics",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/6256aa1f6ab3c2302b7fa804.jpg?size=122",
-                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_Web_Scrapped/6281123034194.0_1.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Jordina Junior Vanilla Cake Filled with Vanilla Cream, 40g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/jordina-junior-vanilla-cake-filled-with-vanilla-cream-40g/s/6253002479600?aid=59",
-                      "item_price": "0.200",
-                      "item_description": "• The Jordina Junior cake is a delightful 40g snack sized treat, perfect for on-the-go. • This product features a classic and crowd-pleasing vanilla cake base, loved by all ages. • It comes with a rich, creamy vanilla filling that elevates every bite to a decadent experience. • Made with quality ingredients, its smooth texture and comforting flavor makes for a satisfying dessert or snack.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6253002479600.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Switz Madeira Slice, 70g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/switz-madeira-slice-70g/s/6281123034200?aid=59",
-                      "item_price": "0.350",
-                      "item_description": "• Soft and spongy texture delights your taste buds • Prepared using premium-grade ingredients for a great flavour • Makes a great addition to your dessert menu • Ideal snack for parties, events, or picnics",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Almuntazah%20BH/6281123034200.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Murouj Orange English Cake, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-orange-english-cake-90g/s/6287014261199?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "- Deliciously Soft: The Murouj Orange English Cake is a soft, melt-in-your-mouth treat, ensuring a delightful experience with every bite. - Bursting with Flavor: Infused with the zesty taste of fresh oranges, this cake offers a perfect balance of sweetness and citrusy tang. - Convenient Size: With its 90g packaging, this cake is perfect for a quick snack on the go or an ideal portion for a single serving dessert. - Quality Ingredients: Crafted with high-quality ingredients, this cake promises a guilt-free indulgence that doesn't compromise on the taste.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_6287014261199.jpeg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Sabahoo Chocolate Slice Cake, 90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/sabahoo-chocolate-slice-cake-90g/s/6281123034262?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "Indulge your sweet tooth with Sabahoos Chocolate Cake slice. This delectable treat is made from high-quality ingredients, featuring a rich, moist chocolate sponge layered with creamy chocolate frosting. Each bite sends waves of heavenly cocoa flavor that melts smoothly in your mouth. The cake is perfect for a quick snack, a dessert after a meal, or a treat to satisfy your midnight cravings. Note: This product contains eggs, dairy, and wheat, so it may not be suitable for those with allergies to these ingredients. Enjoy the perfect balance of sweetness and chocolatey goodness with Sabahoos Chocolate Cake slice.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/product-information-management/61a5d390540689bfedaa6895.jpg?size=122"
-                      ]
-                    },
-                    {
-                      "item_name": "Murouj Marble English Cake, 10x90g",
-                      "item_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/product/murouj-marble-english-cake-10x90g/s/6287014261212?aid=59",
-                      "item_price": "0.450",
-                      "item_description": "Murouj Marble English Cake, 10x90g is sold on Talabat by Hala Store and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
-                      "item_delivery_time_range": "Get it within 30 mins",
-                      "item_images": [
-                        "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/929326.jpg?size=122"
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "sub_categories": []
             },
             {
               "name": "Bakery",
@@ -666,266 +310,1987 @@
             }
           ]
         }
+      },
+      "Talabat Mart": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain?aid=59",
+        "delivery_time": "23 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 0.000",
+          "minimum_order": "KD 3.000",
+          "categories": [
+            {
+              "name": "Imports",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/imports/chocolate-bars?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruit & Veg",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/bakery/flatbread?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Poultry, Meat & Seafood",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/poultry-meat-seafood/beef-veal?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/deli/cheese-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/ready-to-eat/ready-meals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Chocolate",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/snacks-chocolate/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/frozen-food/ready-meals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/canned-jarred/canned-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/health-beauty/pharmacy?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/baby-corner/diapers?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/household-essentials/home-maintenance?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/electronics/mobiles-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco & Smoke-Free",
+              "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/tobacco-smoke-free/vape?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "LuLu Hypermarket": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59",
+        "delivery_time": "39 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 3.000",
+          "categories": [
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/bakery/toast?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Poultry, Meat & Seafood ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/poultry-meat-seafood/chicken-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/deli/cheese-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/frozen-food/fries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/canned-jarred/canned-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Chocolate ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/snacks-chocolate/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/ready-to-eat/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/health-beauty/perfumes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/baby-corner/diapers?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imports",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/imports/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics ",
+              "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/electronics/mobiles-accessories?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Sultan Center": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59",
+        "delivery_time": "41 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/bakery/toast?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Poultry, Meat & Seafood ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/poultry-meat-seafood/chicken-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/deli/cheese-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/frozen-food/fries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/canned-jarred/canned-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Chocolate ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/snacks-chocolate/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/ready-to-eat/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/health-beauty/perfumes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/baby-corner/diapers?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imports",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/imports/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/tobacco/vape?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "MONOPRIX": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59",
+        "delivery_time": "27 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 2.000",
+          "categories": [
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/bakery/toast?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Poultry, Meat & Seafood ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/poultry-meat-seafood/chicken-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/deli/cheese-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/frozen-food/fries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/canned-jarred/canned-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Chocolate ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/snacks-chocolate/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/ready-to-eat/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/health-beauty/perfumes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/baby-corner/diapers?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imports",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/imports/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/tobacco/vape?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Hi and Buy": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
+        "delivery_time": "20 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Chocolate & Candy ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/chocolate-candy/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/snacks/chips?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/bakery/flatbread?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/ready-to-eat/sandwiches-wraps?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/fruit-veg/dates-dried-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/dairy-eggs/yoghurts-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/milk/long-life-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/personal-care/face-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/health-beauty/pharmacy?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/cleaning-laundry/cleaning-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/deli/deli-cuts?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/canned-jarred/canned-vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/baby-corner/baby-hygiene?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/electronics/mobiles-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/tobacco/vape?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Oncost powered by talabat": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain?aid=59",
+        "delivery_time": "22 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 0.000",
+          "categories": [
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/fruit-veg/fresh-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/bakery/toast?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Poultry, Meat & Seafood ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/poultry-meat-seafood/chicken-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/cooking-baking/baking-ingredients?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/deli/cheese-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/frozen-food/fries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/canned-jarred/canned-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Chocolate ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/snacks-chocolate/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/ready-to-eat/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/health-beauty/perfumes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/baby-corner/diapers?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/pet-care/cat-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imports",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/imports/snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/electronics/mobiles-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/tobacco/vape?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Seven Star Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo?aid=59",
+        "delivery_time": "25 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "School Snacks time",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/school-snacks-time/school-biscuits?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/stationery/birthday-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Special Offers",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/special-offers/promotions?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Delicatessen",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/delicatessen/deli-meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/ice-cream/cups-tubs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat & Chicken",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/fresh-meat-chicken/fresh-meat?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/grab-go/sandwiches-wraps?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/organic-special-diet/organic-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/beverages/juices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/baby/baby-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/toys/game-console?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/personal-care/bath-soap?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/electronics/mobile-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/gift-items/boxes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Apparel",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/apparel/general-goods?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ramadaniat",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/ramadaniat/ramadan-items?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/tobacco-shop/vape-disposables?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Trolley": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall?aid=59",
+        "delivery_time": "20 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 0.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Chocolate & Candy ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/chocolate-candy/chocolate?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/snacks/chips?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/beverages/water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/bakery/sweet-bakes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ready To Eat ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/ready-to-eat/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Protein & Special Diet ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/protein-special-diet/protein?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruit & Veg ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/fruit-veg/dates-dried-fruit?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/dairy-eggs/yoghurts-labneh?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/frozen-food/ready-meals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/personal-care/hair-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Health & Beauty ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/health-beauty/makeup?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/cleaning-laundry/cleaning-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/cooking-baking/sugar-sweeteners?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/disposables/tissues-paper-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/condiments/salad-dressings-vinegar?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/household-essentials/outdoor-travel-gear?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Deli ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/deli/deli-cuts?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby Corner ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/baby-corner/baby-hygiene?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/electronics/mobiles-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/tobacco/vape?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery & Games ",
+              "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/stationery-games/stationery?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "City Star Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
+        "delivery_time": "26 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "School Snacks time",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/school-snacks-time/nuts?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Delicatessen",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/delicatessen/deli-meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/grab-go/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat & Chicken",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/baby/baby-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/toys/baby-toddler-toys?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/electronics/mobile-devices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/gift-items/boxes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "KFM - Kuwait Flour Mills & Bakeries": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/677484/kuwait-flour-mills-bakeries--fahad-al-ahmed?aid=59",
+        "delivery_time": "28 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 3.000",
+          "categories": []
+        }
+      },
+      "Dana Grocery Store": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-?aid=59",
+        "delivery_time": "26 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Ramadan Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ramadan-essentials/ramadan-items?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/organic-special-diet/organic-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/grab-go/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Delicatessen",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/delicatessen/deli-meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat and Poultry",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fresh-meat-and-poultry/fresh-meat?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/baby/baby-bath-body-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/toys/game-console?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/electronics/wires-plugs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/gift-items/hala-february?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Stationery",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/stationery/stationary-office-supplies?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Vape Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/vape-shop/vape-devices-pods?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Kinder Joy Express Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej?aid=59",
+        "delivery_time": "60 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 4.000",
+          "categories": [
+            {
+              "name": "School Snacks time",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/school-snacks-time/school-biscuits?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Delicatessen",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/delicatessen/deli-olives?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/organic-special-diet/organic-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/baby/baby-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/toys/baby-toddler-toys?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/disposables/tissues-wipes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/electronics/mobile-devices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/tobacco-shop/lighters?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Imported",
+              "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/imported/soft-drinks-drinking-water?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Dandoosh Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=59",
+        "delivery_time": "27 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/freshly-baked?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/grab-go/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat & Chicken",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/baby/baby-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/toys/baby-toddler-toys?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/electronics/mobile-devices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/gift-items/boxes?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Happy Basket": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain?aid=59",
+        "delivery_time": "24 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Gargeans",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/gargeans/gargean?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "School Snacks time",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/school-snacks-time/gluten-free-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Special Offers",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/special-offers/promotions?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/bakery/buns-rolls?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/fruits-vegetables/dates-dried-fruits?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/dairy-eggs/squeeze-tub-cheese?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/frozen-food/frozen-ready-meals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/canned-jarred-food/canned-fruits-vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/organic-special-diet/organic-beverages?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/ice-cream/cups-tubs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/baby/baby-bath-body-care?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/toys/game-consoles?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/pharmacy/medications-first-aid?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/disposables/food-storage-wraps?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/electronics/accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/gift-items/birthday-supplies?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
       }
     }
   },
   "current_progress": {
     "area_name": null,
-    "current_grocery": 2,
-    "current_grocery_title": "Hala Store",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
-    "total_groceries": 20,
-    "processed_groceries": [
-      "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59"
-    ],
-    "current_category": "Deals",
-    "current_sub_category": "Cakes",
-    "completed_categories": {
-      "Ghozlan Al Egaila Grocery": {
-        "Organic & Special Diet": [
-          "Special Diet",
-          "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes",
-          "Croissant Single",
-          "Croissant Packs",
-          "Pastries",
-          "Cup Cakes & Rolls",
-          "Vegetables",
-          "Fruits",
-          "Herbs",
-          "Dates & Dried Fruits",
-          "Eggs"
-        ],
-        "Bakery": [
-          "Special Diet",
-          "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes"
-        ]
-      },
-      "Sala Market": {
-        "Chocolate & Candy ": [
-          "Chocolate"
-        ],
-        "Snacks": [
-          "Chocolate"
-        ]
-      },
-      "Candy mart": {
-        "Bakery": [
-          "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes & Pastries",
-          "Croissant Single",
-          "Croissant Packs",
-          "Cakes",
-          "Pastries",
-          "Cup Cakes & Rolls",
-          "Vegetables",
-          "Fruits",
-          "Herbs",
-          "Dates & Dried Fruits",
-          "Chips & Dips",
-          "Chocolate Bars",
-          "Dark Chocolates",
-          "Chocolate Sharing",
-          "Minis & Miniatures",
-          "Wafers",
-          "Biscuits",
-          "Crackers",
-          "Chocolates & Wafers",
-          "Biscuits & Cookies",
-          "Candy & Gum",
-          "Popcorn"
-        ],
-        "Fruits & Vegetables": [
-          "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes & Pastries",
-          "Croissant Single",
-          "Croissant Packs",
-          "Cakes",
-          "Pastries",
-          "Cup Cakes & Rolls",
-          "Vegetables",
-          "Fruits",
-          "Herbs",
-          "Dates & Dried Fruits",
-          "Chips & Dips",
-          "Chocolate Bars",
-          "Dark Chocolates",
-          "Chocolate Sharing",
-          "Minis & Miniatures",
-          "Wafers",
-          "Biscuits",
-          "Crackers",
-          "Chocolates & Wafers",
-          "Biscuits & Cookies",
-          "Candy & Gum",
-          "Popcorn"
-        ]
-      },
-      "LuLu Hypermarket": {
-        "Fruit & Veg ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Gluten-Free",
-          "Chicken & Poultry",
-          "Beef & Veal"
-        ]
-      },
-      "Sultan Center": {
-        "Fruit & Veg ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Chicken & Poultry",
-          "Coffee"
-        ],
-        "Bakery ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Chicken & Poultry",
-          "Coffee"
-        ]
-      },
-      "MONOPRIX": {
-        "Fruit & Veg ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Gluten-Free",
-          "Chicken & Poultry",
-          "Beef & Veal",
-          "Fish & Seafood",
-          "Cold Cuts",
-          "Coffee",
-          "Tea",
-          "Creamers",
-          "Ready To Drink",
-          "Eggs"
-        ],
-        "Bakery ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Gluten-Free",
-          "Chicken & Poultry",
-          "Beef & Veal",
-          "Fish & Seafood",
-          "Cold Cuts",
-          "Coffee",
-          "Tea",
-          "Creamers",
-          "Ready To Drink",
-          "Eggs"
-        ]
-      },
-      "Hi and Buy": {
-        "Chocolate & Candy ": [
-          "Chocolate",
-          "Biscuits & Cakes",
-          "Candy",
-          "Gums & Drops",
-          "Chips",
-          "Nuts, Seeds & Fruits",
-          "Popcorn",
-          "Crackers & Pretzels",
-          "Rice Cakes & Others",
-          "Water",
-          "Soft Drinks"
-        ],
-        "Snacks": [
-          "Chocolate",
-          "Biscuits & Cakes",
-          "Candy",
-          "Gums & Drops",
-          "Chips",
-          "Nuts, Seeds & Fruits",
-          "Popcorn",
-          "Crackers & Pretzels",
-          "Rice Cakes & Others",
-          "Water",
-          "Soft Drinks"
-        ]
-      },
-      "Oncost powered by talabat": {
-        "Fruit & Veg ": [
-          "Fresh Fruit",
-          "Fresh Vegetables",
-          "Herbs & Leafy Greens",
-          "Dates & Dried Fruit",
-          "Toast",
-          "Flatbread",
-          "Buns & Rolls",
-          "Sweet Bakes",
-          "Pastries",
-          "Crispbread & Rusk",
-          "Chicken & Poultry",
-          "Fish & Seafood",
-          "Coffee",
-          "Tea",
-          "Creamers",
-          "Eggs",
-          "Cheese",
-          "Yoghurts & Labneh",
-          "Butter",
-          "Cream",
-          "Chilled Desserts"
-        ]
-      },
-      "Hala Store": {
-        "Deals": [
-          "Promotions",
-          "Freshly Baked",
-          "Buns & Rolls",
-          "Toast",
-          "Cakes",
-          "Cakes"
-        ]
-      }
-    }
+    "current_grocery": 0,
+    "current_grocery_title": null,
+    "current_grocery_link": null,
+    "total_groceries": 0,
+    "processed_groceries": [],
+    "current_category": null,
+    "current_sub_category": null,
+    "completed_categories": {}
   }
 }

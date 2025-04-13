@@ -1,0 +1,2276 @@
+{
+  "Mega Mart": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59",
+    "delivery_time": "27 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Special Offers",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/special-offers/promotions?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat and Poultry",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fresh-meat-and-poultry/fresh-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/baby/baby-bath-body-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/toys/game-console?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/electronics/wires-plugs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/gift-items/birthday-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/stationery/stationary-office-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/tobacco-shop/lighters?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Hala Store": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+    "delivery_time": "21 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Deals",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/delicatessen/deli-meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/canned-jarred/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/organic-special-diet/healthy-protein-snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/breakfast-food/cocoa-powder?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/beverages/juices-packs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/water/mineral-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/baby/baby-bath-body-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pharmacy/medications-first-aid?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/electronics/mobile-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imported Items",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/imported-items/imported?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/tobacco-shop/vape-disposables?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Talabat Mart": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain?aid=59",
+    "delivery_time": "23 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 0.000",
+      "minimum_order": "KD 3.000",
+      "categories": [
+        {
+          "name": "Imports",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/imports/chocolate-bars?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruit & Veg",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/fruit-veg/fresh-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/bakery/flatbread?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Poultry, Meat & Seafood",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/poultry-meat-seafood/beef-veal?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/deli/cheese-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/ready-to-eat/ready-meals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Chocolate",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/snacks-chocolate/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/frozen-food/ready-meals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/canned-jarred/canned-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/health-beauty/pharmacy?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/baby-corner/diapers?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/household-essentials/home-maintenance?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/electronics/mobiles-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco & Smoke-Free",
+          "link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain/tobacco-smoke-free/vape?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "LuLu Hypermarket": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59",
+    "delivery_time": "39 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 3.000",
+      "categories": [
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/fruit-veg/fresh-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/bakery/toast?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Poultry, Meat & Seafood ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/poultry-meat-seafood/chicken-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/deli/cheese-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/frozen-food/fries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/canned-jarred/canned-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Chocolate ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/snacks-chocolate/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/ready-to-eat/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/health-beauty/perfumes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/baby-corner/diapers?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imports",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/imports/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics ",
+          "link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya/electronics/mobiles-accessories?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Sultan Center": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59",
+    "delivery_time": "41 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/fruit-veg/fresh-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/bakery/toast?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Poultry, Meat & Seafood ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/poultry-meat-seafood/chicken-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/deli/cheese-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/frozen-food/fries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/canned-jarred/canned-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Chocolate ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/snacks-chocolate/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/ready-to-eat/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/health-beauty/perfumes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/baby-corner/diapers?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imports",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/imports/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco ",
+          "link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila/tobacco/vape?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "MONOPRIX": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59",
+    "delivery_time": "27 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 2.000",
+      "categories": [
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/fruit-veg/fresh-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/bakery/toast?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Poultry, Meat & Seafood ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/poultry-meat-seafood/chicken-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/deli/cheese-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/frozen-food/fries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/canned-jarred/canned-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Chocolate ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/snacks-chocolate/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/ready-to-eat/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/health-beauty/perfumes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/baby-corner/diapers?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imports",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/imports/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco ",
+          "link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain/tobacco/vape?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Hi and Buy": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
+    "delivery_time": "20 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Chocolate & Candy ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/chocolate-candy/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/snacks/chips?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/bakery/flatbread?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/ready-to-eat/sandwiches-wraps?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/fruit-veg/dates-dried-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/dairy-eggs/yoghurts-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/milk/long-life-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/personal-care/face-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/health-beauty/pharmacy?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/cleaning-laundry/cleaning-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/deli/deli-cuts?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/canned-jarred/canned-vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/baby-corner/baby-hygiene?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/electronics/mobiles-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/tobacco/vape?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Oncost powered by talabat": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain?aid=59",
+    "delivery_time": "22 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 0.000",
+      "categories": [
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/fruit-veg/fresh-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/bakery/toast?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Poultry, Meat & Seafood ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/poultry-meat-seafood/chicken-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/cooking-baking/baking-ingredients?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/deli/cheese-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/frozen-food/fries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/canned-jarred/canned-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Chocolate ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/snacks-chocolate/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/ready-to-eat/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/health-beauty/perfumes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/baby-corner/diapers?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/pet-care/cat-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imports",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/imports/snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/electronics/mobiles-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco ",
+          "link": "https://www.talabat.com/kuwait/grocery/750465/oncost-powered-by-talabat-al-qurain/tobacco/vape?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Seven Star Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo?aid=59",
+    "delivery_time": "25 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "School Snacks time",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/school-snacks-time/school-biscuits?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/stationery/birthday-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Special Offers",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/special-offers/promotions?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/delicatessen/deli-meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/ice-cream/cups-tubs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat & Chicken",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/fresh-meat-chicken/fresh-meat?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/grab-go/sandwiches-wraps?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/organic-special-diet/organic-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/beverages/juices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/toys/game-console?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/personal-care/bath-soap?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/electronics/mobile-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/gift-items/boxes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Apparel",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/apparel/general-goods?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ramadaniat",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/ramadaniat/ramadan-items?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/655709/seven-star-grocery-mahboula-tgo/tobacco-shop/vape-disposables?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Trolley": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall?aid=59",
+    "delivery_time": "20 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 0.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Chocolate & Candy ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/chocolate-candy/chocolate?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/snacks/chips?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/beverages/water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/bakery/sweet-bakes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ready To Eat ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/ready-to-eat/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Protein & Special Diet ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/protein-special-diet/protein?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruit & Veg ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/fruit-veg/dates-dried-fruit?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/dairy-eggs/yoghurts-labneh?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/frozen-food/ready-meals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/personal-care/hair-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Health & Beauty ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/health-beauty/makeup?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/cleaning-laundry/cleaning-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/cooking-baking/sugar-sweeteners?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/disposables/tissues-paper-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/condiments/salad-dressings-vinegar?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/household-essentials/outdoor-travel-gear?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Deli ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/deli/deli-cuts?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby Corner ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/baby-corner/baby-hygiene?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/electronics/mobiles-accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/tobacco/vape?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery & Games ",
+          "link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall/stationery-games/stationery?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "City Star Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
+    "delivery_time": "26 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "School Snacks time",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/school-snacks-time/nuts?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/delicatessen/deli-meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat & Chicken",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/electronics/mobile-devices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/gift-items/boxes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "KFM - Kuwait Flour Mills & Bakeries": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/677484/kuwait-flour-mills-bakeries--fahad-al-ahmed?aid=59",
+    "delivery_time": "28 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 3.000",
+      "categories": []
+    }
+  },
+  "Dana Grocery Store": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-?aid=59",
+    "delivery_time": "26 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Ramadan Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ramadan-essentials/ramadan-items?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/organic-special-diet/organic-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/delicatessen/deli-meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat and Poultry",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fresh-meat-and-poultry/fresh-meat?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/baby/baby-bath-body-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/toys/game-console?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/electronics/wires-plugs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/gift-items/hala-february?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Stationery",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/stationery/stationary-office-supplies?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Vape Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/vape-shop/vape-devices-pods?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Kinder Joy Express Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej?aid=59",
+    "delivery_time": "60 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 4.000",
+      "categories": [
+        {
+          "name": "School Snacks time",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/school-snacks-time/school-biscuits?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/delicatessen/deli-olives?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/organic-special-diet/organic-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/disposables/tissues-wipes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/electronics/mobile-devices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/tobacco-shop/lighters?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Imported",
+          "link": "https://www.talabat.com/kuwait/grocery/641605/kinder-joy-express-grocery-dhajeej/imported/soft-drinks-drinking-water?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Dandoosh Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=59",
+    "delivery_time": "27 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat & Chicken",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/electronics/mobile-devices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/gift-items/boxes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  },
+  "Happy Basket": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain?aid=59",
+    "delivery_time": "24 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "Gargeans",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/gargeans/gargean?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "School Snacks time",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/school-snacks-time/gluten-free-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Special Offers",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/special-offers/promotions?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/bakery/buns-rolls?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/fruits-vegetables/dates-dried-fruits?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/dairy-eggs/squeeze-tub-cheese?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/frozen-food/frozen-ready-meals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/canned-jarred-food/canned-fruits-vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/organic-special-diet/organic-beverages?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/ice-cream/cups-tubs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/baby/baby-bath-body-care?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/toys/game-consoles?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/pharmacy/medications-first-aid?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/disposables/food-storage-wraps?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/electronics/accessories?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/670458/happy-basket-al-qurain/gift-items/birthday-supplies?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
+  }
+}
