@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-13T20:06:52.976636",
+  "last_updated": "2025-04-14T02:39:29.670526",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
+    "current_grocery": 4,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Frozen Fruits & Vegetables",
+    "current_sub_category": "Juices Single",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -158,11 +158,39 @@
           "Fresh Poultry",
           "Frozen Poultry",
           "Frozen Meat & Seafood",
-          "Frozen Fruits & Vegetables"
+          "Frozen Fruits & Vegetables",
+          "Frozen Ready Meals",
+          "Frozen Desserts",
+          "Rice",
+          "Pasta & Sauces",
+          "Noodles & Soups",
+          "Oil & Ghee",
+          "Pulses & Grains",
+          "Cooking Supplies",
+          "Baking Products",
+          "Meat & Seafood",
+          "Canned Fruits & Vegetables",
+          "Ready-to-Eat Canned Meals",
+          "Salt & Spices",
+          "Sauces & Dressings",
+          "Olives & Pickles",
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings",
+          "Gluten Free Food & Snacks",
+          "Sugar Free Food & Snacks",
+          "Special Diet",
+          "Healthy & Protein Snacks",
+          "Fresh Milk",
+          "Fresh Laban",
+          "UHT Milk",
+          "Flavoured Milk",
+          "Condensed Milk",
+          "Evaporated Milk",
+          "Powdered Milk"
         ]
       }
     },
-    "current_grocery_title": "Ghozlan Al Egaila Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59"
+    "current_grocery_title": "Kiki Market Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59"
   }
 }
