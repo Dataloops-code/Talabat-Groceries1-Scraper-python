@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-14T08:12:38.488001",
+  "last_updated": "2025-04-14T14:14:01.996792",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
+    "current_grocery": 4,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Spreads & Honey",
+    "current_sub_category": "Oil & Ghee",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -238,9 +238,51 @@
           "Cocoa Powder",
           "Syrups"
         ]
+      },
+      "Elite One Grocery": {
+        "School Snacks time": [
+          "School Biscuits",
+          "Stationary & Office Supplies",
+          "School Supplies",
+          "Promotions",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Cakes",
+          "Cup Cakes & Rolls",
+          "Pastries",
+          "Croissant Packs",
+          "Croissant Single",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Deli Meat & Seafood",
+          "Sandwiches & Wraps",
+          "Ready Meals",
+          "Eggs",
+          "Cheese",
+          "Butter & Margarine",
+          "Yoghurt & Labneh",
+          "Block Cheese & Feta",
+          "Cream",
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi",
+          "Desserts",
+          "Slice Cheese & Shredded",
+          "Frozen Poultry",
+          "Frozen Meat & Seafood",
+          "Frozen Fruits & Vegetables",
+          "Frozen Ready Meals",
+          "Frozen Desserts",
+          "Rice",
+          "Pasta & Sauces",
+          "Noodles & Soups"
+        ]
       }
     },
-    "current_grocery_title": "Hala Store",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59"
+    "current_grocery_title": "Elite One Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59"
   }
 }
