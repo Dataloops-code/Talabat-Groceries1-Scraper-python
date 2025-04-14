@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-14T14:14:01.996792",
+  "last_updated": "2025-04-14T20:11:06.538040",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 4,
+    "current_grocery": 7,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Oil & Ghee",
+    "current_sub_category": "Juices Packs",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -280,9 +280,45 @@
           "Pasta & Sauces",
           "Noodles & Soups"
         ]
+      },
+      "Dandoosh Grocery": {
+        "Bakery": [
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Salads",
+          "Eggs",
+          "Slice Cheese & Shredded",
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi",
+          "Block Cheese & Feta",
+          "Butter & Margarine",
+          "Yoghurt & Labneh",
+          "Cream",
+          "Dairy Products",
+          "Desserts",
+          "Gluten Free Food & Snacks",
+          "Sugar Free Food & Snacks",
+          "Special Diet",
+          "Healthy & Protein Snacks",
+          "Cereals",
+          "Cocoa Powder",
+          "Syrups",
+          "Spreads & Honey",
+          "Juices Single"
+        ]
       }
     },
-    "current_grocery_title": "Elite One Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59"
+    "current_grocery_title": "Dandoosh Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=59"
   }
 }
