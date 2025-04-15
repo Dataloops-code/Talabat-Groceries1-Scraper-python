@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-15T08:05:15.767057",
+  "last_updated": "2025-04-15T14:08:59.784580",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 8,
+    "current_grocery": 11,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Chicken & Poultry",
+    "current_sub_category": "Crispbread & Rusk",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -350,9 +350,29 @@
           "Crispbread & Rusk",
           "Gluten-Free"
         ]
+      },
+      "Sultan Center": {
+        "Imports": [
+          "Chocolate 🔥",
+          "Snacks 🔥",
+          "Ice Cream 🔥",
+          "Bakery 🔥",
+          "Protein & Diet 🔥",
+          "Canned 🔥",
+          "Cooking & Baking 🔥",
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries"
+        ]
       }
     },
-    "current_grocery_title": "LuLu Hypermarket",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59"
+    "current_grocery_title": "Sultan Center",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59"
   }
 }
