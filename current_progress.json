@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-15T02:37:13.825601",
+  "last_updated": "2025-04-15T08:05:15.767057",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 7,
+    "current_grocery": 8,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Personal Care ✈️",
+    "current_sub_category": "Chicken & Poultry",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -328,9 +328,31 @@
           "Coffee & Tea ✈️",
           "Cleaning & Laundry ✈️"
         ]
+      },
+      "LuLu Hypermarket": {
+        "Imports": [
+          "Chocolate 🔥",
+          "Snacks 🔥",
+          "Bakery 🔥",
+          "Personal Care 🔥",
+          "Protein & Diet 🔥",
+          "Canned 🔥",
+          "Cooking & Baking 🔥",
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free"
+        ]
       }
     },
-    "current_grocery_title": "Talabat Mart",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain?aid=59"
+    "current_grocery_title": "LuLu Hypermarket",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/711365/lulu-hypermarket-sabahiya?aid=59"
   }
 }
