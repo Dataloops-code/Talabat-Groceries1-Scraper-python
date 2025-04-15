@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-15T14:08:59.784580",
+  "last_updated": "2025-04-15T20:08:58.754667",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 11,
+    "current_grocery": 12,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Crispbread & Rusk",
+    "current_sub_category": "Eggs",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -370,9 +370,33 @@
           "Sweet Bakes",
           "Pastries"
         ]
+      },
+      "Sabah AlSalem Co-Op": {
+        "Fruit & Veg ": [
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast",
+          "Flatbread",
+          "Buns & Rolls",
+          "Sweet Bakes",
+          "Pastries",
+          "Crispbread & Rusk",
+          "Gluten-Free",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Lamb & Goat",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Ready To Drink"
+        ]
       }
     },
-    "current_grocery_title": "Sultan Center",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-egaila?aid=59"
+    "current_grocery_title": "Sabah AlSalem Co-Op",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/653942/sabah-alsalem-co-opsabah-al-salem?aid=59"
   }
 }
