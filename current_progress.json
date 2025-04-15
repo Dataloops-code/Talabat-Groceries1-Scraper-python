@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-14T20:11:06.538040",
+  "last_updated": "2025-04-15T02:37:13.825601",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 7,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Juices Packs",
+    "current_sub_category": "Personal Care ✈️",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -316,9 +316,21 @@
           "Spreads & Honey",
           "Juices Single"
         ]
+      },
+      "Talabat Mart": {
+        "Imports": [
+          "Chocolate Bars ✈️",
+          "Chocolate Sharing ✈️",
+          "Candy & Gums ✈️",
+          "Salty Snacks ✈️",
+          "Biscuits ✈️",
+          "Beverages ✈️",
+          "Coffee & Tea ✈️",
+          "Cleaning & Laundry ✈️"
+        ]
       }
     },
-    "current_grocery_title": "Dandoosh Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=59"
+    "current_grocery_title": "Talabat Mart",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/38295/talabat-mart-al-qurain?aid=59"
   }
 }
