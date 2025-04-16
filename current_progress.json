@@ -1,16 +1,22 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T22:55:38.593191",
+  "last_updated": "2025-04-16T23:08:24.954774",
   "current_progress": {
-    "area_name": null,
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
-    "total_groceries": 0,
+    "area_name": "الظهر",
+    "current_grocery": 1,
+    "current_grocery_title": "Elite One Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
+    "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": null,
-    "completed_groceries": {}
+    "current_category": "School Snacks time",
+    "current_sub_category": "Stationary & Office Supplies",
+    "completed_groceries": {
+      "Elite One Grocery": {
+        "completed sub-categories": [
+          "School Biscuits"
+        ]
+      }
+    }
   }
 }
