@@ -416,16 +416,34 @@ class MainScraper:
                 self.drive_uploader = SavingOnDrive(credentials_json=None)
         
         os.makedirs(self.output_dir, exist_ok=True)
-        self.current_progress = self.load_current_progress()
-        self.scraped_progress = self.load_scraped_progress()
         self.github_token = os.environ.get('GITHUB_TOKEN')
         if not self.github_token:
             logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         self.ensure_playwright_browsers()
+        self.current_progress = self.load_current_progress()
+        self.scraped_progress = self.load_scraped_progress()
         self.commit_progress("Initialized scraper with reset progress")
 
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+
+    @retry(tries=3, delay=2, backoff=2)
+    def commit_progress(self, message: str = "Periodic progress update"):
+        if not self.github_token:
+            logging.warning("No GITHUB_TOKEN, skipping commit")
+            return
+        try:
+            logging.info(f"Attempting to commit progress: {message}")
+            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
+            result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
+            if result.returncode == 0:
+                subprocess.run(["git", "push"], check=True, env={"GIT_AUTH_TOKEN": self.github_token, **os.environ})
+                logging.info(f"Successfully committed and pushed: {message}")
+            else:
+                logging.info(f"No changes to commit: {result.stdout}")
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Error committing progress: {e}")
+            raise
 
     def load_current_progress(self) -> Dict:
         default_progress = {
@@ -448,13 +466,11 @@ class MainScraper:
         if self.reset_progress:
             logging.info("Resetting current_progress.json to default")
             self.save_current_progress(default_progress)
-            self.commit_progress("Reset current_progress.json")
             return default_progress
         
         if not os.path.exists(self.CURRENT_PROGRESS_FILE):
             logging.info("current_progress.json not found, creating default")
             self.save_current_progress(default_progress)
-            self.commit_progress("Created default current_progress.json")
             return default_progress
         
         try:
@@ -481,7 +497,6 @@ class MainScraper:
             logging.error(f"Error loading current_progress.json: {e}")
             logging.info("Falling back to default current_progress.json")
             self.save_current_progress(default_progress)
-            self.commit_progress("Reset current_progress.json due to load error")
             return default_progress
 
     def load_scraped_progress(self) -> Dict:
@@ -506,14 +521,11 @@ class MainScraper:
         if self.reset_progress:
             logging.info("Resetting scraped_progress.json to default")
             self.save_scraped_progress(default_progress)
-            self.commit_progress("Reset scraped_progress.json")
-           
             return default_progress
         
         if not os.path.exists(self.SCRAPED_PROGRESS_FILE):
             logging.info("scraped_progress.json not found, creating default")
             self.save_scraped_progress(default_progress)
-            self.commit_progress("Created default scraped_progress.json")
             return default_progress
         
         try:
@@ -542,7 +554,6 @@ class MainScraper:
             logging.error(f"Error loading scraped_progress.json: {e}")
             logging.info("Falling back to default scraped_progress.json")
             self.save_scraped_progress(default_progress)
-            self.commit_progress("Reset scraped_progress.json due to load error")
             return default_progress
 
     def save_current_progress(self, progress: Dict = None):
@@ -800,8 +811,179 @@ class MainScraper:
             logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
             sheet.cell(row=1, column=1, value="No data available")
 
-    # ... (other methods unchanged: ensure_playwright_browsers, commit_progress, process_grocery_categories,
-    # move_to_next_category, update_to_next_grocery, process_category, get_page_groceries, upload_to_drive) ...
+    async def process_grocery_categories(self, grocery_title, grocery_details, talabat_grocery, page, groceries_on_page, grocery_idx):
+        completed_groceries = self.current_progress["current_progress"]["completed_groceries"].get(grocery_title, {})
+        completed_categories = completed_groceries.get("completed categories", [])
+        current_category = self.current_progress["current_progress"].get("current_category")
+
+        categories = grocery_details.get("categories", [])
+        if not categories:
+            print(f"No categories found for {grocery_title}, marking as complete")
+            self.current_progress["current_progress"]["processed_groceries"].append(self.current_progress["current_progress"]["current_grocery_link"])
+            self.scraped_progress["current_progress"]["processed_groceries"].append(self.current_progress["current_progress"]["current_grocery_link"])
+            self.update_to_next_grocery(groceries_on_page, grocery_idx)
+            self.save_current_progress()
+            self.save_scraped_progress()
+            self.commit_progress(f"No categories for {grocery_title}, marked as complete")
+            return
+
+        current_category_idx = None
+        for idx, category in enumerate(categories):
+            if category["name"] == current_category:
+                current_category_idx = idx
+                break
+        if current_category_idx is None:
+            print(f"Current category {current_category} not found, starting from first incomplete category")
+            for idx, category in enumerate(categories):
+                if category["name"] not in completed_categories:
+                    current_category_idx = idx
+                    self.current_progress["current_progress"]["current_category"] = category["name"]
+                    self.scraped_progress["current_progress"]["current_category"] = category["name"]
+                    self.save_current_progress()
+                    self.save_scraped_progress()
+                    self.commit_progress(f"Reset current_category to {category['name']} for {grocery_title}")
+                    break
+            if current_category_idx is None:
+                print(f"All categories completed for {grocery_title}, marking grocery as processed")
+                self.current_progress["current_progress"]["processed_groceries"].append(self.current_progress["current_progress"]["current_grocery_link"])
+                self.scraped_progress["current_progress"]["processed_groceries"].append(self.current_progress["current_progress"]["current_grocery_link"])
+                self.update_to_next_grocery(groceries_on_page, grocery_idx)
+                self.save_current_progress()
+                self.save_scraped_progress()
+                self.commit_progress(f"Completed all categories for {grocery_title}")
+                return
+
+        category = categories[current_category_idx]
+        category_name = category["name"]
+        if category_name in completed_categories:
+            print(f"Category {category_name} already completed, moving to next")
+            self.move_to_next_category(categories, current_category_idx, grocery_title, completed_categories)
+            return
+
+        print(f"Processing category {current_category_idx + 1}/{len(categories)}: {category_name}")
+        self.current_progress["current_progress"]["current_category"] = category_name
+        self.scraped_progress["current_progress"]["current_category"] = category_name
+        self.save_current_progress()
+        self.save_scraped_progress()
+        self.commit_progress(f"Started processing category {category_name} for {grocery_title}")
+
+        temp_page = await self.browser.new_page()
+        await self.process_category(grocery_title, category, talabat_grocery, temp_page)
+        await temp_page.close()
+
+        completed_groceries = self.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
+        if category_name in completed_groceries.get("completed categories", []):
+            self.move_to_next_category(categories, current_category_idx, grocery_title, completed_categories)
+        else:
+            print(f"Category {category_name} not yet complete, continuing with sub-categories")
+
+    def move_to_next_category(self, categories, current_idx, grocery_title, completed_categories):
+        next_idx = current_idx + 1
+        self.current_progress["current_progress"]["current_category"] = None
+        self.scraped_progress["current_progress"]["current_category"] = None
+        self.current_progress["current_progress"]["current_sub_category"] = None
+        self.scraped_progress["current_progress"]["current_sub_category"] = None
+        while next_idx < len(categories):
+            next_category = categories[next_idx]["name"]
+            if next_category not in completed_categories:
+                self.current_progress["current_progress"]["current_category"] = next_category
+                self.scraped_progress["current_progress"]["current_category"] = next_category
+                break
+            next_idx += 1
+        self.save_current_progress()
+        self.save_scraped_progress()
+        self.commit_progress(f"Moved to next category after {categories[current_idx]['name']} for {grocery_title}")
+
+    def update_to_next_grocery(self, groceries_on_page, current_idx):
+        processed_grocery_links = set(self.current_progress["current_progress"]["processed_groceries"])
+        next_idx = current_idx + 1
+        self.current_progress["current_progress"].update({
+            "current_grocery": 0,
+            "current_grocery_title": None,
+            "current_grocery_link": None,
+            "current_category": None,
+            "current_sub_category": None
+        })
+        self.scraped_progress["current_progress"].update({
+            "current_grocery": 0,
+            "current_grocery_title": None,
+            "current_grocery_link": None,
+            "current_category": None,
+            "current_sub_category": None
+        })
+        while next_idx < len(groceries_on_page):
+            next_grocery = groceries_on_page[next_idx]
+            if next_grocery["grocery_link"] not in processed_grocery_links:
+                self.current_progress["current_progress"].update({
+                    "current_grocery": next_idx + 1,
+                    "current_grocery_title": next_grocery["grocery_title"],
+                    "current_grocery_link": next_grocery["grocery_link"]
+                })
+                self.scraped_progress["current_progress"].update({
+                    "current_grocery": next_idx + 1,
+                    "current_grocery_title": next_grocery["grocery_title"],
+                    "current_grocery_link": next_grocery["grocery_link"]
+                })
+                break
+            next_idx += 1
+        self.save_current_progress()
+        self.save_scraped_progress()
+        self.commit_progress(f"Updated to next grocery after index {current_idx}")
+
+    async def process_category(self, grocery_title, category_info, talabat_grocery, page):
+        category_name = category_info["name"]
+        self.current_progress["current_progress"]["current_category"] = category_name
+        self.scraped_progress["current_progress"]["current_category"] = category_name
+        sub_categories = await talabat_grocery.extract_sub_categories(page, category_info["link"], self, grocery_title, category_info)
+        category_info["sub_categories"] = sub_categories
+        self.save_current_progress()
+        self.save_scraped_progress()
+
+    async def get_page_groceries(self, page) -> List[Dict]:
+        logging.info("Extracting grocery information")
+        try:
+            await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=30000)
+            vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
+            groceries_info = []
+            for container in vendor_containers:
+                title_element = await container.query_selector('a div h2')
+                title = await title_element.inner_text() if title_element else "Unknown Grocery"
+                link_element = await container.query_selector('a')
+                link = "https://www.talabat.com" + await link_element.get_attribute('href') if link_element else None
+                delivery_info = await container.query_selector('div.deliveryInfo')
+                delivery_time_text = await delivery_info.inner_text() if delivery_info else ""
+                delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
+                if link:
+                    groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": delivery_time})
+            logging.info(f"Extracted {len(groceries_info)} groceries: {[g['grocery_title'] for g in groceries_info]}")
+            return groceries_info
+        except Exception as e:
+            logging.error(f"Error extracting groceries: {e}")
+            return []
+
+    @retry(tries=3, delay=2, backoff=2)
+    def upload_to_drive(self, file_path):
+        logging.info(f"Uploading {file_path} to Google Drive...")
+        try:
+            if not self.drive_uploader.credentials_json:
+                logging.error("TALABAT_GCLOUD_KEY_JSON is not set or invalid.")
+                return False
+            if not self.drive_uploader.authenticate():
+                logging.error("Failed to authenticate with Google Drive. Check TALABAT_GCLOUD_KEY_JSON validity.")
+                return False
+            file_ids = self.drive_uploader.upload_to_multiple_folders(file_path)
+            success = len(file_ids) == 2
+            if success:
+                logging.info(f"Successfully uploaded {file_path} to Google Drive")
+            else:
+                logging.error(f"Failed to upload {file_path}: Incomplete upload to folders")
+            return success
+        except Exception as e:
+            if "429" in str(e) or "rate limit" in str(e).lower():
+                logging.error(f"Rate limit exceeded while uploading to Google Drive: {str(e)}")
+            else:
+                logging.error(f"Error uploading to Google Drive: {str(e)}")
+            return False
 
     async def run(self):
         ahmadi_areas = [
