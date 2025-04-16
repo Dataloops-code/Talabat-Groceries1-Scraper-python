@@ -693,7 +693,7 @@ class MainScraper:
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Updated to next grocery after index {current_idx}")
-
+    
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
         self.browser = browser
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
@@ -738,7 +738,6 @@ class MainScraper:
         await page.close()
     
         processed_grocery_links = set(current_progress["processed_groceries"])
-        current_grocery_link = current_progress.get("current_grocery_link")
     
         for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
@@ -746,10 +745,7 @@ class MainScraper:
             grocery_link = grocery["grocery_link"]
     
             if grocery_link in processed_grocery_links:
-                print(f"Skipping already processed grocery: {grocery_title} (link: {grocery_link})")
-                continue
-    
-            if current_grocery_link and current_grocery_link != grocery_link:
+                print(f"Skipping already processed grocery: {grocery>
                 continue
     
             current_progress["current_grocery"] = grocery_num
@@ -777,16 +773,15 @@ class MainScraper:
             workbook.save(excel_filename)
             logging.info(f"Saved data for {grocery_title} to {excel_filename}")
     
+            # Mark grocery as processed
+            current_progress["processed_groceries"].append(grocery_link)
+            scraped_current_progress["processed_groceries"].append(grocery_link)
             self.scraped_progress["all_results"][area_name] = all_area_results
             self.save_current_progress()
             self.save_scraped_progress()
             self.commit_progress(f"Processed {grocery_title} (link: {grocery_link})")
     
             await grocery_page.close()
-    
-            # Exit loop if we processed the current grocery
-            if current_grocery_link == grocery_link:
-                break
     
         # Save JSON results
         json_filename = os.path.join(self.output_dir, f"{area_name}.json")
@@ -919,7 +914,7 @@ class MainScraper:
         else:
             logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
             sheet.cell(row=1, column=1, value="No data available")
-        
+    
     async def process_category(self, grocery_title, category_info, talabat_grocery, page):
         category_name = category_info["name"]
         self.current_progress["current_progress"]["current_category"] = category_name
