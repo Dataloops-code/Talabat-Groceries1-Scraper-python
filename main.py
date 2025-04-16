@@ -745,7 +745,7 @@ class MainScraper:
             grocery_link = grocery["grocery_link"]
     
             if grocery_link in processed_grocery_links:
-                print(f"Skipping already processed grocery: {grocery>
+                print(f"Skipping already processed grocery: {grocery_title} (link: {grocery_link})")
                 continue
     
             current_progress["current_grocery"] = grocery_num
