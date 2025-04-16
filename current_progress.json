@@ -3,16 +3,23 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T21:13:18.611673",
+  "last_updated": "2025-04-16T22:30:57.445918",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 14,
+    "current_grocery": 7,
     "total_groceries": 20,
-    "processed_groceries": [],
-    "current_category": "Poultry, Meat & Seafood ",
-    "current_sub_category": "Salad Dressings & Vinegar",
-    "current_grocery_title": "City Hypermarket",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
+    "processed_groceries": [
+      "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
+      "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=59",
+      "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=59",
+      "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
+      "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
+      "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59"
+    ],
+    "current_category": "School Snacks time",
+    "current_sub_category": "Frying Oil",
+    "current_grocery_title": "City Star Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
     "completed_groceries": {
       "Hi and Buy": {
         "completed sub-categories": [
@@ -367,7 +374,12 @@
           "Biscuits ✈️",
           "Beverages ✈️",
           "Coffee & Tea ✈️",
-          "Cleaning & Laundry ✈️"
+          "Cleaning & Laundry ✈️",
+          "Salad Dressings & Vinegar",
+          "Sauces",
+          "Spices & Seasonings",
+          "Salt",
+          "Baking Ingredients"
         ]
       },
       "LuLu Hypermarket": {
