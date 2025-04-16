@@ -1,17 +1,16 @@
 {
   "completed_areas": [
-    "الظهر",
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T08:11:02.730463",
+  "last_updated": "2025-04-16T12:23:58.006161",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 12,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Flatbread",
+    "current_sub_category": "Candy",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -416,7 +415,15 @@
         ]
       }
     },
-    "current_grocery_title": "MONOPRIX",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59"
+    "current_grocery_title": "Hi and Buy",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
+    "completed_groceries": {
+      "Hi and Buy": {
+        "completed sub-categories": [
+          "Chocolate",
+          "Biscuits & Cakes"
+        ]
+      }
+    }
   }
 }
