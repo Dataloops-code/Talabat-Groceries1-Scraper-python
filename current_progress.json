@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T13:33:18.393740",
+  "last_updated": "2025-04-16T13:55:44.397907",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 14,
+    "current_grocery": 15,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Imports",
-    "current_sub_category": "Fresh Fruit",
-    "current_grocery_title": "City Hypermarket",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
+    "current_category": "Chocolate & Candy ",
+    "current_sub_category": "Biscuits & Cakes",
+    "current_grocery_title": "Trolley",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/18815/trolley-al-qurain--delicious-mall?aid=59",
     "completed_groceries": {
       "Hi and Buy": {
         "completed sub-categories": [
@@ -477,6 +477,11 @@
           "Canned 🔥",
           "Household 🔥",
           "Cooking & Baking 🔥"
+        ]
+      },
+      "Trolley": {
+        "completed sub-categories": [
+          "Chocolate"
         ]
       }
     }
