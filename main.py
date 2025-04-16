@@ -7,7 +7,7 @@ import subprocess
 import re
 from typing import Dict, List
 import pandas as pd
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from SavingOnDrive import SavingOnDrive
