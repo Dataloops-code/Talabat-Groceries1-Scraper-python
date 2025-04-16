@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T20:10:28.687343",
+  "last_updated": "2025-04-16T20:44:56.849073",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 14,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Poultry, Meat & Seafood ",
-    "current_sub_category": "Pulses & Grains",
+    "current_sub_category": "Salad Dressings & Vinegar",
     "current_grocery_title": "City Hypermarket",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
     "completed_groceries": {
@@ -512,7 +512,9 @@
           "Sugar & Sweeteners",
           "Pastas",
           "Noodles & Soups",
-          "Rice"
+          "Rice",
+          "Pulses & Grains",
+          "Pizza & Pasta Sauces"
         ]
       }
     }
