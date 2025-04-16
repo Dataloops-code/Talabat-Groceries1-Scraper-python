@@ -3,17 +3,37 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T12:23:58.006161",
+  "last_updated": "2025-04-16T13:33:18.393740",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 12,
+    "current_grocery": 14,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": "Candy",
-    "completed_categories": {
+    "current_category": "Imports",
+    "current_sub_category": "Fresh Fruit",
+    "current_grocery_title": "City Hypermarket",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
+    "completed_groceries": {
+      "Hi and Buy": {
+        "completed sub-categories": [
+          "Chocolate",
+          "Biscuits & Cakes"
+        ]
+      },
+      "Oncost powered by talabat": {
+        "completed sub-categories": [
+          "Snacks 🔥",
+          "Personal Care 🔥",
+          "Canned 🔥",
+          "Household 🔥",
+          "Cooking & Baking 🔥"
+        ]
+      },
       "Ghozlan Al Egaila Grocery": {
-        "Organic & Special Diet": [
+        "completed categories": [
+          "Organic & Special Diet"
+        ],
+        "completed sub-categories": [
           "Special Diet",
           "Freshly Baked",
           "Toast",
@@ -60,7 +80,10 @@
         ]
       },
       "Candy mart": {
-        "Bakery": [
+        "completed categories": [
+          "Bakery"
+        ],
+        "completed sub-categories": [
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",
@@ -89,7 +112,10 @@
         ]
       },
       "Mega Mart": {
-        "Special Offers": [
+        "completed categories": [
+          "Special Offers"
+        ],
+        "completed sub-categories": [
           "Promotions",
           "Gluten Free Food & Snacks",
           "Sugar Free Food & Snacks",
@@ -126,7 +152,10 @@
         ]
       },
       "Kiki Market Grocery": {
-        "Bakery": [
+        "completed categories": [
+          "Bakery"
+        ],
+        "completed sub-categories": [
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",
@@ -190,7 +219,10 @@
         ]
       },
       "Hala Store": {
-        "Deals": [
+        "completed categories": [
+          "Deals"
+        ],
+        "completed sub-categories": [
           "Promotions",
           "Freshly Baked",
           "Buns & Rolls",
@@ -240,7 +272,10 @@
         ]
       },
       "Elite One Grocery": {
-        "School Snacks time": [
+        "completed categories": [
+          "School Snacks time"
+        ],
+        "completed sub-categories": [
           "School Biscuits",
           "Stationary & Office Supplies",
           "School Supplies",
@@ -282,7 +317,10 @@
         ]
       },
       "Dandoosh Grocery": {
-        "Bakery": [
+        "completed categories": [
+          "Bakery"
+        ],
+        "completed sub-categories": [
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",
@@ -318,7 +356,10 @@
         ]
       },
       "Talabat Mart": {
-        "Imports": [
+        "completed categories": [
+          "Imports"
+        ],
+        "completed sub-categories": [
           "Chocolate Bars ✈️",
           "Chocolate Sharing ✈️",
           "Candy & Gums ✈️",
@@ -330,7 +371,10 @@
         ]
       },
       "LuLu Hypermarket": {
-        "Imports": [
+        "completed categories": [
+          "Imports"
+        ],
+        "completed sub-categories": [
           "Chocolate 🔥",
           "Snacks 🔥",
           "Bakery 🔥",
@@ -352,7 +396,10 @@
         ]
       },
       "Sultan Center": {
-        "Imports": [
+        "completed categories": [
+          "Imports"
+        ],
+        "completed sub-categories": [
           "Chocolate 🔥",
           "Snacks 🔥",
           "Ice Cream 🔥",
@@ -372,7 +419,10 @@
         ]
       },
       "Sabah AlSalem Co-Op": {
-        "Fruit & Veg ": [
+        "completed categories": [
+          "Fruit & Veg "
+        ],
+        "completed sub-categories": [
           "Fresh Fruit",
           "Fresh Vegetables",
           "Herbs & Leafy Greens",
@@ -396,7 +446,10 @@
         ]
       },
       "MONOPRIX": {
-        "Imports": [
+        "completed categories": [
+          "Imports"
+        ],
+        "completed sub-categories": [
           "Chocolate 🔥",
           "Candy & Gum 🔥",
           "Snacks 🔥",
@@ -413,15 +466,17 @@
           "Dates & Dried Fruit",
           "Toast"
         ]
-      }
-    },
-    "current_grocery_title": "Hi and Buy",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/632424/hi-buy-west-abu-fetera-small-indust?aid=59",
-    "completed_groceries": {
-      "Hi and Buy": {
+      },
+      "City Hypermarket": {
         "completed sub-categories": [
-          "Chocolate",
-          "Biscuits & Cakes"
+          "Chocolate 🔥",
+          "Candy & Gum 🔥",
+          "Snacks 🔥",
+          "Bakery 🔥",
+          "Protein & Diet 🔥",
+          "Canned 🔥",
+          "Household 🔥",
+          "Cooking & Baking 🔥"
         ]
       }
     }
