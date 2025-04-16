@@ -141,9 +141,6 @@ class TalabatGroceries:
                         continue
 
                     start_processing = True
-
-                    main_scraper.current_progress["current_progress"]["current_sub_category"] = sub_category_name
-                    main_scraper.scraped_progress["current_progress"]["current_sub_category"] = sub_category_name
                     print(f"    Processing sub-category: {sub_category_name}")
                     print(f"    Sub-category link: {sub_category_link}")
                     items = await self.extract_all_items_from_sub_category(sub_category_link)
@@ -154,6 +151,7 @@ class TalabatGroceries:
                     }
                     sub_categories.append(sub_category_data)
 
+                    # Atomically update completed and current sub-category
                     completed_groceries = main_scraper.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
                     completed_groceries.setdefault("completed sub-categories", []).append(sub_category_name)
                     main_scraper.scraped_progress["current_progress"]["completed_groceries"] = main_scraper.current_progress["current_progress"]["completed_groceries"]
@@ -185,11 +183,13 @@ class TalabatGroceries:
                                 break
                         main_scraper.scraped_progress["all_results"][area_name][grocery_title] = grocery_data
 
+                    # Save progress atomically
                     main_scraper.save_current_progress()
                     main_scraper.save_scraped_progress()
                     main_scraper.commit_progress(f"Processed sub-category {sub_category_name} for {grocery_title} in {category_info['name']}")
 
                 print(f"Extracted {len(sub_categories)} new sub-categories")
+                # Check if category is complete
                 if all(sub_cat_name in completed_sub_categories for sub_cat_name in sub_category_names):
                     completed_groceries = main_scraper.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
                     completed_groceries.setdefault("completed categories", []).append(category_info["name"])
@@ -615,15 +615,20 @@ class MainScraper:
                 continue
 
             start_processing = True
-
             self.current_progress["current_progress"]["current_category"] = category_name
             self.scraped_progress["current_progress"]["current_category"] = category_name
+            print(f"Processing category {idx+1}/{len(categories)}: {category_name}")
 
             temp_page = await self.browser.new_page()
             await self.process_category(grocery_title, category, talabat_grocery, temp_page)
             await temp_page.close()
 
-            # Set next category
+            # Atomically update completed and current category
+            completed_groceries = self.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
+            if not category["sub_categories"]:  # If no sub-categories, mark category as complete
+                completed_groceries.setdefault("completed categories", []).append(category_name)
+            main_scraper.scraped_progress["current_progress"]["completed_groceries"] = main_scraper.current_progress["current_progress"]["completed_groceries"]
+
             next_cat_idx = idx + 1
             self.current_progress["current_progress"]["current_category"] = None
             self.scraped_progress["current_progress"]["current_category"] = None
