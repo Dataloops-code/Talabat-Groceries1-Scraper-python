@@ -4,14 +4,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T00:44:07.726892",
+  "last_updated": "2025-04-16T08:11:02.730463",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 12,
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": null,
-    "current_sub_category": "Eggs",
+    "current_sub_category": "Flatbread",
     "completed_categories": {
       "Ghozlan Al Egaila Grocery": {
         "Organic & Special Diet": [
@@ -395,9 +395,28 @@
           "Creamers",
           "Ready To Drink"
         ]
+      },
+      "MONOPRIX": {
+        "Imports": [
+          "Chocolate 🔥",
+          "Candy & Gum 🔥",
+          "Snacks 🔥",
+          "Ice Cream 🔥",
+          "Bakery 🔥",
+          "Personal Care 🔥",
+          "Protein & Diet 🔥",
+          "Canned 🔥",
+          "Household 🔥",
+          "Cooking & Baking 🔥",
+          "Fresh Fruit",
+          "Fresh Vegetables",
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit",
+          "Toast"
+        ]
       }
     },
-    "current_grocery_title": "Sabah AlSalem Co-Op",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/653942/sabah-alsalem-co-opsabah-al-salem?aid=59"
+    "current_grocery_title": "MONOPRIX",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/734873/monoprix-al-qurain?aid=59"
   }
 }
