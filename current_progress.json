@@ -3,14 +3,14 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T15:07:09.665560",
+  "last_updated": "2025-04-16T17:45:30.055516",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 14,
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruit & Veg ",
-    "current_sub_category": "Crispbread & Rusk",
+    "current_category": "Poultry, Meat & Seafood ",
+    "current_sub_category": "Specialty Drinks",
     "current_grocery_title": "City Hypermarket",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/716743/city-hypermarket-fahaheel?aid=59",
     "completed_groceries": {
@@ -484,7 +484,24 @@
           "Flatbread",
           "Buns & Rolls",
           "Sweet Bakes",
-          "Pastries"
+          "Pastries",
+          "Chicken & Poultry",
+          "Beef & Veal",
+          "Fish & Seafood",
+          "Cold Cuts",
+          "Coffee",
+          "Creamers",
+          "Ready To Drink",
+          "Eggs",
+          "Cheese",
+          "Yoghurts & Labneh",
+          "Butter",
+          "Cream",
+          "Chilled Desserts",
+          "Water",
+          "Soft Drinks",
+          "Sports & Energy Drinks",
+          "Juices"
         ]
       }
     }
