@@ -7,7 +7,7 @@ import subprocess
 import re
 from typing import Dict, List
 import pandas as pd
-from openpyxl import Workbook, load_workbook
+from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from SavingOnDrive import SavingOnDrive
@@ -693,14 +693,14 @@ class MainScraper:
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Updated to next grocery after index {current_idx}")
-    
+
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
         self.browser = browser
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         all_area_results = self.scraped_progress["all_results"].get(area_name, {})
         current_progress = self.current_progress["current_progress"]
         scraped_current_progress = self.scraped_progress["current_progress"]
-    
+
         # Initialize Excel file for the area
         excel_filename = os.path.join(self.output_dir, f"{area_name}.xlsx")
         if not os.path.exists(excel_filename):
@@ -711,7 +711,7 @@ class MainScraper:
             logging.info(f"Created new Excel file: {excel_filename}")
         else:
             logging.info(f"Using existing Excel file: {excel_filename}")
-    
+
         if current_progress["area_name"] != area_name:
             current_progress.update({
                 "area_name": area_name,
@@ -728,7 +728,7 @@ class MainScraper:
             self.save_current_progress()
             self.save_scraped_progress()
             self.commit_progress(f"Started scraping {area_name}")
-    
+
         page = await browser.new_page()
         await page.goto(area_url, timeout=60000)
         groceries_on_page = await self.get_page_groceries(page)
@@ -736,18 +736,18 @@ class MainScraper:
         scraped_current_progress["total_groceries"] = len(groceries_on_page)
         print(f"Found {len(groceries_on_page)} groceries")
         await page.close()
-    
+
         processed_grocery_links = set(current_progress["processed_groceries"])
-    
+
         for grocery_idx, grocery in enumerate(groceries_on_page):
             grocery_num = grocery_idx + 1
             grocery_title = grocery["grocery_title"]
             grocery_link = grocery["grocery_link"]
-    
+
             if grocery_link in processed_grocery_links:
                 print(f"Skipping already processed grocery: {grocery_title} (link: {grocery_link})")
                 continue
-    
+
             current_progress["current_grocery"] = grocery_num
             current_progress["current_grocery_title"] = grocery_title
             current_progress["current_grocery_link"] = grocery_link
@@ -755,7 +755,7 @@ class MainScraper:
             scraped_current_progress["current_grocery_title"] = grocery_title
             scraped_current_progress["current_grocery_link"] = grocery_link
             print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
-    
+
             grocery_page = await browser.new_page()
             talabat_grocery = TalabatGroceries(grocery["grocery_link"], browser)
             grocery_details = await talabat_grocery.extract_categories(grocery_page)
@@ -764,15 +764,15 @@ class MainScraper:
                 "delivery_time": grocery["delivery_time"],
                 "grocery_details": grocery_details
             }
-    
+
             await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
-    
+
             # Save grocery data to Excel sheet
             workbook = load_workbook(excel_filename)
             self.create_excel_sheet(workbook, grocery_title, {grocery_title: all_area_results[grocery_title]})
             workbook.save(excel_filename)
             logging.info(f"Saved data for {grocery_title} to {excel_filename}")
-    
+
             # Mark grocery as processed
             current_progress["processed_groceries"].append(grocery_link)
             scraped_current_progress["processed_groceries"].append(grocery_link)
@@ -780,20 +780,20 @@ class MainScraper:
             self.save_current_progress()
             self.save_scraped_progress()
             self.commit_progress(f"Processed {grocery_title} (link: {grocery_link})")
-    
+
             await grocery_page.close()
-    
+
         # Save JSON results
         json_filename = os.path.join(self.output_dir, f"{area_name}.json")
         with open(json_filename, 'w', encoding='utf-8') as f:
             json.dump(all_area_results, f, indent=2, ensure_ascii=False)
-    
+
         # Upload to Google Drive
         if self.upload_to_drive(excel_filename):
             logging.info(f"Uploaded {excel_filename} to Google Drive")
         else:
             logging.warning(f"Failed to upload {excel_filename} to Google Drive")
-    
+
         if all(g["grocery_link"] in processed_grocery_links for g in groceries_on_page):
             current_progress.update({
                 "area_name": None,
@@ -809,12 +809,12 @@ class MainScraper:
             scraped_current_progress.update(current_progress)
             self.current_progress["completed_areas"].append(area_name)
             self.scraped_progress["completed_areas"].append(area_name)
-    
+
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Completed {area_name}")
         return list(all_area_results.values())
-    
+
     def create_excel_sheet(self, workbook, sheet_name: str, data: Dict):
         # Sanitize sheet name to remove invalid characters
         invalid_chars = '<>:"/\\|?*'
@@ -822,13 +822,13 @@ class MainScraper:
             sheet_name = sheet_name.replace(char, '')
         # Truncate sheet name to 31 characters (Excel limit)
         sheet_name = sheet_name[:31]
-    
+
         # Create or get sheet
         if sheet_name not in workbook.sheetnames:
             sheet = workbook.create_sheet(title=sheet_name)
         else:
             sheet = workbook[sheet_name]
-    
+
         # Initialize data list for DataFrame
         simplified_data = []
         
@@ -914,7 +914,6 @@ class MainScraper:
         else:
             logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
             sheet.cell(row=1, column=1, value="No data available")
-    
     async def process_category(self, grocery_title, category_info, talabat_grocery, page):
         category_name = category_info["name"]
         self.current_progress["current_progress"]["current_category"] = category_name
@@ -945,6 +944,38 @@ class MainScraper:
         except Exception as e:
             logging.error(f"Error extracting groceries: {e}")
             return []
+
+    def create_excel_sheet(self, workbook, sheet_name: str, data: Dict):
+        sheet = workbook.create_sheet(title=sheet_name)
+        simplified_data = []
+        for grocery_title, grocery_data in data.items():
+            general_info = {
+                "Grocery Title": grocery_title,
+                "Delivery Time": grocery_data.get("delivery_time", "N/A"),
+                "Delivery Fees": grocery_data.get("grocery_details", {}).get("delivery_fees", "N/A"),
+                "Minimum Order": grocery_data.get("grocery_details", {}).get("minimum_order", "N/A"),
+                "URL": grocery_data.get("grocery_link", "N/A")
+            }
+            for category in grocery_data.get("grocery_details", {}).get("categories", []):
+                for sub_category in category.get("sub_categories", []):
+                    for item in sub_category.get("Items", []):
+                        simplified_data.append({
+                            **general_info,
+                            "Category": category.get("name", "N/A"),
+                            "Sub-Category": sub_category.get("sub_category_name", "N/A"),
+                            "Item Name": item.get("item_name", "N/A"),
+                            "Item Price": item.get("item_price", "N/A"),
+                            "Item Description": item.get("item_description", "N/A"),
+                            "Item Link": item.get("item_link", "N/A")
+                        })
+        logging.debug(f"Simplified data for Excel: {simplified_data}")
+        if simplified_data:
+            df = pd.DataFrame(simplified_data)
+            for r_idx, row in enumerate(dataframe_to_rows(df, index=False, header=True), 1):
+                for c_idx, value in enumerate(row, 1):
+                    sheet.cell(row=r_idx, column=c_idx, value=value)
+        else:
+            logging.warning(f"No data to write to Excel for sheet: {sheet_name}")
 
     @retry(tries=3, delay=2, backoff=2)
     def upload_to_drive(self, file_path):
@@ -996,6 +1027,8 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
 
 
 
