@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-17T14:10:04.475751",
+  "last_updated": "2025-04-17T20:09:57.789452",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 4,
+    "current_grocery": 3,
     "current_grocery_title": "Elite One Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Chips Single",
+    "current_sub_category": "Diapers & Wipes",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
@@ -104,7 +104,32 @@
           "Candy & Gum",
           "Jellies",
           "Lollies",
-          "Canister Chips"
+          "Canister Chips",
+          "Chips Single",
+          "Chips Packs",
+          "Dips",
+          "Puffed Snacks",
+          "Popcorn",
+          "Seeds & Nuts",
+          "Juices Single",
+          "Juices Packs",
+          "Soft Drinks",
+          "Sports & Energy Drinks",
+          "Malt Drinks",
+          "Powdered & Concentrated Juices",
+          "Specialty Drinks",
+          "Juices Sharing",
+          "Iced Tea",
+          "Drinking Water",
+          "Mineral Water",
+          "Sparkling Water",
+          "Flavoured Water",
+          "Ice",
+          "Pet Food",
+          "Pet Accessories",
+          "Baby Bath & Body Care",
+          "Feeding Bottle & Accessories",
+          "Baby Food"
         ]
       }
     }
