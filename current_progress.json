@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-17T08:11:52.919505",
+  "last_updated": "2025-04-17T14:10:04.475751",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 7,
+    "current_grocery": 4,
     "current_grocery_title": "Elite One Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Creamers",
+    "current_sub_category": "Chips Single",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
@@ -83,7 +83,28 @@
           "Evaporated Milk",
           "Powdered Milk",
           "Coffee",
-          "Tea"
+          "Tea",
+          "Creamers",
+          "Sugar & Sweeteners",
+          "Coffee Capsules",
+          "Iced Coffee",
+          "Family Packs",
+          "Cups & Tubs",
+          "Bars, Cones & Sticks",
+          "Minis & Miniatures",
+          "Chocolate Bars",
+          "Chocolate Sharing",
+          "Dark Chocolates",
+          "Wafers",
+          "Digestive & Fibre",
+          "Puff Biscuits",
+          "Biscuits",
+          "Cookies",
+          "Crackers",
+          "Candy & Gum",
+          "Jellies",
+          "Lollies",
+          "Canister Chips"
         ]
       }
     }
