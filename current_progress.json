@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-16T23:08:24.954774",
+  "last_updated": "2025-04-17T01:14:10.338970",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -10,11 +10,51 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Stationary & Office Supplies",
+    "current_sub_category": "Oil & Ghee",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
-          "School Biscuits"
+          "School Biscuits",
+          "Stationary & Office Supplies",
+          "School Supplies",
+          "Promotions",
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes & Pastries",
+          "Cakes",
+          "Cup Cakes & Rolls",
+          "Pastries",
+          "Croissant Packs",
+          "Croissant Single",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Deli Meat & Seafood",
+          "Sandwiches & Wraps",
+          "Ready Meals",
+          "Fresh Cut Fruits & Juices",
+          "Eggs",
+          "Cheese",
+          "Butter & Margarine",
+          "Yoghurt & Labneh",
+          "Block Cheese & Feta",
+          "Cream",
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi",
+          "Desserts",
+          "Slice Cheese & Shredded",
+          "Frozen Poultry",
+          "Frozen Meat & Seafood",
+          "Frozen Fruits & Vegetables",
+          "Frozen Ready Meals",
+          "Frozen Desserts",
+          "Fresh Meat",
+          "Fresh Poultry",
+          "Rice",
+          "Pasta & Sauces",
+          "Noodles & Soups"
         ]
       }
     }
