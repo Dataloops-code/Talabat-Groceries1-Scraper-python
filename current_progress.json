@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-17T01:14:10.338970",
+  "last_updated": "2025-04-17T08:11:52.919505",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 1,
+    "current_grocery": 7,
     "current_grocery_title": "Elite One Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Oil & Ghee",
+    "current_sub_category": "Creamers",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
@@ -54,7 +54,36 @@
           "Fresh Poultry",
           "Rice",
           "Pasta & Sauces",
-          "Noodles & Soups"
+          "Noodles & Soups",
+          "Oil & Ghee",
+          "Pulses & Grains",
+          "Cooking Supplies",
+          "Baking Products",
+          "Meat & Seafood",
+          "Canned Fruits & Vegetables",
+          "Ready-to-Eat Canned Meals",
+          "Salt & Spices",
+          "Sauces & Dressings",
+          "Olives & Pickles",
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings",
+          "Organic Food",
+          "Sugar Free Food & Snacks",
+          "Special Diet",
+          "Healthy & Protein Snacks",
+          "Cereals",
+          "Cocoa Powder",
+          "Syrups",
+          "Spreads & Honey",
+          "Fresh Milk",
+          "Fresh Laban",
+          "UHT Milk",
+          "Flavoured Milk",
+          "Condensed Milk",
+          "Evaporated Milk",
+          "Powdered Milk",
+          "Coffee",
+          "Tea"
         ]
       }
     }
