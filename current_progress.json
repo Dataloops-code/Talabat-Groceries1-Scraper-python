@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-17T20:09:57.789452",
+  "last_updated": "2025-04-18T02:37:52.266609",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
+    "current_grocery": 1,
     "current_grocery_title": "Elite One Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Diapers & Wipes",
+    "current_sub_category": "Cosmetics",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
@@ -129,7 +129,32 @@
           "Pet Accessories",
           "Baby Bath & Body Care",
           "Feeding Bottle & Accessories",
-          "Baby Food"
+          "Baby Food",
+          "Diapers & Wipes",
+          "Baby Diapers",
+          "Game Console",
+          "Baby & Toddler Toys",
+          "Card Games",
+          "Stuffed Toys",
+          "Bath Soap",
+          "Body Wash",
+          "Hand Wash",
+          "Shampoo",
+          "Conditioner",
+          "Hair Oil & Cream",
+          "Bath & Body Shop",
+          "Feminine Hygiene",
+          "Feminine Care",
+          "Body Cream & Lotions",
+          "Hair Care",
+          "Face Cream",
+          "Skin Care",
+          "Make Up Remover & Mask",
+          "Hair Styling",
+          "Oral Care",
+          "Shaving & Hair Removal",
+          "Imported Products",
+          "Face Wash"
         ]
       }
     }
