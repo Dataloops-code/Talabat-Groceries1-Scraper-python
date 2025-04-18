@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-18T02:37:52.266609",
+  "last_updated": "2025-04-18T08:09:30.317814",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 1,
+    "current_grocery": 5,
     "current_grocery_title": "Elite One Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Cosmetics",
+    "current_sub_category": "Mobile Accessories",
     "completed_groceries": {
       "Elite One Grocery": {
         "completed sub-categories": [
@@ -154,7 +154,34 @@
           "Oral Care",
           "Shaving & Hair Removal",
           "Imported Products",
-          "Face Wash"
+          "Face Wash",
+          "Cosmetics",
+          "Deodorants & Fragrances",
+          "Hair Colour",
+          "Vitamins & Supplements",
+          "Medications & First Aid",
+          "Adult Care",
+          "Eye Care",
+          "Disposable Tableware",
+          "Food Storage & Wraps",
+          "Sponges & Gloves",
+          "Tissues & Wipes",
+          "Trash Bags",
+          "Dishwashing",
+          "Laundry Supplies",
+          "Cleaning Products",
+          "Cleaning Tools",
+          "Disinfectant",
+          "Air Fresheners",
+          "Batteries",
+          "Wires & Plugs",
+          "Charcoal & Barbecue Supplies",
+          "Light Bulbs",
+          "Pesticides",
+          "Kitchen Equipment",
+          "Household",
+          "Car Accessories",
+          "Mobile Devices"
         ]
       }
     }
