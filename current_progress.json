@@ -2,31 +2,45 @@
   "completed_areas": [
     "الظهر"
   ],
-  "current_area_index": 1,
-  "last_updated": "2025-04-18T14:11:51.371226",
+  "current_area_index": 0,
+  "last_updated": "2025-04-18T20:09:03.518875",
   "current_progress": {
-    "area_name": "الرقه",
+    "area_name": "الظهر",
     "current_grocery": 1,
-    "current_grocery_title": "Elite One Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/658757/elite-one-grocerymahboula-tgo?aid=37",
+    "current_grocery_title": "Candy mart",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "School Snacks time",
-    "current_sub_category": "Croissant Packs",
+    "current_category": "Bakery",
+    "current_sub_category": "Seeds & Nuts",
     "completed_groceries": {
-      "Elite One Grocery": {
+      "Candy mart": {
         "completed sub-categories": [
-          "School Biscuits",
-          "Stationary & Office Supplies",
-          "School Supplies",
-          "Promotions",
           "Freshly Baked",
           "Toast",
           "Buns & Rolls",
           "Cakes & Pastries",
+          "Croissant Single",
+          "Croissant Packs",
           "Cakes",
+          "Pastries",
           "Cup Cakes & Rolls",
-          "Pastries"
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Chips & Dips",
+          "Chocolate Bars",
+          "Dark Chocolates",
+          "Chocolate Sharing",
+          "Minis & Miniatures",
+          "Wafers",
+          "Biscuits",
+          "Crackers",
+          "Chocolates & Wafers",
+          "Biscuits & Cookies",
+          "Candy & Gum",
+          "Popcorn"
         ]
       }
     }
