@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-20T20:08:54.295721",
+  "last_updated": "2025-04-21T02:34:44.508934",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 2,
+    "current_grocery": 6,
     "current_grocery_title": "Ghozlan Al Egaila Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Organic & Special Diet",
-    "current_sub_category": "Biscuits",
+    "current_sub_category": "Deodorants & Fragrances",
     "completed_groceries": {
       "Ghozlan Al Egaila Grocery": {
         "completed sub-categories": [
@@ -97,7 +97,32 @@
           "Chocolate Sharing",
           "Wafers",
           "Digestive & Fibre",
-          "Puff Biscuits"
+          "Puff Biscuits",
+          "Biscuits",
+          "Cookies",
+          "Crackers",
+          "Candy & Gum",
+          "Lollies",
+          "Jellies",
+          "Chips Packs",
+          "Chips Single",
+          "Canister Chips",
+          "Popcorn",
+          "Seeds & Nuts",
+          "Pet Food",
+          "Pet Accessories",
+          "Baby Bath & Body Care",
+          "Feeding Bottle & Accessories",
+          "Baby Food",
+          "Diapers & Wipes",
+          "Game Console",
+          "Baby & Toddler Toys",
+          "Card Games",
+          "Stuffed Toys",
+          "Feminine Care",
+          "Oral Care",
+          "Shaving & Hair Removal",
+          "Cosmetics"
         ]
       }
     }
