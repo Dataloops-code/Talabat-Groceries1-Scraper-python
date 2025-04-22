@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-22T14:12:51.285620",
+  "last_updated": "2025-04-22T20:07:15.707617",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 1,
+    "current_grocery": 6,
     "current_grocery_title": "Candy mart",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Oral Care",
+    "current_sub_category": "Hand Wash",
     "completed_groceries": {
       "Candy mart": {
         "completed sub-categories": [
@@ -142,7 +142,22 @@
           "Bath & Body Shop",
           "Feminine Care",
           "Hair Care",
-          "Skin Care"
+          "Skin Care",
+          "Oral Care",
+          "Shaving & Hair Removal",
+          "Cosmetics",
+          "Feminine Hygiene",
+          "Deodorants & Fragrances",
+          "Hair Colour",
+          "Hair Oil & Cream",
+          "Hair Styling",
+          "Shampoo",
+          "Conditioner",
+          "Body Wash",
+          "Bath Soap",
+          "Bath Scrubs",
+          "Body Cream & Lotions",
+          "Hand Cream & Sanitizer"
         ]
       }
     }
