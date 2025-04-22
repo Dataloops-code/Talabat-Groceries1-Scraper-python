@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 0,
-  "last_updated": "2025-04-21T20:10:42.783656",
+  "last_updated": "2025-04-22T02:39:40.858634",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 1,
+    "current_grocery": 2,
     "current_grocery_title": "Candy mart",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Popcorn",
+    "current_sub_category": "UHT Milk",
     "completed_groceries": {
       "Candy mart": {
         "completed sub-categories": [
@@ -39,7 +39,37 @@
           "Crackers",
           "Chocolates & Wafers",
           "Biscuits & Cookies",
-          "Candy & Gum"
+          "Candy & Gum",
+          "Popcorn",
+          "Seeds & Nuts",
+          "Chips Packs",
+          "Chips Single",
+          "Puffed Snacks",
+          "Dips",
+          "Canister Chips",
+          "Digestive & Fibre",
+          "Puff Biscuits",
+          "Cookies",
+          "Gums & Drops",
+          "Lollies",
+          "Jellies",
+          "Juices",
+          "Soft Drinks",
+          "Sports & Energy Drinks",
+          "Malt Drinks",
+          "Powdered & Concentrated Juices",
+          "Specialty Drinks",
+          "Juices Single",
+          "Juices Packs",
+          "Juices Sharing",
+          "Iced Tea",
+          "Drinking Water",
+          "Mineral Water",
+          "Sparkling Water",
+          "Flavoured Water",
+          "Ice",
+          "Fresh Milk",
+          "Fresh Laban"
         ]
       }
     }
