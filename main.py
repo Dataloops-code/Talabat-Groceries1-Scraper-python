@@ -351,12 +351,16 @@ class TalabatGroceries:
                         try:
                             # Try multiple selectors for item name
                             name_selectors = [
-                                'div[data-testid="product-name"]',  # Common for product names
-                                'span[data-testid="product-title"]',  # Alternative title attribute
-                                'div[class*="product-name"]',  # Class-based product name
-                                'span[class*="title"]',  # Class-based title
-                                'h3[class*="title"]',  # Title in h3
-                                'div[data-test="item_name"]',  # Original selector
+                                'span[class="sc-b1e6ca95-8 kxTKwp"]',  # Likely Talabat-specific class (based on common patterns)
+                                'div[data-testid="product-name"]',
+                                'span[data-testid="product-title"]',
+                                'div[class*="product-name"]',
+                                'span[class*="product-title"]',
+                                'h3[class*="product-title"]',
+                                'div[class*="title"]',
+                                'span[class*="title"]',
+                                'h3[class*="title"]',
+                                'div[data-test="item_name"]'
                             ]
                             item_name = None
                             for selector in name_selectors:
@@ -365,7 +369,9 @@ class TalabatGroceries:
                                     item_name = await item_name_element.inner_text()
                                     if item_name and item_name.strip():
                                         # Validate item name
-                                        if len(item_name.strip()) > 2 and item_name.strip().lower() not in ['kd', 'kwd', 'currency']:
+                                        invalid_names = ['kd', 'kwd', 'currency', 'city star', 'grocery', 'mahboula', 'tgo']
+                                        if (len(item_name.strip()) > 5 and 
+                                            not any(invalid.lower() in item_name.lower() for invalid in invalid_names)):
                                             print(f"        Item name found with selector '{selector}': {item_name}")
                                             break
                                         else:
@@ -379,17 +385,22 @@ class TalabatGroceries:
                             # Fallback to URL parsing if no valid name found
                             item_link = self.base_url + await element.get_attribute('href')
                             if not item_name or not item_name.strip():
-                                # Extract item name from URL path (e.g., 'tastee-cake-dark-marsmallow-chocolate-pie-150g')
+                                # Extract item name from URL product segment
                                 url_parts = item_link.split('/')
-                                for part in url_parts:
-                                    if part and '-' in part and not part.startswith('s/') and not part.startswith('product'):
-                                        # Clean and format the URL part
-                                        item_name = part.replace('-', ' ').title()
-                                        # Remove any trailing query parameters or unwanted segments
-                                        item_name = item_name.split('?')[0]
-                                        print(f"        Item name extracted from URL: {item_name}")
+                                product_segment = None
+                                for j, part in enumerate(url_parts):
+                                    if part == 'product' and j + 1 < len(url_parts):
+                                        product_segment = url_parts[j + 1]
                                         break
-                                if not item_name:
+                                if product_segment and '-' in product_segment and not product_segment.startswith('s/'):
+                                    # Clean and format the product segment
+                                    item_name = product_segment.replace('-', ' ').title()
+                                    # Remove query parameters
+                                    item_name = item_name.split('?')[0]
+                                    # Additional cleaning for numbers or weights
+                                    item_name = item_name.replace('X', 'x').replace('G ', 'g ')
+                                    print(f"        Item name extracted from URL: {item_name}")
+                                else:
                                     item_name = f"Unknown Item {i+1}"
                                     print(f"        No item name found, using default: {item_name}")
     
