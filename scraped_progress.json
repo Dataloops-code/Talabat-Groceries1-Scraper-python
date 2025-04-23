@@ -2,35 +2,22 @@
   "completed_areas": [
     "الظهر"
   ],
-  "current_area_index": 1,
-  "last_updated": "2025-04-23T14:08:09.340103",
+  "current_area_index": 0,
+  "last_updated": "2025-04-23T17:27:58.324269",
   "current_progress": {
-    "area_name": "الرقه",
+    "area_name": "الظهر",
     "current_grocery": 1,
-    "current_grocery_title": "Top Shop",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/675516/top-shop-ahmadi-mahboula?aid=37",
+    "current_grocery_title": "Kiki Market Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Squeeze & Tub Cheese",
+    "current_sub_category": "Buns & Rolls",
     "completed_groceries": {
-      "Top Shop": {
+      "Kiki Market Grocery": {
         "completed sub-categories": [
           "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes",
-          "Croissant Single",
-          "Croissant Packs",
-          "Pastries",
-          "Cup Cakes & Rolls",
-          "Vegetables",
-          "Fruits",
-          "Herbs",
-          "Dates & Dried Fruits",
-          "Salads",
-          "Eggs",
-          "Slice Cheese & Shredded"
+          "Toast"
         ]
       }
     }
@@ -14791,6 +14778,542 @@
             {
               "name": "Tobacco Shop",
               "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+              "sub_categories": []
+            }
+          ]
+        }
+      },
+      "Kiki Market Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
+        "delivery_time": "35 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": [
+            {
+              "name": "Bakery",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/bakery/freshly-baked?aid=59",
+              "sub_categories": [
+                {
+                  "sub_category_name": "Freshly Baked",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/bakery/freshly-baked?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "MF Tortillas Wrap, 25cm, 370g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/mf-tortillas-wrap-25cm-370g/s/6271100330364?aid=59",
+                      "item_price": "1.350",
+                      "item_description": "Description:These wraps a perfect option for lunch, breakfast and even for a picnic. They are versatile and can be used for Rolls, Wraps & Tacos as well. Ingrediants:Wheat Flour• Water• Palm Fat• Stabilizer Glycerol• Guar Gum Glucose (From Wheat)• Raising Agents Diphosphate• Sodium Carbonate Emulsifier Mono And Diglycerides Of Fatty Acids Sugar• Salt• Preservatives Calcium Propitiate• Potassium Sorbate Acidy Regulator Malic Acid• Flour Treatment Agent L Cysteine. Storage:Store in a cool and dry place.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6271100330364.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-QAtar/Products/QR_904957.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "MF Multigrain Tortillas Wrap, 20cm, 320g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/mf-multigrain-tortillas-wrap-20cm-320g/s/06271100330487?aid=59",
+                      "item_price": "1.250",
+                      "item_description": "Prepare your favourite sandwiches and enjoy Fried or baked tortillas stuffed with chicken, salad, shellfish Always loved by everybody High-quality ingredients Energetic fibre rich tortillas that go well with all your meals INGREDIENTS: Wheat flour• water• palm fat• stabilizer (glycerin)• salt• rye flour• wheat bran coarse• linseed brown• raising agent (sodium carbonates• diphosphates)• wheat germ roasted• linseed yellow• salt• sugar• acidity regulator (citric acid)• preservatives (potassium sorbate• calcium propionate)• emulsifier (mono- and diglycerides of fatty acids). STORAGE INSTRUCTIONS: Keep in a cool, dry place. Once opened keep refrigerated.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d62e9088d2ba7e05ed02c.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d62ea088d2ba7e05ed02d.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d62ea088d2ba7e05ed02e.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Straight Lineiced Vanilla Chocolate Cake, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-straight-lineiced-vanilla-chocolate-cake-90g/s/ZPY4UH?aid=59",
+                      "item_price": "0.160",
+                      "item_description": "• Rich Taste: Enjoy the deeply satisfying flavors of vanilla and chocolate combined subtly in Al Faysal's Straight Lineiced cake. • Convenient Size: With its smart 90g sizing, this cake is perfect for a quick snack or to satisfy your dessert cravings. • High Quality: Made with top-notch ingredients, this cake ensures a superior taste that sets it apart. • Nice Packaging: Comes in an attractive, sturdy package that maintains the freshness and taste until opened.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional%20Images/9889%20CNTTBT/2007166600523.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Mini Sandwich Cheese, 4x55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-mini-sandwich-cheese-4x55g/s/6271003043521?aid=59",
+                      "item_price": "0.620",
+                      "item_description": "Mini Cheese Sandwich - 220 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61b1acfae59c9666f44d275b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Tortilla Wraps, 6 inch, 250g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/sara-cake-tortilla-wraps-6-inch-250g/s/6271026231134?aid=59",
+                      "item_price": "1.165",
+                      "item_description": "- Sara Cake Tortilla Wraps offer a pack of 6-inch tortillas, perfect for meal preps or quick snacks. - These tortilla wraps weigh 250g, ensuring you have enough for multiple servings. - Made with high-quality ingredients, Sara Cake promises fresh and flavorful tortillas for your every meal. - Conveniently packaged, these tortilla wraps remain fresh and soft for longer, allowing for both immediate use and storage.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67040e93258ec80a05ccdca7.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "MF Whole Wheat Wrap Tortillas, 320g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/mf-whole-wheat-wrap-tortillas-320g/s/6271100330494?aid=59",
+                      "item_price": "1.190",
+                      "item_description": "• Whole Wheat Tortilla Wraps are made with 100% whole wheat flour • These wraps are soft and pliable • Provides a nutritious base for your favorite fillings • Can be used for wraps, burritos, quesadillas, and more • It is easy to store and use whenever you want • Enjoy the delicious taste and health benefits of whole wheat tortilla wraps",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6271100330494.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/611e183c3e442bfbdba234e8.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Qarmishni Ola Tqarwshni Chocolate Wafer Qubes 400 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/qarmishni-ola-tqarwshni-chocolate-wafer-qubes-400-g/s/YYH86V?aid=59",
+                      "item_price": "1.540",
+                      "item_description": "Qarmishni Ola Tqarwshni Chocolate Wafer Qubes 400 g is sold on Talabat by Kiki Market Grocery and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6281105682252.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Matilde Vicenzi Lady Fingers Biscuit, 200g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/matilde-vicenzi-lady-fingers-biscuit-200g/s/8000350000585?aid=59",
+                      "item_price": "1.530",
+                      "item_description": "Description: • Italy’s most popular Ladyfinger, used as a principal ingredient in many desserts like chocolate gateau lining, sponge element of tiramisu and others • Contains wheat flour, eggs, sugar and flavourings • GMO free, Halal, IFS, ISO and OU Kosher Dairy certified • Product made in Italy • No preservatives, artificial colours or hydrogenated fats. Storage instructions: Keep in a cool, dry and hygenic place",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-8000350000585.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Murouj Dates Pie Stuffed with Chocolate & Milk Delicious Taste, 80g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/murouj-dates-pie-stuffed-with-chocolate-milk-delicious-taste-80g/s/MDF97Q?aid=59",
+                      "item_price": "0.290",
+                      "item_description": "- Refined taste: The Murouj Dates Pie offers a uniquely delicious taste with its perfect blend of dates and chocolate. - Quality ingredients: Stuffed with real dates, premium chocolate, and milk, it ensures a rich, indulgent flavor. - Perfectly portioned: With an 80g pack, this treat is ideal for a single indulgence or sharing with a friend. - Convenient packaging: Comes in a handy, resealable pack, ensuring freshness and easy storage.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_924938.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Tortilla Wraps, 8 inch, 350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/sara-cake-tortilla-wraps-8-inch-350g/s/6271026236153?aid=59",
+                      "item_price": "1.580",
+                      "item_description": "- Sara Cake Tortilla Wraps are 8-inch size, perfect for rolling up your favorite fillings for burritos, soft tacos, or wraps. - This pack weighs 350g, providing a substantial amount of wraps for multiple meal preparations. - They are versatile and can be used in a variety of dishes, making your meal times exciting and delicious. - Made with high-quality standards, these wraps are perfect for keeping your healthy diet on track with no compromise on taste.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67040e95258ec80a05ccdca9.jpg?size=122"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Toast",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/bakery/toast?aid=59",
+                  "Items": [
+                    {
+                      "item_name": "L'usine White Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/lusine-white-sliced-bread-600g/s/6281100081036?aid=59",
+                      "item_price": "0.695",
+                      "item_description": "Pack 1 x 600 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6281100081036.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/615d9c2123fbc74443853f60.jpg?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914591.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Sliced Milk Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/lusine-sliced-milk-bread-600g/s/6281007036849?aid=59",
+                      "item_price": "0.720",
+                      "item_description": "Product Descriptions: Make yourself a delicious and healthy breakfast each morning with the Lusine Sliced Milk Bread. This bread is made from the choicest of ingredients and the goodness of milk. This makes the bread a highly nutritious meal for the morning. The bread slices provide you with ample energy to function enthusiastically all throughout the day. You can eat this bread as it is or toast it and spread some butter, jam or other seasonings. The delicious taste of these bread slices also makes your little one eat it without any fuss. Benefits: • Made from high-quality ingredients for softness • Loaded with the goodness of milk for making the bread healthy • Provides energy and nourishment to your body • Ideal pick for your child's lunch box • Tasty bread slices make a lovely breakfast",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KWPD5EDK.png?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0c4ec6b6f22ea491e91.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/653fc0e9ec6b6f22ea491e92.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "L'usine Brown Sliced Bread, 600g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/lusine-brown-sliced-bread-600g/s/6281100081029?aid=59",
+                      "item_price": "0.695",
+                      "item_description": "This classic everyday brown bread is a rich source of fibre and is bursting with delicious goodness. It's sliced and perfect for making sandwiches and toast. Superior quality ingredients make the bread healthy. Loaded with nutrients for an energetic start to the day. Easy to digest healthy and delicious bread for breakfast and supper - 600 gm.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A6C9.png?size=122",
+                        "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914590.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/6526dcede455c96e26f62f9b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Orginal Rich Rusk with Grain, 385g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/americana-orginal-rich-rusk-with-grain-385g/s/6281033217137?aid=59",
+                      "item_price": "0.845",
+                      "item_description": "Children who are learning to self-feed will like these rusks as a snack at home or on the road - 1 x 385 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/61a4a5e51d0a072214530e49.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Fresh Brown Rusks, 375g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/americana-fresh-brown-rusks-375g/s/6281033317226?aid=59",
+                      "item_price": "1.060",
+                      "item_description": "Ingredients : Wheat, Water, Palm Olein, Sugar, Full Cream Milk Powder (Cows Milk),Salt, Fennel, Black, Cumin, Yeast, Dough Improver :[Anti-Caking] Softening Agent: Calcium Carbonate- Tricalcium Phosphate, Emulsifier: (E472E From Palm Oil), Wheat Flour, Dextrose, Anti Oxidant: Ascorbic Acid (E300)-Amylase Enzyme).",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Dabur/6281033317226.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Americana Fresh Rusks, 375g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/americana-fresh-rusks-375g/s/6281033317011?aid=59",
+                      "item_price": "1.125",
+                      "item_description": "Ingredients : Wheat, Water, Palm Olein, Sugar, Full Cream Milk Powder (Cows Milk),Salt, Fennel, Black, Cumin, Yeast, Dough Improver :[Anti-Caking] Softening Agent: Calcium Carbonate- Tricalcium Phosphate, Emulsifier: (E472E From Palm Oil), Wheat Flour, Dextrose, Anti Oxidant: Ascorbic Acid (E300)-Amylase Enzyme).",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/66c748db3b3e1a3c4fbea1ea.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/66c748eff8886630c5a4774e.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/66c748f33b3e1a3c4fbea1eb.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Sara Cake Rusk 315 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/sara-cake-rusk-315-g/s/6271026101147?aid=59",
+                      "item_price": "1.030",
+                      "item_description": "Quick and easy snack ideal with a cup of tea. Made of high quality materials with the most modern technology to give you a delicious cake in its freshest state - 315 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/612f2e6a2a70f6a0d2af5edc.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Sweet Baksam with Sesame, 500g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-sweet-baksam-with-sesame-500g/s/2002283105319?aid=59",
+                      "item_price": "0.550",
+                      "item_description": "Indulge in the rich, sweet flavor of Al Faysal Sweet Baksam with Sesame. This 500g pack is filled with delicious treats, each one a perfect blend of sweet syrup and crunchy sesame seeds. The Baksam is traditionally prepared, capturing the authentic taste of Middle Eastern cuisine. Enjoy it as a dessert after meals, or as a snack during the day. The resealable pack ensures freshness and quality, making it a perfect choice for those who appreciate good food. Please note, this product contains sesame and may not be suitable for those with allergies.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fb69cfd64741b7dd16.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Sweet Baksam with Sesame, 1kg",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-sweet-baksam-with-sesame-1kg/s/2002283108310?aid=59",
+                      "item_price": "0.935",
+                      "item_description": "Indulge in the rich, traditional taste of Al Faysal Sweet Baksam with Sesame. This 1 kg pack offers a delightful blend of sweet and nutty flavors, perfect for satisfying your sweet tooth. Each piece is carefully crafted with the finest ingredients, featuring a scrumptious layer of sesame seeds that adds a unique crunch and an extra layer of flavor. Ideal for sharing with family and friends or for special occasions, this sweet treat is sure to impress. So, treat yourself and your loved ones to this delicious and authentic Middle Eastern delicacy.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953fb69cfd64741b7dd14.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Diet Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-diet-rusk-400g/s/2002283109218?aid=59",
+                      "item_price": "0.750",
+                      "item_description": "• Al Faysal Diet Rusk comes in a generous 400g pack, providing long-lasting enjoyment. • Made with high-quality ingredients, it offers a delicious and satisfying taste. • With a low-calorie count, these Rusks support your healthy lifestyle and diet plans. • Convenient and ready-to-eat, Al Faysal Diet Rusk is perfect for snacking on the go or as a complement to your favorite beverages.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953eb69cfd64741b7dc4f.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Excellent Kuwaiti Baksam, 500g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-excellent-kuwaiti-baksam-500g/s/2002283104718?aid=59",
+                      "item_price": "0.735",
+                      "item_description": "Indulge in a taste of the Middle East with Al Faysal Excellent Kuwaitis Baksam. This 500g pack is filled with traditional Kuwaiti sweets, known as Baksam. Each piece is carefully crafted using high-quality ingredients, resulting in a delicate, flaky pastry that melts in your mouth. The sweetness is balanced with a hint of rosewater, giving it a unique, aromatic flavor. This dessert is perfect for sharing at gatherings or enjoying as a treat after your meals. With Al Faysal, you can experience authentic Kuwaiti cuisine right at your own home. Note: Please consider dietary restrictions and allergies before consumption.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953e169cfd64741b7dbd0.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Black Cumin Rusk, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-black-cumin-rusk-400g/s/2002283107115?aid=59",
+                      "item_price": "0.750",
+                      "item_description": "Al Faysal Rusk Black Cumin is a delightful snack perfect for any time of the day. Each pack contains 400g of crispy, light rusks infused with the aromatic flavor of black cumin. These rusks are baked to perfection, offering a satisfying crunch with every bite. They are an excellent accompaniment to your tea or coffee, and can also be enjoyed on their own. The black cumin adds a unique twist, enhancing the overall taste and making it a delightful treat. Al Faysal Rusk Black Cumin is packaged in a convenient, resealable bag to maintain freshness and crunchiness. Enjoy a wholesome snack with a distinct taste!",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4d.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Rusk Bag, 400g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-rusk-bag-400g/s/2002283106118?aid=59",
+                      "item_price": "0.750",
+                      "item_description": "• Al Faysal Rusk Bag contains 400g of crispy and light rusk. • These rusks are baked to perfection, providing a satisfying crunch at every bite. • Our rusk are ideal for pairing with your favorite tea or coffee, enhancing your snack time. • Conveniently packed in a resealable bag for lasting freshness and easy storage.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953ea69cfd64741b7dc4b.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Long Baksam with Sesame, 700g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-long-baksam-with-sesame-700g/s/2002283103711?aid=59",
+                      "item_price": "0.965",
+                      "item_description": "Al Faysal Long Baksam with Sesame is a 700g pack of high-quality, authentic Middle Eastern delight. This traditional sweet treat is made from a blend of sugar, starch, and water, coated with a generous layer of sesame seeds for a unique, nutty twist. Its long shape makes it perfect for sharing or enjoying alone. Ideal for those who appreciate exotic flavors, this product offers a taste of the Middle East right in your home. Note: Please consume responsibly and check for any dietary restrictions or allergies before purchasing.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953e169cfd64741b7dbd2.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Brown Cereal Bread, 300g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-brown-cereal-bread-300g/s/6271003071074?aid=59",
+                      "item_price": "0.380",
+                      "item_description": "KFM Cereal Bread Brown is a 300g pack of wholesome goodness. This bread is baked with a blend of nutritious cereals, providing a rich source of fiber and essential nutrients. It has a subtly sweet, nutty flavor and a hearty texture that holds up well to your favorite spreads and toppings. Whether youre making a sandwich or enjoying a slice with your morning coffee, KFM Cereal Bread Brown delivers a satisfying crunch and a burst of flavor in every bite. Its a healthy choice for those who enjoy a well-balanced diet.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Dsaas/6271003071074.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Garameesh Lite Rusk, 375g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/garameesh-lite-rusk-375g/s/6281123052389?aid=59",
+                      "item_price": "0.885",
+                      "item_description": "- Garameesh Lite Rusk is a delightful and crunchy 375g snack perfect for any time of the day. - Made with high-quality ingredients, it guarantees a delicious and satisfying taste. - With a reduced sugar count, it is a healthier alternative for those watching their sugar intake. - Conveniently packaged, it remains fresh and ready-to-eat for those on-the-go moments.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores-eg/EGY_6281123052389.JPG?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "Al Faysal Diet Baksam with Olive Oil, 750g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/al-faysal-diet-baksam-with-olive-oil-750g/s/02001176071014?aid=59",
+                      "item_price": "1.330",
+                      "item_description": "• Infused with Olive Oil: The Al Faysal Diet Baksam effectively uses the heart-healthy benefits of olive oil, adding a touch of richness to the taste. • Low in Calories: This diet Baksam has a reduced calorie count, making it perfect for those watching their weight or following a specific diet. • Generous Quantity: With a hefty 750g package, this product ensures you have enough to last during your snack times or parties. • Authentic Taste: Despite being a diet variant, Al Faysal Baksam maintains the original and traditional flavor, offering an authentic Middle Eastern taste experience.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/67c953f969cfd64741b7dce1.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KMF Al Matahen Plain Rusk, 300g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kmf-al-matahen-plain-rusk-300g/s/6271003047024?aid=59",
+                      "item_price": "0.780",
+                      "item_description": "Light and crunchy rusk perfect to have it on breakfast or for a snack - 1 x 300 gm",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image-nocache/talabat/MenuItems/100394040_636988130025556674.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Square Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-white-square-toast-with-vitamin-d3/s/CS97U3?aid=59",
+                      "item_price": "0.330",
+                      "item_description": "• Enriched with Vitamin D3: KFM White Square Toast is fortified with essential Vitamin D3 to support your daily nutrient intake. • Delicious White Square Toast: Perfectly toasted and squared for a crunchy and delightful snacking experience. • Versatile Product: Ideal for a simple breakfast feast, snack-time, or complementing your favorite meals. • Convenient Packaging: Comes in a sturdy, resealable pack to retain the product’s freshness for long periods, ensuring the perfect crunch with every bite.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041220.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Rugag Crepe Bread, 8x350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-white-rugag-crepe-bread-8x350g/s/6271003071043?aid=59",
+                      "item_price": "3.290",
+                      "item_description": "The Kfm White Rugag Crepe Bread box contains 8 pieces, each weighing 350gm. This traditional Middle Eastern bread is made with high-quality ingredients to ensure a delightful taste. Its light, fluffy, and has a unique crepe-like texture thats perfect for wrapping or dipping. The Rugag bread is versatile and can be paired with various dishes, from savory meals to sweet desserts. It comes in a sturdy box to maintain its freshness. Whether youre preparing a family meal or hosting a gathering, this Rugag Crepe Bread is a great choice. Enjoy the authentic taste of the Middle East at your home.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_911023.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Brown Rugag Crepe Bread, 8x350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-brown-rugag-crepe-bread-8x350g/s/6271003071081?aid=59",
+                      "item_price": "3.290",
+                      "item_description": "The Kfm Brown Rugag Crepe Bread is a pack of 8 boxes, each containing 350g of delicious, wholesome bread. Made from high-quality brown flour, this crepe bread is soft, light, and has a unique texture that makes it a delight to eat. Its perfect for a variety of dishes, from sandwiches to wraps, and can also be enjoyed on its own. The box packaging ensures that the bread stays fresh for longer, making it a convenient choice for those who value both taste and convenience. Please note, this product is suitable for vegetarians and vegans.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Blob_Images/61e6c9ffe3a51b2a102c9f71.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM White Crepe Bread, 350g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-white-crepe-bread-350g/s/6271003071036?aid=59",
+                      "item_price": "0.380",
+                      "item_description": "Indulge in the delight of KFM Crepe Bread White, a 350 Gm pack of thin, light, and soft bread. Made from premium quality ingredients, this crepe bread offers a unique texture and a subtle sweetness that complements a variety of spreads and fillings. Its perfect for breakfast or a quick snack, and can be enjoyed with sweet or savory toppings. Whether youre preparing a gourmet dish or a simple sandwich, KFM Crepe Bread White is a versatile addition to your pantry. Please note that its best to consume it fresh, to appreciate its delicate flavor and texture.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/product-information-management/670d6e72088d2ba7e05f0692.jpg?size=122",
+                        "https://images.deliveryhero.io/image/product-information-management/670d6e73088d2ba7e05f0693.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Multi Grain Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-multi-grain-toast-with-vitamin-d3/s/ABVZP7?aid=59",
+                      "item_price": "0.260",
+                      "item_description": "• KFM Multi Grain Toast is packed with the goodness of multiple grains, providing a healthy, fiber-rich snack. • Each serving of our toast is fortified with Vitamin D3, vital for maintaining strong bones and supporting immune health. • Our Multi Grain Toast offers a crunchy texture and light, appetizing flavor, ideal for a nutritious breakfast or snack. • This toast is low in sugar and free from artificial colors or flavors, making it a healthier choice for your family.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041213.png?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Whole Wheat Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-whole-wheat-toast-with-vitamin-d3/s/SYH6ME?aid=59",
+                      "item_price": "0.410",
+                      "item_description": "• Made from 100% whole wheat, KFM toast promises a high fiber content appropriate for a healthy diet. • Enriched with Vitamin D3 which supports bone and immune health. • Perfect for a quick breakfast or a convenient snack, providing sustained energy due to whole grains. • Comes in a resealable packaging, ensuring the product remains fresh and tasty over time.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041206.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Milk Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-milk-toast-with-vitamin-d3/s/06271003041190?aid=59",
+                      "item_price": "0.430",
+                      "item_description": "• Deliciously Light: Enjoy the soft and fluffy experience of our KFM Milk Toast, perfect for any time of the day. • Vitamin D3 Enriched: Every slice is packed with Vitamin D3, crucial for maintaining strong bones and a healthy immune system. • Convenient Snack: KFM Milk Toast serves as an excellent grab-and-go snack, making your busy life a bit simpler. • Versatile Use: Use it for sandwiches, pair it with your favorite spread, or just enjoy it on its own – our milk toast fits into every meal plan.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041190.jpg?size=122"
+                      ]
+                    },
+                    {
+                      "item_name": "KFM Original Toast with Vitamin D3",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/product/kfm-original-toast-with-vitamin-d3/s/06271003041183?aid=59",
+                      "item_price": "0.300",
+                      "item_description": "• Delicious Treat: KFM Original Toast is a scrumptious blend of crunchiness and lightness, made to satisfy your cravings. • Enriched with Vitamin D3: Formulated with Vitamin D3, it helps in promoting healthy bones and teeth, and boosting your immune system. • Healthy Option: It is low in sugar and saturated fats, making it a nutritious and heart-healthy snack for all ages. • Convenient Packaging: Comes in a resealable packet, ensuring the toasts stay fresh and crispy for longer. Enjoy it anytime, anywhere.",
+                      "item_delivery_time_range": "Get it within 30 mins",
+                      "item_images": [
+                        "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271003041183.jpg?size=122"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Fruits & Vegetables",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fruits-vegetables/vegetables?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Grab & Go",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/grab-go/salads?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Dairy & Eggs",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/dairy-eggs/eggs?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Breakfast Food",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/breakfast-food/cereals?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Fresh Meat & Chicken",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fresh-meat-chicken/fresh-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Frozen Food",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/frozen-food/frozen-poultry?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cooking & Baking",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cooking-baking/rice?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Canned & Jarred Food",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/canned-jarred-food/meat-seafood?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Condiments",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/condiments/salt-spices?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Organic & Special Diet",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/organic-special-diet/gluten-free-food-snacks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Milk",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/milk/fresh-milk?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Beverages",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/beverages/juices-single?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Coffee & Tea",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/coffee-tea/coffee?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Ice Cream",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/ice-cream/bars-cones-sticks?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Snacks & Candy",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/snacks-candy/minis-miniatures?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Water",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/water/drinking-water?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pet Care",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pet-care/pet-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Baby",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/baby/baby-food?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Toys",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/toys/baby-toddler-toys?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Personal Care",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/personal-care/body-wash?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Pharmacy",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pharmacy/vitamins-supplements?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Disposables",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/disposables/disposable-tableware?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Cleaning & Laundry",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cleaning-laundry/dishwashing?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Household Essentials",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/household-essentials/batteries?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Electronics",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/electronics/mobile-accessories?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Gift Items",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/gift-items/candles?aid=59",
+              "sub_categories": []
+            },
+            {
+              "name": "Tobacco Shop",
+              "link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/tobacco-shop/e-cigarettes-cigar?aid=59",
               "sub_categories": []
             }
           ]

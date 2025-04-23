@@ -2,35 +2,22 @@
   "completed_areas": [
     "الظهر"
   ],
-  "current_area_index": 1,
-  "last_updated": "2025-04-23T14:08:09.338355",
+  "current_area_index": 0,
+  "last_updated": "2025-04-23T17:27:58.322192",
   "current_progress": {
-    "area_name": "الرقه",
+    "area_name": "الظهر",
     "current_grocery": 1,
-    "current_grocery_title": "Top Shop",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/675516/top-shop-ahmadi-mahboula?aid=37",
+    "current_grocery_title": "Kiki Market Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Squeeze & Tub Cheese",
+    "current_sub_category": "Buns & Rolls",
     "completed_groceries": {
-      "Top Shop": {
+      "Kiki Market Grocery": {
         "completed sub-categories": [
           "Freshly Baked",
-          "Toast",
-          "Buns & Rolls",
-          "Cakes",
-          "Croissant Single",
-          "Croissant Packs",
-          "Pastries",
-          "Cup Cakes & Rolls",
-          "Vegetables",
-          "Fruits",
-          "Herbs",
-          "Dates & Dried Fruits",
-          "Salads",
-          "Eggs",
-          "Slice Cheese & Shredded"
+          "Toast"
         ]
       }
     }
