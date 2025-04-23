@@ -369,7 +369,7 @@ class TalabatGroceries:
                                         invalid_names = ['kd', 'kwd', 'currency', 'kiki', 'market', 'grocery', 'mahboula']
                                         if (len(item_name.strip()) > 5 and 
                                             not any(invalid.lower() in item_name.lower() for invalid in invalid_names)):
-                                            print(f"        Item name found with selector '{selector}': {item_name}")
+                                            print(f"        Item name: {item_name}")
                                             break
                                         else:
                                             print(f"        Selector '{selector}' found invalid name: {item_name}")
