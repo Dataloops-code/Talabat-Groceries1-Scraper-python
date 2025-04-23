@@ -324,7 +324,7 @@ class TalabatGroceries:
     
                 # Save HTML for debugging
                 html_content = await sub_page.content()
-                html_filename = f"sub_category_{sub_category_link.split('/')[-1]}.html"
+                html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=37', '')}.html"
                 with open(html_filename, "w", encoding="utf-8") as f:
                     f.write(html_content)
                 print(f"      Saved sub-category HTML to {html_filename} for debugging")
@@ -351,16 +351,13 @@ class TalabatGroceries:
                         try:
                             # Try multiple selectors for item name
                             name_selectors = [
-                                'span[class="sc-b1e6ca95-8 kxTKwp"]',  # Likely Talabat-specific class (based on common patterns)
+                                'div[data-test="item-name"]',  # Previously successful selector
+                                'span[data-test="item-name"]',  # Variation
                                 'div[data-testid="product-name"]',
                                 'span[data-testid="product-title"]',
                                 'div[class*="product-name"]',
                                 'span[class*="product-title"]',
-                                'h3[class*="product-title"]',
-                                'div[class*="title"]',
-                                'span[class*="title"]',
-                                'h3[class*="title"]',
-                                'div[data-test="item_name"]'
+                                'h3[class*="product-title"]'
                             ]
                             item_name = None
                             for selector in name_selectors:
@@ -369,7 +366,7 @@ class TalabatGroceries:
                                     item_name = await item_name_element.inner_text()
                                     if item_name and item_name.strip():
                                         # Validate item name
-                                        invalid_names = ['kd', 'kwd', 'currency', 'city star', 'grocery', 'mahboula', 'tgo']
+                                        invalid_names = ['kd', 'kwd', 'currency', 'kiki', 'market', 'grocery', 'mahboula']
                                         if (len(item_name.strip()) > 5 and 
                                             not any(invalid.lower() in item_name.lower() for invalid in invalid_names)):
                                             print(f"        Item name found with selector '{selector}': {item_name}")
@@ -382,28 +379,12 @@ class TalabatGroceries:
                                 else:
                                     print(f"        Selector '{selector}' not found")
     
-                            # Fallback to URL parsing if no valid name found
-                            item_link = self.base_url + await element.get_attribute('href')
+                            # Use default name if no valid name found
                             if not item_name or not item_name.strip():
-                                # Extract item name from URL product segment
-                                url_parts = item_link.split('/')
-                                product_segment = None
-                                for j, part in enumerate(url_parts):
-                                    if part == 'product' and j + 1 < len(url_parts):
-                                        product_segment = url_parts[j + 1]
-                                        break
-                                if product_segment and '-' in product_segment and not product_segment.startswith('s/'):
-                                    # Clean and format the product segment
-                                    item_name = product_segment.replace('-', ' ').title()
-                                    # Remove query parameters
-                                    item_name = item_name.split('?')[0]
-                                    # Additional cleaning for numbers or weights
-                                    item_name = item_name.replace('X', 'x').replace('G ', 'g ')
-                                    print(f"        Item name extracted from URL: {item_name}")
-                                else:
-                                    item_name = f"Unknown Item {i+1}"
-                                    print(f"        No item name found, using default: {item_name}")
+                                item_name = f"Unknown Item {i+1}"
+                                print(f"        No valid item name found, using default: {item_name}")
     
+                            item_link = self.base_url + await element.get_attribute('href')
                             print(f"        Item link: {item_link}")
     
                             item_details = await self.extract_item_details(item_link)
