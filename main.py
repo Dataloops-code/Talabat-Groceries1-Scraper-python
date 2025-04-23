@@ -322,6 +322,13 @@ class TalabatGroceries:
                 await sub_page.wait_for_load_state("networkidle", timeout=240000)
                 await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
     
+                # Save HTML for debugging
+                html_content = await sub_page.content()
+                html_filename = f"sub_category_{sub_category_link.split('/')[-1]}.html"
+                with open(html_filename, "w", encoding="utf-8") as f:
+                    f.write(html_content)
+                print(f"      Saved sub-category HTML to {html_filename} for debugging")
+    
                 pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
                 total_pages = 1
                 if pagination_element:
@@ -344,11 +351,12 @@ class TalabatGroceries:
                         try:
                             # Try multiple selectors for item name
                             name_selectors = [
+                                'div[data-testid="product-name"]',  # Common for product names
+                                'span[data-testid="product-title"]',  # Alternative title attribute
+                                'div[class*="product-name"]',  # Class-based product name
+                                'span[class*="title"]',  # Class-based title
+                                'h3[class*="title"]',  # Title in h3
                                 'div[data-test="item_name"]',  # Original selector
-                                'span[data-testid="item-title"]',  # Common for titles
-                                'div[class*="item-name"]',  # Class-based selector
-                                'h3',  # Common for item titles
-                                'span'  # Fallback to any span
                             ]
                             item_name = None
                             for selector in name_selectors:
@@ -356,28 +364,35 @@ class TalabatGroceries:
                                 if item_name_element:
                                     item_name = await item_name_element.inner_text()
                                     if item_name and item_name.strip():
-                                        print(f"        Item name found with selector '{selector}': {item_name}")
-                                        break
+                                        # Validate item name
+                                        if len(item_name.strip()) > 2 and item_name.strip().lower() not in ['kd', 'kwd', 'currency']:
+                                            print(f"        Item name found with selector '{selector}': {item_name}")
+                                            break
+                                        else:
+                                            print(f"        Selector '{selector}' found invalid name: {item_name}")
+                                            item_name = None
                                     else:
                                         print(f"        Selector '{selector}' found empty or invalid name")
                                 else:
                                     print(f"        Selector '{selector}' not found")
     
                             # Fallback to URL parsing if no valid name found
+                            item_link = self.base_url + await element.get_attribute('href')
                             if not item_name or not item_name.strip():
-                                item_link = self.base_url + await element.get_attribute('href')
-                                # Extract item name from URL path (e.g., 'lusine-white-sandwich-roll-200g')
+                                # Extract item name from URL path (e.g., 'tastee-cake-dark-marsmallow-chocolate-pie-150g')
                                 url_parts = item_link.split('/')
                                 for part in url_parts:
-                                    if part and '-' in part and not part.startswith('s/'):
+                                    if part and '-' in part and not part.startswith('s/') and not part.startswith('product'):
+                                        # Clean and format the URL part
                                         item_name = part.replace('-', ' ').title()
+                                        # Remove any trailing query parameters or unwanted segments
+                                        item_name = item_name.split('?')[0]
                                         print(f"        Item name extracted from URL: {item_name}")
                                         break
                                 if not item_name:
                                     item_name = f"Unknown Item {i+1}"
                                     print(f"        No item name found, using default: {item_name}")
     
-                            item_link = self.base_url + await element.get_attribute('href')
                             print(f"        Item link: {item_link}")
     
                             item_details = await self.extract_item_details(item_link)
