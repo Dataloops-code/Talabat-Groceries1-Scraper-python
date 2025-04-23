@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-23T19:28:04.252943",
+  "last_updated": "2025-04-23T19:57:33.137823",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 21,
+    "current_grocery": 20,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Cakes",
+    "current_sub_category": "Cakes & Pastries",
     "completed_groceries": {
       "City Star Grocery": {
         "completed sub-categories": [
@@ -20,6 +20,13 @@
           "Freshly Baked",
           "Toast",
           "Buns & Rolls"
+        ]
+      },
+      "Hala Store": {
+        "completed sub-categories": [
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs"
         ]
       }
     }
