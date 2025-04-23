@@ -5710,7 +5710,7 @@
   },
   "Candy mart": {
     "grocery_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo?aid=59",
-    "delivery_time": "28 mins",
+    "delivery_time": "26 mins",
     "grocery_details": {
       "delivery_fees": "KD 1.000",
       "minimum_order": "KD 1.000",
@@ -5719,6 +5719,1413 @@
           "name": "Bakery",
           "link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/bakery/freshly-baked?aid=59",
           "sub_categories": [
+            {
+              "sub_category_name": "Batteries",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/batteries?aid=59",
+              "Items": [
+                {
+                  "item_name": "Energizer Alkaline AAA Battery, 2 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-alkaline-aaa-battery-2-pieces/s/8888021205411?aid=59",
+                  "item_price": "0.500",
+                  "item_description": "OppO- Wrist/Thumb Support M (One Year Warranty After Opening)",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/632198b2bee0e8e33e0e6c30.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AA batteries - 6 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aa-batteries-6-pieces/s/1804202300003?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "Energizer AA batteries - 6 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300003.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AA batteries - 4 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aa-batteries-4-pieces/s/1804202300002?aid=59",
+                  "item_price": "1.850",
+                  "item_description": "Energizer AA batteries - 4 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300002.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AAA batteries - 6 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aaa-batteries-6-pieces/s/1804202300007?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "Energizer AAA batteries - 6 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300007.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AAA batteries - 2 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aaa-batteries-2-pieces/s/1804202300005?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "Energizer AAA batteries - 2 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300005.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AA batteries - 2 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aa-batteries-2-pieces/s/1804202300001?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "Energizer AA batteries - 2 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300001.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AA batteries - 12 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aa-batteries-12-pieces/s/1804202300004?aid=59",
+                  "item_price": "5.500",
+                  "item_description": "Energizer AA batteries - 12 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300004.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AAA batteries - 12 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aaa-batteries-12-pieces/s/1804202300008?aid=59",
+                  "item_price": "5.500",
+                  "item_description": "Energizer AAA batteries - 12 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300008.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Energizer AAA batteries - 4 pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/energizer-aaa-batteries-4-pieces/s/1804202300006?aid=59",
+                  "item_price": "1.850",
+                  "item_description": "Energizer AAA batteries - 4 pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1804202300006.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zinc-Carbon Batteries Tesla Aaa/R03/1,5V 10Pcs Blue+",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zinc-carbon-batteries-tesla-aaar0315v-10pcs-blue/s/9QQGIH?aid=59",
+                  "item_price": "2.000",
+                  "item_description": "Product Description: Unleash the power of Tesla with these impeccable Zinc-Carbon Batteries AAA/R03/1,5V. Sold in a pack of 10, these batteries are noted for their high performance and reliability. Ensuring a smooth, long-lasting supply of energy, they are ideal for powering a wide range of devices from remote controls to toys. The batteries are encased in a striking blue sleeve, adding a splash of color to your everyday necessities. How to Use: - Ensure the device is turned off before changing the batteries. - Open the battery compartment of your device. - Check the battery orientation diagram, usually given inside the compartment. - Insert the Tesla AAA Zinc-Carbon Batteries according to the diagram. The flat end is usually the negative side and the raised button end is positive. - Replace the compartment cover and your device is ready to use again. Storage Instructions: - Keep the batteries at room temperature in a dry place. - Avoid extreme temperatures, both hot and cold, as they can reduce the efficiency of the batteries. - Store your batteries in the original packaging until use to prevent accidental activation or short-circuiting. - Always keep batteries out of the reach of children. Materials: - High-quality Zinc and Carbon are used in the core. - The outer casing is made from sturdy, insulating materials. - The positive terminal contains manganese dioxide. - Ammonium chloride and zinc chloride are contained in the electrolyte paste.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8594183392202.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tesla Blue Zinc Carbon Baterie 9V 6F22",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tesla-blue-zinc-carbon-baterie-9v-6f22/s/FDYBRA?aid=59",
+                  "item_price": "0.750",
+                  "item_description": "Product Description: Introducing the top-of-the-range Tesla Blue Zinc Carbon Battery 9V 6F22. Power your electronic devices seamlessly with this premium battery characterized by prolonged endurance and stable output. Made with an eco-friendly zinc-carbon material, the battery delivers safe, reliable energy for devices like smoke detectors, toys, and flashlights, requiring a standard 9-volt power source. This battery is renowned for its low self-discharge rate, not to worry about battery drain when not in use. Plus, its long shelf-life ensures it's ready when you need it, while the non-mercury and non-cadmium constitution safeguards your health and the environment.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8594183392158.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zinc-Carbon Batteries Tesla Aa/R6/1,5V 10Pcs Blue+",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zinc-carbon-batteries-tesla-aar615v-10pcs-blue/s/JG5P1C?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "Product Description: Recharge your devices with the powerful and reliable Zinc-Carbon Batteries Tesla Aa/R6/1,5V 10Pcs Blue+. These high-quality, durable batteries deliver strong, consistent power and have a long-lasting life to keep your devices running longer. The pack contains 10 AA batteries that are versatile and compatible with various devices such as toys, remote controls, digital cameras, and various household items. The batteries have a 1.5V output voltage, ensuring efficient electrical performance. The blue outer casing provides a distinct, stylish touch that stands out. How to Use: 1. Check the battery compartment of your device for the battery size and directions for positive and negative placement. 2. Remove the old batteries from your device (if applicable). 3. Align each Tesla battery in the correct position according to the positive (+) and negative (-) indicators. 4. Securely close the battery compartment. 5. Turn your device on to confirm the correct installation. If the device does not turn on, recheck the battery placement. Storage Instructions: 1. Store batteries in a cool, dry place away from metal objects. 2. Ensure the batteries are stored in their original packaging to avoid damage or short circuit. 3. Do not store batteries in direct sunlight or high temperatures. 4. Keep batteries out of reach of children and pets. Materials: 1. Zinc: Used as the anode in the battery. 2. Carbon: Used as the cathode in the battery. 3. Ammonium Chloride: Used as the electrolyte, providing a medium for the flow of electric current. 4. Manganese Dioxide: Mixed with carbon to create the cathode. 5. Steel: Forms the external casing of the battery. Gives the battery durability and strength.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8594183392172.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zinc-Carbon Battery Tesla C/R 14/1,5V 2Pcs Blue+",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zinc-carbon-battery-tesla-cr-1415v-2pcs-blue/s/XTHEU0?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Product Description: Experience power like never before with the Zinc-Carbon Battery Tesla C/R 14/1,5V 2Pcs Blue+. Efficacy meets durability in this powerful pair of disposable batteries. Engineered by Tesla, these batteries are constructed with high-quality zinc-carbon that ensures longevity and steadfast performance. They have an output of 1.5 volts, perfect for your everyday electronic devices like controllers, toys, remote controls, and torchlights. Their stability, reliability, and high energy output make them a top choice for all your battery needs. Finished in stylish blue, these batteries will power your devices while complementing your tech-savvy lifestyle. How to Use: - Ensure the device is switched off before installing the battery. - Open the battery compartment following the device-specific instructions. - Refer to the device user manual to determine the correct battery orientation. - Insert the batteries making sure the positive (+) end aligns with the positive mark in the battery compartment and vice-versa. - Close the battery compartment and ensure it's securely fastened. - Switch on the device to test the operation. Storage Instructions: - Store in a dry and cool place, away from metal objects and direct sunlight. - Keep the batteries in their original packaging until you're ready to use them. - Avoid combined storage with different battery types or used batteries. - Do not store near heat sources or exposed to high temperatures. - Keep out of reach of children to prevent accidental ingestion. Materials: - Zinc outer casing - High-quality carbon rod - Metal consumer materials - Non-toxic electrolyte solution.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8594183392226.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tesla Blue + Zinc-Carbon AA Batteries, 4 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tesla-blue-zinc-carbon-aa-batteries-4-pieces/s/V3L911?aid=59",
+                  "item_price": "1.000",
+                  "item_description": " TESLA BLUE+ , we manufacture a series of zinc-carbon standard power battery. These batteries are suitable mainly for use in devices with short-term low consumption of current, for example, television remote control devices or wall clocks. The major benefit of the BLUE+ series is its affordability.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94bfa0aa599d7fc2b855.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c0a0aa599d7fc2b856.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c1a0aa599d7fc2b857.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c2a0aa599d7fc2b858.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tesla Size D Batteries Blue 2 Pk",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tesla-size-d-batteries-blue-2-pk/s/Q7YFET?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "Product Description: Stay powered up with the Tesla Size D Batteries Blue 2 Pk. These high-quality batteries, known for their reliable and consistent performance, are provided directly by the pioneering energy company, Tesla. Crafted with advanced technology, these long-lasting batteries are perfect for your everyday devices, including torches, remote control toys, and portable radios. The striking blue casing not only attracts the eye but also offers robust protection. This pack contains two Size D batteries, ensuring you always have a spare on hand for uninterrupted use of your favorite devices.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Blob_Images/61f688af285d0229b8eb6ccc.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tesla Blue + Zinc-Carbon AAA Batteries, 4 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tesla-blue-zinc-carbon-aaa-batteries-4-pieces/s/24ZNH2?aid=59",
+                  "item_price": "1.000",
+                  "item_description": " TESLA BLUE+ , we manufacture a series of zinc-carbon standard power battery. These batteries are suitable mainly for use in devices with short-term low consumption of current, for example, television remote control devices or wall clocks. The major benefit of the BLUE+ series is its affordability.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c4a0aa599d7fc2b888.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c5a0aa599d7fc2b889.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c6a0aa599d7fc2b88a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/67ad94c7a0aa599d7fc2b88b.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Candles",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/candles?aid=59",
+              "Items": [
+                {
+                  "item_name": "F.T. Happy Birthday Candle Set 12'S",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/ft-happy-birthday-candle-set-12s/s/6925721123538?aid=59",
+                  "item_price": "0.490",
+                  "item_description": "• Includes 12 \"Happy Birthday\" candles providing ample quantity for decorating your birthday cake. • Made with safe, non-toxic wax ensuring a no-fuss and safe celebration. • Each candle features bright and vibrant colors, adding a festive touch to your birthday decor. • Easy to insert and light, setting up these candles on your birthday cake is a breeze.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Midway/6925721123538.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Numeric Candle",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-numeric-candle/s/6682838968727?aid=59",
+                  "item_price": "0.490",
+                  "item_description": "Numeric Candle",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/UAE/6682838968727.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle 6 Pcs",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-6-pcs/s/611202200001?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "• High-quality material: This 6-piece birthday candle set is made from non-toxic, safe, and durable wax ensuring a long-lasting glow. • Variety of colors: The set features candles in multiple cheerful colors, adding a vibrant touch to any birthday cake or dessert. • Easy-to-light wicks: The quality wicks can be lit quickly and easily, creating a hassle-free lighting experience. • Reusable and storable: These candles come in a sturdy box, allowing for easy storage and reuse for multiple celebrations.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/96148451548.jpeg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Party Birthday Candles and Candle Holders 1 Set",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/party-birthday-candles-and-candle-holders-1-set/s/6931650500265?aid=59",
+                  "item_price": "0.250",
+                  "item_description": "Celebrate your special moments with our Party Birthday Candles and Candle Holders set. This package includes a unique assortment of vibrant, long-lasting candles and sturdy holders, perfect for any birthday cake or celebratory dessert. The candles are crafted from high-quality wax that ensures a clean, slow burn, allowing you to make your wish without rushing. Each candle comes with a matching holder, designed to keep the candles upright and stable, preventing any wax drips on your cake. The holders are reusable, easy to clean, and safe for all ages. This set is not just functional but also adds a pop of color and a touch of elegance to your celebration. Ideal for birthdays, anniversaries, or any festive occasion. Make a wish and light up your party with our Party Birthday Candles and Candle Holders set.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores-bh/Product_Images/BH_916860.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 1",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-1/s/140820221111?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• High Quality Material: Made from premium quality, non-toxic wax for a safe and enjoyable birthday celebration. • Vibrant Color: Our Number 1 birthday candle features a bright blue hue that adds a festive touch to any cake. • Long-lasting: This candle burns evenly and slowly, allowing you to savor the happy moment just a little longer. • Perfect Size: With a height of 1.8 inches, it's designed to stand out on the cake without overshadowing your decoration.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820221111.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 4",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-4/s/140820224444?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• Stands tall at approximately 8 cm, perfect to be the centerpiece of your birthday cake. • Crafted with non-toxic, burn-safe wax ensuring a safe and happy celebration. • Bright and vibrant, the Number 4 comes in a glittery gold, adding a touch of glamour to your cake. • It is easy-to-use with a sturdy base, making it easy to insert and secure on various cake styles.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820224444.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 9",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-9/s/140820229999?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• Elegant Design: This number \"9\" birthday candle is elegantly designed to be the centerpiece attraction of any birthday cake. • Ideal Size: The candle measures an appropriate size, ensuring a perfect fit on top of your cake without overpowering its design. • Premium Quality: Made from clean-burning wax, this candle will last for the entire birthday song and beyond, to create a memorable moment. • Vibrant Colour: Its bright and vibrant color aspects will enhance the aesthetic appeal of your birthday celebration.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820229999.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 7",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-7/s/140820227777?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• Crafted from high-quality wax ensuring durability and longevity for your whole celebration. • Features the number 7, perfect for celebrating a seventh birthday or anniversary. • Safe, non-toxic, and easy to light, providing a worry-free experience for all event planners. • Provides a vibrant decorative touch with its bold colour & sleek design, enhancing the charm of any cake or dessert.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820227777.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 6",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-6/s/140820226666?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• High-quality Material: The Birthday Candle Number 6 is made from non-toxic, safe wax ensuring safe usage. • Eye-catching Design: Features a vibrant and shiny gold color certain to catch everyone's eye and add a sparkle to your birthday cake. • Long-lasting Burn: Offers a slow and stable burn, allowing plenty of time for birthday wishes and photo opportunities. • Easy to Use: Comes with a sturdy plastic stake at the bottom for secure placement into the cake, making it simple and hassle-free.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820226666.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Birthday Candle Number 8",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/birthday-candle-number-8/s/140820228888?aid=59",
+                  "item_price": "0.450",
+                  "item_description": "• This Birthday Candle Number 8 is designed to add a special touch to your 8th birthday cake. • Made from safe, non-toxic wax material, ensuring a clean and easy-to-light wick. • Offers a sturdy base for secure placement and a worry-free celebration. • Boasts a vibrant color and a sleek design, making your birthday cake stand out.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/140820228888.JPG?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Charcoal & Barbecue Supplies",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/charcoal-barbecue-supplies?aid=59",
+              "Items": [
+                {
+                  "item_name": "Hand Fan Charcoal Grill Barbecue",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/hand-fan-charcoal-grill-barbecue/s/511202200001?aid=59",
+                  "item_price": "0.500",
+                  "item_description": "Hand Fan Charcoal Grill Barbecue is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/0511202200001.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Quick-flammable charcoal, 60 tablets",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/quick-flammable-charcoal-60-tablets/s/307061400725?aid=59",
+                  "item_price": "1.950",
+                  "item_description": "Quick-flammable charcoal, 60 tablets is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/307061400725.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "African grill charcoal (cow) 6 kg",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/african-grill-charcoal-cow-6-kg/s/1511202200004?aid=59",
+                  "item_price": "4.450",
+                  "item_description": "• Premium Quality: Our African grill charcoal (cow) is 6 kg of high-grade, quality charcoal to guarantee optimal grilling performance. • Environmentally Friendly: Made from processed cow waste, this charcoal is eco-friendly, contributing to waste reduction and sustainability. • Long Burning: It's designed to have a long, steady burn, providing hours of grilling power per use. • Enhances Flavor: This unique charcoal infuses your barbequed meals with a distinct, rich, and smoky flavor that can't be achieved with regular charcoals.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1511202200004.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Natural Bbq Charcoal - 3 Kg",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/natural-bbq-charcoal-3-kg/s/311202200002?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Natural Bbq Charcoal - 3 Kg is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/0311202200002.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Flamgo Firelighters 24 pcs x 285 g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/flamgo-firelighters-24-pcs-x-285-g/s/5701304242459?aid=59",
+                  "item_price": "2.990",
+                  "item_description": "Introducing Flamgo Firelighters, a pack of 24 pieces each weighing 285g. These firelighters are perfect for igniting fires in your fireplace, barbecue, or campfire. They're easy to use and highly effective, ensuring a quick and reliable start every time. Made from eco-friendly materials, they burn clean and odorless, leaving no residue behind. Whether you're planning a cozy indoor evening or an outdoor adventure, Flamgo Firelighters are your go-to choice for a hassle-free fire-starting experience.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/5701304242459.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Gulf Holland Charcoal 33 mm 80 s",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/gulf-holland-charcoal-33-mm-80-s/s/8716294600704?aid=59",
+                  "item_price": "3.990",
+                  "item_description": "• 80 Quick lighting charcoal briquets • Odorless • Smokeless • Ignites Quickly • Longer burning",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/8716294600704.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Spark L Shape Gas Lighter",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/spark-l-shape-gas-lighter/s/4544999000208?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "• Product Type: Lighter Gun • Brand: Spark",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM_1/4544999000208.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Fortune Charcoal, 80 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/fortune-charcoal-80-pieces/s/6999541206344?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "Add an authentic smoky flavor to your grilled dishes with Fortune Charcoal. This pack contains 80 pieces of high-quality charcoal that are ideal for BBQs, camping trips, and outdoor parties. Each piece is designed to burn evenly and consistently, providing you with the perfect heat for cooking your favorite meals. Fortune Charcoal is made from natural hardwood, ensuring a clean and eco-friendly burn. It lights quickly and lasts longer, reducing the need for frequent refills. Whether you're grilling burgers, roasting marshmallows, or smoking a brisket, Fortune Charcoal is the perfect choice. It's easy to use, reliable, and adds that classic charcoal flavor to your food. So, fire up your grill and enjoy the delicious taste of meals cooked over Fortune Charcoal.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores-bh/Product_Images/BH_911178.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Golden Star Charcoal 100 pcs Medium Size",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/golden-star-charcoal-100-pcs-medium-size/s/6982298125266?aid=59",
+                  "item_price": "2.950",
+                  "item_description": "• High-Quality Charcoal: Golden Star Charcoal is a superior quality product, ensuring long-lasting and even heat distribution for cooking or grilling. • 100 Piece Pack: This pack contains 100 medium size charcoal pieces, providing abundant supply for multiple use. • Quick Ignite: The charcoal conveniently ignites quickly, saving you time and effort and making it perfect for impromptu BBQ nights. • Eco-Friendly: Made from natural and sustainable resources, Golden Star Charcoal aligns with environmental friendly practices, making them an excellent choice for conscious consumers.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6982298125266.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Golden Star Charcoal 50 pcs Large",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/golden-star-charcoal-50-pcs-large/s/6982298625667?aid=59",
+                  "item_price": "2.950",
+                  "item_description": "• Large Quantity: Receive a pack of 50 Golden Star Charcoal pieces, offering great value and longevity. • High-quality Material: These charcoals are made from premium, dense, and clean-burning wood for superior performance. • Large Size: Each piece is large, ensuring longer burning time for your grilling and smoking needs. • Easy to Ignite: Golden Star Charcoal features quick and easy ignition, minimizing prep-time and getting you grilling faster.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6982298625667.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Golden Star Charcoal 50 pcs Box",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/golden-star-charcoal-50-pcs-box/s/6982298125259?aid=59",
+                  "item_price": "2.950",
+                  "item_description": "• Each box contains 50 pieces of quality Golden Star Charcoal • Charcoal is easy to ignite, providing a quick, reliable heat source • Long-lasting burn, ensuring a continuous, steady supply of heat • Made from natural materials, making it a more eco-friendly choice for grilling or heating essentials.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6982298125259.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Fast Charcoal Far Ajami 100 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/fast-charcoal-far-ajami-100-pieces/s/6952058368769?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "Fast Charcoal Far Ajami 100 Pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6952058368769.png?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Golden Star Charcoal 120 mini pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/golden-star-charcoal-120-mini-pieces/s/2698229862707?aid=59",
+                  "item_price": "3.950",
+                  "item_description": "• \"Golden Star Charcoal consists of 120 mini pieces, ideal for various fuel needs with ample quantity.\" • \"Made from high quality material, each piece guarantees a long burning period and consistent heat output.\" • \"Small, compact size makes for easy storage and minimal space utility.\" • \"Ideal for a variety of uses, such as grilling, shisha, or even heating.\"",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2698229862707.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Fire Top Compressed Vegetable Charcoal for Grilling, 10kg",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/fire-top-compressed-vegetable-charcoal-for-grilling-10kg/s/4012023000001?aid=59",
+                  "item_price": "5.750",
+                  "item_description": "Fire Top Compressed Vegetable Charcoal for Grilling, 10kg is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/4012023000001.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Asgharali Bakhoor Enab 40 g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/asgharali-bakhoor-enab-40-g/s/1253170060087?aid=59",
+                  "item_price": "4.450",
+                  "item_description": "Description: •Preserve Freshness : Wrapped in aluminum foil to preserve freshness and fragrance •Incense Powder : Compressed bukhoor powder makes it easy to crumble and burn •Charcoal Or Electric Burner : Crumble a small piece of bakhoor on a charcoal or electric type burners",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/1253170060087.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Lighter Silver Small 1 Piece",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-lighter-silver-small-1-piece/s/R8J66G?aid=59",
+                  "item_price": "5.500",
+                  "item_description": "Passage Lighter Silver Small 1 Piece is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67f258eb3a3fa53402475827.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Quick Lightning Charcoal 100pcs",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-quick-lightning-charcoal-100pcs/s/1000064804193?aid=59",
+                  "item_price": "3.750",
+                  "item_description": "- Quick Lighting: Ignite your coals swiftly and effortlessly for immediate use with our Passage Quick Lightning Charcoal. - High Quantity: Each pack includes 100 pieces of charcoal, offering you a long-lasting supply. - Superior Quality: Our charcoal pieces are made with high-quality materials for optimum heat output and longevity. - Versatile Usage: Ideal for barbecues, hookahs, and fireplaces, offering you a highly versatile charcoal solution.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1000064804193.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zain Jazz Angel Heater Lighter",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zain-jazz-angel-heater-lighter/s/2503202500036?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Zain Jazz Angel Heater Lighter is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2503202500036.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zain Jazz Mega Heater Lighter",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zain-jazz-mega-heater-lighter/s/2503202500035?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "Zain Jazz Mega Heater Lighter is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2503202500035.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zengaz Cylinder Jet Lighter",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zengaz-cylinder-jet-lighter/s/4895151822641?aid=59",
+                  "item_price": "4.750",
+                  "item_description": "Smoking Is Dangerous to Health and May Cause Death from Cancer and Other Diseases - You MUST be at least 21 years old to buy this item",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_914451v0.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Bbq Grill Fan",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/bbq-grill-fan/s/WUGM30?aid=59",
+                  "item_price": "0.500",
+                  "item_description": "• Portable and Compact: This BBQ Grill Fan is easy to carry, perfect for use at picnics, camping, or any outdoor barbecue events. • Battery-Powered: Operates on AA batteries, ensuring the fan is always ready to boost your grill's heat without needing access to electricity. • Easy to Use: Comes with a simple on/off button making it user-friendly and convenient for anyone to operate. • Enhances BBQ Efficiency: It effectively stokes your BBQ coals, reducing cooking time and promoting even grilling, for a tastier cookout.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/2200000489043.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Small Black Lighter 1 Piece",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-small-black-lighter-1-piece/s/XANARY?aid=59",
+                  "item_price": "5.500",
+                  "item_description": "Passage Small Black Lighter 1 Piece is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67f258ec3a3fa53402475829.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Butane Gas, 220g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/butane-gas-220g/s/AXL60F?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "Butane Gas, 220g is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/637491b2805a3ed38cb08e52.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Korea King Butane and Propane Gas, 220g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/korea-king-butane-and-propane-gas-220g/s/0I6ZWL?aid=59",
+                  "item_price": "0.750",
+                  "item_description": "• High-Quality Fuel: This Korea King Butane and Propane Gas is of superior quality ensuring efficient and clean combustion. • Convenient Size: With its 220g size, it's lightweight and portable, perfect for outdoor use like camping and hiking. • Versatile Use: The gas mix is designed to be compatible with a wide array of butane and propane appliances. • Easy to Use: Comes with a safe and simplified design enabling easy attachment and detachment to appliances.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/1452541131252.png?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Zain Jazz Lighter Warmer - Black",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/zain-jazz-lighter-warmer-black/s/48951518226412?aid=59",
+                  "item_price": "4.750",
+                  "item_description": "Zain Jazz Lighter Warmer - Black is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/elite/48951518226412.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Charcoal 80 pcs",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-charcoal-80-pcs/s/B49IQ0?aid=59",
+                  "item_price": "2.800",
+                  "item_description": "- High-quality Charcoal: Our Passage Charcoal comes in a robust pack of 80 pieces ensuring longer-lasting usage. - Superior Heat Generation: These charcoals generate superior heat, perfect for grilling or cooking outdoors. - Easy Light Up: The product features a quick and reliable light up, providing you with a hassle-free experience. - Environmentally Friendly: Made with select hardwood, our charcoal is eco-friendly and reduces pollution.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/7164070210883.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Mini Lighter 1pc",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-mini-lighter-1pc/s/6275000460213?aid=59",
+                  "item_price": "5.500",
+                  "item_description": "- Small and portable design: the Passage Mini Lighter is compact, making it Easy to carry and store. - Durable construction: built with robust materials, This Lighter promises longevity and reliable use. - Easy ignition: This Lighter features a simple one-touch ignition system for a hassle-free experience. - refillable Function: the Passage Mini Lighter is refillable, ensuring it can serve you for an extended period without requiring a replacement.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67307bc89e4b8724498ed21b.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Special Lighter For Charcoal Quick Lightng",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-special-lighter-for-charcoal-quick-lightng/s/7164070210977?aid=59",
+                  "item_price": "7.950",
+                  "item_description": "Passage Special Lighter For Charcoal Quick Lightng is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2000000613062.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Colorful Incense Charcoal",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/colorful-incense-charcoal/s/Y1EJN4?aid=59",
+                  "item_price": "2.950",
+                  "item_description": "• Infused with vibrant colors: This Incense Charcoal comes in a range of vibrant colors which adds a beautiful aesthetic when burned. • High-quality charcoal: Made from premium quality charcoal, it ensures a slow, steady burn for an enriching aroma experience. • Enhances ambiance: Its colorful, luminous glow adds a unique visual element enhancing mood and ambiance of any space. • Versatile use: Can be used with a variety of incense types, making it a versatile tool for all your incense needs.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6754082313.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tow Rope, 5 Ton",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tow-rope-5-ton/s/QFHH9G?aid=59",
+                  "item_price": "4.500",
+                  "item_description": "Tow Rope, 5 Ton is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/4277270990850.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Campmate Portable Card Type Stove",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/campmate-portable-card-type-stove/s/O047WE?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Features An Anti-Explosion Safety Device Small Size And Lightweight Ensure Portability And Easy Storage Equipped With A Heat Resistant Knob",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/65f2364660d824a27a10d723.JPG?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f2364660d824a27a10d724.JPG?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f2364660d824a27a10d725.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Passage Charcoal 54 pcs",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/passage-charcoal-54-pcs/s/7164070212404?aid=59",
+                  "item_price": "3.750",
+                  "item_description": "- Contains 54 pieces of premium quality Passage Charcoal, perfect for frequent usage or group events. - Each charcoal piece is carefully refined to burn evenly, providing a consistent grilling temperature. - Specifically designed for low smoke emission, allowing for a more enjoyable cooking experience. - Manufactured in an environmentally-friendly way, contributing to sustainable charcoal production.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/7164070212404.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Golden Olive Wood 10 Kg",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/golden-olive-wood-10-kg/s/1512202200001?aid=59",
+                  "item_price": "3.950",
+                  "item_description": "Golden Olive Wood 10 Kg is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1512202200001.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Bbq Griller N3",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/bbq-griller-n3/s/WPBBLI?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "• High-quality Materials: The BBQ Griller N3 is constructed from heavy-duty materials for long-lasting durability and superior heat retention. • Large Grilling Surface: Offers a spacious grilling area for cooking a variety of foods, perfect for parties and gatherings. • Convenient Temperature Control: Equipped with a heat control knob, it allows for easy temperature adjustments for perfect grilling every time. • Easy to Clean: Features a detachable grate and oil collector for hassle-free cleaning after each use.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/2200000489074.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Light Bulbs",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/light-bulbs?aid=59",
+              "Items": [
+                {
+                  "item_name": "Led Rechargeable Led Headlight - 722B",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/led-rechargeable-led-headlight-722b/s/1104202300017?aid=59",
+                  "item_price": "4.250",
+                  "item_description": "Led Rechargeable Led Headlight - 722B is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1104202300017.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Pesticides",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/pesticides?aid=59",
+              "Items": [
+                {
+                  "item_name": "Kwik All Purpose Killer 400 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kwik-all-purpose-killer-400-ml/s/6271004100070?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Spray Can 1 x 400ml",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/60f3e75cf1759d4fb97c270f.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Kwik Flying Insect Killer 300 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kwik-flying-insect-killer-300-ml/s/6271004100087?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "Spray Can 1 x 300ml",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6271004100087.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Hitzz Insect Killer For Bed Bugs 400 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/hitzz-insect-killer-for-bed-bugs-400-ml/s/6291104001107?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "Hitzz Insect Killer is a powerful and effective solution to your bed bug problems. This 400 ml spray is designed to eliminate these pests with its potent formula. Its easy to use, simply spray on the affected areas and let it work its magic. The product is safe for use around your home, ensuring that your living spaces remain pest-free. This insect killer not only eradicates bed bugs but also prevents their return, providing long-lasting protection. Please use with caution and keep out of reach of children and pets.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6291104001107.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Green Leaf Cockroach Killing Bait Powder gle 2001 5 g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/green-leaf-cockroach-killing-bait-powder-gle-2001-5-g/s/6932271700881?aid=59",
+                  "item_price": "0.200",
+                  "item_description": "5 g",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/6932271700881.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Baygon Roaches Ants Killing Spray, 400ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/baygon-roaches-ants-killing-spray-400ml/s/6281100877035?aid=59",
+                  "item_price": "1.950",
+                  "item_description": "Description: • Baygon spray for quickly and effectively killing roaches and ants. Helps in efficiently getting rid of pests in homes. Comes in a 400ml size.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/UAE/6281100877035.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Flying Insect Glue Snare",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/flying-insect-glue-snare/s/6943384100871?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "- Efficient Insect Catcher: Effectively attracts and traps flying-insects with its super-sticky adhesive. - eco-Friendly Design: Made from non-toxic materials, posing no risk to the environment or your family's health. - Low Maintenance: Easy to use and dispose, requiring little to no maintenance. - Versatile Usage: Ideal for indoor and outdoor use, effective in households, gardens, or commercial spaces.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/UAE/6943384100871.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glue to catch mice and crawling insects",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glue-to-catch-mice-and-crawling-insects/s/9012023000004?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Glue to catch mice and crawling insects is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/9012023000004.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Baygon Max Cockroach Killer Spray, 400ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/baygon-max-cockroach-killer-spray-400ml/s/NIKJLI?aid=59",
+                  "item_price": "3.400",
+                  "item_description": "• Powerful formula: Baygon Max Cockroach Killer Spray is equipped with a high-power formula to eliminate cockroaches effectively and quickly. • Long-lasting action: The product provides extended protection, keeping your space cockroach-free for a longer period. • Large volume: With 400ml content, it offers sufficient quantity for multiple uses, ensuring value for your money. • Easy application: Designed with a simple spray nozzle, this product is easy to apply with minimal effort and maximum coverage.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Kuwait/Regular/8904271201543.0.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Green Leaf Mouse & Rat glue Trap",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/green-leaf-mouse-rat-glue-trap/s/HP04QO?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "The Green Leaf Mouse & Rat Glue Trap is a reliable solution for your rodent problems. This non-toxic trap is designed to catch mice and rats effectively without causing harm to you or the environment. Its easy to use, simply place it in areas where you suspect rodent activity and wait. The strong adhesive ensures that once the rodent steps on it, they cant escape. The trap is also disposable, making clean-up hassle-free. Ideal for homes, offices, or commercial spaces, it provides a humane and efficient way to deal with unwanted pests.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_912451.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Roach Expert Cockroach Gel Syringe Style, 30g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/roach-expert-cockroach-gel-syringe-style-30g/s/ZD3FBY?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Roach Expert Cockroach Gel Syringe Style, 30g is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_920758.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "HIT Cockroach & Crawling Insect Killer Spray for Home & Office - Red - Value Pack of 2 x 400 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/hit-cockroach-crawling-insect-killer-spray-for-home-office-red-value-pack-of-2-x-400-ml/s/JKLTPX?aid=59",
+                  "item_price": "3.900",
+                  "item_description": "Godrej Lal HIT is an effective pest-killer spray that is enabled with a ‘Deep Reach Nozzle’, which will help reach even the hidden cockroaches conveniently and eliminate them before they escape. Lal HIT eliminates any cockroach in just 3 seconds. Spray Lal HIT once every week in the areas where cockroaches usually hide in your kitchen, like under your dustbin, inside the sink outlet, under the fridge, under the gas cylinder etc.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6298044111187.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products-uae/UAE_6298044111187v2.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Heat killer insects 400 g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/heat-killer-insects-400-g/s/8901157025200?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Heat killer insects 400 g is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/8901157025200.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Kwik Crawling Killer 400 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kwik-crawling-killer-400-ml/s/6271004100063?aid=59",
+                  "item_price": "1.350",
+                  "item_description": "• Knockdown Power & Long lasting effect • Odourless • Improved formula .",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/60f7fdd9f7edbad1519b7660.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Kwik Fly Odourless 400 ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kwik-fly-odourless-400-ml/s/6271004100100?aid=59",
+                  "item_price": "1.900",
+                  "item_description": "Spray Can 1 x 400ml",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6271004100100.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "HIT Spray Crawling Deep-Reach Nozzle Fresh Fragrance Insect Killer Instant Kill Red, 400ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/hit-spray-crawling-deep-reach-nozzle-fresh-fragrance-insect-killer-instant-kill-red-400ml/s/88OZYH?aid=59",
+                  "item_price": "1.750",
+                  "item_description": "• Infused with citrus fragrance • Instantly kills disease spreading cockroaches • Unique \"Deep Reach Nozzle\" guides the spray into places where cockroaches hide • Use in all cracks and corners, kitchen sink outlet and inside the wash basin outlet",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/PIM/6298044111163.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Kingtox All Insect Killer, 2x300ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/kingtox-all-insect-killer-2x300ml/s/4DSRXP?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "Kingtox All Insect Killer, 2x300ml is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM_2/644216011384.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Baygon Max Cockroach Killer 400Ml | Kills Diarrhea & Typhoid Spreading Cockroaches",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/baygon-max-cockroach-killer-400ml-kills-diarrhea-typhoid-spreading-cockroaches/s/8082023000007?aid=59",
+                  "item_price": "1.990",
+                  "item_description": "• Powerful Solution: Baygon Max Cockroach Killer effectively exterminates cockroaches, ensuring a pest-free environment. • Disease Control: This potent insecticide eliminates cockroaches that may spread diseases like diarrhea and typhoid, promoting health safety. • High-capacity: With a substantial 400ml quantity, this product offers long-lasting protection against roach infestation. • Convenient to Use: Easy to handle spray design for quick and hassle-free application around your home or office.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6804fade666794a73198c490.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Kitchen Equipment",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/kitchen-equipment?aid=59",
+              "Items": [
+                {
+                  "item_name": "Manual Round Tabletop Drum Grater Slicer Cutter3",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/manual-round-tabletop-drum-grater-slicer-cutter3/s/1203202300005?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Manual Round Tabletop Drum Grater Slicer Cutter3 is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1203202300005.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Usb Rechargeable Portable Blender",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/usb-rechargeable-portable-blender/s/1801202300005?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Usb Rechargeable Portable Blender is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1801202300005.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas E. Rice Cooker.Cws.1L(Grc4325)1X6",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-e-rice-cookercws1lgrc43251x6/s/6294010886233?aid=59",
+                  "item_price": "14.500",
+                  "item_description": "The Geepas E. Rice Cooker (Grc4325) is a versatile kitchen tool designed to simplify your cooking process. This 1-liter capacity cooker is perfect for small to medium-sized families. It includes a keep-warm function, ensuring your rice stays at the perfect temperature until you're ready to serve. Its compact design makes it easy to store, and its sturdy construction ensures durability. A must-have for any modern kitchen.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/65f24ea060d824a27a11352c.JPG?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f24ea160d824a27a11352d.JPG?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f24ea160d824a27a11352e.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royalford Kitchen Set 5Pc (K+S+P+B)10463",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royalford-kitchen-set-5pc-kspb10463/s/2S4U5K?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "- The Royalford Kitchen Set 5Pc includes a knife, spoon, peeler, and brush for all-round kitchen use. - Made from quality materials, this set assures long-term durability and superior performance. - The ergonomically designed handles offer a comfortable grip, making food preparation easier. - Dishwasher-safe for easy cleaning, this set is practical, saving you time and effort.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/676a8b9bc51adb028c7873d8.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Hand Mixer 7Spd 150W Ghm43012",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-hand-mixer-7spd-150w-ghm43012/s/U8UY0U?aid=59",
+                  "item_price": "6.500",
+                  "item_description": "- Powerful Performance: Deploying a robust 150W motor, the Geepas Hand Mixer GHM43012 effortlessly meets all your mixing needs. - Utility-Driven Design: It provides 7-speed functionality, offering precise control over your mixing and whipping requirements. - Simple to Use: The hand mixer is user-friendly, allowing quick and easy manoeuvrability for efficient mixing. - Durability Guaranteed: Manufactured with top-grade materials, this product delivers Long-Lasting durability, promising you years of reliable use.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/65f2319d60d824a27a10c550.jpeg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f2319d60d824a27a10c551.jpeg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/65f2319e60d824a27a10c552.jpeg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Metal Vacuum Cup, Stainless Steel Vacuum Bottle - 3pcs set - Green",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/metal-vacuum-cup-stainless-steel-vacuum-bottle-3pcs-set-green/s/1103202400024?aid=59",
+                  "item_price": "2.000",
+                  "item_description": "Metal Vacuum Cup, Stainless Steel Vacuum Bottle - 3pcs set - Green is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1103202400024.png?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Hand Blender 1 Speed Plus Stick Stainless Steel Blade, 200 w",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-hand-blender-1-speed-plus-stick-stainless-steel-blade-200-w/s/A713VJ?aid=59",
+                  "item_price": "7.500",
+                  "item_description": "- Powerful 200-watt motor: Ensures a high performance blending every time, capable of crushing and blending all your ingredients effortlessly. - One-speed setting: Allows for easy and convenient operation, perfect for blending soups, sauces, and more. - Stainless steel blades: Durable and Long-Lasting, capable of handling a variety of ingredients with ease, ensuring a smoother blend. - Compact and easy to clean: The Geepas Hand Blender's size makes it easy to store and its removable parts are dishwasher safe, reducing clean-up time.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/QA/SPAR/6294015502107.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Boshen 8 Inch Manual Heat Sealer",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/boshen-8-inch-manual-heat-sealer/s/202202500043?aid=59",
+                  "item_price": "6.000",
+                  "item_description": "Boshen 8 Inch Manual Heat Sealer is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67b5b80f2d928726f0da4431.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royalford Nonstick Frypan, 20cm",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royalford-nonstick-frypan-20cm/s/QKPV1O?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "- Non-stick Surface: Royalford 20cm Frypan features a non-stick coating, ensuring a smooth cooking process with easy food release and minimal cleaning effort. - Durable Construction: Made with high-grade material, it offers reliable durability and longevity, making it a staple in your kitchen for years to come. - Energy Efficient: Designed for rapid and even heat distribution, it helps in reducing cooking time and saving energy. - Comfortable Handling: The comfortable grip handle ensures safe handling while cooking and adds up to its sleek design.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/6294016434629.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Orca Chopper 1 Speed Plastic, 1L, 200 Watts",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/orca-chopper-1-speed-plastic-1l-200-watts/s/G0OZZ7?aid=59",
+                  "item_price": "8.000",
+                  "item_description": "Orca Chopper 1 Speed Plastic, 1L, 200 Watts is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/2018013650011.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Hand Blender",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-hand-blender/s/LT5JAI?aid=59",
+                  "item_price": "8.000",
+                  "item_description": "- Powerful Performance: The Geepas Hand Blender boasts with a robust 200W motor for quick and efficient blending. - One Touch Control: Equipped with an easy one-touch operation, makes blending tasks easier and simpler. - Compact and Portable: Offers a compact, ergonomic design specifically created for easy storage and usage. - Versatile Functionality: Perfect for blending, chopping and pureeing a wide variety of foods, presenting endless culinary opportunities.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/QA/ANSAR_IMAGES/6294010888145.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Clipper Assorted Mini Tube Lighter, 1 Piece",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/clipper-assorted-mini-tube-lighter-1-piece/s/AKMYGS?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "All lighters are manufactured using only the highest quality raw materials and include safety features such as a fixed flame, nylon body and a Child Resistant mechanism.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/66c5a2e08f400b3dc65c60b4.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas.Hc.V.Flask1.3Lglass (Gvf5259)",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepashcvflask13lglass-gvf5259/s/CSUUDG?aid=59",
+                  "item_price": "7.500",
+                  "item_description": "Geepas.Hc.V.Flask1.3Lglass (Gvf5259) is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/UAE/6294010887209.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas 2000W Electric Barbecue Grill",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-2000w-electric-barbecue-grill/s/2811202300007?aid=59",
+                  "item_price": "14.000",
+                  "item_description": "Geepas 2000W Electric Barbecue Grill is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2811202300007.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Tea Pot",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/tea-pot/s/FOR4SE?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Tea Pot is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images6294020002074.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Refrigerator Food Storage Containers with Lid, 3 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/refrigerator-food-storage-containers-with-lid-3-pieces/s/202202500045?aid=59",
+                  "item_price": "4.500",
+                  "item_description": "Refrigerator Food Storage Containers with Lid, 3 Pieces is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67b5b80c2d928726f0da4404.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royalford Non-Stick Frypan, 26cm",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royalford-non-stick-frypan-26cm/s/93DEZ9?aid=59",
+                  "item_price": "3.950",
+                  "item_description": "- Non-stick Surface: The Royalford Frypan features a high-quality non-stick coating for stress-free cooking and easy cleaning. - 26cm Diameter: The 26cm size makes this pan ideal for cooking a variety of dishes, suitable for all family sizes. - Durable Construction: Made with robust material to ensure long-lasting durability, even with regular use. - Ergonomic Handle: The pan includes an easy grip handle, providing a secure and comfortable hold during cooking.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Kuwait/6294016434650.0.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royal Ford Chef Knife 8\" 1 Pc",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royal-ford-chef-knife-8-1-pc/s/0RCOOJ?aid=59",
+                  "item_price": "2.950",
+                  "item_description": "Experience precision cutting with the Royal Ford 8\" Chef Knife. This single piece of culinary excellence is a must-have for every kitchen. Made from high-quality stainless steel, this knife offers durability and long-lasting sharpness. The 8-inch blade provides ample length for tackling a variety of food items, from vegetables to meats. Its ergonomic handle ensures a comfortable grip, reducing hand fatigue during long cooking sessions. The knife's balanced weight distribution ensures smooth slicing and dicing, making your food preparation process more efficient. Whether you're a seasoned chef or a home cook, the Royal Ford Chef Knife will elevate your cooking experience. Enjoy the perfect blend of functionality and style in your kitchen with this versatile tool.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat/MenuItems/6294009912219_637475384656055281.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Multi Chopper Gmc42012",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-multi-chopper-gmc42012/s/ED8Y7U?aid=59",
+                  "item_price": "11.000",
+                  "item_description": "- Highly Efficient Performance: Geepas Multi Chopper provides quick and efficient chopping with its 200W powerful motor. - Versatile Functionality: Suitable for chopping a variety of ingredients including vegetables, fruits, nuts, and more. - Safe to Use: Enjoy risk-free operation with the product's safety lock system, offering protection for users. - Easy to Clean: Designed with detachable parts, it allows for hassle-free cleaning after use.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/UAE/6294015508994.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Or-Cg-M7 Coffee Grinder",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/or-cg-m7-coffee-grinder/s/WAT9MR?aid=59",
+                  "item_price": "13.750",
+                  "item_description": "Or-Cg-M7 Coffee Grinder is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2018290812348.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Garlic Chopper Stainless Steel",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/garlic-chopper-stainless-steel/s/3001202300002?aid=59",
+                  "item_price": "0.500",
+                  "item_description": "Garlic Chopper Stainless Steel is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/3001202300002.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Metal Vacuum Cup, Stainless Steel Vacuum Bottle - 3pcs set - Blue",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/metal-vacuum-cup-stainless-steel-vacuum-bottle-3pcs-set-blue/s/1103202400025?aid=59",
+                  "item_price": "2.000",
+                  "item_description": "Metal Vacuum Cup, Stainless Steel Vacuum Bottle - 3pcs set - Blue is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/1103202400025.png?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royalford Food Tong Black & Silver, 9 Inch",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royalford-food-tong-black-silver-9-inch/s/FXWJWX?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "6Pc SS Table Knife 1x72",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores-iq/Iraq%20Items/IRQ-6294009914701.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Electric Citrus Juicer Rechargeable Hands-Free",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/electric-citrus-juicer-rechargeable-hands-free/s/US0TEP?aid=59",
+                  "item_price": "4.750",
+                  "item_description": "WIRELESS & PORTABLE DESIGN: The electric citrus juicer uses USB-C technology for charging. Take our wireless citrus juicer to the outdoor camp and don't worry about running out of power. Enjoy delicious juice anytime and anywhere with one click! HIGHER JUICE YIELD: Press and communicate with the orange, the juice is much tastier! This electric orange squeezer extract juice with a slow-speed system. It provides the pure taste of fruit. EASY TO USE & CLEAN: The juicer extractor is assembled by several parts, all detachable for easy separation and cleaning. All components are dishwasher safe except the motor base, suitable for most citrus fruit. COMPACT DESIGN: The size is highly compact and portable. It does not take up any Space. Use it at home or take it to the picnic so you can have a nutritious juice any time of the day. SIMPLE TO USE: One key to start the juicer, which can saving time and effort, freeing hands, is the perfect choice for the kitchen.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/The_Black_Shadow/6979461613439.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Hand Blender 3-In-1 Multifunction 400W GHB6136",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-hand-blender-3-in-1-multifunction-400w-ghb6136/s/XZ335B?aid=59",
+                  "item_price": "15.500",
+                  "item_description": "- Powerful 400W Motor: The Geepas Hand Blender features a robust 400-watt motor, allowing for quick and efficient blending. - 3-in-1 Functionality: This versatile blender can mash, chop, and whisk with ease, making it an all-in-one kitchen tool. - Easy to Use: Simplicity in design and easy controls ensures a hassle-free user experience every time. - Durable Construction: Made with high-quality materials to guarantee long-term durability and continuous performance.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/QA/SPAR/6294015501919.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Gsvf4115 St Steel Inner Vacuum Flask 0.6L",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-gsvf4115-st-steel-inner-vacuum-flask-06l/s/67AF75?aid=59",
+                  "item_price": "7.500",
+                  "item_description": "Geepas Gsvf4115 St Steel Inner Vacuum Flask 0.6L is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/6294001706090.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Intelligent Electric Garlic Machine, 100ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/intelligent-electric-garlic-machine-100ml/s/HIUYB8?aid=59",
+                  "item_price": "2.000",
+                  "item_description": "• This intelligent electric garlic machine sports a compact design with a capacity of 100ml, perfect for small kitchen spaces. • Features an automatic function, enhancing your cooking experience by doing the tedious task of mincing garlic for you. • Made from food-grade materials ensuring both health safety and long-term durability. • It offers easy cleaning with detachable parts, saving your time and energy for more cooking.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/6945347835424.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas Blender 3 In 1, 400 w",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-blender-3-in-1-400-w/s/I5N8PU?aid=59",
+                  "item_price": "13.000",
+                  "item_description": "- Powerful 400W Motor: Designed to blend and puree with consistency and ease, offering quick and efficient operation. - 3-in-1 Function: This versatile blender offers easy blending, grinding, and chopping to cater to all your kitchen needs. - Simple Operation: Features Easy-to-use controls that make blending and processing a breeze. - Durable Construction: Crafted with high-quality materials for Long-Lasting performance and durability.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6294015531695.png?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas 200w 4in1 Hand Blender With Bowl 860ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-200w-4in1-hand-blender-with-bowl-860ml/s/GW7ADZ?aid=59",
+                  "item_price": "14.000",
+                  "item_description": "- Powerful 200w Motor: This Geepas 4-in-1 Hand Blender's strong motor makes it easy to blend, chop, and mix ingredients quickly without effort. - Versatile 4-in-1 Functionality: Offering blending, chopping, mixing, and whisking, it simplifies meal prep or creating your favorite drink. - Detachable Design: The blender's detachable body makes cleaning easier, ensuring hygienic food prep with every use. - Included 860ml Bowl: This package comes with a generously-sized 860ml bowl for maximum convenience during food preparation.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/PIM/6294015502114.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Geepas gas Cooker Glass Top",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-gas-cooker-glass-top/s/AHTMM2?aid=59",
+                  "item_price": "18.000",
+                  "item_description": "- high-quality glass top: This Geepas Gas Cooker has a premium quality, heat-resistant glass top, ensuring Durability and Easy maintenance. - energy Efficient: the Cooker works efficiently with less consumption of Gas, making it an eco-Friendly and cost-effective choice. - Stable heat distribution: it ensures even and Optimal heat distribution, cooking your meals to perfection. - Safety Ensured: the Cooker Comes with secure and reliable Safety features, reducing any risk of Gas leaks and accidents.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/QA/ANSAR_IMAGES/6294015504972.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Gradient Water Bottle",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/gradient-water-bottle/s/3001202300044?aid=59",
+                  "item_price": "2.500",
+                  "item_description": "Gradient Water Bottle is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/3001202300044.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Royalford Knife Cleaver, 6inch",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/royalford-knife-cleaver-6inch/s/F6LY7E?aid=59",
+                  "item_price": "2.750",
+                  "item_description": "Introducing the Royalford 6-inch Knife Cleaver - a kitchen essential that combines functionality with style. Crafted from high-quality stainless steel, this knife ensures long-lasting sharpness and durability. The 6-inch blade is perfect for a variety of kitchen tasks, ranging from chopping vegetables to slicing meat with precision. The handle is ergonomically designed for a comfortable grip, reducing hand fatigue during prolonged use. Its balanced weight provides optimal control, making your cutting and chopping tasks easier and safer. With its sleek, polished finish, the Royalford Knife Cleaver not only performs well but also adds a touch of elegance to your kitchenware collection. It's easy to clean and maintain, making it a practical choice for any home or professional kitchen. Enjoy the perfect blend of efficiency and elegance with the Royalford 6-inch Knife Cleaver.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/629f2258580febd960e452ae.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Air Freshener",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/air-freshener?aid=59",
+              "Items": [
+                {
+                  "item_name": "Coco Al-Ajami - Charcoal - 96 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/coco-al-ajami-charcoal-96-pieces/s/711202200001?aid=59",
+                  "item_price": "2.450",
+                  "item_description": "• High quality: Coco Al-Ajami Charcoal is top-quality, ensuring an optimal and smooth burning experience. • Package content: The pack contains 96 pieces, perfectly suitable for long-time use. • Multi-function: Ideal for shisha, barbecues, and incense burning. • Eco-friendly: Made from coconut shell, it's an environmentally friendly product, less harmful to the atmosphere.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/0711202200001.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Coco Al-Ajami - Charcoal - 48 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/coco-al-ajami-charcoal-48-pieces/s/711202200003?aid=59",
+                  "item_price": "1.350",
+                  "item_description": "• High-quality Material: Coco Al-Ajami Charcoals are crafted from premium, organic and natural materials for a smooth burn. • Substantial Quantity: In every pack, you'll receive 48 pieces to ensure a good, long-lasting supply. • Ecologically Friendly: These charcoal pieces are eco-friendly, promoting responsible use of resources. • Ideal Burn Rate: Coco Al-Ajami Charcoals offer an optimal burn rate, enhancing your experience without wasting product.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/0711202200003.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Coco Al-Ajami - Charcoal - 72 Pieces",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/coco-al-ajami-charcoal-72-pieces/s/711202200002?aid=59",
+                  "item_price": "2.150",
+                  "item_description": "• High-quality charcoal: Coco Al-Ajami charcoal offers reliable and superior burning quality, ensuring a long-lasting heat source for cooking or heating. • Large pack size: This product comes in a pack of 72 pieces, offering great value for frequent users. • Eco-friendly: Made from coconut shells, a renewable resource, this product is an environmentally-friendly choice as compared to traditional woods. • Easy to light: The Coco Al-Ajami charcoal ignites quickly and easily, reducing the preparation time.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/0711202200002.JPG?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Mr. Muscle Marine Liquid Rim Block Toilet Freshener, 55ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/mr-muscle-marine-liquid-rim-block-toilet-freshener-55ml/s/95E7W7?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Description: •Mr. Muscle Marine Liquid Rim Block is designed to help you clean the place thoroughly. •The marine fragrance is refreshing and it will cut down the foulest odour and leave a lingering smell all around. •It also aids in cutting down the limescale deposits and gives you the best possible cleaning you can ask for •It is made using a very powerful cleaning formula that truly works wonders •With each flush, a measured dose of concentrated cleaner is released helping your toilet stay fresh and clean.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565f334592d6588318cfb3a.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Blooming Peony & Cherry, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-blooming-peony-cherry-269ml/s/4F27I5?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. *The intersection of shy pink peony and shameless flirtation. *Fits into the new, completely re-designed battery operated holder to provide up to 60 days of automatic freshness *Add new atmosphere to the spaces you love *Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de41911ea2824c0519.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de8ebb8722b96bbcd3.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de41911ea2824c051a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1df592d6588318cfaac.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de592d6588318cfaaa.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1df592d6588318cfaab.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de41911ea2824c0518.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de41911ea2824c0516.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565f1de41911ea2824c0517.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Morning Freshness Gel Air Freshener, 8g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-morning-freshness-gel-air-freshener-8g/s/9FTNF7?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "Eliminate Odors + Freshens For Weeks. Moring Freshness Refill.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_UAE/647871-01.jpg?size=122",
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Lulu_UAE/647871-02.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Ocean Escape Air Freshener, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-ocean-escape-air-freshener-269ml/s/C60H2Z?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. *Escape to the ocean with the lively marine notes of water, comforting jasmine and aromatic rosemary *New, completely re-designed battery-operated holder provides up to 60 days of automatic freshness *Add new atmosphere to the spaces you love *Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22a32abe170e44c3c7a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22a32abe170e44c3c79.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22a26d9ec111a47100c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22b32abe170e44c3c7b.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22a26d9ec111a47100b.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22b5e45d74aea3e7f3f.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22926d9ec111a47100a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22932abe170e44c3c78.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f22926d9ec111a471009.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Mr. Muscle Lavender Liquid Rim Block Toilet Freshener, 55ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/mr-muscle-lavender-liquid-rim-block-toilet-freshener-55ml/s/Z64X52?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Removes lime scale and tough stain kill germs and leaves a fresh fragrance behind Hygenically cleans and foams, Realeases a fresh fragrance. mR. Muscle Fresh Discs formula leaves flush activated protective shield all around the bowl that helps repel limescale. It lasts for six weeks, fights stains, and leaves a long lasting fragrance.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565f36ba5fd9fe8eab78c55.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Clean Linen, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-clean-linen-269ml/s/2Y88KJ?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. *A whisper of crisp, airy innocence and pure inspiration. *Fits into the new, completely re-designed batteryoperated holder to provide up to 60 days of automatic freshness *Add new atmosphere to the spaces you love *Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f126d9ec111a47105b.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f15e45d74aea3e7f70.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f132abe170e44c3cd1.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f15e45d74aea3e7f71.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f05e45d74aea3e7f6f.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f226d9ec111a47105c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f026d9ec111a47105a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f026d9ec111a471059.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2f05e45d74aea3e7f6e.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Cashmere Woods, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-cashmere-woods-269ml/s/HIV4ZT?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "Customize your home air freshening experience with Glade Cashmere Woods Automatic Spray. Choose a setting on the holders timer to have a fragrance automatically dispensed into a room every 9 18 or 36 minutes or press the boost button for an instant burst anytime you want it. Enjoy a luxurious day with the soothing softness of a cashmere sweater as notes of citrus jasmine vanilla and sandalwood surround you in comfort. How to Use: Insert refill according to device manufacturer's instructions. Keep the unit pointed away from your face at all times. Turn automatic spray unit to the off position, and remove the empty can. Insert this refill can with the spray attachment facing out. Turn the unit on by selecting desired time setting. The first spray will come after a several second delay Storage Instructions: Store in a cool and dry place, away from the sunlight",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2725e45d74aea3e7f42.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2735e45d74aea3e7f43.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f27332abe170e44c3c7d.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f27426d9ec111a471031.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2735e45d74aea3e7f45.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2745e45d74aea3e7f46.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f2735e45d74aea3e7f44.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f27232abe170e44c3c7c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f27226d9ec111a471030.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Spray Holder & Lavender & Vanilla Refill Starter Kit, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-spray-holder-lavender-vanilla-refill-starter-kit-269ml/s/6281100875093?aid=59",
+                  "item_price": "4.950",
+                  "item_description": "Unwind and take it easy as notes of creamy vanilla meet relaxing lavender flowers and glowing amber offer a soothing symphony of sweet simplicity. New, completely re-designed battery-operated holder provides up to 60 days of automatic freshness Add new atmosphere to the spaces you love Fragrance infused with essential oils",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef495e45d74aea3e7e3c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4926d9ec111a470fa3.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4a32abe170e44c3bd5.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4832abe170e44c3bd3.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4a32abe170e44c3bd4.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4832abe170e44c3bd2.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4a5e45d74aea3e7e3d.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4a26d9ec111a470fa4.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4726d9ec111a470fa2.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566ef4726d9ec111a470fa1.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Hawaiian Breeze Air Freshener, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-hawaiian-breeze-air-freshener-269ml/s/28227M?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. *Notes of lush fruits and flowers burn on the horizon. *Fits into the new, completely re-designed batteryoperated holder to provide up to 60 days of automatic freshness *Add new atmosphere to the spaces you love *Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3765e45d74aea3e7f98.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3765e45d74aea3e7f99.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37626d9ec111a47105e.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37726d9ec111a47105f.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37626d9ec111a47105d.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37632abe170e44c3cd4.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37532abe170e44c3cd3.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3755e45d74aea3e7f97.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f37532abe170e44c3cd2.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Aerosol Jasmine Air Freshener Spray, 300ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-aerosol-jasmine-air-freshener-spray-300ml/s/TCM1JG?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "* Glade Aerosol eliminates odours and freshens the air with a variety of fragrances infused with essential oil extracts. *The scent of intoxicating jasmine gets a modern twist with notes of dewy greens and ylang ylang to send your senses buzzing. *Instantly infuse the air with passionately crafted fragrance to express your spirit *Air freshener for home designed to fight tough odours *Use on a daily basis or as a final touch after your cleaning routine",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566e4b15e45d74aea3e7d1d.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566e4b25e45d74aea3e7d1e.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566e4b28e47e82a7902f0e4.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566e4b28e47e82a7902f0e5.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566e4b232abe170e44c3a81.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Sensations Refill Lavender Air Freshener, 8g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-sensations-refill-lavender-air-freshener-8g/s/14N5XJ?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "The Glade Sensations Gel Air Freshener Refill in Lavender scent is a great way to keep your home smelling fresh and inviting. The gel formula slowly releases the fragrance, providing long-lasting freshness. Simply place the refill in your Glade Sensations holder and enjoy the soothing scent of lavender throughout your home. The Lavender scent of this air freshener refill is perfect for creating a calming and relaxing atmosphere. Lavender is known for its soothing properties and can help promote a sense of tranquillity and relaxation. Whether you use it in your living room, bedroom, or bathroom, this air freshener refill will create a peaceful ambiance in your home. This 8g refill is easy to use and provides up to 30 days of continuous fragrance. It's a convenient and cost-effective way to keep your home smelling fresh and inviting. With its long-lasting lavender scent, the Glade Sensations Gel Air Freshener Refill is the perfect choice for any home. How to Use: Insert the refill can. The nozzle should be facing toward the front of the gadget. When the gadget is closed you should see the black nozzle orifice through the hole where the spray comes through the gadget. Close the unit, point away from your face and then select the desired level of fragrance. Storage Instructions: Store in a cool and dry place, away from the sunlight",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565f23f592d6588318cfad0.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Lavender & Vanilla, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-lavender-vanilla-269ml/s/4HLANY?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. * Unwind and take it easy as notes of creamy vanilla meet relaxing lavender flowers and glowing amber offer a soothing symphony of sweet simplicity. * Fits into the new, completely re-designed batteryoperated holder to provide up to 60 days of automatic freshness. * Add new atmosphere to the spaces you love. * Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fa26d9ec111a471060.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fa26d9ec111a471061.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fb26d9ec111a471062.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fc26d9ec111a471063.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fb5e45d74aea3e7fc0.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fc32abe170e44c3cd6.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fc32abe170e44c3cd7.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fa5e45d74aea3e7fbf.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6566f3fa32abe170e44c3cd5.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Glade Automatic Air Freshener Spray Refill Tropical Blossom, 269ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-automatic-air-freshener-spray-refill-tropical-blossom-269ml/s/6RW2JO?aid=59",
+                  "item_price": "3.000",
+                  "item_description": "* Customise your home air freshening experience with Glade Automatic Spray. *Artfully-crafted air freshener scent with fresh and warm notes of monoi blossom, elderflower and coconut milk; fragrance infused with essential oils *Fits into the new, completely re-designed batteryoperated holder to provide up to 60 days of automatic freshness *Add new atmosphere to the spaces you love *Glade Automatic Air Freshener Refills provide a fresh burst every 9, 18 or 36 minutes",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c41911ea2824c028b.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c592d6588318cf8fd.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c8ebb8722b96bbaa1.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79d41911ea2824c028c.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c592d6588318cf8fc.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79d41911ea2824c028d.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c592d6588318cf8fe.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79c592d6588318cf8fb.jpg?size=122",
+                    "/assets/images/grocery-placeholder.svg",
+                    "https://images.deliveryhero.io/image/product-information-management/6565e79b41911ea2824c028a.jpg?size=122"
+                  ]
+                }
+              ]
+            },
             {
               "sub_category_name": "Household",
               "sub_category_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/household-essentials/household?aid=59",
@@ -5794,10 +7201,25 @@
                   ]
                 },
                 {
-                  "item_name": "Intex Double Quick Hi Output Air Pump, 29cm",
-                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/intex-double-quick-hi-output-air-pump-29cm/s/6941057466125?aid=59",
+                  "item_name": "Glade Clean Linen Scented Candle, 3.4oz",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glade-clean-linen-scented-candle-34oz/s/46500769580?aid=59",
+                  "item_price": "1.990",
+                  "item_description": "Description: • Enhance the atmosphere of any room with the comforting glow of candlelight • Glade Jar Candles quickly fill your home with a combination of alluring fragrance and warm light • The classic scent of line-dried laundry gets a modern twist of sunny citrus in Glade Clean Linen • The familiar feeling of clean comfort makes home feel even cozier Ingredients: Wax, Fragrance, Stabilizer, Dye, SCJ Formula #35*23245 Storage instructions: Keep in a cool and dry place away from sunlight",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc758ebb8722b96bb80b.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc758ebb8722b96bb80c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc768ebb8722b96bb80d.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc7641911ea2824bff5c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc7541911ea2824bff5a.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/6565dc7541911ea2824bff5b.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "INTEX Double Quick I Hand Pump 0.9 L per Cycle 29cm",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/intex-double-quick-i-hand-pump-09-l-per-cycle-29cm/s/6941057466125?aid=59",
                   "item_price": "2.500",
-                  "item_description": "• High Output Pump: Provides swift inflation and deflation services ensuring your inflatables are ready in no time. • Double Quick Design: Features a double-action mechanism that pumps air on both upstroke and downstroke, doubling the efficiency. • User-friendly Handle: Comes with a comfortably designed handle allowing easy usage and minimal effort. • Portable Size: Compact size at 29cm making it easy to carry and store, an ideal companion for outdoor trips and gatherings.",
+                  "item_description": "This compact portable hand pump is easy to use, easy to store & easy to take with you anywhere. This pump works great for all inflatables, but works best for smaller ones. Deal for use with intex inflatable devices and similar products, this durable hand pump is simple to use, stores easily, and is portable enough to take with you anywhere. The tuv nord-approved in three sizes, and forces air on both up and down strokes for rapid inflation and deflation. A shelf storage box, accordion hose with three nozzles, and a needle to fit small, medium, and large air valves are also included. This durable hand pump is ideal for use with intex inflatable devices and similar products Intex 29 cm double speed hand & foot pump with handle. The Intex inflator has a high air flow with up and down movements. The tube is accordion style and has 3 different types of nozzles that work with the majority of valves",
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
                     "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-6941057466125.jpg?size=122",
@@ -5945,16 +7367,6 @@
                   ]
                 },
                 {
-                  "item_name": "Orca Electronic Personal Scale Upto 150kg",
-                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/orca-electronic-personal-scale-upto-150kg/s/57TB9S?aid=59",
-                  "item_price": "11.500",
-                  "item_description": "Plastic design. Weight Capacity: 150 kg. Display size: 76 mm. Auto off & On Color: Black - Model No. OR-4030H",
-                  "item_delivery_time_range": "Get it within 30 mins",
-                  "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/SSC_PIM/6922227108106.0.jpg?size=122"
-                  ]
-                },
-                {
                   "item_name": "Geepas Insect Killer Bug Zapper, 6W",
                   "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/geepas-insect-killer-bug-zapper-6w/s/2F6E5U?aid=59",
                   "item_price": "7.500",
@@ -5962,16 +7374,6 @@
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
                     "https://images.deliveryhero.io/image/darkstores-iq/Iraq%20Items/IRQ-6294010888138.jpg?size=122"
-                  ]
-                },
-                {
-                  "item_name": "Electric Uv Mosquito Killer Lamp Insect Bug Zapper Catcher",
-                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/electric-uv-mosquito-killer-lamp-insect-bug-zapper-catcher/s/2210202300009?aid=59",
-                  "item_price": "3.500",
-                  "item_description": "Electric Uv Mosquito Killer Lamp Insect Bug Zapper Catcher is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
-                  "item_delivery_time_range": "Get it within 30 mins",
-                  "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2210202300009.jpg?size=122"
                   ]
                 },
                 {
@@ -6071,7 +7473,7 @@
                   "item_description": "Bbq Air Blower is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/2210202300008.jpg?size=122"
+                    "https://images.deliveryhero.io/image/product-information-management/6804fbdc666794a73198c6ac.jpg?size=122"
                   ]
                 },
                 {
@@ -7330,6 +8732,16 @@
                   ]
                 },
                 {
+                  "item_name": "White Board Marker - Set of 4",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/white-board-marker-set-of-4/s/6974540800007?aid=59",
+                  "item_price": "1.000",
+                  "item_description": "White Board Marker - Set of 4 is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6974540800007.jpg?size=122"
+                  ]
+                },
+                {
                   "item_name": "S.O Gluestick + Liquid Glue+White Glue Card Class",
                   "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/so-gluestick-liquid-gluewhite-glue-card-class/s/1860425467913?aid=59",
                   "item_price": "1.000",
@@ -7569,16 +8981,6 @@
                   ]
                 },
                 {
-                  "item_name": "Glass Glue Stick 8 Gm",
-                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/glass-glue-stick-8-gm/s/1860424602001?aid=59",
-                  "item_price": "0.250",
-                  "item_description": "- high-quality Adhesion: Our 8 Gm Glass Glue Stick offers superior bonding strength, ensuring your projects are sturdy and durable. - Quick-drying Formula: The glue dries quickly for efficient crafting and repairs without delays. - Clear Bond: The glue provides a clear and transparent bond, allowing for a clean and professional finish on all glass objects. - Easy to Use: With its straightforward application process, this glue stick is user-friendly, suitable for both experienced crafters and beginners.",
-                  "item_delivery_time_range": "Get it within 30 mins",
-                  "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/Ritaj/1860424602001.jpg?size=122"
-                  ]
-                },
-                {
                   "item_name": "Class Quality Acrylic Lined Ruler 20 Cm",
                   "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/class-quality-acrylic-lined-ruler-20-cm/s/1860425481025?aid=59",
                   "item_price": "0.450",
@@ -7811,16 +9213,6 @@
                   ]
                 },
                 {
-                  "item_name": "Class Glue Stick, 2x8g",
-                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/class-glue-stick-2x8g/s/257202300015?aid=59",
-                  "item_price": "0.500",
-                  "item_description": "- Twin-Pack: This package includes two 8g Class Glue Sticks, providing ample supply for long-lasting use. - Easy Application: Each glue stick boasts a smooth glide, ensuring a clean and easy application for both adults and children. - Strong Adhesion: Delivering high-quality bonding, they are ideal for sticking paper, cardboard, textiles, and crafts. - Safe and Non-Toxic: These glue sticks are safe, acid-free, and non-toxic, perfect for a school or home environment.",
-                  "item_delivery_time_range": "Get it within 30 mins",
-                  "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Kuwait_26-07/257202300015.jpeg?size=122"
-                  ]
-                },
-                {
                   "item_name": "Hp Ink Cartridge 912 xl Yellow",
                   "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/hp-ink-cartridge-912-xl-yellow/s/3VVWEJ?aid=59",
                   "item_price": "10.000",
@@ -7978,7 +9370,7 @@
                   "item_description": "• Includes 2400 pieces: This comprehensive set contains 2400 pieces, offering a wide variety of beads and lobster clasps for jewelry making. • High-quality materials: The beads are crafted from high-quality materials, ensuring durability for end creations. • Versatile usage: Suitable for DIY projects, including creating bracelets, necklaces, and other jewelry pieces. • Convenient lobster clasps: The lobster clasp design ensures secure fastening, enhancing the longevity and safety of your homemade jewelry.",
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
-                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/3001202300043.jpg?size=122"
+                    "https://images.deliveryhero.io/image/product-information-management/6804fe58666794a73198cc39.jpg?size=122"
                   ]
                 },
                 {
@@ -8309,6 +9701,16 @@
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
                     "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6931376100039.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Keyroad Black Poster Color, 300ml",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/keyroad-black-poster-color-300ml/s/MVMG9W?aid=59",
+                  "item_price": "1.500",
+                  "item_description": "Keyroad Black Poster Color, 300ml is sold on Talabat by Candy mart and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/65a54cc4e7d0a2b82439bd2f.png?size=122"
                   ]
                 }
               ]
@@ -10360,6 +11762,16 @@
                   ]
                 },
                 {
+                  "item_name": "Mazaya Raspberry Lemon Molasses, 250g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/mazaya-raspberry-lemon-molasses-250g/s/6253345334857?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "Smoking Is Dangerous to Health and May Cause Death from Cancer and Other Diseases - You MUST be at least 21 years old to buy this item",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_932954v0.jpg?size=122"
+                  ]
+                },
+                {
                   "item_name": "Smoking Deluxe Filter, 33 Leaves",
                   "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/smoking-deluxe-filter-33-leaves/s/84195937?aid=59",
                   "item_price": "1.000",
@@ -10397,6 +11809,16 @@
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
                     "https://images.deliveryhero.io/image/darkstores/groceries-catalog/products/KW_913190.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Mazaya Raspberry Mint Molasses, 250g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/mazaya-raspberry-mint-molasses-250g/s/6253345334864?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "Smoking Is Dangerous to Health and May Cause Death from Cancer and Other Diseases - You MUST be at least 21 years old to buy this item",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_932955v0.jpg?size=122"
                   ]
                 },
                 {
@@ -10467,6 +11889,16 @@
                   "item_delivery_time_range": "Get it within 30 mins",
                   "item_images": [
                     "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_932933v0.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Mazaya Grape with Berry Molasses",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/667302/candy-martmangaf-tgo/product/mazaya-grape-with-berry-molasses/s/6253345303921?aid=59",
+                  "item_price": "2.250",
+                  "item_description": "Smoking Is Dangerous to Health and May Cause Death from Cancer and Other Diseases - You MUST be at least 21 years old to buy this item",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Tmart_Kuwait/KW_932935v0.jpg?size=122"
                   ]
                 },
                 {
