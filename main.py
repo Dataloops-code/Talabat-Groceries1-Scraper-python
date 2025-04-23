@@ -321,14 +321,14 @@ class TalabatGroceries:
                 await sub_page.goto(sub_category_link, timeout=240000)
                 await sub_page.wait_for_load_state("networkidle", timeout=240000)
                 await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-
+    
                 pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
                 total_pages = 1
                 if pagination_element:
                     page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
                     total_pages = len(page_numbers) if page_numbers else 1
                 print(f"      Found {total_pages} pages in this sub-category")
-
+    
                 items = []
                 for page_number in range(1, total_pages + 1):
                     print(f"      Processing page {page_number} of {total_pages}")
@@ -336,27 +336,59 @@ class TalabatGroceries:
                     await sub_page.goto(page_url, timeout=240000)
                     await sub_page.wait_for_load_state("networkidle", timeout=240000)
                     await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
-
+    
                     item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
                     print(f"        Found {len(item_elements)} items on page {page_number}")
-
+    
                     for i, element in enumerate(item_elements):
                         try:
-                            item_name_element = await element.query_selector('div[data-test="item_name"]')
-                            item_name = await item_name_element.inner_text() if item_name_element else f"Unknown Item {i+1}"
-                            print(f"        Item name: {item_name}")
-
+                            # Try multiple selectors for item name
+                            name_selectors = [
+                                'div[data-test="item_name"]',  # Original selector
+                                'span[data-testid="item-title"]',  # Common for titles
+                                'div[class*="item-name"]',  # Class-based selector
+                                'h3',  # Common for item titles
+                                'span'  # Fallback to any span
+                            ]
+                            item_name = None
+                            for selector in name_selectors:
+                                item_name_element = await element.query_selector(selector)
+                                if item_name_element:
+                                    item_name = await item_name_element.inner_text()
+                                    if item_name and item_name.strip():
+                                        print(f"        Item name found with selector '{selector}': {item_name}")
+                                        break
+                                    else:
+                                        print(f"        Selector '{selector}' found empty or invalid name")
+                                else:
+                                    print(f"        Selector '{selector}' not found")
+    
+                            # Fallback to URL parsing if no valid name found
+                            if not item_name or not item_name.strip():
+                                item_link = self.base_url + await element.get_attribute('href')
+                                # Extract item name from URL path (e.g., 'lusine-white-sandwich-roll-200g')
+                                url_parts = item_link.split('/')
+                                for part in url_parts:
+                                    if part and '-' in part and not part.startswith('s/'):
+                                        item_name = part.replace('-', ' ').title()
+                                        print(f"        Item name extracted from URL: {item_name}")
+                                        break
+                                if not item_name:
+                                    item_name = f"Unknown Item {i+1}"
+                                    print(f"        No item name found, using default: {item_name}")
+    
                             item_link = self.base_url + await element.get_attribute('href')
                             print(f"        Item link: {item_link}")
-
+    
                             item_details = await self.extract_item_details(item_link)
                             items.append({
-                                "item_name": item_name,
+                                "item_name": item_name.strip(),
                                 "item_link": item_link,
                                 **item_details
                             })
                         except Exception as e:
                             print(f"        Error processing item {i+1}: {e}")
+                            logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
                 await sub_page.close()
                 return items
             except Exception as e:
@@ -365,7 +397,7 @@ class TalabatGroceries:
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
         return []
-
+    
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
