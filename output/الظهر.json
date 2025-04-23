@@ -14448,5 +14448,314 @@
         }
       ]
     }
+  },
+  "City Star Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
+    "delivery_time": "27 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": [
+        {
+          "name": "School Snacks time",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/school-snacks-time/nuts?aid=59",
+          "sub_categories": [
+            {
+              "sub_category_name": "Nuts",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/school-snacks-time/nuts?aid=59",
+              "Items": [
+                {
+                  "item_name": "Al Rifai Egyptian Seeds 2 X 180 gm",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/al-rifai-egyptian-seeds-2-x-180-gm/s/P0QOW0?aid=59",
+                  "item_price": "3.495",
+                  "item_description": "• \"2-Pack Bundle: Al Rifai's Egyptian Seeds weighing 180 grams each provide a healthy snacking option for everyone.\" • \"High in Nutrients: These seeds are densely packed with beneficial vitamins and minerals, supporting an overall balanced diet.\" • \"Natural Taste: Enjoy the rich, authentic taste of Egyptian seeds, carefully preserved by Al Rifai's special packaging process.\" • \"Versatile Usage: Apart from munching as a snack, you can use these seeds as a topping on desserts, salads, and other dishes for an added crunch and flavor.\"",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image-nocache/talabat/MenuItems/alrifai-egyptian-see_637237552494516503.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Al Rifai Light Mix Nuts 2 X 200 gm",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/al-rifai-light-mix-nuts-2-x-200-gm/s/2010380494304?aid=59",
+                  "item_price": "5.370",
+                  "item_description": "• Al Rifai Light Mix Nuts are a 2-pack bundle, each pack containing 200 grams of nuts for daily nutrition. • The mix includes select premium nuts like almonds, walnuts, cashews and more, which are rich in essential vitamins and minerals. • These mixed nuts are low in sodium, making them an excellent snack option for those monitoring their salt intake. • Conveniently packed for easy storage and portability, they're perfect for on-the-go snacking or for adding a delicious crunch to your meals.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Midway/2010380494304.jpg?size=122"
+                  ]
+                }
+              ]
+            },
+            {
+              "sub_category_name": "Freshly Baked",
+              "sub_category_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+              "Items": [
+                {
+                  "item_name": "KFM Arabic White Bread, 75g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/kfm-arabic-white-bread-75g/s/6271003081011?aid=59",
+                  "item_price": "0.045",
+                  "item_description": "Plain white arabic bread made from quality local flour",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/61a5c547f2c37c8a5088edcb.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "L'usine White Sandwich Roll, 200g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/lusine-white-sandwich-roll-200g/s/6281007042840?aid=59",
+                  "item_price": "0.320",
+                  "item_description": "Pack 1 x 200 gm",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/CPG/Almarai/6281007042840.png?size=122",
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/QC_Standard_Images/KW11A847.png?size=122",
+                    "https://images.deliveryhero.io/image/darkstores-qatar/Products/QR_914604.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "MF Tortillas Wrap, 25cm, 370g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/mf-tortillas-wrap-25cm-370g/s/6271100330364?aid=59",
+                  "item_price": "1.265",
+                  "item_description": "Description:These wraps a perfect option for lunch, breakfast and even for a picnic. They are versatile and can be used for Rolls, Wraps & Tacos as well. Ingrediants:Wheat Flour• Water• Palm Fat• Stabilizer Glycerol• Guar Gum Glucose (From Wheat)• Raising Agents Diphosphate• Sodium Carbonate Emulsifier Mono And Diglycerides Of Fatty Acids Sugar• Salt• Preservatives Calcium Propitiate• Potassium Sorbate Acidy Regulator Malic Acid• Flour Treatment Agent L Cysteine. Storage:Store in a cool and dry place.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6271100330364.jpg?size=122",
+                    "https://images.deliveryhero.io/image/darkstores-QAtar/Products/QR_904957.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "MF Multigrain Tortillas Wrap, 20cm, 320g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/mf-multigrain-tortillas-wrap-20cm-320g/s/06271100330487?aid=59",
+                  "item_price": "1.250",
+                  "item_description": "Prepare your favourite sandwiches and enjoy Fried or baked tortillas stuffed with chicken, salad, shellfish Always loved by everybody High-quality ingredients Energetic fibre rich tortillas that go well with all your meals INGREDIENTS: Wheat flour• water• palm fat• stabilizer (glycerin)• salt• rye flour• wheat bran coarse• linseed brown• raising agent (sodium carbonates• diphosphates)• wheat germ roasted• linseed yellow• salt• sugar• acidity regulator (citric acid)• preservatives (potassium sorbate• calcium propionate)• emulsifier (mono- and diglycerides of fatty acids). STORAGE INSTRUCTIONS: Keep in a cool, dry place. Once opened keep refrigerated.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/670d62e9088d2ba7e05ed02c.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/670d62ea088d2ba7e05ed02d.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/670d62ea088d2ba7e05ed02e.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "KFM Mini Sandwich Cheese, 4x55g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/kfm-mini-sandwich-cheese-4x55g/s/6271003043521?aid=59",
+                  "item_price": "0.620",
+                  "item_description": "Mini Cheese Sandwich - 220 gm",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/61b1acfae59c9666f44d275b.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "MF Whole Wheat Wrap Tortillas, 320g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/mf-whole-wheat-wrap-tortillas-320g/s/6271100330494?aid=59",
+                  "item_price": "1.115",
+                  "item_description": "• Whole Wheat Tortilla Wraps are made with 100% whole wheat flour • These wraps are soft and pliable • Provides a nutritious base for your favorite fillings • Can be used for wraps, burritos, quesadillas, and more • It is easy to store and use whenever you want • Enjoy the delicious taste and health benefits of whole wheat tortilla wraps",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Regional_Images/Images/Hero_Images/New_Hero_Images/6271100330494.jpg?size=122",
+                    "https://images.deliveryhero.io/image/product-information-management/611e183c3e442bfbdba234e8.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Matilde Vicenzi Lady Fingers Biscuit, 200g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/matilde-vicenzi-lady-fingers-biscuit-200g/s/8000350000585?aid=59",
+                  "item_price": "1.530",
+                  "item_description": "Description: • Italy’s most popular Ladyfinger, used as a principal ingredient in many desserts like chocolate gateau lining, sponge element of tiramisu and others • Contains wheat flour, eggs, sugar and flavourings • GMO free, Halal, IFS, ISO and OU Kosher Dairy certified • Product made in Italy • No preservatives, artificial colours or hydrogenated fats. Storage instructions: Keep in a cool, dry and hygenic place",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/darkstores-jo/Jordan%20Items/JOR-8000350000585.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Qarmishni Ola Tqarwshni Chocolate Wafer Qubes 400 g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/qarmishni-ola-tqarwshni-chocolate-wafer-qubes-400-g/s/J7CZ3H?aid=59",
+                  "item_price": "1.540",
+                  "item_description": "Qarmishni Ola Tqarwshni Chocolate Wafer Qubes 400 g is sold on Talabat by City Star Grocery and will be delivered to you across Kuwait within minutes. Shop online and enjoy our quick delivery service.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/talabat-nv/Kuwait/6281105682252.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Sara Cake Tortilla Wraps, 8 inch, 350g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/sara-cake-tortilla-wraps-8-inch-350g/s/6271026236153?aid=59",
+                  "item_price": "1.485",
+                  "item_description": "- Sara Cake Tortilla Wraps are 8-inch size, perfect for rolling up your favorite fillings for burritos, soft tacos, or wraps. - This pack weighs 350g, providing a substantial amount of wraps for multiple meal preparations. - They are versatile and can be used in a variety of dishes, making your meal times exciting and delicious. - Made with high-quality standards, these wraps are perfect for keeping your healthy diet on track with no compromise on taste.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67040e95258ec80a05ccdca9.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "Sara Cake Tortilla Wraps, 6 inch, 250g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/sara-cake-tortilla-wraps-6-inch-250g/s/6271026231134?aid=59",
+                  "item_price": "1.095",
+                  "item_description": "- Sara Cake Tortilla Wraps offer a pack of 6-inch tortillas, perfect for meal preps or quick snacks. - These tortilla wraps weigh 250g, ensuring you have enough for multiple servings. - Made with high-quality ingredients, Sara Cake promises fresh and flavorful tortillas for your every meal. - Conveniently packaged, these tortilla wraps remain fresh and soft for longer, allowing for both immediate use and storage.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/67040e93258ec80a05ccdca7.jpg?size=122"
+                  ]
+                },
+                {
+                  "item_name": "KFM Plain Cup Cake, 200g",
+                  "item_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/product/kfm-plain-cup-cake-200g/s/06271003043033?aid=59",
+                  "item_price": "0.540",
+                  "item_description": "• Delicious KFM Plain Cup Cake, expertly baked to a velvety softness, offering a satisfying treat for your taste buds. • Weighs 200g, a perfect grab-and-go snack size for cake lovers of all ages. • Delectably plain to suit all tastes, ideal for those who enjoy an uncomplicated, classic cake taste. • Made from high-quality ingredients, ensuring a consistently good taste and texture with every bite.",
+                  "item_delivery_time_range": "Get it within 30 mins",
+                  "item_images": [
+                    "https://images.deliveryhero.io/image/product-information-management/60e6edca47af5ad9f344f51d.jpg?size=122"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Bakery",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fruits & Vegetables",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Delicatessen",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/delicatessen/deli-meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Grab & Go",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Dairy & Eggs",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Breakfast Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Fresh Meat & Chicken",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Frozen Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cooking & Baking",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Canned & Jarred Food",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Condiments",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Organic & Special Diet",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Milk",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Beverages",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Coffee & Tea",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Ice Cream",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Snacks & Candy",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Water",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pet Care",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Baby",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Toys",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Personal Care",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Pharmacy",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Disposables",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Cleaning & Laundry",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Household Essentials",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Electronics",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/electronics/mobile-devices?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Gift Items",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/gift-items/boxes?aid=59",
+          "sub_categories": []
+        },
+        {
+          "name": "Tobacco Shop",
+          "link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+          "sub_categories": []
+        }
+      ]
+    }
   }
 }

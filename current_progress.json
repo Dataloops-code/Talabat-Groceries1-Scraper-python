@@ -2,22 +2,35 @@
   "completed_areas": [
     "الظهر"
   ],
-  "current_area_index": 0,
-  "last_updated": "2025-04-23T11:51:12.431753",
+  "current_area_index": 1,
+  "last_updated": "2025-04-23T14:08:09.338355",
   "current_progress": {
-    "area_name": "الظهر",
+    "area_name": "الرقه",
     "current_grocery": 1,
-    "current_grocery_title": "City Star Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=59",
+    "current_grocery_title": "Top Shop",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/675516/top-shop-ahmadi-mahboula?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "School Snacks time",
-    "current_sub_category": "Toast",
+    "current_category": "Bakery",
+    "current_sub_category": "Squeeze & Tub Cheese",
     "completed_groceries": {
-      "City Star Grocery": {
+      "Top Shop": {
         "completed sub-categories": [
-          "Nuts",
-          "Freshly Baked"
+          "Freshly Baked",
+          "Toast",
+          "Buns & Rolls",
+          "Cakes",
+          "Croissant Single",
+          "Croissant Packs",
+          "Pastries",
+          "Cup Cakes & Rolls",
+          "Vegetables",
+          "Fruits",
+          "Herbs",
+          "Dates & Dried Fruits",
+          "Salads",
+          "Eggs",
+          "Slice Cheese & Shredded"
         ]
       }
     }
