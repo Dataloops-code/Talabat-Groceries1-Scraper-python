@@ -32,35 +32,74 @@ class TalabatGroceries:
     async def extract_category_hierarchy(self, page) -> Dict[str, List[str]]:
         """
         Extract category and sub-category hierarchy from the grocery page.
-        Returns a dictionary mapping each category to its list of sub-categories.
+        Includes explicit waits, scrolling, and HTML saving for debugging.
         """
         print("Extracting category-sub-category hierarchy")
         hierarchy = {}
-        retries = 3
+        retries = 5  # Increased retries
+        attempt = 1
+
         while retries > 0:
             try:
+                print(f"Attempt {attempt} to extract hierarchy")
+                # Ensure page is fully loaded
+                await page.wait_for_load_state("networkidle", timeout=60000)
+                # Wait for category elements explicitly
+                await page.wait_for_selector('div[data-testid="category-item-component"]', timeout=30000)
+                # Scroll to bottom to trigger dynamic loading
+                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                await page.wait_for_timeout(2000)  # Wait for dynamic content
+
                 # Locate all category components
                 category_elements = await page.query_selector_all('div[data-testid="category-item-component"]')
+                print(f"Found {len(category_elements)} category elements")
+
                 for category_element in category_elements:
                     # Get category name
                     category_name_element = await category_element.query_selector('span[data-testid="category-name"]')
                     category_name = await category_name_element.inner_text() if category_name_element else None
-                    if not category_name:
+                    if not category_name or not category_name.strip():
+                        print("Skipping category with missing or empty name")
                         continue
                     # Get sub-categories
                     sub_category_elements = await category_element.query_selector_all('a[data-testid="subCategory-a"]')
-                    sub_categories = [await sub_cat.inner_text() for sub_cat in sub_category_elements]
-                    hierarchy[category_name] = sub_categories
-                print(f"Category hierarchy extracted: {hierarchy}")
-                logging.info(f"Extracted category hierarchy: {hierarchy}")
-                return hierarchy
+                    sub_categories = [await sub_cat.inner_text() for sub_cat in sub_category_elements if await sub_cat.inner_text()]
+                    # Clean sub-category names
+                    sub_categories = [sub_cat.strip() for sub_cat in sub_categories if sub_cat.strip()]
+                    if sub_categories:
+                        hierarchy[category_name.strip()] = sub_categories
+                        print(f"Extracted category '{category_name}' with sub-categories: {sub_categories}")
+                    else:
+                        print(f"No sub-categories found for category '{category_name}'")
+
+                if hierarchy:
+                    print(f"Category hierarchy extracted: {hierarchy}")
+                    logging.info(f"Extracted category hierarchy: {hierarchy}")
+                    return hierarchy
+                else:
+                    print("No categories extracted in this attempt")
+                    logging.warning(f"Attempt {attempt}: No categories extracted")
+
+            except PlaywrightTimeoutError as e:
+                print(f"Timeout extracting category hierarchy: {e}")
+                logging.error(f"Attempt {attempt}: Timeout extracting category hierarchy: {e}")
             except Exception as e:
                 print(f"Error extracting category hierarchy: {e}")
-                logging.error(f"Error extracting category hierarchy: {e}")
-                retries -= 1
-                print(f"Retries left: {retries}")
-                await asyncio.sleep(5)
-        return {}
+                logging.error(f"Attempt {attempt}: Error extracting category hierarchy: {e}")
+
+            retries -= 1
+            attempt += 1
+            print(f"Retries left: {retries}")
+            await asyncio.sleep(10)  # Increased delay
+
+        # Save HTML for debugging
+        html_content = await page.content()
+        debug_filename = f"category_hierarchy_debug_{uuid.uuid4().hex[:8]}.html"
+        with open(debug_filename, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        print(f"Saved page HTML to {debug_filename} for debugging")
+        logging.warning(f"Failed to extract hierarchy after all retries, saved HTML to {debug_filename}")
+        return hierarchy  # Return partial or empty hierarchy
 
     async def get_general_link(self, page):
         print("Attempting to get general link")
@@ -164,6 +203,11 @@ class TalabatGroceries:
                 sub_category_links = [self.base_url + await el.get_attribute('href') for el in sub_category_elements]
 
                 for idx, (sub_category_name, sub_category_link) in enumerate(zip(sub_category_names, sub_category_links)):
+                    sub_category_name = sub_category_name.strip()
+                    if not sub_category_name:
+                        print(f"    Skipping empty sub-category at index {idx}")
+                        continue
+
                     if sub_category_name in completed_sub_categories:
                         print(f"    Skipping completed sub-category: {sub_category_name}")
                         continue
@@ -176,10 +220,10 @@ class TalabatGroceries:
                             print(f"    Skipping sub-category {sub_category_name}, waiting for {current_sub_category}")
                             continue
 
-                    # Validate sub-category belongs to the current category
+                    # Validate sub-category, but don't skip if not found
                     if sub_category_name not in self.main_scraper.category_hierarchy.get(category_name, []):
-                        print(f"    Warning: Sub-category '{sub_category_name}' not found in category '{category_name}' hierarchy")
-                        continue
+                        print(f"    Warning: Sub-category '{sub_category_name}' not found in category '{category_name}' hierarchy, processing anyway")
+                        logging.warning(f"Sub-category '{sub_category_name}' not in '{category_name}' hierarchy")
 
                     print(f"    Processing sub-category: {sub_category_name}")
                     print(f"    Sub-category link: {sub_category_link}")
@@ -207,7 +251,8 @@ class TalabatGroceries:
                     self.main_scraper.commit_progress(f"Processed sub-category {sub_category_name} for {grocery_title} in {category_name}")
 
                 # Check if category is complete
-                if all(sub_cat_name in completed_sub_categories + [s["sub_category_name"] for s in sub_categories] for sub_cat_name in sub_category_names):
+                expected_sub_categories = self.main_scraper.category_hierarchy.get(category_name, [])
+                if expected_sub_categories and all(sub_cat_name in completed_sub_categories + [s["sub_category_name"] for s in sub_categories] for sub_cat_name in expected_sub_categories):
                     completed_groceries = self.main_scraper.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
                     completed_groceries.setdefault("completed_categories", []).append(category_name)
                     self.main_scraper.current_progress["current_progress"]["completed_groceries"][grocery_title] = completed_groceries
@@ -261,6 +306,9 @@ class TalabatGroceries:
                 sub_category_links = [self.base_url + await el.get_attribute('href') for el in sub_category_elements]
 
                 for name, link in zip(sub_category_names, sub_category_links):
+                    name = name.strip()
+                    if not name:
+                        continue
                     if name not in completed_sub_categories:
                         print(f"Found missing sub-category: {name}")
                         missing_sub_categories.append({"sub_category_name": name, "sub_category_link": link})
@@ -1329,7 +1377,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 
