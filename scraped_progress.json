@@ -3,12 +3,12 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-24T06:18:14.089353",
+  "last_updated": "2025-04-24T12:20:07.880816",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
-    "current_grocery_title": "Alfa Market",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=37",
+    "current_grocery_title": "Sultan Center",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Condiments",
@@ -20761,6 +20761,124 @@
             },
             "Kashta": {
               "category_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula/kashta/kashta-items?aid=37",
+              "sub_categories": []
+            }
+          }
+        }
+      },
+      "Sultan Center": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall?aid=37",
+        "delivery_time": "N/A",
+        "grocery_details": {
+          "delivery_fees": "KD 0.000",
+          "minimum_order": "KD 1.000",
+          "categories": {
+            "Imports": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/imports/chocolate?aid=37",
+              "sub_categories": []
+            },
+            "Fruit & Veg ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/fruit-veg/fresh-fruit?aid=37",
+              "sub_categories": []
+            },
+            "Bakery ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/bakery/toast?aid=37",
+              "sub_categories": []
+            },
+            "Poultry, Meat & Seafood ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/poultry-meat-seafood/chicken-poultry?aid=37",
+              "sub_categories": []
+            },
+            "Coffee & Tea ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/coffee-tea/coffee?aid=37",
+              "sub_categories": []
+            },
+            "Dairy & Eggs ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/dairy-eggs/eggs?aid=37",
+              "sub_categories": []
+            },
+            "Beverages ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/beverages/water?aid=37",
+              "sub_categories": []
+            },
+            "Cooking & Baking ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/cooking-baking/baking-ingredients?aid=37",
+              "sub_categories": []
+            },
+            "Condiments ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/condiments/salad-dressings-vinegar?aid=37",
+              "sub_categories": []
+            },
+            "Deli ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/deli/cheese-labneh?aid=37",
+              "sub_categories": []
+            },
+            "Frozen Food ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/frozen-food/fries?aid=37",
+              "sub_categories": []
+            },
+            "Canned & Jarred ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/canned-jarred/canned-seafood?aid=37",
+              "sub_categories": []
+            },
+            "Snacks & Chocolate ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/snacks-chocolate/chocolate?aid=37",
+              "sub_categories": []
+            },
+            "Disposables ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/disposables/tissues-paper-rolls?aid=37",
+              "sub_categories": []
+            },
+            "Ready To Eat ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/ready-to-eat/salads?aid=37",
+              "sub_categories": []
+            },
+            "Milk ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/milk/fresh-milk?aid=37",
+              "sub_categories": []
+            },
+            "Ice Cream ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/ice-cream/bars-cones-sticks?aid=37",
+              "sub_categories": []
+            },
+            "Breakfast Food ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/breakfast-food/cereals?aid=37",
+              "sub_categories": []
+            },
+            "Protein & Special Diet ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/protein-special-diet/protein?aid=37",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/cleaning-laundry/dishwashing?aid=37",
+              "sub_categories": []
+            },
+            "Personal Care ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/personal-care/hair-care?aid=37",
+              "sub_categories": []
+            },
+            "Health & Beauty ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/health-beauty/perfumes?aid=37",
+              "sub_categories": []
+            },
+            "Household Essentials ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/household-essentials/outdoor-travel-gear?aid=37",
+              "sub_categories": []
+            },
+            "Baby Corner ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/baby-corner/diapers?aid=37",
+              "sub_categories": []
+            },
+            "Pet Care ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/pet-care/cat-food?aid=37",
+              "sub_categories": []
+            },
+            "Stationery & Games ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/stationery-games/stationery?aid=37",
+              "sub_categories": []
+            },
+            "Tobacco ": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/37421/sultan-center-alkout-mall/tobacco/vape?aid=37",
               "sub_categories": []
             }
           }
