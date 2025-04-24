@@ -423,7 +423,6 @@ class TalabatGroceries:
                     if delivery_time_element:
                         delivery_time = await delivery_time_element.inner_text()
                         break
-                print(f"Delivery time range: {delivery_time}")
     
                 # Extract images
                 image_selectors = [
@@ -438,7 +437,6 @@ class TalabatGroceries:
                     if item_image_elements:
                         item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                         break
-                print(f"Item images: {item_images}")
     
                 # If critical data is missing, refresh the page once
                 if item_price == "N/A" and item_description == "N/A" and not item_images:
@@ -474,9 +472,11 @@ class TalabatGroceries:
                             item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                             break
     
+                # Print in the desired order
                 print(f"Item price: {item_price}")
                 print(f"Item description: {item_description}")
                 print(f"Item images: {item_images}")
+                print(f"Delivery time range: {delivery_time}")
     
                 # Safely close page and context
                 await page.close()
