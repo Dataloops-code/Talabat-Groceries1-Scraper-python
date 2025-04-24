@@ -1,6 +1,14 @@
 import json
 import os
 from datetime import datetime
+import logging
+
+# Set up logging
+logging.basicConfig(
+    filename='migration.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # Static category hierarchy (replace with actual hierarchy from scraping if needed)
 CATEGORY_HIERARCHY = {
@@ -29,6 +37,7 @@ CATEGORY_HIERARCHY = {
 def migrate_json_file(filename: str):
     if not os.path.exists(filename):
         print(f"{filename} not found, skipping")
+        logging.info(f"{filename} not found, skipping")
         return
     
     with open(filename, 'r', encoding='utf-8') as f:
@@ -58,6 +67,7 @@ def migrate_json_file(filename: str):
     with open(filename, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f"Updated {filename}")
+    logging.info(f"Updated {filename}")
 
 def migrate_area_json_files(output_dir: str):
     for filename in os.listdir(output_dir):
@@ -69,14 +79,33 @@ def migrate_area_json_files(output_dir: str):
             # Update grocery_details structure if needed
             for grocery_title, grocery_data in data.items():
                 categories = grocery_data.get("grocery_details", {}).get("categories", {})
-                for category_name, category_data in categories.items():
-                    # Ensure sub_categories is a list
-                    if not isinstance(category_data.get("sub_categories"), list):
-                        category_data["sub_categories"] = []
+                if isinstance(categories, list):
+                    logging.warning(f"Categories is a list in {filepath} for {grocery_title}, converting to dictionary")
+                    # Convert list to dictionary if possible
+                    new_categories = {}
+                    for cat in categories:
+                        if isinstance(cat, dict) and "category_name" in cat:
+                            category_name = cat["category_name"]
+                            new_categories[category_name] = {
+                                "category_link": cat.get("category_link", ""),
+                                "sub_categories": cat.get("sub_categories", [])
+                            }
+                        else:
+                            logging.warning(f"Skipping invalid category entry in {filepath}: {cat}")
+                    grocery_data["grocery_details"]["categories"] = new_categories
+                elif isinstance(categories, dict):
+                    for category_name, category_data in categories.items():
+                        # Ensure sub_categories is a list
+                        if not isinstance(category_data.get("sub_categories"), list):
+                            category_data["sub_categories"] = []
+                else:
+                    logging.warning(f"Unexpected categories type in {filepath} for {grocery_title}: {type(categories)}")
+                    grocery_data["grocery_details"]["categories"] = {}
             
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2, ensure_ascii=False)
             print(f"Updated {filepath}")
+            logging.info(f"Updated {filepath}")
 
 if __name__ == "__main__":
     # Migrate progress files
