@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-23T21:02:34.836548",
+  "last_updated": "2025-04-24T00:22:38.057015",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 17,
+    "current_grocery": 5,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Pasta & Sauces",
+    "current_sub_category": "Bars, Cones & Sticks",
     "completed_groceries": {
       "City Star Grocery": {
         "completed sub-categories": [
@@ -48,7 +48,54 @@
           "Frozen Fruits & Vegetables",
           "Frozen Ready Meals",
           "Rice",
-          "Oil & Ghee"
+          "Oil & Ghee",
+          "Pasta & Sauces",
+          "Noodles & Soups",
+          "Pulses & Grains",
+          "Baking Products",
+          "Cooking Supplies",
+          "Meat & Seafood",
+          "Canned Fruits & Vegetables",
+          "Ready-to-Eat Canned Meals",
+          "Salt & Spices",
+          "Olives & Pickles",
+          "Sauces & Dressings",
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings",
+          "Organic Dairy & Eggs",
+          "Healthy & Protein Snacks",
+          "Special Diet",
+          "Cocoa Powder",
+          "Syrups",
+          "Spreads & Honey",
+          "Cereals",
+          "Fresh Milk",
+          "Fresh Laban",
+          "UHT Milk",
+          "Evaporated Milk",
+          "Flavoured Milk",
+          "Condensed Milk",
+          "Coffee",
+          "Tea",
+          "Creamers",
+          "Sugar & Sweeteners",
+          "Iced Coffee",
+          "Minis & Miniatures",
+          "Chocolate Bars",
+          "Chocolate Sharing",
+          "Wafers",
+          "Digestive & Fibre",
+          "Biscuits",
+          "Cookies",
+          "Crackers",
+          "Candy & Gum",
+          "Lollies",
+          "Jellies",
+          "Chips Packs",
+          "Chips Single",
+          "Popcorn",
+          "Seeds & Nuts",
+          "Canister Chips"
         ]
       }
     }
@@ -20119,143 +20166,116 @@
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
-          "categories": [
-            {
-              "category_name": "Deals",
+          "categories": {
+            "Deals": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/deals/promotions?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Bakery",
+            "Bakery": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/bakery/freshly-baked?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Fruits & Vegetables",
+            "Fruits & Vegetables": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/fruits-vegetables/vegetables?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Delicatessen",
+            "Delicatessen": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/delicatessen/deli-meat-seafood?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Dairy & Eggs",
+            "Dairy & Eggs": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/dairy-eggs/eggs?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Frozen Food",
+            "Frozen Food": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/frozen-food/frozen-poultry?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Cooking & Baking",
+            "Cooking & Baking": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cooking-baking/rice?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Canned & Jarred",
+            "Canned & Jarred": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/canned-jarred/meat-seafood?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Condiments",
+            "Condiments": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/condiments/salt-spices?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Organic & Special Diet",
+            "Organic & Special Diet": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/organic-special-diet/organic-dairy-eggs?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Breakfast Food",
+            "Breakfast Food": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/breakfast-food/cocoa-powder?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Milk",
+            "Milk": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/milk/fresh-milk?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Coffee & Tea",
+            "Coffee & Tea": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/coffee-tea/coffee?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Snacks & Candy",
+            "Snacks & Candy": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/snacks-candy/minis-miniatures?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Ice Cream",
+            "Ice Cream": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/ice-cream/bars-cones-sticks?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Beverages",
+            "Beverages": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/beverages/juices-packs?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Water",
+            "Water": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/water/mineral-water?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Pet Care",
+            "Pet Care": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pet-care/pet-food?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Baby",
+            "Baby": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/baby/baby-bath-body-care?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Personal Care",
+            "Personal Care": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/personal-care/body-wash?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Pharmacy",
+            "Pharmacy": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/pharmacy/medications-first-aid?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Disposables",
+            "Disposables": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/disposables/disposable-tableware?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Cleaning & Laundry",
+            "Cleaning & Laundry": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/cleaning-laundry/dishwashing?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Household Essentials",
+            "Household Essentials": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/household-essentials/batteries?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Electronics",
+            "Electronics": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/electronics/mobile-accessories?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Imported Items",
+            "Imported Items": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/imported-items/imported?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Tobacco Shop",
+            "Tobacco Shop": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/tobacco-shop/vape-disposables?aid=37",
               "sub_categories": []
             }
-          ]
+          }
         }
       },
       "Top Shop": {
