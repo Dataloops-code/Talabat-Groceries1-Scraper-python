@@ -114,6 +114,7 @@ if __name__ == "__main__":
     
     # Migrate area JSON files
     migrate_area_json_files("output")
+    
 
 
 # import asyncio
