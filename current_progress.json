@@ -3,16 +3,16 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-24T00:22:38.056032",
+  "last_updated": "2025-04-24T01:42:53.102748",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 5,
+    "current_grocery": 10,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Bakery",
-    "current_sub_category": "Bars, Cones & Sticks",
+    "current_category": "Deals",
+    "current_sub_category": "Shampoo",
     "completed_groceries": {
       "City Star Grocery": {
         "completed sub-categories": [
@@ -95,7 +95,35 @@
           "Chips Single",
           "Popcorn",
           "Seeds & Nuts",
-          "Canister Chips"
+          "Canister Chips",
+          "Bars, Cones & Sticks",
+          "Cups & Tubs",
+          "Family Packs",
+          "Juices Packs",
+          "Juices Single",
+          "Juices Sharing",
+          "Soft Drinks",
+          "Sports & Energy Drinks",
+          "Malt Drinks",
+          "Powdered & Concentrated Juices",
+          "Iced Tea",
+          "Specialty Drinks",
+          "Mineral Water",
+          "Flavoured Water",
+          "Drinking Water",
+          "Ice",
+          "Pet Food",
+          "Baby Bath & Body Care",
+          "Baby Food",
+          "Feeding Bottle & Accessories",
+          "Diapers & Wipes",
+          "Body Wash",
+          "Bath Soap",
+          "Bath Scrubs",
+          "Feminine Care",
+          "Hair Colour",
+          "Hair Oil & Cream",
+          "Hair Styling"
         ]
       }
     }
