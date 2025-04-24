@@ -195,6 +195,60 @@ class TalabatGroceries:
                 await asyncio.sleep(5)
         return []
 
+    async def extract_categories(self, page):
+        """
+        Extract categories, delivery fees, and minimum order for the grocery.
+        """
+        print(f"Processing grocery: {self.url}")
+        retries = 3
+        while retries > 0:
+            try:
+                await page.goto(self.url, timeout=240000)
+                await page.wait_for_load_state("networkidle", timeout=240000)
+                print("Page loaded successfully")
+
+                # Extract category hierarchy
+                self.main_scraper.category_hierarchy = await self.extract_category_hierarchy(page)
+
+                delivery_fees = await self.get_delivery_fees(page)
+                minimum_order = await self.get_minimum_order(page)
+                view_all_link = await self.get_general_link(page)
+
+                print(f"  Delivery fees: {delivery_fees}")
+                print(f"  Minimum order: {minimum_order}")
+
+                categories_data = {}
+                if view_all_link:
+                    print(f"  Navigating to view all link: {view_all_link}")
+                    category_page = await self.browser.new_page()
+                    await category_page.goto(view_all_link, timeout=240000)
+                    await category_page.wait_for_load_state("networkidle", timeout=240000)
+
+                    category_names = await self.extract_category_names(category_page)
+                    category_links = await self.extract_category_links(category_page)
+
+                    print(f"  Found {len(category_names)} categories")
+
+                    for name, link in zip(category_names, category_links):
+                        print(f"  Category: {name}, Link: {link}")
+                        categories_data[name] = {
+                            "category_link": link,
+                            "sub_categories": []
+                        }
+                    await category_page.close()
+
+                return {
+                    "delivery_fees": delivery_fees,
+                    "minimum_order": minimum_order,
+                    "categories": categories_data
+                }
+            except Exception as e:
+                print(f"Error extracting categories: {e}")
+                retries -= 1
+                print(f"Retries left: {retries}")
+                await asyncio.sleep(5)
+        return {"error": "Failed to extract categories after multiple attempts"}
+
     async def extract_sub_categories(self, page, category_link, grocery_title, category_name):
         print(f"Attempting to extract sub-categories for: {category_name} at {category_link}")
         retries = 3
@@ -341,6 +395,10 @@ class TalabatGroceries:
         return missing_sub_categories
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
+        """
+        Placeholder for extracting items from a sub-category.
+        Replace with actual implementation if available.
+        """
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         retries = 3
         while retries > 0:
@@ -349,7 +407,7 @@ class TalabatGroceries:
                 sub_page = await context.new_page()
                 await sub_page.goto(sub_category_link, timeout=240000, wait_until="domcontentloaded")
                 await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=30000)
-                items = []  # Placeholder for item extraction
+                items = []  # Replace with actual item extraction logic
                 await sub_page.close()
                 await context.close()
                 return items
@@ -461,6 +519,14 @@ class MainScraper:
         self.save_scraped_progress()
         print(f"Progress reset for {grocery_title}")
 
+    def commit_progress(self, message: str = "Periodic progress update"):
+        """
+        Placeholder for committing progress to Git.
+        Replace with actual implementation if needed.
+        """
+        print(f"Committing progress: {message}")
+        logging.info(f"Committed progress: {message}")
+
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser):
         self.browser = browser
         print(f"Scraping area: {area_name}")
@@ -471,6 +537,7 @@ class MainScraper:
         groceries_on_page = await self.get_page_groceries(page)
         self.current_progress["current_progress"]["total_groceries"] = len(groceries_on_page)
         self.scraped_progress["current_progress"]["total_groceries"] = len(groceries_on_page)
+        print(f"Found {len(groceries_on_page)} groceries")
         await page.close()
 
         for grocery_idx, grocery in enumerate(groceries_on_page):
@@ -490,8 +557,14 @@ class MainScraper:
             grocery_page = await browser.new_page()
             talabat_grocery = TalabatGroceries(grocery_link, browser, self)
             grocery_details = await talabat_grocery.extract_categories(grocery_page)
+            self.scraped_progress["all_results"].setdefault(area_name, {})[grocery_title] = {
+                "grocery_link": grocery_link,
+                "delivery_time": grocery.get("delivery_time", "N/A"),
+                "grocery_details": grocery_details
+            }
+            self.save_scraped_progress()
             await grocery_page.close()
-            break  # Process only Hala Store for now
+            break  # Process one grocery at a time for testing
 
     async def get_page_groceries(self, page) -> List[Dict]:
         print("Extracting grocery information")
@@ -506,6 +579,7 @@ class MainScraper:
                 link = "https://www.talabat.com" + await link_element.get_attribute('href') if link_element else None
                 if link:
                     groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": "N/A"})
+            print(f"Extracted {len(groceries_info)} groceries")
             return groceries_info
         except Exception as e:
             print(f"Error extracting groceries: {e}")
