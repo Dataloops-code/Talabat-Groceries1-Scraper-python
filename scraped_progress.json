@@ -3,12 +3,12 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-25T12:19:37.621551",
+  "last_updated": "2025-04-25T18:16:06.462679",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
-    "current_grocery_title": "Alfa Market",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/634420/alfa-market-mahboula?aid=37",
+    "current_grocery_title": "Kiki Market Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Condiments",
@@ -20480,152 +20480,124 @@
       },
       "Kiki Market Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=37",
-        "delivery_time": "25 mins",
+        "delivery_time": "N/A",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
-          "categories": [
-            {
-              "category_name": "Bakery",
+          "categories": {
+            "Bakery": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/bakery/freshly-baked?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Fruits & Vegetables",
+            "Fruits & Vegetables": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fruits-vegetables/vegetables?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Grab & Go",
+            "Grab & Go": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/grab-go/salads?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Dairy & Eggs",
+            "Dairy & Eggs": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/dairy-eggs/eggs?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Breakfast Food",
+            "Breakfast Food": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/breakfast-food/cereals?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Fresh Meat & Chicken",
+            "Fresh Meat & Chicken": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fresh-meat-chicken/fresh-seafood?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Frozen Food",
+            "Frozen Food": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/frozen-food/frozen-poultry?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Cooking & Baking",
+            "Cooking & Baking": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cooking-baking/rice?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Canned & Jarred Food",
+            "Canned & Jarred Food": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/canned-jarred-food/meat-seafood?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Condiments",
+            "Condiments": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/condiments/salt-spices?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Organic & Special Diet",
+            "Organic & Special Diet": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/organic-special-diet/gluten-free-food-snacks?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Milk",
+            "Milk": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/milk/fresh-milk?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Beverages",
+            "Beverages": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/beverages/juices-single?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Coffee & Tea",
+            "Coffee & Tea": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/coffee-tea/coffee?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Ice Cream",
+            "Ice Cream": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/ice-cream/bars-cones-sticks?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Snacks & Candy",
+            "Snacks & Candy": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/snacks-candy/minis-miniatures?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Water",
+            "Water": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/water/drinking-water?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Pet Care",
+            "Pet Care": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pet-care/pet-food?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Baby",
+            "Baby": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/baby/baby-food?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Toys",
+            "Toys": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/toys/baby-toddler-toys?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Personal Care",
+            "Personal Care": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/personal-care/body-wash?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Pharmacy",
+            "Pharmacy": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pharmacy/vitamins-supplements?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Disposables",
+            "Disposables": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/disposables/disposable-tableware?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Cleaning & Laundry",
+            "Cleaning & Laundry": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cleaning-laundry/dishwashing?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Household Essentials",
+            "Household Essentials": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/household-essentials/batteries?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Electronics",
+            "Electronics": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/electronics/mobile-accessories?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Gift Items",
+            "Gift Items": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/gift-items/candles?aid=37",
               "sub_categories": []
             },
-            {
-              "category_name": "Tobacco Shop",
+            "Tobacco Shop": {
               "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/tobacco-shop/e-cigarettes-cigar?aid=37",
               "sub_categories": []
             }
-          ]
+          }
         }
       },
       "Alfa Market": {
