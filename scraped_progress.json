@@ -3,12 +3,12 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-25T00:45:57.520072",
+  "last_updated": "2025-04-25T06:17:12.146765",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
-    "current_grocery_title": "Dana Grocery Store",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-?aid=37",
+    "current_grocery_title": "Ghozlan Al Egaila Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Condiments",
@@ -21135,6 +21135,128 @@
             },
             "Vape Shop": {
               "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/vape-shop/vape-devices-pods?aid=37",
+              "sub_categories": []
+            }
+          }
+        }
+      },
+      "Ghozlan Al Egaila Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=37",
+        "delivery_time": "N/A",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": {
+            "Organic & Special Diet": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/organic-special-diet/special-diet?aid=37",
+              "sub_categories": []
+            },
+            "Bakery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/bakery/freshly-baked?aid=37",
+              "sub_categories": []
+            },
+            "Fruits & Vegetables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/fruits-vegetables/vegetables?aid=37",
+              "sub_categories": []
+            },
+            "Dairy & Eggs": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/dairy-eggs/eggs?aid=37",
+              "sub_categories": []
+            },
+            "Breakfast Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/breakfast-food/cereals?aid=37",
+              "sub_categories": []
+            },
+            "Beverages": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/beverages/juices-single?aid=37",
+              "sub_categories": []
+            },
+            "Water": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/water/drinking-water?aid=37",
+              "sub_categories": []
+            },
+            "Frozen Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/frozen-food/frozen-poultry?aid=37",
+              "sub_categories": []
+            },
+            "Cooking & Baking": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/cooking-baking/rice?aid=37",
+              "sub_categories": []
+            },
+            "Canned & Jarred Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/canned-jarred-food/meat-seafood?aid=37",
+              "sub_categories": []
+            },
+            "Delicatessen": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/delicatessen/deli-olives?aid=37",
+              "sub_categories": []
+            },
+            "Condiments": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/condiments/salt-spices?aid=37",
+              "sub_categories": []
+            },
+            "Milk": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/milk/fresh-milk?aid=37",
+              "sub_categories": []
+            },
+            "Coffee & Tea": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/coffee-tea/coffee?aid=37",
+              "sub_categories": []
+            },
+            "Ice Cream": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/ice-cream/bars-cones-sticks?aid=37",
+              "sub_categories": []
+            },
+            "Snacks & Candy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/snacks-candy/minis-miniatures?aid=37",
+              "sub_categories": []
+            },
+            "Pet Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/pet-care/pet-food?aid=37",
+              "sub_categories": []
+            },
+            "Baby": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/baby/baby-bath-body-care?aid=37",
+              "sub_categories": []
+            },
+            "Toys": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/toys/game-console?aid=37",
+              "sub_categories": []
+            },
+            "Personal Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/personal-care/feminine-care?aid=37",
+              "sub_categories": []
+            },
+            "Pharmacy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/pharmacy/vitamins-supplements?aid=37",
+              "sub_categories": []
+            },
+            "Disposables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/disposables/disposable-tableware?aid=37",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/cleaning-laundry/dishwashing?aid=37",
+              "sub_categories": []
+            },
+            "Electronics": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/electronics/wires-plugs?aid=37",
+              "sub_categories": []
+            },
+            "Household Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/household-essentials/batteries?aid=37",
+              "sub_categories": []
+            },
+            "Gift Items": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/gift-items/boxes?aid=37",
+              "sub_categories": []
+            },
+            "Stationery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/stationery/stationary-office-supplies?aid=37",
+              "sub_categories": []
+            },
+            "Tobacco Shop": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas/tobacco-shop/tobacco-rolling-papers?aid=37",
               "sub_categories": []
             }
           }
