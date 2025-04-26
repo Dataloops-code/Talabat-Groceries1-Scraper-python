@@ -1,21 +1,43 @@
 {
   "completed_areas": [
-    "الظهر"
+    "العقيلة",
+    "النويصيب",
+    "الفحيحيل",
+    "الخيران",
+    "الزور",
+    "ضاحية علي صباح السالم",
+    "المهبولة",
+    "ميناء عبد الله",
+    "بنيدر",
+    "مدينة صباح الأحمد البحرية",
+    "الأحمدي",
+    "شرق الأحمدي",
+    "هدية",
+    "الظهر",
+    "ميناء الأحمدي",
+    "الجليعة",
+    "ضاحية جابر العلي",
+    "مدينة صباح الأحمد السكنية",
+    "الوفرة",
+    "الفنطاس",
+    "ضاحية فهد الأحمد",
+    "المنقف",
+    "الرقه",
+    "الصباحية",
+    "أبو حليفة"
   ],
-  "current_area_index": 1,
-  "last_updated": "2025-04-26T21:09:07.961345",
+  "current_area_index": 24,
+  "last_updated": "2025-04-26T23:00:48.619890",
   "current_progress": {
-    "area_name": "الرقه",
-    "current_grocery": 1,
-    "current_grocery_title": "Dandoosh Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
-    "total_groceries": 20,
+    "area_name": null,
+    "current_grocery": 0,
+    "current_grocery_title": null,
+    "current_grocery_link": null,
+    "total_groceries": 0,
     "processed_groceries": [],
     "current_category": null,
     "current_sub_category": null,
-    "completed_groceries": {
-      "City Star Grocery": {}
-    }
+    "completed_groceries": {}
   },
   "all_results": {
     "الظهر": {
@@ -20739,124 +20761,384 @@
       },
       "Dandoosh Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
-        "delivery_time": "N/A",
+        "delivery_time": "20 mins",
         "grocery_details": {
-          "delivery_fees": "KD 1.000",
-          "minimum_order": "KD 1.000",
-          "categories": {
-            "Bakery": {
+          "delivery_fees": "N/A",
+          "minimum_order": "N/A",
+          "categories": [
+            {
+              "category_name": "Bakery",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/freshly-baked?aid=37",
-              "sub_categories": []
+              "sub_categories": [
+                {
+                  "sub_category_name": "Croissant Single",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/croissant-single?aid=37",
+                  "Items": [
+                    {
+                      "item_name": "7 Days Jumbo Croissant with Hazelnut & Cocoa, 110g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/7-days-jumbo-croissant-with-hazelnut-cocoa-110g/s/6281007041584?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "L'usine Cheese Croissant, 60g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/lusine-cheese-croissant-60g/s/6281100084044?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Lusine Pizza Puff, 94g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/lusine-pizza-puff-94g/s/YT3YPP?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "L'usine Biscuit Cream Butter Croissant, 83g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/lusine-biscuit-cream-butter-croissant-83g/s/6281007061032?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Plain Croissants 55 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-plain-croissants-55-g/s/2001176070338?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Croissant Cheese And Oregano 60 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-croissant-cheese-and-oregano-60-g/s/2001176070369?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Cheese Croissant 60 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-cheese-croissant-60-g/s/2001176070307?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Chocolate Croissant 60 g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-chocolate-croissant-60-g/s/2001176070314?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Oregano Croissant, 60g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-oregano-croissant-60g/s/2001176070321?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Honey Croissant, 60g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-honey-croissant-60g/s/2001176070345?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Al Faysal Strawberry Croissant, 60g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/al-faysal-strawberry-croissant-60g/s/2001176070352?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "7Days Croissant with Strawberry Filling, 55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/7days-croissant-with-strawberry-filling-55g/s/S49FD7?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "KFM Strawberry Croissant, 75g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/kfm-strawberry-croissant-75g/s/6271003043361?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "KFM Chocolate Croissant, 75g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/kfm-chocolate-croissant-75g/s/6271003043347?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "Mourouj Zaatar Pie, 90g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/mourouj-zaatar-pie-90g/s/6287014260116?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "L'usine Butter Zaatar Croissant, 80g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/lusine-butter-zaatar-croissant-80g/s/L18EYZ?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "7Days Croissant with Vanilla Cream Filling, 55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/7days-croissant-with-vanilla-cream-filling-55g/s/V1SHS9?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "7Days Croissant with Cocoa Cream Filling, 55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/7days-croissant-with-cocoa-cream-filling-55g/s/6281183000023?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "KFM Mini Sandwich Cheese, 4x55g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/kfm-mini-sandwich-cheese-4x55g/s/6271003043521?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "7Days Mini Croissant with Cocoa Cream Filling, 44g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/7days-mini-croissant-with-cocoa-cream-filling-44g/s/Q97Y8H?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    },
+                    {
+                      "item_name": "L'usine Butter Croissant Jumbo, 85g",
+                      "item_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/product/lusine-butter-croissant-jumbo-85g/s/1007041980?aid=37",
+                      "item_price": "N/A",
+                      "item_old_price": null,
+                      "item_offer": null,
+                      "item_description": "N/A",
+                      "item_delivery_time_range": "N/A",
+                      "item_images": []
+                    }
+                  ]
+                },
+                {
+                  "sub_category_name": "Croissant Packs",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/croissant-packs?aid=37",
+                  "Items": []
+                },
+                {
+                  "sub_category_name": "Pastries",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/pastries?aid=37",
+                  "Items": []
+                },
+                {
+                  "sub_category_name": "Cup Cakes & Rolls",
+                  "sub_category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/cup-cakes-rolls?aid=37",
+                  "Items": []
+                }
+              ]
             },
-            "Fruits & Vegetables": {
+            {
+              "category_name": "Fruits & Vegetables",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fruits-vegetables/vegetables?aid=37",
               "sub_categories": []
             },
-            "Grab & Go": {
+            {
+              "category_name": "Grab & Go",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/grab-go/salads?aid=37",
               "sub_categories": []
             },
-            "Dairy & Eggs": {
+            {
+              "category_name": "Dairy & Eggs",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/dairy-eggs/eggs?aid=37",
               "sub_categories": []
             },
-            "Organic & Special Diet": {
+            {
+              "category_name": "Organic & Special Diet",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=37",
               "sub_categories": []
             },
-            "Breakfast Food": {
+            {
+              "category_name": "Breakfast Food",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/breakfast-food/cereals?aid=37",
               "sub_categories": []
             },
-            "Beverages": {
+            {
+              "category_name": "Beverages",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/beverages/juices-single?aid=37",
               "sub_categories": []
             },
-            "Snacks & Candy": {
+            {
+              "category_name": "Snacks & Candy",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/snacks-candy/minis-miniatures?aid=37",
               "sub_categories": []
             },
-            "Fresh Meat & Chicken": {
+            {
+              "category_name": "Fresh Meat & Chicken",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=37",
               "sub_categories": []
             },
-            "Frozen Food": {
+            {
+              "category_name": "Frozen Food",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/frozen-food/frozen-poultry?aid=37",
               "sub_categories": []
             },
-            "Cooking & Baking": {
+            {
+              "category_name": "Cooking & Baking",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cooking-baking/rice?aid=37",
               "sub_categories": []
             },
-            "Canned & Jarred Food": {
+            {
+              "category_name": "Canned & Jarred Food",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/canned-jarred-food/meat-seafood?aid=37",
               "sub_categories": []
             },
-            "Condiments": {
+            {
+              "category_name": "Condiments",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/condiments/salt-spices?aid=37",
               "sub_categories": []
             },
-            "Milk": {
+            {
+              "category_name": "Milk",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/milk/fresh-milk?aid=37",
               "sub_categories": []
             },
-            "Coffee & Tea": {
+            {
+              "category_name": "Coffee & Tea",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/coffee-tea/coffee?aid=37",
               "sub_categories": []
             },
-            "Ice Cream": {
+            {
+              "category_name": "Ice Cream",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/ice-cream/bars-cones-sticks?aid=37",
               "sub_categories": []
             },
-            "Water": {
+            {
+              "category_name": "Water",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/water/drinking-water?aid=37",
               "sub_categories": []
             },
-            "Pet Care": {
+            {
+              "category_name": "Pet Care",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pet-care/pet-food?aid=37",
               "sub_categories": []
             },
-            "Baby": {
+            {
+              "category_name": "Baby",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/baby/baby-food?aid=37",
               "sub_categories": []
             },
-            "Toys": {
+            {
+              "category_name": "Toys",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/toys/baby-toddler-toys?aid=37",
               "sub_categories": []
             },
-            "Personal Care": {
+            {
+              "category_name": "Personal Care",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/personal-care/body-wash?aid=37",
               "sub_categories": []
             },
-            "Pharmacy": {
+            {
+              "category_name": "Pharmacy",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pharmacy/vitamins-supplements?aid=37",
               "sub_categories": []
             },
-            "Disposables": {
+            {
+              "category_name": "Disposables",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/disposables/disposable-tableware?aid=37",
               "sub_categories": []
             },
-            "Cleaning & Laundry": {
+            {
+              "category_name": "Cleaning & Laundry",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cleaning-laundry/dishwashing?aid=37",
               "sub_categories": []
             },
-            "Household Essentials": {
+            {
+              "category_name": "Household Essentials",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/household-essentials/batteries?aid=37",
               "sub_categories": []
             },
-            "Electronics": {
+            {
+              "category_name": "Electronics",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/electronics/mobile-devices?aid=37",
               "sub_categories": []
             },
-            "Gift Items": {
+            {
+              "category_name": "Gift Items",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/gift-items/boxes?aid=37",
               "sub_categories": []
             },
-            "Tobacco Shop": {
+            {
+              "category_name": "Tobacco Shop",
               "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=37",
               "sub_categories": []
             }
-          }
+          ]
         }
       },
       "Dana Grocery Store": {

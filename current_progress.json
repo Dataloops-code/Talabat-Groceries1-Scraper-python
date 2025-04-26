@@ -1,20 +1,42 @@
 {
   "completed_areas": [
-    "الظهر"
+    "العقيلة",
+    "النويصيب",
+    "الفحيحيل",
+    "الخيران",
+    "الزور",
+    "ضاحية علي صباح السالم",
+    "المهبولة",
+    "ميناء عبد الله",
+    "بنيدر",
+    "مدينة صباح الأحمد البحرية",
+    "الأحمدي",
+    "شرق الأحمدي",
+    "هدية",
+    "الظهر",
+    "ميناء الأحمدي",
+    "الجليعة",
+    "ضاحية جابر العلي",
+    "مدينة صباح الأحمد السكنية",
+    "الوفرة",
+    "الفنطاس",
+    "ضاحية فهد الأحمد",
+    "المنقف",
+    "الرقه",
+    "الصباحية",
+    "أبو حليفة"
   ],
-  "current_area_index": 1,
-  "last_updated": "2025-04-26T21:08:15.003031",
+  "current_area_index": 24,
+  "last_updated": "2025-04-26T23:00:48.617693",
   "current_progress": {
-    "area_name": "الرقه",
-    "current_grocery": 1,
-    "current_grocery_title": "Dandoosh Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
-    "total_groceries": 20,
+    "area_name": null,
+    "current_grocery": 0,
+    "current_grocery_title": null,
+    "current_grocery_link": null,
+    "total_groceries": 0,
     "processed_groceries": [],
     "current_category": null,
     "current_sub_category": null,
-    "completed_groceries": {
-      "City Star Grocery": {}
-    }
+    "completed_groceries": {}
   }
 }
