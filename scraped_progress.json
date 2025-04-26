@@ -3,7 +3,7 @@
     "الظهر"
   ],
   "current_area_index": 1,
-  "last_updated": "2025-04-26T19:43:28.305910",
+  "last_updated": "2025-04-26T20:04:39.504148",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
@@ -20865,7 +20865,128 @@
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
-          "categories": {}
+          "categories": {
+            "Ramadan Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ramadan-essentials/ramadan-items?aid=37",
+              "sub_categories": []
+            },
+            "Organic & Special Diet": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/organic-special-diet/organic-food?aid=37",
+              "sub_categories": []
+            },
+            "Bakery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/bakery/freshly-baked?aid=37",
+              "sub_categories": []
+            },
+            "Fruits & Vegetables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fruits-vegetables/vegetables?aid=37",
+              "sub_categories": []
+            },
+            "Dairy & Eggs": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/dairy-eggs/eggs?aid=37",
+              "sub_categories": []
+            },
+            "Breakfast Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/breakfast-food/cereals?aid=37",
+              "sub_categories": []
+            },
+            "Grab & Go": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/grab-go/salads?aid=37",
+              "sub_categories": []
+            },
+            "Beverages": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/beverages/juices-single?aid=37",
+              "sub_categories": []
+            },
+            "Water": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/water/drinking-water?aid=37",
+              "sub_categories": []
+            },
+            "Frozen Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/frozen-food/frozen-poultry?aid=37",
+              "sub_categories": []
+            },
+            "Cooking & Baking": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cooking-baking/rice?aid=37",
+              "sub_categories": []
+            },
+            "Canned & Jarred Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/canned-jarred-food/meat-seafood?aid=37",
+              "sub_categories": []
+            },
+            "Condiments": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/condiments/salt-spices?aid=37",
+              "sub_categories": []
+            },
+            "Milk": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/milk/fresh-milk?aid=37",
+              "sub_categories": []
+            },
+            "Coffee & Tea": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/coffee-tea/coffee?aid=37",
+              "sub_categories": []
+            },
+            "Ice Cream": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/ice-cream/bars-cones-sticks?aid=37",
+              "sub_categories": []
+            },
+            "Snacks & Candy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/snacks-candy/minis-miniatures?aid=37",
+              "sub_categories": []
+            },
+            "Fresh Meat and Poultry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/fresh-meat-and-poultry/fresh-meat?aid=37",
+              "sub_categories": []
+            },
+            "Pet Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pet-care/pet-food?aid=37",
+              "sub_categories": []
+            },
+            "Baby": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/baby/baby-bath-body-care?aid=37",
+              "sub_categories": []
+            },
+            "Toys": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/toys/game-console?aid=37",
+              "sub_categories": []
+            },
+            "Personal Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/personal-care/body-wash?aid=37",
+              "sub_categories": []
+            },
+            "Pharmacy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/pharmacy/vitamins-supplements?aid=37",
+              "sub_categories": []
+            },
+            "Disposables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/disposables/disposable-tableware?aid=37",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/cleaning-laundry/dishwashing?aid=37",
+              "sub_categories": []
+            },
+            "Electronics": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/electronics/wires-plugs?aid=37",
+              "sub_categories": []
+            },
+            "Household Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/household-essentials/batteries?aid=37",
+              "sub_categories": []
+            },
+            "Gift Items": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/gift-items/hala-february?aid=37",
+              "sub_categories": []
+            },
+            "Stationery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/stationery/stationary-office-supplies?aid=37",
+              "sub_categories": []
+            },
+            "Vape Shop": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/677992/dana-grocery-storetgo-mahboula-/vape-shop/vape-devices-pods?aid=37",
+              "sub_categories": []
+            }
+          }
         }
       },
       "Ghozlan Al Egaila Grocery": {
