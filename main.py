@@ -10,17 +10,34 @@ import aiofiles
 
 class MainScraper:
     def __init__(self):
+        # Default structure for current_progress
         self.current_progress = {"current_progress": {"completed_areas": [], "completed_groceries": {}}}
         self.scraped_data = {}
         self.load_progress()
 
     def load_progress(self):
-        if os.path.exists("current_progress.json"):
-            with open("current_progress.json", "r", encoding="utf-8") as f:
-                self.current_progress = json.load(f)
-        if os.path.exists("scraped_data.json"):
-            with open("scraped_data.json", "r", encoding="utf-8") as f:
-                self.scraped_data = json.load(f)
+        # Default structure to merge with loaded data
+        default_progress = {"current_progress": {"completed_areas": [], "completed_groceries": {}}}
+        try:
+            if os.path.exists("current_progress.json"):
+                with open("current_progress.json", "r", encoding="utf-8") as f:
+                    loaded_progress = json.load(f)
+                    # Merge loaded progress with default structure
+                    self.current_progress = default_progress
+                    self.current_progress["current_progress"].update(
+                        loaded_progress.get("current_progress", {})
+                    )
+                    # Ensure completed_areas and completed_groceries exist
+                    self.current_progress["current_progress"].setdefault("completed_areas", [])
+                    self.current_progress["current_progress"].setdefault("completed_groceries", {})
+            if os.path.exists("scraped_data.json"):
+                with open("scraped_data.json", "r", encoding="utf-8") as f:
+                    self.scraped_data = json.load(f)
+        except Exception as e:
+            print(f"Error loading progress: {e}")
+            logging.error(f"Error loading progress: {e}")
+            # Fallback to default structure on error
+            self.current_progress = default_progress
 
     def save_current_progress(self):
         with open("current_progress.json", "w", encoding="utf-8") as f:
@@ -331,14 +348,7 @@ class TalabatGroceries:
                     'div[data-testid="product-offer"]',
                     'div[class*="offer"]',
                     '//div[contains(@class, "offer")]',
-                    '//span[contains(@class, "discount")]'
-                ]
-                item_offer = None
-                for selector in offer_selectors:
-                    offer_element = await page.query_selector(selector)
-                    if offer_element:
-                        item_offer = await offer_element.inner_text()
-                        break
+                    '//span[contains(@class, "discount Penal Code section 21.3.2(b) requires that the defendant knew or should have known that the victim was a peace officer or firefighter and was engaged in the performance of their duties. The prosecution must prove this knowledge beyond a reasonable doubt.
 
                 # Description extraction
                 desc_selectors = [
@@ -481,7 +491,6 @@ async def main():
             {"area_name": "الظهر", "area_link": "https://www.talabat.com/kuwait/groceries/59/dhaher"},
             {"area_name": "الرقه", "area_link": "https://www.talabat.com/kuwait/groceries/37/riqqa"},
             {"area_name": "هدية", "area_link": "https://www.talabat.com/kuwait/groceries/30/hadiya"}
-            # Add more areas as needed
         ]
 
         for area in areas:
@@ -527,6 +536,8 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
 
 
 
