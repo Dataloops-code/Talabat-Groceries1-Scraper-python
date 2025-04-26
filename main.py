@@ -529,33 +529,6 @@ if __name__ == "__main__":
     asyncio.run(main())
 
 
-ahmadi_areas = [
-            
-            ("المنقف", "https://www.talabat.com/kuwait/groceries/32/mangaf"),
-            ("أبو حليفة", "https://www.talabat.com/kuwait/groceries/2/abu-halifa"),
-            ("الفنطاس", "https://www.talabat.com/kuwait/groceries/38/fintas"),
-            ("العقيلة", "https://www.talabat.com/kuwait/groceries/79/egaila"),
-            ("الصباحية", "https://www.talabat.com/kuwait/groceries/31/sabahiya"),
-            ("الأحمدي", "https://www.talabat.com/kuwait/groceries/3/al-ahmadi"),
-            ("الفحيحيل", "https://www.talabat.com/kuwait/groceries/5/fahaheel"),
-            ("شرق الأحمدي", "https://www.talabat.com/kuwait/groceries/3/al-ahmadi"),
-            ("ضاحية علي صباح السالم", "https://www.talabat.com/kuwait/groceries/82/ali-sabah-al-salem-umm-al-hayman"),
-            ("ميناء عبد الله", "https://www.talabat.com/kuwait/groceries/100/mina-abdullah"),
-            ("بنيدر", "https://www.talabat.com/kuwait/groceries/6650/bnaider"),
-            ("الزور", "https://www.talabat.com/kuwait/groceries/2053/zour"),
-            ("الجليعة", "https://www.talabat.com/kuwait/groceries/6860/al-julaiaa"),
-            ("المهبولة", "https://www.talabat.com/kuwait/groceries/24/mahboula"),
-            ("النويصيب", "https://www.talabat.com/kuwait/groceries/2054/nuwaiseeb"),
-            ("الخيران", "https://www.talabat.com/kuwait/groceries/2726/khairan"),
-            ("الوفرة", "https://www.talabat.com/kuwait/groceries/2057/wafra-farms"),
-            ("ضاحية فهد الأحمد", "https://www.talabat.com/kuwait/groceries/98/fahad-al-ahmed"),
-            ("ضاحية جابر العلي", "https://www.talabat.com/kuwait/groceries/60/jaber-al-ali"),
-            ("مدينة صباح الأحمد السكنية", "https://www.talabat.com/kuwait/groceries/6931/sabah-al-ahmad-2"),
-            ("مدينة صباح الأحمد البحرية", "https://www.talabat.com/kuwait/groceries/2726/khairan"),
-            ("ميناء الأحمدي", "https://www.talabat.com/kuwait/groceries/3/al-ahmadi")
-        ]
-
-
 
 
 
