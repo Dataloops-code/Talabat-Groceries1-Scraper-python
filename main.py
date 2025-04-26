@@ -32,52 +32,36 @@ class TalabatGroceries:
     async def extract_category_hierarchy(self, page) -> Dict[str, List[str]]:
         """
         Extract category and sub-category hierarchy from the grocery page.
-        Optimized to prevent hangs with shorter timeouts and verbose logging.
+        Uses data-testid attributes to reliably locate categories and sub-categories.
         """
         print(f"[{datetime.now()}] Starting category-sub-category hierarchy extraction")
         logging.info("Starting category-sub-category hierarchy extraction")
         hierarchy = {}
-        retries = 3  # Reduced retries to avoid long delays
+        retries = 2  # Reduced retries to minimize delays
         attempt = 1
-        selectors = [
-            'div[data-testid="category-component"]',
-            'div[class*="category-container"]',
-            'div[role="navigation"]',
-            'nav[class*="category"]',
-            'ul[class*="category"]',
-            'div[id*="category"]'
-        ]
+        category_container_selector = 'div[data-testid="category-component"]'
     
         while retries > 0:
             try:
                 print(f"[{datetime.now()}] Attempt {attempt} to extract hierarchy")
                 logging.info(f"Attempt {attempt} to extract hierarchy")
-                # Ensure page is loaded with shorter timeout
+                # Wait for page to stabilize
                 print(f"[{datetime.now()}] Waiting for networkidle")
                 await page.wait_for_load_state("networkidle", timeout=30000)
                 print(f"[{datetime.now()}] Networkidle complete, waiting for JS")
-                await page.wait_for_timeout(5000)  # Reduced wait for JS
+                await page.wait_for_timeout(5000)  # Wait for dynamic content
     
-                # Try each selector
-                category_container = None
-                for selector in selectors:
-                    print(f"[{datetime.now()}] Trying selector: {selector}")
-                    logging.info(f"Trying selector: {selector}")
-                    try:
-                        await page.wait_for_selector(selector, timeout=15000)  # Shorter timeout
-                        category_container = await page.query_selector(selector)
-                        if category_container:
-                            print(f"[{datetime.now()}] Found container with selector: {selector}")
-                            logging.info(f"Found container with selector: {selector}")
-                            break
-                    except PlaywrightTimeoutError:
-                        print(f"[{datetime.now()}] Selector {selector} timed out")
-                        logging.warning(f"Selector {selector} timed out")
-    
+                # Locate category container
+                print(f"[{datetime.now()}] Waiting for category container: {category_container_selector}")
+                await page.wait_for_selector(category_container_selector, timeout=10000)
+                category_container = await page.query_selector(category_container_selector)
                 if not category_container:
-                    raise PlaywrightTimeoutError("No category container found with any selector")
+                    raise PlaywrightTimeoutError("Category container not found")
     
-                # Scroll to load categories (reduced iterations)
+                print(f"[{datetime.now()}] Found category container")
+                logging.info("Found category container")
+    
+                # Scroll to ensure all categories are loaded
                 print(f"[{datetime.now()}] Scrolling to load categories")
                 await page.evaluate("""
                     async () => {
@@ -87,28 +71,17 @@ class TalabatGroceries:
                         }
                     }
                 """)
-                print(f"[{datetime.now()}] Scroll complete, waiting for content")
-                await page.wait_for_timeout(5000)  # Reduced wait
+                print(f"[{datetime.now()}] Scroll complete")
+                await page.wait_for_timeout(3000)  # Brief wait after scrolling
     
-                # Locate category components
-                print(f"[{datetime.now()}] Querying category elements")
-                category_elements = await page.query_selector_all(
-                    'div[data-testid="category-item-component"], '
-                    'div[class*="category-item"], '
-                    'li[class*="category-item"], '
-                    'a[class*="category"]'
-                )
-                print(f"[{datetime.now()}] Found {len(category_elements)} category elements")
-                logging.info(f"Found {len(category_elements)} category elements")
+                # Find all category items
+                category_items = await category_container.query_selector_all('div[data-testid="category-item-component"]')
+                print(f"[{datetime.now()}] Found {len(category_items)} category items")
+                logging.info(f"Found {len(category_items)} category items")
     
-                for category_element in category_elements:
-                    # Get category name
-                    print(f"[{datetime.now()}] Processing category element")
-                    category_name_element = await category_element.query_selector(
-                        'span[data-testid="category-name"], '
-                        'span[class*="category-name"], '
-                        'h2, h3, h4, a'
-                    )
+                for item in category_items:
+                    # Extract category name
+                    category_name_element = await item.query_selector('span[data-testid="category-name"]')
                     category_name = await category_name_element.inner_text() if category_name_element else None
                     if not category_name or not category_name.strip():
                         print(f"[{datetime.now()}] Skipping category with missing or empty name")
@@ -119,21 +92,11 @@ class TalabatGroceries:
                     print(f"[{datetime.now()}] Processing category: {category_name}")
                     logging.info(f"Processing category: {category_name}")
     
-                    # Get sub-categories
-                    sub_category_container = await category_element.query_selector(
-                        'div[data-test="sub-category-container"], '
-                        'div[class*="sub-category"], '
-                        'ul[class*="sub-category"], '
-                        'div[class*="submenu"]'
-                    )
+                    # Extract sub-categories
+                    sub_category_container = await item.query_selector('div[data-test="sub-category-container"]')
                     sub_categories = []
                     if sub_category_container:
-                        print(f"[{datetime.now()}] Querying sub-categories for '{category_name}'")
-                        sub_category_elements = await sub_category_container.query_selector_all(
-                            'a[data-testid="subCategory-a"], '
-                            'a[class*="sub-category"], '
-                            'li[class*="sub-category"]'
-                        )
+                        sub_category_elements = await sub_category_container.query_selector_all('a[data-testid="subCategory-a"]')
                         sub_categories = [
                             (await sub_cat.inner_text()).strip()
                             for sub_cat in sub_category_elements
@@ -142,8 +105,8 @@ class TalabatGroceries:
                         print(f"[{datetime.now()}] Found {len(sub_categories)} sub-categories for '{category_name}': {sub_categories}")
                         logging.info(f"Found {len(sub_categories)} sub-categories for '{category_name}': {sub_categories}")
                     else:
-                        print(f"[{datetime.now()}] No sub-category container found for category '{category_name}'")
-                        logging.info(f"No sub-category container found for category '{category_name}'")
+                        print(f"[{datetime.now()}] No sub-categories found for '{category_name}'")
+                        logging.info(f"No sub-categories found for '{category_name}'")
     
                     hierarchy[category_name] = sub_categories
     
@@ -154,6 +117,7 @@ class TalabatGroceries:
     
                 print(f"[{datetime.now()}] No categories extracted in this attempt")
                 logging.warning(f"Attempt {attempt}: No categories extracted")
+                raise PlaywrightTimeoutError("No categories found")
     
             except PlaywrightTimeoutError as e:
                 print(f"[{datetime.now()}] Timeout extracting category hierarchy: {e}")
@@ -169,23 +133,23 @@ class TalabatGroceries:
             if retries > 0:
                 print(f"[{datetime.now()}] Reloading page")
                 await page.reload(timeout=30000)
-                await asyncio.sleep(5)
+                await asyncio.sleep(3)
     
-        # Save HTML and screenshot for debugging
+        # Save debug files
         print(f"[{datetime.now()}] Saving debug files")
         html_content = await page.content()
         debug_filename = f"category_hierarchy_debug_{uuid.uuid4().hex[:8]}.html"
         with open(debug_filename, "w", encoding="utf-8") as f:
             f.write(html_content)
         print(f"[{datetime.now()}] Saved page HTML to {debug_filename}")
-        logging.warning(f"Failed to extract hierarchy after all retries, saved HTML to {debug_filename}")
+        logging.info(f"Saved page HTML to {debug_filename}")
     
         screenshot_filename = f"debug_screenshot_{uuid.uuid4().hex[:8]}.png"
         await page.screenshot(path=screenshot_filename)
         print(f"[{datetime.now()}] Saved screenshot to {screenshot_filename}")
         logging.info(f"Saved screenshot to {screenshot_filename}")
     
-        # Fallback: Extract categories from links (skip sub-category page visits)
+        # Fallback: Extract categories from links (no sub-categories)
         print(f"[{datetime.now()}] Attempting fallback extraction from category links")
         logging.info("Attempting fallback extraction from category links")
         try:
@@ -193,7 +157,7 @@ class TalabatGroceries:
             for link in category_links:
                 category_name = await link.inner_text()
                 category_name = category_name.strip() if category_name else None
-                if not category_name or category_name in ["Dana Grocery Store", "View all items"]:
+                if not category_name or category_name in ["Hala Store", "View all items"]:
                     continue
                 if category_name not in hierarchy:
                     hierarchy[category_name] = []
