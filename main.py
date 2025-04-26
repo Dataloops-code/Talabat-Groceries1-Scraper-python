@@ -150,11 +150,39 @@ class TalabatGroceries:
                 sub_category_container = await target_category.query_selector('div[data-test="sub-category-container"]')
                 if not sub_category_container:
                     print(f"No sub-category container found for {category_name}")
+                    # Mark category as complete if no sub-categories
+                    completed_groceries = self.main_scraper.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
+                    completed_groceries.setdefault("completed categories", []).append(category_name)
+                    self.main_scraper.current_progress["current_progress"]["completed_groceries"][grocery_title] = completed_groceries
+                    self.main_scraper.scraped_progress["current_progress"]["completed_groceries"] = self.main_scraper.current_progress["current_progress"]["completed_groceries"]
+                    self.main_scraper.current_progress["current_progress"]["current_category"] = None
+                    self.main_scraper.scraped_progress["current_progress"]["current_category"] = None
+                    self.main_scraper.current_progress["current_progress"]["current_sub_category"] = None
+                    self.main_scraper.scraped_progress["current_progress"]["current_sub_category"] = None
+                    self.main_scraper.save_current_progress()
+                    self.main_scraper.save_scraped_progress()
+                    self.main_scraper.commit_progress(f"Completed category {category_name} for {grocery_title} (no sub-categories)")
                     return sub_categories
 
                 sub_category_elements = await sub_category_container.query_selector_all('a[data-testid="subCategory-a"]')
                 sub_category_names = [await el.inner_text() for el in sub_category_elements]
                 sub_category_links = [self.base_url + await el.get_attribute('href') for el in sub_category_elements]
+
+                if not sub_category_names:
+                    print(f"No sub-categories found for {category_name}")
+                    # Mark category as complete
+                    completed_groceries = self.main_scraper.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
+                    completed_groceries.setdefault("completed categories", []).append(category_name)
+                    self.main_scraper.current_progress["current_progress"]["completed_groceries"][grocery_title] = completed_groceries
+                    self.main_scraper.scraped_progress["current_progress"]["completed_groceries"] = self.main_scraper.current_progress["current_progress"]["completed_groceries"]
+                    self.main_scraper.current_progress["current_progress"]["current_category"] = None
+                    self.main_scraper.scraped_progress["current_progress"]["current_category"] = None
+                    self.main_scraper.current_progress["current_progress"]["current_sub_category"] = None
+                    self.main_scraper.scraped_progress["current_progress"]["current_sub_category"] = None
+                    self.main_scraper.save_current_progress()
+                    self.main_scraper.save_scraped_progress()
+                    self.main_scraper.commit_progress(f"Completed category {category_name} for {grocery_title} (no sub-categories)")
+                    return sub_categories
 
                 for idx, (sub_category_name, sub_category_link) in enumerate(zip(sub_category_names, sub_category_links)):
                     if sub_category_name in completed_sub_categories:
@@ -192,6 +220,10 @@ class TalabatGroceries:
                     self.main_scraper.save_current_progress()
                     self.main_scraper.save_scraped_progress()
                     self.main_scraper.commit_progress(f"Processed sub-category {sub_category_name} for {grocery_title} in {category_name}")
+
+                    # Navigate back to category page to avoid stale state
+                    await page.goto(category_link, timeout=240000)
+                    await page.wait_for_load_state("networkidle", timeout=240000)
 
                 # Check if category is complete
                 if all(sub_cat_name in completed_sub_categories + [s["sub_category_name"] for s in sub_categories] for sub_cat_name in sub_category_names):
@@ -295,61 +327,88 @@ class TalabatGroceries:
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 await page.wait_for_load_state("networkidle", timeout=240000)
 
-                # Extract price (new price)
+                # Updated selectors for price
                 price_selectors = [
-                    '//div[@class="price"]//span[@class="currency "]',
-                    '//span[contains(@class, "price")]',
-                    '//div[contains(@class, "price")]//text()'
+                    'div[data-testid="product-price"] span[data-testid="price"]',
+                    'div[class*="price"] span[class*="currency"]',
+                    'div[class*="price"]',
+                    '//span[contains(text(), "KWD")]'
                 ]
                 item_price = "N/A"
                 for selector in price_selectors:
                     price_element = await page.query_selector(selector)
                     if price_element:
                         item_price = await price_element.inner_text()
-                        break
+                        item_price = item_price.strip().replace('\n', ' ').replace('KWD', '').strip()
+                        if item_price:
+                            break
+                    print(f"Price selector '{selector}' not found")
 
-                # Extract old price
-                old_price_selector = '//div[@class="price"]//p//span[@class="currency "]'
+                # Updated selectors for old price
+                old_price_selectors = [
+                    'div[data-testid="product-price"] span[data-testid="old-price"]',
+                    'div[class*="price"] p span[class*="currency"]',
+                    '//span[contains(@class, "old-price")]'
+                ]
                 item_old_price = None
-                old_price_element = await page.query_selector(old_price_selector)
-                if old_price_element:
-                    item_old_price = await old_price_element.inner_text()
-                    print(f"Item old price: {item_old_price}")
-                else:
-                    print("Item old price: None")
+                for selector in old_price_selectors:
+                    old_price_element = await page.query_selector(selector)
+                    if old_price_element:
+                        item_old_price = await old_price_element.inner_text()
+                        item_old_price = item_old_price.strip().replace('\n', ' ').replace('KWD', '').strip()
+                        break
+                print(f"Item old price: {item_old_price}")
 
-                # Extract offer
-                offer_selector = '//div[@class="offer"]//div[@data-testid="offer-tag"]//span'
+                # Updated selectors for offer
+                offer_selectors = [
+                    'div[data-testid="offer-tag"] span',
+                    'div[class*="offer"] span',
+                    '//span[contains(@class, "offer")]'
+                ]
                 item_offer = None
-                offer_element = await page.query_selector(offer_selector)
-                if offer_element:
-                    item_offer = await offer_element.inner_text()
-                    print(f"Item offer: {item_offer}")
-                else:
-                    print("Item offer: None")
+                for selector in offer_selectors:
+                    offer_element = await page.query_selector(selector)
+                    if offer_element:
+                        item_offer = await offer_element.inner_text()
+                        break
+                print(f"Item offer: {item_offer}")
 
-                # Extract description
+                # Updated selectors for description
                 desc_selectors = [
-                    '//div[@class="description"]//p[@data-testid="item-description"]',
-                    '//div[contains(@class, "description")]//p',
-                    '//p[contains(@class, "description")]'
+                    'div[data-testid="item-description"] p',
+                    'div[class*="description"] p',
+                    '//p[contains(@class, "description")]',
+                    '//div[contains(@class, "product-details")]//p'
                 ]
                 item_description = "N/A"
                 for selector in desc_selectors:
                     desc_element = await page.query_selector(selector)
                     if desc_element:
                         item_description = await desc_element.inner_text()
+                        if item_description.strip():
+                            break
+                    print(f"Description selector '{selector}' not found")
+
+                # Updated selectors for delivery time
+                delivery_time_selectors = [
+                    'div[data-testid="delivery-tag"] span',
+                    'div[class*="delivery-info"] span',
+                    '//span[contains(text(), "min")]'
+                ]
+                delivery_time = "N/A"
+                for selector in delivery_time_selectors:
+                    delivery_time_element = await page.query_selector(selector)
+                    if delivery_time_element:
+                        delivery_time = await delivery_time_element.inner_text()
                         break
+                print(f"Delivery time range: {delivery_time}")
 
-                # Extract delivery time
-                delivery_time_element = await page.query_selector('//div[@data-testid="delivery-tag"]//span')
-                delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
-
-                # Extract images
+                # Updated selectors for images
                 image_selectors = [
-                    '//div[@data-testid="item-image"]//img',
-                    '//img[contains(@class, "item-image")]',
-                    '//img[@alt="product image"]'
+                    'img[data-testid="item-image"]',
+                    'img[class*="product-image"]',
+                    'img[alt*="product"]',
+                    '//img[contains(@class, "image")]'
                 ]
                 item_images = []
                 for selector in image_selectors:
@@ -357,11 +416,10 @@ class TalabatGroceries:
                     if item_image_elements:
                         item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
                         break
+                print(f"Item images: {item_images}")
 
                 print(f"Item price: {item_price}")
                 print(f"Item description: {item_description}")
-                print(f"Delivery time range: {delivery_time}")
-                print(f"Item images: {item_images}")
 
                 await page.close()
                 return {
@@ -374,9 +432,12 @@ class TalabatGroceries:
                 }
             except Exception as e:
                 print(f"Error extracting item details for {item_link}: {e}")
+                logging.error(f"Error extracting item details for {item_link}: {e}")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
+                if page:
+                    await page.close()
         print(f"Failed to extract details for {item_link} after all retries")
         return {
             "item_price": "N/A",
@@ -395,7 +456,38 @@ class TalabatGroceries:
                 sub_page = await self.browser.new_page()
                 await sub_page.goto(sub_category_link, timeout=240000)
                 await sub_page.wait_for_load_state("networkidle", timeout=240000)
-                await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+                await sub_page.wait_for_timeout(5000)  # Wait for dynamic content
+                await sub_page.evaluate("window.scrollTo(0, document.body.scrollHeight)")  # Scroll to load items
+                await sub_page.wait_for_load_state("networkidle", timeout=240000)
+
+                # Updated selectors for item containers
+                item_container_selectors = [
+                    '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]',
+                    '//div[contains(@class, "category-items-container")]//div[contains(@class, "col-")]',
+                    '//div[@data-testid="grocery-item"]',
+                    '//div[contains(@class, "product-item")]'
+                ]
+                item_elements = None
+                for selector in item_container_selectors:
+                    try:
+                        await sub_page.wait_for_selector(selector, timeout=30000)
+                        item_elements = await sub_page.query_selector_all(selector)
+                        if item_elements:
+                            print(f"Found items using selector: {selector}")
+                            break
+                    except Exception as e:
+                        print(f"Selector '{selector}' failed: {e}")
+                
+                if not item_elements:
+                    print("No items found with any selector")
+                    # Save HTML for debugging
+                    html_content = await sub_page.content()
+                    html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=37', '')}_failed.html"
+                    with open(html_filename, "w", encoding="utf-8") as f:
+                        f.write(html_content)
+                    print(f"      Saved sub-category HTML to {html_filename} for debugging")
+                    await sub_page.close()
+                    return []
 
                 # Save HTML for debugging
                 html_content = await sub_page.content()
@@ -404,11 +496,19 @@ class TalabatGroceries:
                     f.write(html_content)
                 print(f"      Saved sub-category HTML to {html_filename} for debugging")
 
-                pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
+                # Handle pagination
+                pagination_selectors = [
+                    '//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]',
+                    '//ul[contains(@class, "paginate")]',
+                    '//div[contains(@class, "pagination")]'
+                ]
                 total_pages = 1
-                if pagination_element:
-                    page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
-                    total_pages = len(page_numbers) if page_numbers else 1
+                for selector in pagination_selectors:
+                    pagination_element = await sub_page.query_selector(selector)
+                    if pagination_element:
+                        page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li")]//a')
+                        total_pages = len(page_numbers) if page_numbers else 1
+                        break
                 print(f"      Found {total_pages} pages in this sub-category")
 
                 items = []
@@ -417,9 +517,24 @@ class TalabatGroceries:
                     page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
                     await sub_page.goto(page_url, timeout=240000)
                     await sub_page.wait_for_load_state("networkidle", timeout=240000)
-                    await sub_page.wait_for_selector('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]', timeout=240000)
+                    await sub_page.wait_for_timeout(5000)
+                    await sub_page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
 
-                    item_elements = await sub_page.query_selector_all('//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]')
+                    # Re-locate item elements
+                    for selector in item_container_selectors:
+                        try:
+                            await sub_page.wait_for_selector(selector, timeout=30000)
+                            item_elements = await sub_page.query_selector_all(selector)
+                            if item_elements:
+                                print(f"Found items using selector: {selector}")
+                                break
+                        except Exception as e:
+                            print(f"Selector '{selector}' failed: {e}")
+                    
+                    if not item_elements:
+                        print(f"        No items found on page {page_number}")
+                        continue
+
                     print(f"        Found {len(item_elements)} items on page {page_number}")
 
                     for i, element in enumerate(item_elements):
@@ -439,16 +554,13 @@ class TalabatGroceries:
                                 if item_name_element:
                                     item_name = await item_name_element.inner_text()
                                     if item_name and item_name.strip():
-                                        # Only reject names that are clearly invalid
                                         invalid_names = ['currency', 'kiki', 'market', 'grocery', 'mahboula']
                                         if not any(invalid.lower() in item_name.lower() for invalid in invalid_names):
                                             print(f"        Item name: {item_name}")
                                             break
                                         else:
-                                            print(f"        Selector '{selector}' found invalid name: {item_name} (matched: {[invalid for invalid in invalid_names if invalid.lower() in item_name.lower()]})")
+                                            print(f"        Selector '{selector}' found invalid name: {item_name}")
                                             item_name = None
-                                    else:
-                                        print(f"        Selector '{selector}' found empty or invalid name")
                                 else:
                                     print(f"        Selector '{selector}' not found")
 
@@ -456,7 +568,23 @@ class TalabatGroceries:
                                 item_name = f"Unknown Item {i+1}"
                                 print(f"        No valid item name found, using default: {item_name}")
 
-                            item_link = self.base_url + await element.get_attribute('href')
+                            link_selectors = [
+                                'a[data-testid="grocery-item-link-nofollow"]',
+                                'a[class*="product-link"]',
+                                '//a[contains(@href, "product")]'
+                            ]
+                            item_link = None
+                            for selector in link_selectors:
+                                link_element = await element.query_selector(selector)
+                                if link_element:
+                                    href = await link_element.get_attribute('href')
+                                    item_link = self.base_url + href if href else None
+                                    if item_link:
+                                        break
+                            if not item_link:
+                                print(f"        No valid item link found for item {i+1}")
+                                continue
+
                             print(f"        Item link: {item_link}")
 
                             item_details = await self.extract_item_details(item_link)
@@ -468,15 +596,29 @@ class TalabatGroceries:
                         except Exception as e:
                             print(f"        Error processing item {i+1}: {e}")
                             logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
+                            continue
+                
                 await sub_page.close()
                 return items
             except Exception as e:
                 print(f"Error extracting items from sub-category {sub_category_link}: {e}")
+                logging.error(f"Error extracting items from sub-category {sub_category_link}: {e}")
                 retries -= 1
                 print(f"Retries left: {retries}")
                 await asyncio.sleep(5)
+                if sub_page:
+                    await sub_page.close()
+        print(f"Failed to extract items from sub-category {sub_category_link} after all retries")
+        # Save HTML for debugging on final failure
+        if sub_page:
+            html_content = await sub_page.content()
+            html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=37', '')}_failed.html"
+            with open(html_filename, "w", encoding="utf-8") as f:
+                f.write(html_content)
+            print(f"      Saved sub-category HTML to {html_filename} for debugging")
+            await sub_page.close()
         return []
-
+    
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         retries = 3
