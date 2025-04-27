@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:48:19.603464",
+  "last_updated": "2025-04-27T13:50:05.769101",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Minis & Miniatures",
+    "current_sub_category": "Chocolate Bars",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -74,7 +74,8 @@
           "Creamers",
           "Sugar & Sweeteners",
           "Iced Coffee",
-          "Minis & Miniatures"
+          "Minis & Miniatures",
+          "Chocolate Bars"
         ]
       }
     }
