@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:18:31.220018",
+  "last_updated": "2025-04-27T14:18:32.074901",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Cups & Tubs",
+    "current_sub_category": "Family Packs",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
