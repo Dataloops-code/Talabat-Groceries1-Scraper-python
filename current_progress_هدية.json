@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:49:22.074373",
+  "last_updated": "2025-04-27T04:51:08.702879",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Butter & Margarine",
+    "current_sub_category": "Yoghurt & Labneh",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -29,7 +29,8 @@
           "Dates & Dried Fruits",
           "Deli Meat & Seafood",
           "Eggs",
-          "Butter & Margarine"
+          "Butter & Margarine",
+          "Yoghurt & Labneh"
         ]
       }
     }
