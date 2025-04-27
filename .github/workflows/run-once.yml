@@ -64,7 +64,7 @@ jobs:
       - name: Run Talabat Groceries Scraper
         if: steps.check-completion.outputs.completed == 'false'
         run: |
-          python main.py --area-name "{area_name}" --url "{area_url}"
+          generate_workflows.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
