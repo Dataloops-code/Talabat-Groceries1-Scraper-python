@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:34:53.462683",
+  "last_updated": "2025-04-27T14:36:39.543452",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Powdered Milk",
+    "current_sub_category": "Evaporated Milk",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -62,7 +62,8 @@
           "Fresh Milk",
           "Long Life Milk",
           "Milk Alternatives",
-          "Powdered Milk"
+          "Powdered Milk",
+          "Evaporated Milk"
         ]
       }
     }
