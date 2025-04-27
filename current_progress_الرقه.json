@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:18:27.789727",
+  "last_updated": "2025-04-27T19:20:14.009258",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Creamers",
+    "current_sub_category": "Tissues & Paper Rolls",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -93,7 +93,8 @@
           "Pizza & Pasta Sauces",
           "Coffee",
           "Tea",
-          "Creamers"
+          "Creamers",
+          "Tissues & Paper Rolls"
         ]
       }
     }
