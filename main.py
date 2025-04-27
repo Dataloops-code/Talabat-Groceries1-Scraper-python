@@ -547,6 +547,9 @@ class MainScraper:
         self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.output_dir = "output"
+        self.github_token = os.environ.get('GITHUB_TOKEN')  # Initialize github_token early
+        if not self.github_token:
+            logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
         if not credentials_json:
             logging.warning("TALABAT_GCLOUD_KEY_JSON is not set. Google Drive uploads will fail.")
@@ -566,14 +569,28 @@ class MainScraper:
         os.makedirs(self.output_dir, exist_ok=True)
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
-        self.github_token = os.environ.get('GITHUB_TOKEN')
-        if not self.github_token:
-            logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         self.ensure_playwright_browsers()
         self.commit_progress(f"Initialized progress files for {area_name}")
 
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+
+    def save_current_progress(self, progress: Dict = None):
+        progress = progress or self.current_progress
+        try:
+            progress["last_updated"] = datetime.now().isoformat()
+            if "current_progress" in progress:
+                progress["current_progress"]["processed_groceries"] = list(set(progress["current_progress"].get("processed_groceries", [])))
+                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
+            with tempfile.NamedTemporaryFile('w', delete=False, dir='.', encoding='utf-8') as temp_file:
+                json.dump(progress, temp_file, indent=2, ensure_ascii=False)
+                temp_file.flush()
+                os.fsync(temp_file.fileno())
+                temp_filename = temp_file.name
+            os.replace(temp_filename, self.CURRENT_PROGRESS_FILE)
+            logging.info(f"Saved {self.CURRENT_PROGRESS_FILE}")
+        except Exception as e:
+            logging.error(f"Error saving {self.CURRENT_PROGRESS_FILE}: {e}")
 
     def load_current_progress(self) -> Dict:
         if os.path.exists(self.CURRENT_PROGRESS_FILE):
@@ -620,23 +637,6 @@ class MainScraper:
         self.save_current_progress(default_progress)
         self.commit_progress(f"Created default {self.CURRENT_PROGRESS_FILE}")
         return default_progress
-
-    def save_current_progress(self, progress: Dict = None):
-        progress = progress or self.current_progress
-        try:
-            progress["last_updated"] = datetime.now().isoformat()
-            if "current_progress" in progress:
-                progress["current_progress"]["processed_groceries"] = list(set(progress["current_progress"].get("processed_groceries", [])))
-                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
-            with tempfile.NamedTemporaryFile('w', delete=False, dir='.', encoding='utf-8') as temp_file:
-                json.dump(progress, temp_file, indent=2, ensure_ascii=False)
-                temp_file.flush()
-                os.fsync(temp_file.fileno())
-                temp_filename = temp_file.name
-            os.replace(temp_filename, self.CURRENT_PROGRESS_FILE)
-            logging.info(f"Saved {self.CURRENT_PROGRESS_FILE}")
-        except Exception as e:
-            logging.error(f"Error saving {self.CURRENT_PROGRESS_FILE}: {e}")
 
     def load_scraped_progress(self) -> Dict:
         if os.path.exists(self.SCRAPED_PROGRESS_FILE):
@@ -1199,6 +1199,8 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
 
 
 
