@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T03:54:56.168524",
+  "last_updated": "2025-04-27T03:56:42.601081",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Cakes",
+    "current_sub_category": "Croissant Single",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -18,7 +18,8 @@
           "Freshly Baked",
           "Buns & Rolls",
           "Toast",
-          "Cakes"
+          "Cakes",
+          "Croissant Single"
         ]
       }
     }
