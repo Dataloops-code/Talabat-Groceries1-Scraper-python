@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:31:21.213860",
+  "last_updated": "2025-04-27T14:33:07.327315",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Long Life Milk",
+    "current_sub_category": "Milk Alternatives",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -60,7 +60,8 @@
           "Poultry",
           "Seafood",
           "Fresh Milk",
-          "Long Life Milk"
+          "Long Life Milk",
+          "Milk Alternatives"
         ]
       }
     }
