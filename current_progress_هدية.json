@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:11:20.612533",
+  "last_updated": "2025-04-27T14:13:06.724359",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Popcorn",
+    "current_sub_category": "Seeds & Nuts",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -87,7 +87,8 @@
           "Jellies",
           "Chips Packs",
           "Chips Single",
-          "Popcorn"
+          "Popcorn",
+          "Seeds & Nuts"
         ]
       }
     }
