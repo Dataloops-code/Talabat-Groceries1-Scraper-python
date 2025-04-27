@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T12:40:42.866520",
+  "last_updated": "2025-04-27T13:51:32.447944",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 13,
+    "current_grocery": 4,
     "current_grocery_title": "Fatafeat Market",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
@@ -46,7 +46,8 @@
           "Fresh Vegetables",
           "Herbs & Leafy Greens",
           "Dates & Dried Fruit",
-          "Eggs"
+          "Eggs",
+          "Cheese"
         ]
       }
     }
