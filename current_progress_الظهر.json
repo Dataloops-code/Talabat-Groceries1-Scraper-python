@@ -1,12 +1,12 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:11:01.118852",
+  "last_updated": "2025-04-27T07:12:37.476646",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
-    "current_grocery_title": "Heathrow Market",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo?aid=59",
+    "current_grocery": 21,
+    "current_grocery_title": "Top Offer",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
@@ -57,6 +57,11 @@
           "Baking Products",
           "Meat & Seafood",
           "Canned Fruits & Vegetables"
+        ]
+      },
+      "Top Offer": {
+        "completed sub-categories": [
+          "Ready-to-Eat Canned Meals"
         ]
       }
     }
