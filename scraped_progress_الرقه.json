@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:20:14.011023",
+  "last_updated": "2025-04-27T19:22:00.281847",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Tissues & Paper Rolls",
+    "current_sub_category": "Disposable Tableware",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -94,7 +94,8 @@
           "Coffee",
           "Tea",
           "Creamers",
-          "Tissues & Paper Rolls"
+          "Tissues & Paper Rolls",
+          "Disposable Tableware"
         ]
       }
     }
