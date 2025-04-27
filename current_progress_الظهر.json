@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:51:16.981379",
+  "last_updated": "2025-04-27T01:53:03.194066",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Croissant Single",
+    "current_sub_category": "Croissant Packs",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -19,7 +19,8 @@
           "Toast",
           "Buns & Rolls",
           "Cakes",
-          "Croissant Single"
+          "Croissant Single",
+          "Croissant Packs"
         ]
       }
     }
