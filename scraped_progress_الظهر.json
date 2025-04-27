@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:41:13.777963",
+  "last_updated": "2025-04-27T04:43:00.096263",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Frozen Meat & Seafood",
+    "current_sub_category": "Frozen Fruits & Vegetables",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -44,7 +44,8 @@
           "Spreads & Honey",
           "Fresh Poultry",
           "Frozen Poultry",
-          "Frozen Meat & Seafood"
+          "Frozen Meat & Seafood",
+          "Frozen Fruits & Vegetables"
         ]
       }
     }
