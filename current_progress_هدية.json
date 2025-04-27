@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:43:02.477863",
+  "last_updated": "2025-04-27T07:44:49.211568",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Herbs & Seasonings",
+    "current_sub_category": "Organic Dairy & Eggs",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -55,7 +55,8 @@
           "Olives & Pickles",
           "Sauces & Dressings",
           "Vinegar & Concentrates",
-          "Herbs & Seasonings"
+          "Herbs & Seasonings",
+          "Organic Dairy & Eggs"
         ]
       }
     }
