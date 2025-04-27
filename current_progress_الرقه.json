@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:34:05.087555",
+  "last_updated": "2025-04-27T18:35:51.375533",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Hair Care",
+    "current_sub_category": "Face Care",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -68,7 +68,8 @@
           "Chicken & Poultry",
           "Beef & Veal",
           "Lamb & Goat",
-          "Hair Care"
+          "Hair Care",
+          "Face Care"
         ]
       }
     }
