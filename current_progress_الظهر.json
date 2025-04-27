@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:12:53.268562",
+  "last_updated": "2025-04-27T04:14:39.535279",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Eggs",
+    "current_sub_category": "Slice Cheese & Shredded",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -28,7 +28,8 @@
           "Herbs",
           "Dates & Dried Fruits",
           "Salads",
-          "Eggs"
+          "Eggs",
+          "Slice Cheese & Shredded"
         ]
       }
     }
