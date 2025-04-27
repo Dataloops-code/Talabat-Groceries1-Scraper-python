@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:48:00.510255",
+  "last_updated": "2025-04-27T07:48:22.961948",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Special Diet",
+    "current_sub_category": "Cocoa Powder",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -58,7 +58,8 @@
           "Herbs & Seasonings",
           "Organic Dairy & Eggs",
           "Healthy & Protein Snacks",
-          "Special Diet"
+          "Special Diet",
+          "Cocoa Powder"
         ]
       }
     }
