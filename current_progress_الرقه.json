@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:47:19.885505",
+  "last_updated": "2025-04-27T04:49:06.558168",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Sweet Bakes",
+    "current_sub_category": "Pastries",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -33,7 +33,8 @@
           "Toast",
           "Flatbread",
           "Buns & Rolls",
-          "Sweet Bakes"
+          "Sweet Bakes",
+          "Pastries"
         ]
       }
     }
