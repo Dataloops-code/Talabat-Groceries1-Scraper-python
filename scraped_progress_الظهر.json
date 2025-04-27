@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:18:12.098183",
+  "last_updated": "2025-04-27T04:19:58.305930",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Portion Cheese & Halloumi",
+    "current_sub_category": "Block Cheese & Feta",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -31,7 +31,8 @@
           "Eggs",
           "Slice Cheese & Shredded",
           "Squeeze & Tub Cheese",
-          "Portion Cheese & Halloumi"
+          "Portion Cheese & Halloumi",
+          "Block Cheese & Feta"
         ]
       }
     }
