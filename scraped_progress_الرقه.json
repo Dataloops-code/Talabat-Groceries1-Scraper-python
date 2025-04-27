@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:43:00.027073",
+  "last_updated": "2025-04-27T18:44:46.259654",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Feminine Care",
+    "current_sub_category": "Shaving & Hair Removing",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -73,7 +73,8 @@
           "Skin & Body Care",
           "Deodorants",
           "Oral Care",
-          "Feminine Care"
+          "Feminine Care",
+          "Shaving & Hair Removing"
         ]
       }
     }
