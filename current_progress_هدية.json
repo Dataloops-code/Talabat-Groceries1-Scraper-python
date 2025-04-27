@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:00:40.097938",
+  "last_updated": "2025-04-27T19:47:16.031591",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Powdered & Concentrated Juices",
+    "current_sub_category": "Iced Tea",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -99,7 +99,8 @@
           "Soft Drinks",
           "Sports & Energy Drinks",
           "Malt Drinks",
-          "Powdered & Concentrated Juices"
+          "Powdered & Concentrated Juices",
+          "Iced Tea"
         ]
       }
     }
