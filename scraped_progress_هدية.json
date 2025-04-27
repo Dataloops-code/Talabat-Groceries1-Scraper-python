@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:53:57.409925",
+  "last_updated": "2025-04-27T18:59:55.761691",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Sports & Energy Drinks",
+    "current_sub_category": "Malt Drinks",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -97,7 +97,8 @@
           "Juices Single",
           "Juices Sharing",
           "Soft Drinks",
-          "Sports & Energy Drinks"
+          "Sports & Energy Drinks",
+          "Malt Drinks"
         ]
       }
     }
