@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:52:55.345515",
+  "last_updated": "2025-04-27T04:54:41.866980",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Cream",
+    "current_sub_category": "Desserts",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -31,7 +31,8 @@
           "Eggs",
           "Butter & Margarine",
           "Yoghurt & Labneh",
-          "Cream"
+          "Cream",
+          "Desserts"
         ]
       }
     }
