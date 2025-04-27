@@ -1,16 +1,22 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:41:54.313043",
+  "last_updated": "2025-04-27T01:42:25.896641",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
-    "total_groceries": 0,
+    "current_grocery": 1,
+    "current_grocery_title": "Heathrow Market",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo?aid=59",
+    "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": null,
-    "completed_groceries": {}
+    "current_category": "School Snacks time",
+    "current_sub_category": "Nuts",
+    "completed_groceries": {
+      "Heathrow Market": {
+        "completed sub-categories": [
+          "Nuts"
+        ]
+      }
+    }
   }
 }
