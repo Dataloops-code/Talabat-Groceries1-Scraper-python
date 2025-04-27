@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:57:58.243648",
+  "last_updated": "2025-04-27T19:59:44.997103",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Pet Food",
+    "current_sub_category": "Baby Bath & Body Care",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -106,7 +106,8 @@
           "Flavoured Water",
           "Drinking Water",
           "Ice",
-          "Pet Food"
+          "Pet Food",
+          "Baby Bath & Body Care"
         ]
       }
     }
