@@ -5,9 +5,9 @@ on:
     - cron: "0 */6 * * *"  # Runs every 6 hours
   workflow_dispatch:     # Allows manual triggering
 
-concurrency:
-  group: scraper-${{ github.event.inputs.الرقه }}
-  cancel-in-progress: true
+# concurrency:
+#   group: scraper-${{ github.event.inputs.الرقه }}
+#   cancel-in-progress: true
 
 jobs:
   scrape:
