@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:41:15.847416",
+  "last_updated": "2025-04-27T07:43:02.477863",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Vinegar & Concentrates",
+    "current_sub_category": "Herbs & Seasonings",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -54,7 +54,8 @@
           "Salt & Spices",
           "Olives & Pickles",
           "Sauces & Dressings",
-          "Vinegar & Concentrates"
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings"
         ]
       }
     }
