@@ -570,8 +570,11 @@ class MainScraper:
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
-        self.commit_progress(f"Initialized progress files for {area_name}")  # Fixed string formatting
-
+        # Save progress files to ensure they are created/updated
+        self.save_current_progress()
+        self.save_scraped_progress()
+        self.commit_progress(f"Initialized progress files for {area_name}")
+        
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
 
@@ -726,7 +729,9 @@ class MainScraper:
                         logging.error("Failed to push after 3 attempts")
                         raise
         except subprocess.CalledProcessError as e:
-            if "nothing to commit" in str(e):
+            # Handle "nothing to commit" case more robustly
+            error_output = e.stderr or str(e)
+            if "nothing to commit" in error_output.lower() or "no changes added" in error_output.lower():
                 logging.info("No changes to commit")
             else:
                 logging.error(f"Error committing progress: {e}")
