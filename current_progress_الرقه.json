@@ -1,16 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T02:47:08.425797",
+  "last_updated": "2025-04-27T02:47:31.345049",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
-    "total_groceries": 0,
+    "current_grocery": 1,
+    "current_grocery_title": "Fatafeat Market",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
+    "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": null,
+    "current_category": "Chocolate & Candy ",
+    "current_sub_category": "Chocolate",
     "completed_groceries": {}
   }
 }
