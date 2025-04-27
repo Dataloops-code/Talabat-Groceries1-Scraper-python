@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:07:48.063252",
+  "last_updated": "2025-04-27T14:09:34.333712",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Chips Packs",
+    "current_sub_category": "Chips Single",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -85,7 +85,8 @@
           "Candy & Gum",
           "Lollies",
           "Jellies",
-          "Chips Packs"
+          "Chips Packs",
+          "Chips Single"
         ]
       }
     }
