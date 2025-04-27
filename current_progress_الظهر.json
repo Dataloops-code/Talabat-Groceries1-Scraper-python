@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:42:25.896641",
+  "last_updated": "2025-04-27T01:44:12.096390",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -10,11 +10,12 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Nuts",
+    "current_sub_category": "Freshly Baked",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
-          "Nuts"
+          "Nuts",
+          "Freshly Baked"
         ]
       }
     }
