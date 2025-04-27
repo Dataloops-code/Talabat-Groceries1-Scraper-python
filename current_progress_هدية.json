@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:39:29.389539",
+  "last_updated": "2025-04-27T07:41:15.847416",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Sauces & Dressings",
+    "current_sub_category": "Vinegar & Concentrates",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -53,7 +53,8 @@
           "Ready-to-Eat Canned Meals",
           "Salt & Spices",
           "Olives & Pickles",
-          "Sauces & Dressings"
+          "Sauces & Dressings",
+          "Vinegar & Concentrates"
         ]
       }
     }
