@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:22:04.664126",
+  "last_updated": "2025-04-27T13:23:19.907142",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Evaporated Milk",
+    "current_sub_category": "Powdered Milk",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -75,7 +75,8 @@
           "UHT Milk",
           "Flavoured Milk",
           "Condensed Milk",
-          "Evaporated Milk"
+          "Evaporated Milk",
+          "Powdered Milk"
         ]
       }
     }
