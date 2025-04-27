@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:02:39.923254",
+  "last_updated": "2025-04-27T14:06:39.214405",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Butter",
+    "current_sub_category": "Cream",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -49,7 +49,8 @@
           "Eggs",
           "Cheese",
           "Yoghurts & Labneh",
-          "Butter"
+          "Butter",
+          "Cream"
         ]
       }
     }
