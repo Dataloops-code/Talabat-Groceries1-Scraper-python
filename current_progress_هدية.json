@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:49:22.797194",
+  "last_updated": "2025-04-27T18:53:57.407728",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Soft Drinks",
+    "current_sub_category": "Sports & Energy Drinks",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -96,7 +96,8 @@
           "Juices Packs",
           "Juices Single",
           "Juices Sharing",
-          "Soft Drinks"
+          "Soft Drinks",
+          "Sports & Energy Drinks"
         ]
       }
     }
