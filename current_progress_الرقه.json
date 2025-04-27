@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:50:38.916394",
+  "last_updated": "2025-04-27T01:52:25.153695",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
@@ -10,12 +10,13 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Toast",
+    "current_sub_category": "Buns & Rolls",
     "completed_groceries": {
       "Dandoosh Grocery": {
         "completed sub-categories": [
           "Freshly Baked",
-          "Toast"
+          "Toast",
+          "Buns & Rolls"
         ]
       }
     }
