@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:34:53.174799",
+  "last_updated": "2025-04-27T04:36:39.812555",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Juices",
+    "current_sub_category": "Specialty Drinks",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -26,7 +26,8 @@
           "Water",
           "Soft Drinks",
           "Sports & Energy Drinks",
-          "Juices"
+          "Juices",
+          "Specialty Drinks"
         ]
       }
     }
