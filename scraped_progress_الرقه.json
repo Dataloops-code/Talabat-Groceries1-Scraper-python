@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:37:41.164945",
+  "last_updated": "2025-04-27T18:39:27.371679",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Skin & Body Care",
+    "current_sub_category": "Deodorants",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -70,7 +70,8 @@
           "Lamb & Goat",
           "Hair Care",
           "Face Care",
-          "Skin & Body Care"
+          "Skin & Body Care",
+          "Deodorants"
         ]
       }
     }
