@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:27:33.300830",
+  "last_updated": "2025-04-27T18:28:32.027265",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 4,
+    "current_grocery": 9,
     "current_grocery_title": "Fatafeat Market",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
@@ -63,7 +63,8 @@
           "Long Life Milk",
           "Milk Alternatives",
           "Powdered Milk",
-          "Evaporated Milk"
+          "Evaporated Milk",
+          "Condensed Milk"
         ]
       }
     }
@@ -72,7 +73,7 @@
     "الرقه": {
       "Fatafeat Market": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
-        "delivery_time": "31 mins",
+        "delivery_time": "33 mins",
         "grocery_details": {
           "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
