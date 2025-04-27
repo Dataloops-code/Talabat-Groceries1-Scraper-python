@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:59:03.077239",
+  "last_updated": "2025-04-27T07:59:03.806149",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Eggs",
+    "current_sub_category": "Cheese",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
