@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:37:41.362260",
+  "last_updated": "2025-04-27T04:39:27.611588",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Fresh Poultry",
+    "current_sub_category": "Frozen Poultry",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -42,7 +42,8 @@
           "Cocoa Powder",
           "Syrups",
           "Spreads & Honey",
-          "Fresh Poultry"
+          "Fresh Poultry",
+          "Frozen Poultry"
         ]
       }
     }
