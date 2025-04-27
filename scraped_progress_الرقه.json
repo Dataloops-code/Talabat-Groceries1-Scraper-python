@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:54:26.519648",
+  "last_updated": "2025-04-27T04:56:13.265747",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Cups & Tubs",
+    "current_sub_category": "Family Packs",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -37,7 +37,8 @@
           "Pastries",
           "Crispbread & Rusk",
           "Bars, Cones & Sticks",
-          "Cups & Tubs"
+          "Cups & Tubs",
+          "Family Packs"
         ]
       }
     }
