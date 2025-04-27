@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:47:44.527972",
+  "last_updated": "2025-04-27T01:49:30.736886",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -10,14 +10,15 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Buns & Rolls",
+    "current_sub_category": "Cakes",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
           "Nuts",
           "Freshly Baked",
           "Toast",
-          "Buns & Rolls"
+          "Buns & Rolls",
+          "Cakes"
         ]
       }
     }
