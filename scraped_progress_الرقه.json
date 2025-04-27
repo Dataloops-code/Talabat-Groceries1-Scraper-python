@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:27:46.468284",
+  "last_updated": "2025-04-27T04:29:33.201449",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Namkeens",
+    "current_sub_category": "Water",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -22,7 +22,8 @@
           "Nuts, Seeds & Fruits",
           "Popcorn",
           "Crackers & Pretzels",
-          "Namkeens"
+          "Namkeens",
+          "Water"
         ]
       }
     }
