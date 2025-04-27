@@ -1,0 +1,16 @@
+{
+  "completed_areas": [],
+  "current_area_index": 0,
+  "last_updated": "2025-04-27T00:27:03.790993",
+  "current_progress": {
+    "area_name": "الفنطاس",
+    "current_grocery": 1,
+    "current_grocery_title": "City Star Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/636560/city-star-grocery-mahboula-tgo?aid=38",
+    "total_groceries": 20,
+    "processed_groceries": [],
+    "current_category": "School Snacks time",
+    "current_sub_category": null,
+    "completed_groceries": {}
+  }
+}
