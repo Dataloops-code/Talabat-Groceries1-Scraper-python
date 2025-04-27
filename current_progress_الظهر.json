@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T08:08:28.071032",
+  "last_updated": "2025-04-27T08:08:29.043126",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 21,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "UHT Milk",
+    "current_sub_category": "Flavoured Milk",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
