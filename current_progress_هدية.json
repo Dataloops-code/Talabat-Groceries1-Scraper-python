@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T03:47:49.922766",
+  "last_updated": "2025-04-27T03:49:36.726255",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,11 +10,12 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Promotions",
+    "current_sub_category": "Freshly Baked",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
-          "Promotions"
+          "Promotions",
+          "Freshly Baked"
         ]
       }
     }
