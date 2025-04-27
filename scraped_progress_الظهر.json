@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:21:44.427030",
+  "last_updated": "2025-04-27T04:23:30.624653",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Butter & Margarine",
+    "current_sub_category": "Yoghurt & Labneh",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -33,7 +33,8 @@
           "Squeeze & Tub Cheese",
           "Portion Cheese & Halloumi",
           "Block Cheese & Feta",
-          "Butter & Margarine"
+          "Butter & Margarine",
+          "Yoghurt & Labneh"
         ]
       }
     }
