@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:13:09.097087",
+  "last_updated": "2025-04-27T19:14:55.249920",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Pizza & Pasta Sauces",
+    "current_sub_category": "Coffee",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -90,7 +90,8 @@
           "Noodles & Soups",
           "Rice",
           "Pulses & Grains",
-          "Pizza & Pasta Sauces"
+          "Pizza & Pasta Sauces",
+          "Coffee"
         ]
       }
     }
