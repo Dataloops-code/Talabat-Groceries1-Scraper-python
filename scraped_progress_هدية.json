@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:08:46.900644",
+  "last_updated": "2025-04-27T13:10:33.015038",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Cereals",
+    "current_sub_category": "Fresh Milk",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -62,7 +62,8 @@
           "Cocoa Powder",
           "Syrups",
           "Spreads & Honey",
-          "Cereals"
+          "Cereals",
+          "Fresh Milk"
         ]
       }
     }
