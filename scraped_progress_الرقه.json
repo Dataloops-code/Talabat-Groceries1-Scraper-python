@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:18:59.350572",
+  "last_updated": "2025-04-27T14:22:30.266161",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Bakery & Desserts",
+    "current_sub_category": "Ice",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -54,7 +54,8 @@
           "Chilled Desserts",
           "Ready-Meals",
           "Fruit And Veg",
-          "Bakery & Desserts"
+          "Bakery & Desserts",
+          "Ice"
         ]
       }
     }
