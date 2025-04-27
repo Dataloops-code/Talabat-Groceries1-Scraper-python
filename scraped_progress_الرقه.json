@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:27:48.880523",
+  "last_updated": "2025-04-27T14:29:35.123391",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Seafood",
+    "current_sub_category": "Fresh Milk",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -58,7 +58,8 @@
           "Ice",
           "Fries",
           "Poultry",
-          "Seafood"
+          "Seafood",
+          "Fresh Milk"
         ]
       }
     }
