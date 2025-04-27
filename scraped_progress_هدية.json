@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:56:28.489278",
+  "last_updated": "2025-04-27T04:58:15.069599",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Slice Cheese & Shredded",
+    "current_sub_category": "Squeeze & Tub Cheese",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -33,7 +33,8 @@
           "Yoghurt & Labneh",
           "Cream",
           "Desserts",
-          "Slice Cheese & Shredded"
+          "Slice Cheese & Shredded",
+          "Squeeze & Tub Cheese"
         ]
       }
     }
