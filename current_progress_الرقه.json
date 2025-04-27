@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:41:34.601230",
+  "last_updated": "2025-04-27T07:53:55.807437",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Fresh Fruit",
+    "current_sub_category": "Fresh Vegetables",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -42,7 +42,8 @@
           "Starters & Sides",
           "Protein",
           "Special Diet",
-          "Fresh Fruit"
+          "Fresh Fruit",
+          "Fresh Vegetables"
         ]
       }
     }
