@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T03:46:58.835251",
+  "last_updated": "2025-04-27T03:59:35.988100",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,13 +10,14 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Candy",
+    "current_sub_category": "Gums & Drops",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
           "Chocolate",
           "Biscuits & Cakes",
-          "Candy"
+          "Candy",
+          "Gums & Drops"
         ]
       }
     }
