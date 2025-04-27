@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T12:20:16.212311",
+  "last_updated": "2025-04-27T13:07:00.253799",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 20,
+    "current_grocery": 8,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -60,7 +60,8 @@
           "Healthy & Protein Snacks",
           "Special Diet",
           "Cocoa Powder",
-          "Syrups"
+          "Syrups",
+          "Spreads & Honey"
         ]
       }
     }
