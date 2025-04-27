@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:00:43.531789",
+  "last_updated": "2025-04-27T19:02:29.954407",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Olive Oil",
+    "current_sub_category": "Ghee",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -83,7 +83,8 @@
           "Laundry",
           "Baking Ingredients",
           "Frying Oil",
-          "Olive Oil"
+          "Olive Oil",
+          "Ghee"
         ]
       }
     }
