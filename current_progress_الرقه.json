@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:08:23.305097",
+  "last_updated": "2025-04-27T14:16:24.781073",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 4,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Chilled Desserts",
+    "current_sub_category": "Ready-Meals",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -51,7 +51,8 @@
           "Yoghurts & Labneh",
           "Butter",
           "Cream",
-          "Chilled Desserts"
+          "Chilled Desserts",
+          "Ready-Meals"
         ]
       }
     }
