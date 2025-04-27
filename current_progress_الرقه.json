@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:28:32.025618",
+  "last_updated": "2025-04-27T18:28:44.149791",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Condensed Milk",
+    "current_sub_category": "Chicken & Poultry",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -64,7 +64,8 @@
           "Milk Alternatives",
           "Powdered Milk",
           "Evaporated Milk",
-          "Condensed Milk"
+          "Condensed Milk",
+          "Chicken & Poultry"
         ]
       }
     }
