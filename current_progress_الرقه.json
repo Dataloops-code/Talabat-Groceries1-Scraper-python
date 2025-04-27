@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:56:11.680327",
+  "last_updated": "2025-04-27T07:58:41.353338",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Herbs & Leafy Greens",
+    "current_sub_category": "Dates & Dried Fruit",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -44,7 +44,8 @@
           "Special Diet",
           "Fresh Fruit",
           "Fresh Vegetables",
-          "Herbs & Leafy Greens"
+          "Herbs & Leafy Greens",
+          "Dates & Dried Fruit"
         ]
       }
     }
