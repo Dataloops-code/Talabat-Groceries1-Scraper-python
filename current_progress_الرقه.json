@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:23:46.597375",
+  "last_updated": "2025-04-27T19:25:32.830861",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Garbage Bags",
+    "current_sub_category": "Gloves",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -96,7 +96,8 @@
           "Creamers",
           "Tissues & Paper Rolls",
           "Disposable Tableware",
-          "Garbage Bags"
+          "Garbage Bags",
+          "Gloves"
         ]
       }
     }
