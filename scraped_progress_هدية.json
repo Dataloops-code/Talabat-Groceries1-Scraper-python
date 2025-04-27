@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:27:34.893451",
+  "last_updated": "2025-04-27T13:28:06.281831",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Tea",
+    "current_sub_category": "Creamers",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -70,7 +70,8 @@
           "Flavoured Milk",
           "Condensed Milk",
           "Coffee",
-          "Tea"
+          "Tea",
+          "Creamers"
         ]
       }
     }
