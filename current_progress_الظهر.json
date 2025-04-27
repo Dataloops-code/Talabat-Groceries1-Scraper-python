@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:53:37.503248",
+  "last_updated": "2025-04-27T04:55:23.743958",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Oil & Ghee",
+    "current_sub_category": "Pulses & Grains",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -51,7 +51,8 @@
           "Rice",
           "Pasta & Sauces",
           "Noodles & Soups",
-          "Oil & Ghee"
+          "Oil & Ghee",
+          "Pulses & Grains"
         ]
       }
     }
