@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:50:22.071102",
+  "last_updated": "2025-04-27T07:54:32.255809",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 21,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Vinegar & Concentrates",
+    "current_sub_category": "Herbs & Seasonings",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -65,7 +65,8 @@
           "Salt & Spices",
           "Sauces & Dressings",
           "Olives & Pickles",
-          "Vinegar & Concentrates"
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings"
         ]
       }
     }
