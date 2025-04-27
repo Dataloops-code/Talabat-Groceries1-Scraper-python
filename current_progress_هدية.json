@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:25:27.899484",
+  "last_updated": "2025-04-27T06:26:18.191634",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Frozen Ready Meals",
+    "current_sub_category": "Rice",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -40,7 +40,8 @@
           "Frozen Poultry",
           "Frozen Meat & Seafood",
           "Frozen Fruits & Vegetables",
-          "Frozen Ready Meals"
+          "Frozen Ready Meals",
+          "Rice"
         ]
       }
     }
