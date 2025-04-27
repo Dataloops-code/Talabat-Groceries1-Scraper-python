@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:34:54.489392",
+  "last_updated": "2025-04-27T06:41:13.671068",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Pasta & Sauces",
+    "current_sub_category": "Noodles & Soups",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -43,7 +43,8 @@
           "Frozen Ready Meals",
           "Rice",
           "Oil & Ghee",
-          "Pasta & Sauces"
+          "Pasta & Sauces",
+          "Noodles & Soups"
         ]
       }
     }
