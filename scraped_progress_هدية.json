@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:58:15.069599",
+  "last_updated": "2025-04-27T05:00:01.676041",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Squeeze & Tub Cheese",
+    "current_sub_category": "Portion Cheese & Halloumi",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -34,7 +34,8 @@
           "Cream",
           "Desserts",
           "Slice Cheese & Shredded",
-          "Squeeze & Tub Cheese"
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi"
         ]
       }
     }
