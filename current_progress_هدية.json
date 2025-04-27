@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:14:19.212728",
+  "last_updated": "2025-04-27T18:17:39.595457",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 8,
+    "current_grocery": 20,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -91,7 +91,8 @@
           "Seeds & Nuts",
           "Canister Chips",
           "Bars, Cones & Sticks",
-          "Cups & Tubs"
+          "Cups & Tubs",
+          "Family Packs"
         ]
       }
     }
