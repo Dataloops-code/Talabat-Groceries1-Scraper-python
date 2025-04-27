@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:33:06.473655",
+  "last_updated": "2025-04-27T04:34:53.176135",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Sports & Energy Drinks",
+    "current_sub_category": "Juices",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -25,7 +25,8 @@
           "Namkeens",
           "Water",
           "Soft Drinks",
-          "Sports & Energy Drinks"
+          "Sports & Energy Drinks",
+          "Juices"
         ]
       }
     }
