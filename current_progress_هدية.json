@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:15:18.494133",
+  "last_updated": "2025-04-27T06:17:25.201008",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 17,
+    "current_grocery": 20,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -36,7 +36,8 @@
           "Slice Cheese & Shredded",
           "Squeeze & Tub Cheese",
           "Portion Cheese & Halloumi",
-          "Block Cheese & Feta"
+          "Block Cheese & Feta",
+          "Frozen Poultry"
         ]
       }
     }
