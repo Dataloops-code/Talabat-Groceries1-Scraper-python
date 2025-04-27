@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:54:41.865223",
+  "last_updated": "2025-04-27T04:56:28.487858",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Desserts",
+    "current_sub_category": "Slice Cheese & Shredded",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -32,7 +32,8 @@
           "Butter & Margarine",
           "Yoghurt & Labneh",
           "Cream",
-          "Desserts"
+          "Desserts",
+          "Slice Cheese & Shredded"
         ]
       }
     }
