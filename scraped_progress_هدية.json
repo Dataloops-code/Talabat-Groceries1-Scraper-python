@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:57:10.524123",
+  "last_updated": "2025-04-27T13:58:56.867516",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Biscuits",
+    "current_sub_category": "Cookies",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -79,7 +79,8 @@
           "Chocolate Sharing",
           "Wafers",
           "Digestive & Fibre",
-          "Biscuits"
+          "Biscuits",
+          "Cookies"
         ]
       }
     }
