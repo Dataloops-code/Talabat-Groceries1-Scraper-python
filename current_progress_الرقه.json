@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T03:31:34.174486",
+  "last_updated": "2025-04-27T03:46:58.832962",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,12 +10,13 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Biscuits & Cakes",
+    "current_sub_category": "Candy",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
           "Chocolate",
-          "Biscuits & Cakes"
+          "Biscuits & Cakes",
+          "Candy"
         ]
       }
     }
