@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:20:53.107632",
+  "last_updated": "2025-04-27T04:23:01.834479",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Nuts, Seeds & Fruits",
+    "current_sub_category": "Popcorn",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -19,7 +19,8 @@
           "Candy",
           "Gums & Drops",
           "Chips",
-          "Nuts, Seeds & Fruits"
+          "Nuts, Seeds & Fruits",
+          "Popcorn"
         ]
       }
     }
