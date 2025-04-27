@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T02:00:08.773379",
+  "last_updated": "2025-04-27T02:01:54.986900",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Fruits",
+    "current_sub_category": "Herbs",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -24,7 +24,8 @@
           "Pastries",
           "Cup Cakes & Rolls",
           "Vegetables",
-          "Fruits"
+          "Fruits",
+          "Herbs"
         ]
       }
     }
