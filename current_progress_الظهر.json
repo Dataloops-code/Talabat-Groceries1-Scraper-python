@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T12:18:54.514568",
+  "last_updated": "2025-04-27T12:19:36.934017",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Flavoured Milk",
+    "current_sub_category": "Condensed Milk",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -73,7 +73,8 @@
           "Fresh Milk",
           "Fresh Laban",
           "UHT Milk",
-          "Flavoured Milk"
+          "Flavoured Milk",
+          "Condensed Milk"
         ]
       }
     }
