@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T03:49:36.726255",
+  "last_updated": "2025-04-27T03:51:23.217910",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,12 +10,13 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Freshly Baked",
+    "current_sub_category": "Buns & Rolls",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
           "Promotions",
-          "Freshly Baked"
+          "Freshly Baked",
+          "Buns & Rolls"
         ]
       }
     }
