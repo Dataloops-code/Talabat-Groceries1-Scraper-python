@@ -691,16 +691,29 @@ class MainScraper:
             return
         
         try:
+            # Ensure progress files exist
             for file_path in [self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE]:
                 if not os.path.exists(file_path):
                     with open(file_path, 'w', encoding='utf-8') as f:
                         json.dump({}, f)
             
+            # Stage the progress files and output directory
+            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
+            
+            # Check if there are changes to commit
+            result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+            if not result.stdout.strip():
+                logging.info("No changes to commit")
+                return
+            
+            # Configure Git user
             subprocess.run(["git", "config", "--global", "user.name", "GitHub Action"], check=True)
             subprocess.run(["git", "config", "--global", "user.email", "action@github.com"], check=True)
-            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
+            
+            # Commit changes
             subprocess.run(["git", "commit", "-m", message], check=True)
             
+            # Push changes with retries
             for attempt in range(3):
                 try:
                     subprocess.run(["git", "pull", "--rebase"], check=True)
@@ -713,8 +726,11 @@ class MainScraper:
                         logging.error("Failed to push after 3 attempts")
                         raise
         except subprocess.CalledProcessError as e:
-            logging.error(f"Error committing progress: {e}")
-            raise
+            if "nothing to commit" in str(e):
+                logging.info("No changes to commit")
+            else:
+                logging.error(f"Error committing progress: {e}")
+                raise
     
     def save_scraped_progress(self, progress: Dict = None):
         progress = progress or self.scraped_progress
