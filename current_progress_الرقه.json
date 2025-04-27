@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:50:53.271354",
+  "last_updated": "2025-04-27T04:52:39.918126",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Crispbread & Rusk",
+    "current_sub_category": "Bars, Cones & Sticks",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -35,7 +35,8 @@
           "Buns & Rolls",
           "Sweet Bakes",
           "Pastries",
-          "Crispbread & Rusk"
+          "Crispbread & Rusk",
+          "Bars, Cones & Sticks"
         ]
       }
     }
