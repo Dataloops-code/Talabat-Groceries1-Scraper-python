@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:55:57.685265",
+  "last_updated": "2025-04-27T01:57:43.921028",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 1,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Bakery",
-    "current_sub_category": "Croissant Single",
+    "current_sub_category": "Croissant Packs",
     "completed_groceries": {
       "Dandoosh Grocery": {
         "completed sub-categories": [
@@ -18,7 +18,8 @@
           "Toast",
           "Buns & Rolls",
           "Cakes",
-          "Croissant Single"
+          "Croissant Single",
+          "Croissant Packs"
         ]
       }
     }
