@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:48:19.158019",
+  "last_updated": "2025-04-27T18:50:05.782022",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Makeup",
+    "current_sub_category": "Pharmacy",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -76,7 +76,8 @@
           "Feminine Care",
           "Shaving & Hair Removing",
           "Perfumes",
-          "Makeup"
+          "Makeup",
+          "Pharmacy"
         ]
       }
     }
