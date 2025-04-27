@@ -547,7 +547,7 @@ class MainScraper:
         self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.output_dir = "output"
-        self.github_token = os.environ.get('GITHUB_TOKEN')  # Initialize github_token early
+        self.github_token = os.environ.get('GITHUB_TOKEN')
         if not self.github_token:
             logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
@@ -567,7 +567,6 @@ class MainScraper:
                 self.drive_uploader = SavingOnDrive(credentials_json=None)
         
         os.makedirs(self.output_dir, exist_ok=True)
-        # Load both progress files to ensure they exist before any commits
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
@@ -692,7 +691,6 @@ class MainScraper:
             return
         
         try:
-            # Ensure files exist before adding
             for file_path in [self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE]:
                 if not os.path.exists(file_path):
                     with open(file_path, 'w', encoding='utf-8') as f:
@@ -703,7 +701,6 @@ class MainScraper:
             subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
             subprocess.run(["git", "commit", "-m", message], check=True)
             
-            # Retry push up to 3 times to handle ref lock conflicts
             for attempt in range(3):
                 try:
                     subprocess.run(["git", "pull", "--rebase"], check=True)
@@ -1213,7 +1210,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 
