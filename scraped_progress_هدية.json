@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:30:40.416316",
+  "last_updated": "2025-04-27T18:33:47.097455",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Juices Single",
+    "current_sub_category": "Juices Sharing",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -94,7 +94,8 @@
           "Cups & Tubs",
           "Family Packs",
           "Juices Packs",
-          "Juices Single"
+          "Juices Single",
+          "Juices Sharing"
         ]
       }
     }
