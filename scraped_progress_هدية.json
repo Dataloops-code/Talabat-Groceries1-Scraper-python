@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T13:10:33.015038",
+  "last_updated": "2025-04-27T13:12:19.213845",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Fresh Milk",
+    "current_sub_category": "Fresh Laban",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -63,7 +63,8 @@
           "Syrups",
           "Spreads & Honey",
           "Cereals",
-          "Fresh Milk"
+          "Fresh Milk",
+          "Fresh Laban"
         ]
       }
     }
