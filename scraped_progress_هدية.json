@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:00:43.086280",
+  "last_updated": "2025-04-27T14:02:29.337247",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Crackers",
+    "current_sub_category": "Candy & Gum",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -81,7 +81,8 @@
           "Digestive & Fibre",
           "Biscuits",
           "Cookies",
-          "Crackers"
+          "Crackers",
+          "Candy & Gum"
         ]
       }
     }
