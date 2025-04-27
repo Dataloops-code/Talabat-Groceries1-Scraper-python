@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:17:39.599934",
+  "last_updated": "2025-04-27T18:24:39.223650",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Family Packs",
+    "current_sub_category": "Juices Packs",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -92,7 +92,8 @@
           "Canister Chips",
           "Bars, Cones & Sticks",
           "Cups & Tubs",
-          "Family Packs"
+          "Family Packs",
+          "Juices Packs"
         ]
       }
     }
