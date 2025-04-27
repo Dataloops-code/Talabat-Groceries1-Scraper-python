@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:42:52.220039",
+  "last_updated": "2025-04-27T07:46:09.755410",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 21,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Sauces & Dressings",
+    "current_sub_category": "Olives & Pickles",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -63,7 +63,8 @@
         "completed sub-categories": [
           "Ready-to-Eat Canned Meals",
           "Salt & Spices",
-          "Sauces & Dressings"
+          "Sauces & Dressings",
+          "Olives & Pickles"
         ]
       }
     }
