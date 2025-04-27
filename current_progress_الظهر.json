@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:27:03.117862",
+  "last_updated": "2025-04-27T04:28:49.270058",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Dairy Products",
+    "current_sub_category": "Desserts",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -36,7 +36,8 @@
           "Butter & Margarine",
           "Yoghurt & Labneh",
           "Cream",
-          "Dairy Products"
+          "Dairy Products",
+          "Desserts"
         ]
       }
     }
