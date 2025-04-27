@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:28:50.765314",
+  "last_updated": "2025-04-27T07:32:08.619496",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 10,
+    "current_grocery": 13,
     "current_grocery_title": "Fatafeat Market",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
@@ -39,7 +39,8 @@
           "Bars, Cones & Sticks",
           "Cups & Tubs",
           "Family Packs",
-          "Starters & Sides"
+          "Starters & Sides",
+          "Protein"
         ]
       }
     }
