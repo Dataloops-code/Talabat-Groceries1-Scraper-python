@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:27:19.026936",
+  "last_updated": "2025-04-27T19:29:05.264162",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Food Storage & Wraps",
+    "current_sub_category": "Salad Dressings & Vinegar",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -98,7 +98,8 @@
           "Disposable Tableware",
           "Garbage Bags",
           "Gloves",
-          "Food Storage & Wraps"
+          "Food Storage & Wraps",
+          "Salad Dressings & Vinegar"
         ]
       }
     }
