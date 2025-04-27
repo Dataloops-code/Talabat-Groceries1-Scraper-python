@@ -567,6 +567,7 @@ class MainScraper:
                 self.drive_uploader = SavingOnDrive(credentials_json=None)
         
         os.makedirs(self.output_dir, exist_ok=True)
+        # Load both progress files to ensure they exist before any commits
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
@@ -635,7 +636,6 @@ class MainScraper:
         }
         logging.info(f"{self.CURRENT_PROGRESS_FILE} not found, creating default")
         self.save_current_progress(default_progress)
-        self.commit_progress(f"Created default {self.CURRENT_PROGRESS_FILE}")
         return default_progress
 
     def load_scraped_progress(self) -> Dict:
@@ -684,9 +684,41 @@ class MainScraper:
         }
         logging.info(f"{self.SCRAPED_PROGRESS_FILE} not found, creating default")
         self.save_scraped_progress(default_progress)
-        self.commit_progress(f"Created default {self.SCRAPED_PROGRESS_FILE}")
         return default_progress
 
+    def commit_progress(self, message: str):
+        if not self.github_token:
+            logging.info("Skipping git commit due to missing GITHUB_TOKEN")
+            return
+        
+        try:
+            # Ensure files exist before adding
+            for file_path in [self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE]:
+                if not os.path.exists(file_path):
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        json.dump({}, f)
+            
+            subprocess.run(["git", "config", "--global", "user.name", "GitHub Action"], check=True)
+            subprocess.run(["git", "config", "--global", "user.email", "action@github.com"], check=True)
+            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
+            subprocess.run(["git", "commit", "-m", message], check=True)
+            
+            # Retry push up to 3 times to handle ref lock conflicts
+            for attempt in range(3):
+                try:
+                    subprocess.run(["git", "pull", "--rebase"], check=True)
+                    subprocess.run(["git", "push"], check=True)
+                    logging.info(f"Successfully committed and pushed: {message}")
+                    break
+                except subprocess.CalledProcessError as e:
+                    logging.warning(f"Git push failed (attempt {attempt + 1}/3): {e}")
+                    if attempt == 2:
+                        logging.error("Failed to push after 3 attempts")
+                        raise
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Error committing progress: {e}")
+            raise
+    
     def save_scraped_progress(self, progress: Dict = None):
         progress = progress or self.scraped_progress
         try:
@@ -703,24 +735,6 @@ class MainScraper:
             logging.info(f"Saved {self.SCRAPED_PROGRESS_FILE}")
         except Exception as e:
             logging.error(f"Error saving {self.SCRAPED_PROGRESS_FILE}: {e}")
-
-    @retry(tries=3, delay=2, backoff=2)
-    def commit_progress(self, message: str = "Periodic progress update"):
-        if not self.github_token:
-            logging.warning("No GITHUB_TOKEN, skipping commit")
-            return
-        try:
-            logging.info(f"Attempting to commit progress: {message}")
-            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
-            result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
-            if result.returncode == 0:
-                subprocess.run(["git", "push"], check=True, env={"GIT_AUTH_TOKEN": self.github_token, **os.environ})
-                logging.info(f"Successfully committed and pushed: {message}")
-            else:
-                logging.info(f"No changes to commit: {result.stdout}")
-        except subprocess.CalledProcessError as e:
-            logging.error(f"Error committing progress: {e}")
-            raise
 
     async def process_grocery_categories(self, grocery_title, grocery_details, talabat_grocery, page, groceries_on_page, grocery_idx):
         completed_groceries = self.current_progress["current_progress"]["completed_groceries"].get(grocery_title, {})
