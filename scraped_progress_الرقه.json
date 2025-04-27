@@ -1,17 +1,148 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:40:47.682789",
+  "last_updated": "2025-04-27T01:48:52.620287",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
-    "total_groceries": 0,
+    "current_grocery": 1,
+    "current_grocery_title": "Dandoosh Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
+    "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": null,
-    "completed_groceries": {}
+    "current_category": "Bakery",
+    "current_sub_category": "Freshly Baked",
+    "completed_groceries": {
+      "Dandoosh Grocery": {
+        "completed sub-categories": [
+          "Freshly Baked"
+        ]
+      }
+    }
   },
-  "all_results": {}
+  "all_results": {
+    "الرقه": {
+      "Dandoosh Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
+        "delivery_time": "20 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": {
+            "Bakery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/bakery/freshly-baked?aid=37",
+              "sub_categories": []
+            },
+            "Fruits & Vegetables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fruits-vegetables/vegetables?aid=37",
+              "sub_categories": []
+            },
+            "Grab & Go": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/grab-go/salads?aid=37",
+              "sub_categories": []
+            },
+            "Dairy & Eggs": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/dairy-eggs/eggs?aid=37",
+              "sub_categories": []
+            },
+            "Organic & Special Diet": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=37",
+              "sub_categories": []
+            },
+            "Breakfast Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/breakfast-food/cereals?aid=37",
+              "sub_categories": []
+            },
+            "Beverages": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/beverages/juices-single?aid=37",
+              "sub_categories": []
+            },
+            "Snacks & Candy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/snacks-candy/minis-miniatures?aid=37",
+              "sub_categories": []
+            },
+            "Fresh Meat & Chicken": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/fresh-meat-chicken/fresh-poultry?aid=37",
+              "sub_categories": []
+            },
+            "Frozen Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/frozen-food/frozen-poultry?aid=37",
+              "sub_categories": []
+            },
+            "Cooking & Baking": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cooking-baking/rice?aid=37",
+              "sub_categories": []
+            },
+            "Canned & Jarred Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/canned-jarred-food/meat-seafood?aid=37",
+              "sub_categories": []
+            },
+            "Condiments": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/condiments/salt-spices?aid=37",
+              "sub_categories": []
+            },
+            "Milk": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/milk/fresh-milk?aid=37",
+              "sub_categories": []
+            },
+            "Coffee & Tea": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/coffee-tea/coffee?aid=37",
+              "sub_categories": []
+            },
+            "Ice Cream": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/ice-cream/bars-cones-sticks?aid=37",
+              "sub_categories": []
+            },
+            "Water": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/water/drinking-water?aid=37",
+              "sub_categories": []
+            },
+            "Pet Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pet-care/pet-food?aid=37",
+              "sub_categories": []
+            },
+            "Baby": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/baby/baby-food?aid=37",
+              "sub_categories": []
+            },
+            "Toys": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/toys/baby-toddler-toys?aid=37",
+              "sub_categories": []
+            },
+            "Personal Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/personal-care/body-wash?aid=37",
+              "sub_categories": []
+            },
+            "Pharmacy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/pharmacy/vitamins-supplements?aid=37",
+              "sub_categories": []
+            },
+            "Disposables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/disposables/disposable-tableware?aid=37",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/cleaning-laundry/dishwashing?aid=37",
+              "sub_categories": []
+            },
+            "Household Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/household-essentials/batteries?aid=37",
+              "sub_categories": []
+            },
+            "Electronics": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/electronics/mobile-devices?aid=37",
+              "sub_categories": []
+            },
+            "Gift Items": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/gift-items/boxes?aid=37",
+              "sub_categories": []
+            },
+            "Tobacco Shop": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo/tobacco-shop/e-cigarettes-cigar?aid=37",
+              "sub_categories": []
+            }
+          }
+        }
+      }
+    }
+  }
 }

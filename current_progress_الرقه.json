@@ -1,16 +1,22 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T01:40:47.678810",
+  "last_updated": "2025-04-27T01:48:52.617924",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
-    "total_groceries": 0,
+    "current_grocery": 1,
+    "current_grocery_title": "Dandoosh Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=37",
+    "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
-    "current_sub_category": null,
-    "completed_groceries": {}
+    "current_category": "Bakery",
+    "current_sub_category": "Freshly Baked",
+    "completed_groceries": {
+      "Dandoosh Grocery": {
+        "completed sub-categories": [
+          "Freshly Baked"
+        ]
+      }
+    }
   }
 }
