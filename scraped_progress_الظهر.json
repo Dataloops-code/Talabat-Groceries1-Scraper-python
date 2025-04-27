@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:56:09.797135",
+  "last_updated": "2025-04-27T07:58:44.548058",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 21,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Special Diet",
+    "current_sub_category": "Healthy & Protein Snacks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -68,7 +68,8 @@
           "Vinegar & Concentrates",
           "Herbs & Seasonings",
           "Gluten Free Food & Snacks",
-          "Special Diet"
+          "Special Diet",
+          "Healthy & Protein Snacks"
         ]
       }
     }
