@@ -637,7 +637,6 @@ class MainScraper:
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
-        # Save progress files to ensure they are created/updated
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Initialized progress files for {area_name}")
@@ -783,20 +782,43 @@ class MainScraper:
             # Commit changes
             subprocess.run(["git", "commit", "-m", message], check=True)
             
-            # Push changes with retries
+            # Push changes with retries, handling conflicts
             for attempt in range(3):
                 try:
-                    subprocess.run(["git", "pull", "--rebase"], check=True)
-                    subprocess.run(["git", "push"], check=True)
+                    # Attempt to pull with rebase
+                    try:
+                        subprocess.run(["git", "pull", "--rebase", "origin", "master"], check=True)
+                    except subprocess.CalledProcessError as rebase_error:
+                        logging.warning(f"Rebase failed: {rebase_error}")
+                        # Check for merge conflicts
+                        conflict_check = subprocess.run(["git", "status"], capture_output=True, text=True, check=False)
+                        if "both modified" in conflict_check.stdout.lower() or "unmerged" in conflict_check.stdout.lower():
+                            logging.warning("Merge conflicts detected, resetting to origin/master")
+                            # Abort rebase and reset to origin/master
+                            subprocess.run(["git", "rebase", "--abort"], check=False)
+                            subprocess.run(["git", "fetch", "origin"], check=True)
+                            subprocess.run(["git", "reset", "--hard", "origin/master"], check=True)
+                            # Re-stage and re-commit
+                            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.output_dir], check=True)
+                            result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+                            if result.stdout.strip():
+                                subprocess.run(["git", "commit", "-m", message], check=True)
+                            else:
+                                logging.info("No changes to commit after conflict resolution")
+                                return
+                    
+                    # Push changes
+                    subprocess.run(["git", "push", "origin", "master"], check=True)
                     logging.info(f"Successfully committed and pushed: {message}")
                     break
                 except subprocess.CalledProcessError as e:
-                    logging.warning(f"Git push failed (attempt {attempt + 1}/3): {e}")
+                    logging.warning(f"Git operation failed (attempt {attempt + 1}/3): {e}")
                     if attempt == 2:
-                        logging.error("Failed to push after 3 attempts")
+                        logging.error("Failed to push after 3 attempts, aborting")
                         raise
+                    # Wait before retrying
+                    time.sleep(2)
         except subprocess.CalledProcessError as e:
-            # Handle "nothing to commit" case more robustly
             error_output = e.stderr or str(e)
             if "nothing to commit" in error_output.lower() or "no changes added" in error_output.lower():
                 logging.info("No changes to commit")
