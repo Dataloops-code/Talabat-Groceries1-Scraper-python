@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:46:32.473991",
+  "last_updated": "2025-04-27T04:48:18.708216",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Frozen Desserts",
+    "current_sub_category": "Rice",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -47,7 +47,8 @@
           "Frozen Meat & Seafood",
           "Frozen Fruits & Vegetables",
           "Frozen Ready Meals",
-          "Frozen Desserts"
+          "Frozen Desserts",
+          "Rice"
         ]
       }
     }
