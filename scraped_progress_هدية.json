@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T06:42:08.027039",
+  "last_updated": "2025-04-27T06:47:00.978884",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Pulses & Grains",
+    "current_sub_category": "Baking Products",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -45,7 +45,8 @@
           "Oil & Ghee",
           "Pasta & Sauces",
           "Noodles & Soups",
-          "Pulses & Grains"
+          "Pulses & Grains",
+          "Baking Products"
         ]
       }
     }
