@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:52:39.918126",
+  "last_updated": "2025-04-27T04:54:26.517970",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Bars, Cones & Sticks",
+    "current_sub_category": "Cups & Tubs",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -36,7 +36,8 @@
           "Sweet Bakes",
           "Pastries",
           "Crispbread & Rusk",
-          "Bars, Cones & Sticks"
+          "Bars, Cones & Sticks",
+          "Cups & Tubs"
         ]
       }
     }
