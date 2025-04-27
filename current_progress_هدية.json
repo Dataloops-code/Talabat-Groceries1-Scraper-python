@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:16:44.836346",
+  "last_updated": "2025-04-27T14:18:31.218417",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Bars, Cones & Sticks",
+    "current_sub_category": "Cups & Tubs",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -90,7 +90,8 @@
           "Popcorn",
           "Seeds & Nuts",
           "Canister Chips",
-          "Bars, Cones & Sticks"
+          "Bars, Cones & Sticks",
+          "Cups & Tubs"
         ]
       }
     }
