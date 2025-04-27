@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T14:04:15.558453",
+  "last_updated": "2025-04-27T14:06:01.790983",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 8,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Lollies",
+    "current_sub_category": "Jellies",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -83,7 +83,8 @@
           "Cookies",
           "Crackers",
           "Candy & Gum",
-          "Lollies"
+          "Lollies",
+          "Jellies"
         ]
       }
     }
