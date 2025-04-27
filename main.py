@@ -570,7 +570,7 @@ class MainScraper:
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
-        self.commit_progress(f"Initialized progress files for {area_name}")
+        self.commit_progress(f"Initialized progress files for {area_name}")  # Fixed string formatting
 
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
