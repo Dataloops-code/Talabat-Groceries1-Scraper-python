@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:57:10.945074",
+  "last_updated": "2025-04-27T18:58:57.236972",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Baking Ingredients",
+    "current_sub_category": "Frying Oil",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -81,7 +81,8 @@
           "Dishwashing",
           "Cleaning Supplies",
           "Laundry",
-          "Baking Ingredients"
+          "Baking Ingredients",
+          "Frying Oil"
         ]
       }
     }
