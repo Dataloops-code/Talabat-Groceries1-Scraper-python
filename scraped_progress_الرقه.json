@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:41:13.648652",
+  "last_updated": "2025-04-27T18:43:00.027073",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Oral Care",
+    "current_sub_category": "Feminine Care",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -72,7 +72,8 @@
           "Face Care",
           "Skin & Body Care",
           "Deodorants",
-          "Oral Care"
+          "Oral Care",
+          "Feminine Care"
         ]
       }
     }
