@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:09:26.906799",
+  "last_updated": "2025-04-27T04:45:48.735022",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Dates & Dried Fruits",
+    "current_sub_category": "Deli Meat & Seafood",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -26,7 +26,8 @@
           "Vegetables",
           "Fruits",
           "Herbs",
-          "Dates & Dried Fruits"
+          "Dates & Dried Fruits",
+          "Deli Meat & Seafood"
         ]
       }
     }
