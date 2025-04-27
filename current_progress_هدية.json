@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T19:49:03.036782",
+  "last_updated": "2025-04-27T19:50:49.897377",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Specialty Drinks",
+    "current_sub_category": "Mineral Water",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -101,7 +101,8 @@
           "Malt Drinks",
           "Powdered & Concentrated Juices",
           "Iced Tea",
-          "Specialty Drinks"
+          "Specialty Drinks",
+          "Mineral Water"
         ]
       }
     }
