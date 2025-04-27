@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:00:15.665984",
+  "last_updated": "2025-04-27T04:02:02.341105",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 17,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Cakes & Pastries",
+    "current_sub_category": "Cup Cakes & Rolls",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -21,7 +21,8 @@
           "Cakes",
           "Croissant Single",
           "Croissant Packs",
-          "Cakes & Pastries"
+          "Cakes & Pastries",
+          "Cup Cakes & Rolls"
         ]
       }
     }
