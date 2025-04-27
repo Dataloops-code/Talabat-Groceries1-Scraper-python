@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T04:16:25.910406",
+  "last_updated": "2025-04-27T04:18:12.098183",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Squeeze & Tub Cheese",
+    "current_sub_category": "Portion Cheese & Halloumi",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -30,7 +30,8 @@
           "Salads",
           "Eggs",
           "Slice Cheese & Shredded",
-          "Squeeze & Tub Cheese"
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi"
         ]
       }
     }
