@@ -5,6 +5,10 @@ on:
     - cron: "0 */6 * * *"  # Runs every 6 hours
   workflow_dispatch:     # Allows manual triggering
 
+concurrency:
+  group: talabat-scraper-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -115,7 +119,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add current_progress_${{ steps.parse-area.outputs.area_name }}.json scraped_progress_${{ steps.parse-area.outputs.area_name }}.json output/ || true
+          git add current_progress_${{ steps.parse-area.outputs.area_name }}.json scraped_progress_${{ steps.parse-area.outputs.area_name }}.json output/*.json output/*.xlsx || true
           git commit -m "Update scraper progress for ${{ steps.parse-area.outputs.area_name }} run ${{ github.run_id }}" || echo "No changes to commit"
           git push
         env:
@@ -128,6 +132,8 @@ jobs:
           path: |
             current_progress_${{ steps.parse-area.outputs.area_name }}.json
             scraped_progress_${{ steps.parse-area.outputs.area_name }}.json
+            output/${{ steps.parse-area.outputs.area_name }}.json
+            output/${{ steps.parse-area.outputs.area_name }}_detailed.xlsx
           key: talabat-groceries-progress-${{ steps.parse-area.outputs.area_name }}-${{ github.run_id }}
 
       - name: Upload progress artifacts
@@ -142,12 +148,12 @@ jobs:
             output/${{ steps.parse-area.outputs.area_name }}_detailed.xlsx
             scraper.log
           retention-days: 7
+          if-no-files-found: warn
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
-
 
 
 # name: Daily Talabat Groceries Scraper
