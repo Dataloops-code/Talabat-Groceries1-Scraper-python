@@ -1,4 +1,4 @@
-name: Daily Talabat Groceries Scraper
+name: Talabat Groceries Scraper
 
 on:
   schedule:
@@ -8,13 +8,48 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 120  # Adjusted to 2 hours, tweak as needed
+    timeout-minutes: 120  # 2 hours, adjust as needed
+    strategy:
+      matrix:
+        area:
+          - "الظهر|https://www.talabat.com/kuwait/groceries/59/dhaher"
+          - "الرقه|https://www.talabat.com/kuwait/groceries/37/riqqa"
+          - "هدية|https://www.talabat.com/kuwait/groceries/30/hadiya"
+          - "المنقف|https://www.talabat.com/kuwait/groceries/32/mangaf"
+          - "أبو حليفة|https://www.talabat.com/kuwait/groceries/2/abu-halifa"
+          - "الفنطاس|https://www.talabat.com/kuwait/groceries/38/fintas"
+          - "العقيلة|https://www.talabat.com/kuwait/groceries/79/egaila"
+          - "الصباحية|https://www.talabat.com/kuwait/groceries/31/sabahiya"
+          - "الأحمدي|https://www.talabat.com/kuwait/groceries/3/al-ahmadi"
+          - "الفحيحيل|https://www.talabat.com/kuwait/groceries/5/fahaheel"
+          - "شرق الأحمدي|https://www.talabat.com/kuwait/groceries/3/al-ahmadi"
+          - "ضاحية علي صباح السالم|https://www.talabat.com/kuwait/groceries/82/ali-sabah-al-salem-umm-al-hayman"
+          - "ميناء عبد الله|https://www.talabat.com/kuwait/groceries/100/mina-abdullah"
+          - "بنيدر|https://www.talabat.com/kuwait/groceries/6650/bnaider"
+          - "الزور|https://www.talabat.com/kuwait/groceries/2053/zour"
+          - "الجليعة|https://www.talabat.com/kuwait/groceries/6860/al-julaiaa"
+          - "المهبولة|https://www.talabat.com/kuwait/groceries/24/mahboula"
+          - "النويصيب|https://www.talabat.com/kuwait/groceries/2054/nuwaiseeb"
+          - "الخيران|https://www.talabat.com/kuwait/groceries/2726/khairan"
+          - "الوفرة|https://www.talabat.com/kuwait/groceries/2057/wafra-farms"
+          - "ضاحية فهد الأحمد|https://www.talabat.com/kuwait/groceries/98/fahad-al-ahmed"
+          - "ضاحية جابر العلي|https://www.talabat.com/kuwait/groceries/60/jaber-al-ali"
+          - "مدينة صباح الأحمد السكنية|https://www.talabat.com/kuwait/groceries/6931/sabah-al-ahmad-2"
+          - "مدينة صباح الأحمد البحرية|https://www.talabat.com/kuwait/groceries/2726/khairan"
+          - "ميناء الأحمدي|https://www.talabat.com/kuwait/groceries/3/al-ahmadi"
     steps:
+      - name: Parse area name
+        id: parse-area
+        run: |
+          IFS='|' read -ra ADDR <<< "${{ matrix.area }}"
+          echo "area_name=${ADDR[0]}" >> $GITHUB_OUTPUT
+          echo "area_url=${ADDR[1]}" >> $GITHUB_OUTPUT
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: master  # Assuming 'master' is your default branch; adjust if it's 'main'
+          ref: master  # Adjust if your default branch is 'main'
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,11 +59,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Installs all dependencies including Google libraries
+          pip install -r requirements.txt
 
       - name: Install Playwright Browsers
         run: |
-          python -m playwright install chromium firefox
+          python -m playwright install chromium
 
       - name: Install Playwright System Dependencies
         run: |
@@ -40,14 +75,29 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-            current_progress.json
-          key: talabat-groceries-progress-${{ github.run_id }}
+            current_progress_${{ steps.parse-area.outputs.area_name }}.json
+            scraped_progress_${{ steps.parse-area.outputs.area_name }}.json
+          key: talabat-groceries-progress-${{ steps.parse-area.outputs.area_name }}-${{ github.run_id }}
           restore-keys: |
-            talabat-groceries-progress-
+            talabat-groceries-progress-${{ steps.parse-area.outputs.area_name }}-
+
+      - name: Check if area is completed
+        id: check-completion
+        run: |
+          if [ -f "current_progress_${{ steps.parse-area.outputs.area_name }}.json" ]; then
+            if jq -e '.completed_areas[] | select(. == "${{ steps.parse-area.outputs.area_name }}")' current_progress_${{ steps.parse-area.outputs.area_name }}.json > /dev/null; then
+              echo "completed=true" >> $GITHUB_OUTPUT
+            else
+              echo "completed=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "completed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Run Talabat Groceries Scraper
+        if: steps.check-completion.outputs.completed == 'false'
         run: |
-          python main.py
+          python main.py --area-name "${{ steps.parse-area.outputs.area_name }}" --url "${{ steps.parse-area.outputs.area_url }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
@@ -56,38 +106,40 @@ jobs:
         if: always()
         run: |
           ls -la
-          cat current_progress.json || echo "current_progress.json not found"
-          cat scraped_progress.json || echo "scraped_progress.json not found"
-          ls output/الاحمدي_groceries.xlsx || echo "الاحمدي_groceries.xlsx not found"
+          cat current_progress_${{ steps.parse-area.outputs.area_name }}.json || echo "current_progress_${{ steps.parse-area.outputs.area_name }}.json not found"
+          cat scraped_progress_${{ steps.parse-area.outputs.area_name }}.json || echo "scraped_progress_${{ steps.parse-area.outputs.area_name }}.json not found"
+          ls output/${{ steps.parse-area.outputs.area_name }}_detailed.xlsx || echo "${{ steps.parse-area.outputs.area_name }}_detailed.xlsx not found"
 
       - name: Commit progress updates
         if: always()
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add current_progress.json scraped_progress.json output/ || true  # Proceed even if files are missing
-          git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
+          git add current_progress_${{ steps.parse-area.outputs.area_name }}.json scraped_progress_${{ steps.parse-area.outputs.area_name }}.json output/ || true
+          git commit -m "Update scraper progress for ${{ steps.parse-area.outputs.area_name }} run ${{ github.run_id }}" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save progress to cache
-        if: always()  # Run even if previous steps fail/cancel
+        if: always()
         uses: actions/cache/save@v4
         with:
           path: |
-            current_progress.json
-          key: talabat-groceries-progress-${{ github.run_id }}
+            current_progress_${{ steps.parse-area.outputs.area_name }}.json
+            scraped_progress_${{ steps.parse-area.outputs.area_name }}.json
+          key: talabat-groceries-progress-${{ steps.parse-area.outputs.area_name }}-${{ github.run_id }}
 
       - name: Upload progress artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: talabat-groceries-progress-files
+          name: talabat-groceries-progress-${{ steps.parse-area.outputs.area_name }}
           path: |
-            current_progress.json
-            scraped_progress.json
-            output/
+            current_progress_${{ steps.parse-area.outputs.area_name }}.json
+            scraped_progress_${{ steps.parse-area.outputs.area_name }}.json
+            output/${{ steps.parse-area.outputs.area_name }}.json
+            output/${{ steps.parse-area.outputs.area_name }}_detailed.xlsx
             scraper.log
           retention-days: 7
 
@@ -95,74 +147,104 @@ jobs:
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
-          
 
-# name: Daily Workflow
+
+
+# name: Daily Talabat Groceries Scraper
 
 # on:
-#   workflow_dispatch:
-
-# concurrency:
-#   group: workflow-group
-#   cancel-in-progress: true
+#   schedule:
+#     - cron: "0 */6 * * *"  # Runs every 6 hours
+#   workflow_dispatch:     # Allows manual triggering
 
 # jobs:
 #   scrape:
 #     runs-on: ubuntu-latest
-#     timeout-minutes: 2000
+#     timeout-minutes: 120  # Adjusted to 2 hours, tweak as needed
 #     steps:
-#       - name: Checkout Repository
+#       - name: Checkout code
 #         uses: actions/checkout@v4
-        
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           ref: master  # Assuming 'master' is your default branch; adjust if it's 'main'
+
 #       - name: Set up Python
 #         uses: actions/setup-python@v5
 #         with:
-#           python-version: '3.10'
-          
-#       - name: Install Dependencies
+#           python-version: "3.10"
+
+#       - name: Install dependencies
 #         run: |
 #           python -m pip install --upgrade pip
-#           pip install -r requirements.txt
-          
-#       - name: Install Playwright for Python
-#         run: |
-#           pip install playwright
-#           python -m playwright install
-#           python -m playwright install firefox  # Install Firefox browser
-#           python -m playwright install webkit
+#           pip install -r requirements.txt  # Installs all dependencies including Google libraries
 
-#       - name: Install Playwright Dependencies
+#       - name: Install Playwright Browsers
+#         run: |
+#           python -m playwright install chromium firefox
+
+#       - name: Install Playwright System Dependencies
 #         run: |
 #           sudo apt-get update
-#           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-4-1 libgraphene-1.0-0 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libmanette-0.2-0 libgles2 libsoup2.4 libpcre3 libvpx-dev
-#           sudo npx playwright install-deps
-  
-#       - name: Fix PhantomJS Issue
-#         run: |
-#           npm uninstall phantomjs-prebuilt
-#           npm install phantomjs-prebuilt@2.1.13
-#           npm cache clear --force
-#           npm install
-          
-#       - name: Debug Environment
-#         run: |
-#           python -m playwright --version
-#           echo $PATH
-          
-#       - name: Run the scraper
+#           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
+
+#       - name: Restore cached progress
+#         id: cache-restore
+#         uses: actions/cache/restore@v4
+#         with:
+#           path: |
+#             current_progress.json
+#           key: talabat-groceries-progress-${{ github.run_id }}
+#           restore-keys: |
+#             talabat-groceries-progress-
+
+#       - name: Run Talabat Groceries Scraper
 #         run: |
 #           python main.py
-          
-#       - name: Upload Logs
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+
+#       - name: Debug file presence
+#         if: always()
+#         run: |
+#           ls -la
+#           cat current_progress.json || echo "current_progress.json not found"
+#           cat scraped_progress.json || echo "scraped_progress.json not found"
+#           ls output/الاحمدي_groceries.xlsx || echo "الاحمدي_groceries.xlsx not found"
+
+#       - name: Commit progress updates
+#         if: always()
+#         run: |
+#           git config --global user.name "GitHub Action"
+#           git config --global user.email "action@github.com"
+#           git add current_progress.json scraped_progress.json output/ || true  # Proceed even if files are missing
+#           git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
+#           git push
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#       - name: Save progress to cache
+#         if: always()  # Run even if previous steps fail/cancel
+#         uses: actions/cache/save@v4
+#         with:
+#           path: |
+#             current_progress.json
+#           key: talabat-groceries-progress-${{ github.run_id }}
+
+#       - name: Upload progress artifacts
 #         if: always()
 #         uses: actions/upload-artifact@v4
 #         with:
-#           name: scraper-logs
-#           path: scraper.log
+#           name: talabat-groceries-progress-files
+#           path: |
+#             current_progress.json
+#             scraped_progress.json
+#             output/
+#             scraper.log
 #           retention-days: 7
-      
+
 #       - name: Cleanup
 #         if: always()
 #         run: |
-#           rm -rf node_modules
 #           rm -rf ~/.cache/ms-playwright
+          
