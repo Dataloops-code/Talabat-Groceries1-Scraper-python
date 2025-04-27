@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T18:01:39.030438",
+  "last_updated": "2025-04-27T18:11:15.578080",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 9,
+    "current_grocery": 8,
     "current_grocery_title": "Top Offer",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
     "total_groceries": 20,
@@ -77,7 +77,8 @@
           "Condensed Milk",
           "Evaporated Milk",
           "Powdered Milk",
-          "Juices Single"
+          "Juices Single",
+          "Juices Packs"
         ]
       }
     }
@@ -212,7 +213,7 @@
       },
       "Top Offer": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
-        "delivery_time": "27 mins",
+        "delivery_time": "33 mins",
         "grocery_details": {
           "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
