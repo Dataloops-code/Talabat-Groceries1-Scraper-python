@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-27T07:54:32.254030",
+  "last_updated": "2025-04-27T07:55:23.282589",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 21,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Herbs & Seasonings",
+    "current_sub_category": "Gluten Free Food & Snacks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -66,7 +66,8 @@
           "Sauces & Dressings",
           "Olives & Pickles",
           "Vinegar & Concentrates",
-          "Herbs & Seasonings"
+          "Herbs & Seasonings",
+          "Gluten Free Food & Snacks"
         ]
       }
     }
