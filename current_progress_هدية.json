@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:44:19.866795",
+  "last_updated": "2025-04-28T13:45:03.636986",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Disinfectant",
+    "current_sub_category": "Air Fresheners",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -139,7 +139,8 @@
           "Laundry Supplies",
           "Cleaning Products",
           "Cleaning Tools",
-          "Disinfectant"
+          "Disinfectant",
+          "Air Fresheners"
         ]
       }
     }
