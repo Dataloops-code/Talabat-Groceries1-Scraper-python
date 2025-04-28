@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:58:17.494906",
+  "last_updated": "2025-04-28T07:00:03.780838",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Sugar & Sweeteners",
+    "current_sub_category": "Bars, Cones & Sticks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -91,7 +91,8 @@
           "Creamers",
           "Coffee Capsules",
           "Iced Coffee",
-          "Sugar & Sweeteners"
+          "Sugar & Sweeteners",
+          "Bars, Cones & Sticks"
         ]
       }
     }
