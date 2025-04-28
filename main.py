@@ -529,6 +529,12 @@ class TalabatGroceries:
                             """)
                         print(f"Item description (retry): {item_description}")
 
+                        image_selectors = [
+                            '//div[@data-testid="item-image"]//img',
+                            '//img[contains(@class, "item-image")]',
+                            '//img[@alt[contains(., "product")]]',
+                            '//img[contains(@class, "product-image")]'
+                        ]
                         for selector in image_selectors:
                             item_image_elements = await page.query_selector_all(selector)
                             if item_image_elements:
@@ -877,6 +883,23 @@ class MainScraper:
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
 
+    def upload_to_drive(self, file_path: str) -> bool:
+        try:
+            if not self.drive_uploader or not hasattr(self.drive_uploader, 'upload_file'):
+                logging.warning(f"Drive uploader not initialized properly, skipping upload of {file_path}")
+                return False
+            folder_id = os.environ.get('GOOGLE_DRIVE_FOLDER_ID', 'root')
+            file_id = self.drive_uploader.upload_file(file_path, folder_id)
+            if file_id:
+                logging.info(f"Successfully uploaded {file_path} to Google Drive with file ID: {file_id}")
+                return True
+            else:
+                logging.warning(f"Failed to upload {file_path} to Google Drive")
+                return False
+        except Exception as e:
+            logging.error(f"Error uploading {file_path} to Google Drive: {e}")
+            return False
+
     def save_current_progress(self, progress: Dict = None):
         progress = progress or self.current_progress
         try:
@@ -1036,7 +1059,7 @@ class MainScraper:
                     if attempt == 2:
                         logging.error("Failed to push after 3 attempts, aborting")
                         raise
-                    await asyncio.sleep(2)
+                    asyncio.get_event_loop().run_until_complete(asyncio.sleep(2))
         except subprocess.CalledProcessError as e:
             error_output = e.stderr or str(e)
             if "nothing to commit" in error_output.lower() or "no changes added" in error_output.lower():
@@ -1185,7 +1208,7 @@ class MainScraper:
                     self.current_progress["current_progress"]["current_sub_category"] = None
                     self.scraped_progress["current_progress"]["current_sub_category"] = None
                     self.current_progress["current_progress"]["current_category"] = None
-                    self.scraped_progress["current_progress"]["current_category"] = None
+                    self.current_progress["current_progress"]["current_category"] = None
                     self.save_current_progress()
                     self.save_scraped_progress()
                     self.commit_progress(f"Scraped missing sub-category {sub_category_name} for {grocery_title} in {category_name}")
@@ -1533,49 +1556,31 @@ class MainScraper:
                         groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": delivery_time})
                 logging.info(f"Extracted {len(groceries_info)} groceries: {[g['grocery_title'] for g in groceries_info]}")
                 return groceries_info
-            except PlaywrightTimeoutError as e:
-                logging.error(f"Timeout error extracting groceries: {e}")
-                return []
             except Exception as e:
-                logging.error(f"Unexpected error extracting groceries: {e}")
+                logging.error(f"Error extracting groceries: {e}")
                 return []
 
-    @retry(tries=3, delay=2, backoff=2)
-    def upload_to_drive(self, file_path):
-        logging.info(f"Uploading {file_path} to Google Drive...")
-        try:
-            if not self.drive_uploader.credentials_json:
-                logging.error("TALABAT_GCLOUD_KEY_JSON is not set or invalid.")
-                return False
-            if not self.drive_uploader.authenticate():
-                logging.error("Failed to authenticate with Google Drive. Check TALABAT_GCLOUD_KEY_JSON validity.")
-                return False
-            file_ids = self.drive_uploader.upload_to_multiple_folders(file_path)
-            success = len(file_ids) == 2
-            if success:
-                logging.info(f"Successfully uploaded {file_path} to Google Drive")
-            else:
-                logging.error(f"Failed to upload {file_path}: Incomplete upload to folders")
-            return success
-        except Exception as e:
-            if "429" in str(e) or "rate limit" in str(e).lower():
-                logging.error(f"Rate limit exceeded while uploading to Google Drive: {str(e)}")
-            else:
-                logging.error(f"Error uploading to Google Drive: {str(e)}")
-            return False
-
-    async def run(self, area_name: str, area_url: str):
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, args=['--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'])
-            if area_name not in self.current_progress["completed_areas"]:
-                await self.scrape_and_save_area(area_name, area_url, browser)
-                self.save_current_progress()
-                self.save_scraped_progress()
-                self.commit_progress(f"Completed {area_name}")
-            else:
-                print(f"Area {area_name} already completed, skipping")
-            await browser.close()
-        print(f"SCRAPING COMPLETED FOR {area_name}")
+    async def run(self, areas: List[Dict[str, str]], browser):
+        """
+        Run the scraper for all specified areas.
+        
+        Args:
+            areas: List of dictionaries containing 'name' and 'url' for each area.
+            browser: Playwright browser instance.
+        """
+        for area in areas:
+            area_name = area["name"]
+            area_url = area["url"]
+            if area_name in self.current_progress["completed_areas"]:
+                print(f"Skipping completed area: {area_name}")
+                continue
+            print(f"Starting scrape for area: {area_name}")
+            await self.scrape_and_save_area(area_name, area_url, browser)
+            self.current_progress["current_area_index"] = self.current_progress["current_area_index"] + 1
+            self.save_current_progress()
+            self.save_scraped_progress()
+            self.commit_progress(f"Completed scraping area {area_name}")
+        print("All areas processed.")
 
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
@@ -1585,6 +1590,9 @@ async def main():
 
     scraper = MainScraper(args.area_name)
     await scraper.run(args.area_name, args.url)
+
+if __name__ == "__main__":
+    asyncio.run(main())
 
 
 
