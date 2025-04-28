@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T22:04:01.293449",
+  "last_updated": "2025-04-28T22:07:09.394625",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Herbs",
+    "current_sub_category": "Dates & Dried Fruits",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -132,7 +132,8 @@
           "Cup Cakes & Rolls",
           "Vegetables",
           "Fruits",
-          "Herbs"
+          "Herbs",
+          "Dates & Dried Fruits"
         ]
       }
     }
