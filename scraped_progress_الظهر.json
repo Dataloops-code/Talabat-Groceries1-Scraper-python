@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T12:15:13.417179",
+  "last_updated": "2025-04-28T13:27:21.693920",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 3,
+    "current_grocery": 2,
     "current_grocery_title": "Top Offer",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
     "total_groceries": 20,
@@ -110,7 +110,8 @@
           "Jellies",
           "Chips Packs",
           "Chips Single",
-          "Dips"
+          "Dips",
+          "Canister Chips"
         ]
       }
     }
@@ -245,7 +246,7 @@
       },
       "Top Offer": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
-        "delivery_time": "28 mins",
+        "delivery_time": "27 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
