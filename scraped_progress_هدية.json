@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T12:21:54.388820",
+  "last_updated": "2025-04-28T12:23:04.300816",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 9,
+    "current_grocery": 20,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -129,7 +129,8 @@
           "Cosmetics",
           "Deodorants & Fragrances",
           "Medications & First Aid",
-          "Vitamins & Supplements"
+          "Vitamins & Supplements",
+          "Adult Care"
         ]
       }
     }
@@ -138,7 +139,7 @@
     "هدية": {
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
-        "delivery_time": "18 mins",
+        "delivery_time": "20 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
