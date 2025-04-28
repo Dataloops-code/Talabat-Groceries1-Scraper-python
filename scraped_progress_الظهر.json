@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T20:59:45.428205",
+  "last_updated": "2025-04-28T21:10:42.260014",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Buns & Rolls",
+    "current_sub_category": "Cakes",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -124,7 +124,8 @@
         "completed sub-categories": [
           "Freshly Baked",
           "Toast",
-          "Buns & Rolls"
+          "Buns & Rolls",
+          "Cakes"
         ]
       }
     }
