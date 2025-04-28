@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T12:34:30.179329",
+  "last_updated": "2025-04-28T12:38:51.093557",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Dishwashing",
+    "current_sub_category": "Laundry Supplies",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -135,7 +135,8 @@
           "Food Storage & Wraps",
           "Tissues & Wipes",
           "Trash Bags",
-          "Dishwashing"
+          "Dishwashing",
+          "Laundry Supplies"
         ]
       }
     }
