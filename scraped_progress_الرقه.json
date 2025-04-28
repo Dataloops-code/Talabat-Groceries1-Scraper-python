@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T08:26:59.403859",
+  "last_updated": "2025-04-28T08:27:00.856875",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -9,7 +9,7 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Fruit & Veg ",
+    "current_category": null,
     "current_sub_category": null,
     "completed_groceries": {
       "Fatafeat Market": {
@@ -138,7 +138,8 @@
           "Bakery ",
           "Ice Cream ",
           "Ready To Eat ",
-          "Protein & Special Diet "
+          "Protein & Special Diet ",
+          "Fruit & Veg "
         ]
       }
     }
