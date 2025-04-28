@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T00:56:47.402844",
+  "last_updated": "2025-04-28T01:58:48.682125",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 20,
+    "current_grocery": 10,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -109,7 +109,8 @@
           "Pet Food",
           "Baby Bath & Body Care",
           "Baby Food",
-          "Feeding Bottle & Accessories"
+          "Feeding Bottle & Accessories",
+          "Diapers & Wipes"
         ]
       }
     }
@@ -118,7 +119,7 @@
     "هدية": {
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
-        "delivery_time": "21 mins",
+        "delivery_time": "20 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
