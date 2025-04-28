@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:54:16.186891",
+  "last_updated": "2025-04-28T13:57:43.775716",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Light Bulbs",
+    "current_sub_category": "Stationary & Office Supplies",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -143,7 +143,8 @@
           "Air Fresheners",
           "Batteries",
           "Charcoal & Barbecue Supplies",
-          "Light Bulbs"
+          "Light Bulbs",
+          "Stationary & Office Supplies"
         ]
       }
     }
