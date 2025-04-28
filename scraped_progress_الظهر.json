@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T02:20:49.632646",
+  "last_updated": "2025-04-28T02:39:38.645717",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Coffee",
+    "current_sub_category": "Tea",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -86,7 +86,8 @@
           "Powdered & Concentrated Juices",
           "Iced Tea",
           "Specialty Drinks",
-          "Coffee"
+          "Coffee",
+          "Tea"
         ]
       }
     }
