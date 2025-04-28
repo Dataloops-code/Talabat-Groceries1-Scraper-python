@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:57:43.778592",
+  "last_updated": "2025-04-28T13:58:53.674619",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Stationary & Office Supplies",
+    "current_sub_category": "Pesticides",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -144,7 +144,8 @@
           "Batteries",
           "Charcoal & Barbecue Supplies",
           "Light Bulbs",
-          "Stationary & Office Supplies"
+          "Stationary & Office Supplies",
+          "Pesticides"
         ]
       }
     }
