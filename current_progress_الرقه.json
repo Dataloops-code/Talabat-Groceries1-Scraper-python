@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:05:06.566570",
+  "last_updated": "2025-04-28T08:18:03.555767",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Laptops & Pcs",
+    "current_sub_category": "Vape",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -127,7 +127,8 @@
           "Baby Hygiene",
           "Baby Feeding",
           "Mobiles & Accessories",
-          "Laptops & Pcs"
+          "Laptops & Pcs",
+          "Vape"
         ]
       }
     }
