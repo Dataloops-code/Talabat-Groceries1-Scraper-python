@@ -1,16 +1,18 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T19:08:38.498618",
+  "last_updated": "2025-04-28T19:15:36.351263",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 2,
-    "current_grocery_title": "Top Offer",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
+    "current_grocery": 7,
+    "current_grocery_title": "Ghozlan Al Egaila Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
     "total_groceries": 20,
-    "processed_groceries": [],
-    "current_category": "School Snacks time",
-    "current_sub_category": "Mineral Water",
+    "processed_groceries": [
+      "Top Offer"
+    ],
+    "current_category": null,
+    "current_sub_category": null,
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
