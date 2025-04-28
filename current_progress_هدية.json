@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:45:03.636986",
+  "last_updated": "2025-04-28T13:49:12.018012",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Air Fresheners",
+    "current_sub_category": "Batteries",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -140,7 +140,8 @@
           "Cleaning Products",
           "Cleaning Tools",
           "Disinfectant",
-          "Air Fresheners"
+          "Air Fresheners",
+          "Batteries"
         ]
       }
     }
