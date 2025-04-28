@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:14:56.672009",
+  "last_updated": "2025-04-28T07:16:42.921305",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Digestive & Fibre",
+    "current_sub_category": "Puff Biscuits",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -100,7 +100,8 @@
           "Chocolate Sharing",
           "Dark Chocolates",
           "Wafers",
-          "Digestive & Fibre"
+          "Digestive & Fibre",
+          "Puff Biscuits"
         ]
       }
     }
