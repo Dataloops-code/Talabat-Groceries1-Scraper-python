@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T01:53:46.808767",
+  "last_updated": "2025-04-28T03:00:39.399889",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 9,
+    "current_grocery": 13,
     "current_grocery_title": "Fatafeat Market",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
@@ -100,7 +100,8 @@
           "Gloves",
           "Food Storage & Wraps",
           "Salad Dressings & Vinegar",
-          "Sauces"
+          "Sauces",
+          "Spices & Seasonings"
         ]
       }
     }
