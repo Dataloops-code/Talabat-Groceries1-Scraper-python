@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T08:14:11.929918",
+  "last_updated": "2025-04-28T08:16:00.688176",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Deodorants & Fragrances",
+    "current_sub_category": "Medications & First Aid",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -127,7 +127,8 @@
           "Oral Care",
           "Shaving & Hair Removal",
           "Cosmetics",
-          "Deodorants & Fragrances"
+          "Deodorants & Fragrances",
+          "Medications & First Aid"
         ]
       }
     }
