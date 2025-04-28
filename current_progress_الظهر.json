@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:54:35.675169",
+  "last_updated": "2025-04-28T06:56:31.300393",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Coffee Capsules",
+    "current_sub_category": "Iced Coffee",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -89,7 +89,8 @@
           "Coffee",
           "Tea",
           "Creamers",
-          "Coffee Capsules"
+          "Coffee Capsules",
+          "Iced Coffee"
         ]
       }
     }
