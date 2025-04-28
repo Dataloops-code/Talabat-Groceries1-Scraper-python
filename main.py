@@ -617,28 +617,66 @@ class TalabatGroceries:
                         retries -= 1
                         await asyncio.sleep(10)
                         continue
-
-                    await sub_page.wait_for_selector(
+    
+                    # Wait for network idle to ensure dynamic content loads
+                    await sub_page.wait_for_load_state("networkidle", timeout=120000)
+    
+                    # Check for empty sub-category message
+                    empty_message = await sub_page.query_selector('//div[contains(text(), "No items") or contains(text(), "empty") or contains(@class, "no-results")]')
+                    if empty_message:
+                        print(f"Sub-category {sub_category_link} is empty or has no items")
+                        await sub_page.close()
+                        await context.close()
+                        return []
+    
+                    # Try multiple selectors for item containers
+                    item_container_selectors = [
                         '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]',
-                        timeout=90000
-                    )
-
+                        '//div[contains(@class, "category-items-container")]//div[contains(@class, "col-")]',
+                        '//div[@data-testid="grocery-item-container"]'
+                    ]
+                    item_elements = None
+                    for selector in item_container_selectors:
+                        try:
+                            await sub_page.wait_for_selector(selector, timeout=60000)
+                            item_elements = await sub_page.query_selector_all(selector)
+                            if item_elements:
+                                print(f"Found item containers using selector: {selector}")
+                                break
+                        except PlaywrightTimeoutError:
+                            print(f"Selector {selector} timed out, trying next selector")
+    
+                    if not item_elements:
+                        print(f"No item containers found on {sub_category_link}")
+                        html_content = await sub_page.content()
+                        debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
+                        with open(debug_file, "w", encoding="utf-8") as f:
+                            f.write(html_content)
+                        print(f"Saved page content to {debug_file} for debugging")
+                        screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.png"
+                        await sub_page.screenshot(path=screenshot_file, full_page=True)
+                        print(f"Saved screenshot to {screenshot_file} for debugging")
+                        await sub_page.close()
+                        await context.close()
+                        return []
+    
                     html_content = await sub_page.content()
-                    html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=37', '')}.html"
+                    html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
                     with open(html_filename, "w", encoding="utf-8") as f:
                         f.write(html_content)
-                    print(f"      Saved sub-category HTML to {html_filename} for debugging")
-
+                    print(f"Saved sub-category HTML to {html_filename} for debugging")
+    
+                    # Handle pagination
                     pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
                     total_pages = 1
                     if pagination_element:
                         page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
                         total_pages = len(page_numbers) if page_numbers else 1
-                    print(f"      Found {total_pages} pages in this sub-category")
-
+                    print(f"Found {total_pages} pages in this sub-category")
+    
                     items = []
                     for page_number in range(1, total_pages + 1):
-                        print(f"      Processing page {page_number} of {total_pages}")
+                        print(f"Processing page {page_number} of {total_pages}")
                         page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
                         response = await sub_page.goto(page_url, timeout=240000, wait_until="domcontentloaded")
                         if response and response.status == 429:
@@ -651,18 +689,15 @@ class TalabatGroceries:
                             retries -= 1
                             await asyncio.sleep(10)
                             continue
-
-                        await sub_page.wait_for_selector(
-                            '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]',
-                            timeout=90000
+    
+                        await sub_page.wait_for_load_state("networkidle", timeout=120000)
+    
+                        item_link_elements = await sub_page.query_selector_all(
+                            '//a[@data-testid="grocery-item-link-nofollow"]'
                         )
-
-                        item_elements = await sub_page.query_selector_all(
-                            '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]//a[@data-testid="grocery-item-link-nofollow"]'
-                        )
-                        print(f"        Found {len(item_elements)} items on page {page_number}")
-
-                        for i, element in enumerate(item_elements):
+                        print(f"Found {len(item_link_elements)} items on page {page_number}")
+    
+                        for i, element in enumerate(item_link_elements):
                             try:
                                 name_selectors = [
                                     'div[data-test="item-name"]',
@@ -681,35 +716,35 @@ class TalabatGroceries:
                                         if item_name and item_name.strip():
                                             invalid_names = ['currency', 'kiki', 'market', 'grocery', 'mahboula']
                                             if not any(invalid.lower() in item_name.lower() for invalid in invalid_names):
-                                                print(f"        Item name: {item_name}")
+                                                print(f"Item name: {item_name}")
                                                 break
                                             else:
-                                                print(f"        Selector '{selector}' found invalid name: {item_name}")
+                                                print(f"Selector '{selector}' found invalid name: {item_name}")
                                                 item_name = None
                                         else:
-                                            print(f"        Selector '{selector}' found empty or invalid name")
+                                            print(f"Selector '{selector}' found empty or invalid name")
                                     else:
-                                        print(f"        Selector '{selector}' not found")
-
+                                        print(f"Selector '{selector}' not found")
+    
                                 if not item_name or not item_name.strip():
                                     item_name = f"Unknown Item {i+1}"
-                                    print(f"        No valid item name found, using default: {item_name}")
-
+                                    print(f"No valid item name found, using default: {item_name}")
+    
                                 item_link = self.base_url + await element.get_attribute('href')
-                                print(f"        Item link: {item_link}")
-
+                                print(f"Item link: {item_link}")
+    
                                 item_details = await self.extract_item_details(item_link)
                                 items.append({
                                     "item_name": item_name.strip(),
                                     "item_link": item_link,
                                     **item_details
                                 })
-
+    
                                 await asyncio.sleep(3)
                             except Exception as e:
-                                print(f"        Error processing item {i+1}: {e}")
+                                print(f"Error processing item {i+1}: {e}")
                                 logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
-
+    
                     await sub_page.close()
                     await context.close()
                     return items
@@ -720,11 +755,11 @@ class TalabatGroceries:
                     if 'sub_page' in locals():
                         try:
                             html_content = await sub_page.content()
-                            debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1]}.html"
+                            debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
                             with open(debug_file, "w", encoding="utf-8") as f:
                                 f.write(html_content)
                             print(f"Saved page content to {debug_file} for debugging")
-                            screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1]}.png"
+                            screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.png"
                             await sub_page.screenshot(path=screenshot_file, full_page=True)
                             print(f"Saved screenshot to {screenshot_file} for debugging")
                         except Exception as debug_e:
