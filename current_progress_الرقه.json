@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:37:28.100874",
+  "last_updated": "2025-04-28T03:39:14.262855",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Cheese & Labneh",
+    "current_sub_category": "Deli Cuts",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -114,7 +114,8 @@
           "Home Maintenance",
           "Home Supplies & Accessories",
           "Kitchen & Dining",
-          "Cheese & Labneh"
+          "Cheese & Labneh",
+          "Deli Cuts"
         ]
       }
     }
