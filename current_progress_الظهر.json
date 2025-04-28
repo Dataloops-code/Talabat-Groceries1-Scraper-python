@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T08:18:51.889192",
+  "last_updated": "2025-04-28T08:19:05.947061",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Chips Single",
+    "current_sub_category": "Dips",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -109,7 +109,8 @@
           "Lollies",
           "Jellies",
           "Chips Packs",
-          "Chips Single"
+          "Chips Single",
+          "Dips"
         ]
       }
     }
