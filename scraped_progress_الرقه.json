@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T08:26:42.076239",
+  "last_updated": "2025-04-28T08:26:47.609557",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -9,7 +9,7 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Snacks",
+    "current_category": "Beverages ",
     "current_sub_category": "Games",
     "completed_groceries": {
       "Fatafeat Market": {
