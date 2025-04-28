@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:05:58.378330",
+  "last_updated": "2025-04-28T03:07:46.110934",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Cereals",
+    "current_sub_category": "Spreads",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -103,7 +103,8 @@
           "Sauces",
           "Spices & Seasonings",
           "Salt",
-          "Cereals"
+          "Cereals",
+          "Spreads"
         ]
       }
     }
