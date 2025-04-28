@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:33:35.987433",
+  "last_updated": "2025-04-28T07:36:06.826136",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Hair Oil & Cream",
+    "current_sub_category": "Hair Styling",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -116,7 +116,8 @@
           "Bath Scrubs",
           "Feminine Care",
           "Hair Colour",
-          "Hair Oil & Cream"
+          "Hair Oil & Cream",
+          "Hair Styling"
         ]
       }
     }
