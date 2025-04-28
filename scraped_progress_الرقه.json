@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:38:36.031547",
+  "last_updated": "2025-04-28T06:43:42.940385",
   "current_progress": {
     "area_name": "الرقه",
-    "current_grocery": 13,
+    "current_grocery": 9,
     "current_grocery_title": "Fatafeat Market",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
     "total_groceries": 20,
@@ -120,7 +120,8 @@
           "Canned Seafood",
           "Canned Vegetables",
           "Canned Fruit",
-          "Canned Meat"
+          "Canned Meat",
+          "Diapers"
         ]
       }
     }
@@ -129,7 +130,7 @@
     "الرقه": {
       "Fatafeat Market": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
-        "delivery_time": "22 mins",
+        "delivery_time": "30 mins",
         "grocery_details": {
           "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
