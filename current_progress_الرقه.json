@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:16:47.091523",
+  "last_updated": "2025-04-28T03:26:51.225205",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Dog Food",
+    "current_sub_category": "Hygiene",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -107,7 +107,8 @@
           "Spreads",
           "Honey & Jams",
           "Cat Food",
-          "Dog Food"
+          "Dog Food",
+          "Hygiene"
         ]
       }
     }
