@@ -1,14 +1,15 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T19:15:51.194074",
+  "last_updated": "2025-04-28T19:15:55.910358",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 2,
-    "current_grocery_title": "Mega Mart",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59",
+    "current_grocery": 3,
+    "current_grocery_title": "Top Shop",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/675516/top-shop-ahmadi-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
+      "Ghozlan Al Egaila Grocery",
       "Top Offer"
     ],
     "current_category": null,
@@ -254,6 +255,15 @@
         "delivery_time": "31 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": {}
+        }
+      },
+      "Ghozlan Al Egaila Grocery": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
+        "delivery_time": "23 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
           "categories": {}
         }
