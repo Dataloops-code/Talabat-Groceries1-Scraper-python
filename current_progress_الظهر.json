@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:03:58.191729",
+  "last_updated": "2025-04-28T07:05:44.465916",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Family Packs",
+    "current_sub_category": "Minis & Miniatures",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -94,7 +94,8 @@
           "Sugar & Sweeteners",
           "Bars, Cones & Sticks",
           "Cups & Tubs",
-          "Family Packs"
+          "Family Packs",
+          "Minis & Miniatures"
         ]
       }
     }
