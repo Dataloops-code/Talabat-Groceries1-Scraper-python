@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:20:37.841902",
+  "last_updated": "2025-04-28T06:21:31.578578",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -87,7 +87,8 @@
           "Iced Tea",
           "Specialty Drinks",
           "Coffee",
-          "Tea"
+          "Tea",
+          "Creamers"
         ]
       }
     }
@@ -222,7 +223,7 @@
       },
       "Top Offer": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
-        "delivery_time": "26 mins",
+        "delivery_time": "28 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
