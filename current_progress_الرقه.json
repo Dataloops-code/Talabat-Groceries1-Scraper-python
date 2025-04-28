@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:44:32.869865",
+  "last_updated": "2025-04-28T03:46:19.022054",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Canned Vegetables",
+    "current_sub_category": "Canned Fruit",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -118,7 +118,8 @@
           "Deli Cuts",
           "Pickles & Olives",
           "Canned Seafood",
-          "Canned Vegetables"
+          "Canned Vegetables",
+          "Canned Fruit"
         ]
       }
     }
