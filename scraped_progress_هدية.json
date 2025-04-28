@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:47:35.192191",
+  "last_updated": "2025-04-28T07:50:26.800175",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Body Cream & Lotions",
+    "current_sub_category": "Hand Wash",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -120,7 +120,8 @@
           "Hair Styling",
           "Shampoo",
           "Conditioner",
-          "Body Cream & Lotions"
+          "Body Cream & Lotions",
+          "Hand Wash"
         ]
       }
     }
