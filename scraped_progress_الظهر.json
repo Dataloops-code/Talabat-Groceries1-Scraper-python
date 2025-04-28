@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:36:52.843412",
+  "last_updated": "2025-04-28T07:39:41.069042",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Candy & Gum",
+    "current_sub_category": "Lollies",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -105,7 +105,8 @@
           "Biscuits",
           "Cookies",
           "Crackers",
-          "Candy & Gum"
+          "Candy & Gum",
+          "Lollies"
         ]
       }
     }
