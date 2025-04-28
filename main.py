@@ -299,11 +299,11 @@ class TalabatGroceries:
     async def extract_item_details(self, item_link):
         print(f"Attempting to extract item details for link: {item_link}")
         async with self.main_scraper.semaphore:
-            retries = 3
+            retries = 2  # Reduced from 3 to avoid excessive retries
             context = None
             page = None
     
-            while retries > 0:
+            for attempt in range(retries + 1):
                 try:
                     # Limit concurrent browser contexts
                     async with self.main_scraper.context_semaphore:
@@ -311,10 +311,9 @@ class TalabatGroceries:
                         logging.info(f"Opening new context, active contexts: {self.main_scraper.active_contexts}")
                         context = await self.browser.new_context(
                             user_agent=random.choice(self.main_scraper.user_agents),
-                            viewport={"width": 1920, "height": 1080},  # Standard viewport
+                            viewport={"width": 1920, "height": 1080},
                             java_script_enabled=True,
                             bypass_csp=True,
-                            # Mimic real browser headers
                             extra_http_headers={
                                 "Accept-Language": "en-US,en;q=0.9",
                                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -324,22 +323,20 @@ class TalabatGroceries:
                         page = await context.new_page()
     
                         # Add random delay to mimic human behavior
-                        await asyncio.sleep(random.uniform(2, 5))
+                        await asyncio.sleep(random.uniform(1, 3))
     
-                        # Navigate with longer timeout and wait until network is idle
-                        response = await page.goto(item_link, timeout=120000, wait_until="networkidle")
+                        # Navigate with reduced timeout
+                        response = await page.goto(item_link, timeout=30000, wait_until="networkidle")  # Reduced from 120000ms to 30000ms
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) for {item_link}, waiting before retry...")
-                            retries -= 1
-                            await asyncio.sleep(60)  # Increased delay for rate limit
+                            print(f"Rate limit hit (429) for {item_link}, attempt {attempt + 1}/{retries + 1}, waiting before retry...")
+                            await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s, 120s
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for {item_link}, retrying...")
-                            retries -= 1
-                            await asyncio.sleep(15)
+                            print(f"Server error ({response.status}) for {item_link}, attempt {attempt + 1}/{retries + 1}, retrying...")
+                            await asyncio.sleep(10 * (2 ** attempt))  # Exponential backoff: 10s, 20s, 40s
                             continue
     
-                        # Check for anti-bot pages (e.g., CAPTCHA)
+                        # Check for anti-bot pages
                         anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
                         if anti_bot:
                             print(f"Anti-bot page detected for {item_link}, skipping...")
@@ -356,7 +353,7 @@ class TalabatGroceries:
     
                         # Mimic human behavior with scrolling
                         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        await page.wait_for_timeout(random.uniform(2000, 5000))
+                        await page.wait_for_timeout(random.uniform(1000, 3000))  # Reduced from 2000-5000ms
     
                         # Wait for critical elements with multiple selectors
                         critical_selectors = [
@@ -370,7 +367,7 @@ class TalabatGroceries:
                         critical_element = None
                         for selector in critical_selectors:
                             try:
-                                critical_element = await page.wait_for_selector(selector, timeout=60000)
+                                critical_element = await page.wait_for_selector(selector, timeout=15000)  # Reduced from 60000ms to 15000ms
                                 if critical_element:
                                     print(f"Found critical element with selector: {selector}")
                                     break
@@ -535,89 +532,19 @@ class TalabatGroceries:
                         """)
                         print(f"Item images: {item_images}")
     
-                        # Retry if critical data is missing
+                        # Skip retry on reload if critical data is missing, as rate limiting is the issue
                         if item_price == "N/A" and item_description == "N/A" and not item_images:
-                            print("Critical data missing, refreshing page...")
-                            response = await page.reload(timeout=120000, wait_until="networkidle")
-                            if response and response.status == 429:
-                                print(f"Rate limit hit (429) on reload for {item_link}, waiting before retry...")
-                                retries -= 1
-                                await asyncio.sleep(60)
-                                continue
-                            elif response and response.status >= 500:
-                                print(f"Server error ({response.status}) on reload for {item_link}, retrying...")
-                                retries -= 1
-                                await asyncio.sleep(15)
-                                continue
-    
-                            # Re-check critical elements
-                            critical_element = None
-                            for selector in critical_selectors:
-                                try:
-                                    critical_element = await page.wait_for_selector(selector, timeout=60000)
-                                    if critical_element:
-                                        break
-                                except PlaywrightTimeoutError:
-                                    continue
-    
-                            # Re-extract price
-                            item_price = await page.evaluate("""
-                                () => {
-                                    const selectors = [
-                                        '[class*="price"]',
-                                        '[data-testid*="price"]',
-                                        '.price',
-                                        '.currency',
-                                        '[class*="amount"]'
-                                    ];
-                                    for (let sel of selectors) {
-                                        const el = document.querySelector(sel);
-                                        if (el && el.innerText.trim()) return el.innerText.trim();
-                                    }
-                                    return "N/A";
-                                }
-                            """)
-                            if item_price == "N/A":
-                                for selector in price_selectors:
-                                    price_elements = await page.query_selector_all(selector)
-                                    for element in price_elements:
-                                        text = await element.inner_text()
-                                        if text.strip() and text != "N/A":
-                                            item_price = text.strip()
-                                            break
-                                    if item_price != "N/A":
-                                        break
-                            print(f"Item price (retry): {item_price}")
-    
-                            # Re-extract description
-                            for selector in desc_selectors:
-                                desc_element = await page.query_selector(selector)
-                                if desc_element:
-                                    item_description = await desc_element.inner_text()
-                                    if item_description.strip():
-                                        break
-                            if item_description == "N/A":
-                                item_description = await page.evaluate("""
-                                    () => {
-                                        const desc = document.querySelector('[class*="description"], [data-testid*="description"]')?.innerText;
-                                        return desc ? desc.trim() : "N/A";
-                                    }
-                                """)
-                            print(f"Item description (retry): {item_description}")
-    
-                            # Re-extract images
-                            image_selectors = [
-                                '//div[@data-testid="item-image"]//img',
-                                '//img[contains(@class, "item-image")]',
-                                '//img[@alt[contains(., "product")]]',
-                                '//img[contains(@class, "product-image")]'
-                            ]
-                            for selector in image_selectors:
-                                item_image_elements = await page.query_selector_all(selector)
-                                if item_image_elements:
-                                    item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
-                                    break
-                            print(f"Item images (retry): {item_images}")
+                            print(f"Critical data missing for {item_link}, likely due to rate limiting, skipping reload...")
+                            await page.close()
+                            await context.close()
+                            return {
+                                "item_price": "N/A",
+                                "item_old_price": None,
+                                "item_offer": None,
+                                "item_description": "Failed due to rate limiting",
+                                "item_delivery_time_range": "N/A",
+                                "item_images": []
+                            }
     
                         await page.close()
                         await context.close()
@@ -631,8 +558,6 @@ class TalabatGroceries:
                         }
                 except PlaywrightTimeoutError as e:
                     print(f"Timeout error extracting item details for {item_link}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
                     if page:
                         try:
                             html_content = await page.content()
@@ -645,14 +570,14 @@ class TalabatGroceries:
                             print(f"Saved screenshot to {screenshot_file} for debugging")
                         except Exception as debug_e:
                             print(f"Failed to save debug artifacts: {debug_e}")
-                    if retries > 0:
-                        await asyncio.sleep(60)  # Increased delay for retries
+                    if attempt < retries:
+                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying after delay...")
+                        await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s
                 except Exception as e:
                     print(f"Unexpected error extracting item details for {item_link}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    if retries > 0:
-                        await asyncio.sleep(60)
+                    if attempt < retries:
+                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying after delay...")
+                        await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s
                 finally:
                     if page:
                         await page.close()
@@ -661,7 +586,7 @@ class TalabatGroceries:
                     self.main_scraper.active_contexts -= 1
                     logging.info(f"Closed context, active contexts: {self.main_scraper.active_contexts}")
                     # Add delay after closing context to avoid rapid requests
-                    await asyncio.sleep(random.uniform(5, 10))
+                    await asyncio.sleep(random.uniform(3, 5))  # Reduced from 5-10s
             print(f"Failed to extract details for {item_link} after all retries")
             return {
                 "item_price": "N/A",
@@ -671,6 +596,7 @@ class TalabatGroceries:
                 "item_delivery_time_range": "N/A",
                 "item_images": []
             }
+        
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         async with self.main_scraper.semaphore:
