@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:20:15.280719",
+  "last_updated": "2025-04-28T07:22:04.716477",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Cookies",
+    "current_sub_category": "Crackers",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -103,7 +103,8 @@
           "Digestive & Fibre",
           "Puff Biscuits",
           "Biscuits",
-          "Cookies"
+          "Cookies",
+          "Crackers"
         ]
       }
     }
