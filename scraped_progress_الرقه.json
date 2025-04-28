@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:33:55.760107",
+  "last_updated": "2025-04-28T03:35:41.965282",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Home Supplies & Accessories",
+    "current_sub_category": "Kitchen & Dining",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -112,7 +112,8 @@
           "Other Pet Food",
           "Outdoor & Travel Gear",
           "Home Maintenance",
-          "Home Supplies & Accessories"
+          "Home Supplies & Accessories",
+          "Kitchen & Dining"
         ]
       }
     }
