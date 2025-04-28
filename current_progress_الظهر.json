@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:33:49.080217",
+  "last_updated": "2025-04-28T13:39:50.755003",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 2,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Popcorn",
+    "current_sub_category": "Seeds & Nuts",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -112,7 +112,8 @@
           "Chips Single",
           "Dips",
           "Canister Chips",
-          "Popcorn"
+          "Popcorn",
+          "Seeds & Nuts"
         ]
       }
     }
