@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:26:17.160577",
+  "last_updated": "2025-04-28T07:28:49.768050",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 10,
+    "current_grocery": 9,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -113,7 +113,8 @@
           "Diapers & Wipes",
           "Body Wash",
           "Bath Soap",
-          "Bath Scrubs"
+          "Bath Scrubs",
+          "Feminine Care"
         ]
       }
     }
