@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T13:49:12.018012",
+  "last_updated": "2025-04-28T13:52:06.396265",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Batteries",
+    "current_sub_category": "Charcoal & Barbecue Supplies",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -141,7 +141,8 @@
           "Cleaning Tools",
           "Disinfectant",
           "Air Fresheners",
-          "Batteries"
+          "Batteries",
+          "Charcoal & Barbecue Supplies"
         ]
       }
     }
