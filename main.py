@@ -945,21 +945,21 @@ class TalabatGroceries:
             return {"error": "Failed to extract categories after multiple attempts"}
 
 class MainScraper:
-        def __init__(self, area_name):
-            self.area_name = area_name
-            self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
-            self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
-            self.output_dir = "output"
-            self.github_token = os.environ.get('GITHUB_TOKEN')
-            self.semaphore = asyncio.Semaphore(3)  # Limit concurrent requests
-            self.max_contexts = 5  # Maximum concurrent browser contexts
-            self.active_contexts = 0
-            self.context_semaphore = asyncio.Semaphore(self.max_contexts)  # Limit concurrent contexts
-            self.user_agents = [
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
-            ]
+    def __init__(self, area_name):
+        self.area_name = area_name
+        self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
+        self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
+        self.output_dir = "output"
+        self.github_token = os.environ.get('GITHUB_TOKEN')
+        self.semaphore = asyncio.Semaphore(3)  # Limit concurrent requests
+        self.max_contexts = 5  # Maximum concurrent browser contexts
+        self.active_contexts = 0
+        self.context_semaphore = asyncio.Semaphore(self.max_contexts)  # Limit concurrent contexts
+        self.user_agents = [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+        ]
         if not self.github_token:
             logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
@@ -1323,7 +1323,7 @@ class MainScraper:
                     self.current_progress["current_progress"]["current_sub_category"] = None
                     self.scraped_progress["current_progress"]["current_sub_category"] = None
                     self.current_progress["current_progress"]["current_category"] = None
-                    self.current_progress["current_progress"]["current_category"] = None
+                    self.scraped_progress["current_progress"]["current_category"] = None
                     self.save_current_progress()
                     self.save_scraped_progress()
                     self.commit_progress(f"Scraped missing sub-category {sub_category_name} for {grocery_title} in {category_name}")
@@ -1696,7 +1696,7 @@ class MainScraper:
             self.save_scraped_progress()
             self.commit_progress(f"Completed scraping area {area_name}")
         print("All areas processed.")
-
+        
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
     parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
