@@ -1589,7 +1589,12 @@ async def main():
     args = parser.parse_args()
 
     scraper = MainScraper(args.area_name)
-    await scraper.run(args.area_name, args.url)
+    # Create a list of dictionaries for the areas
+    areas = [{"name": args.area_name, "url": args.url}]
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=True)
+        await scraper.run(areas, browser)
+        await browser.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
