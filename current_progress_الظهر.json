@@ -1,12 +1,12 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T19:15:37.057348",
+  "last_updated": "2025-04-28T19:15:50.423691",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 7,
-    "current_grocery_title": "Ghozlan Al Egaila Grocery",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
+    "current_grocery": 2,
+    "current_grocery_title": "Mega Mart",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
       "Top Offer"
