@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T20:47:54.399925",
+  "last_updated": "2025-04-28T20:53:45.180197",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Freshly Baked",
+    "current_sub_category": "Toast",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -122,7 +122,8 @@
       },
       "Kiki Market Grocery": {
         "completed sub-categories": [
-          "Freshly Baked"
+          "Freshly Baked",
+          "Toast"
         ]
       }
     }
