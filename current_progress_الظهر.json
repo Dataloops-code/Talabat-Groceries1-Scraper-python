@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T20:53:45.178379",
+  "last_updated": "2025-04-28T20:59:45.426675",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Toast",
+    "current_sub_category": "Buns & Rolls",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -123,7 +123,8 @@
       "Kiki Market Grocery": {
         "completed sub-categories": [
           "Freshly Baked",
-          "Toast"
+          "Toast",
+          "Buns & Rolls"
         ]
       }
     }
