@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T21:19:20.042374",
+  "last_updated": "2025-04-28T21:23:01.620286",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Croissant Single",
+    "current_sub_category": "Croissant Packs",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -126,7 +126,8 @@
           "Toast",
           "Buns & Rolls",
           "Cakes",
-          "Croissant Single"
+          "Croissant Single",
+          "Croissant Packs"
         ]
       }
     }
