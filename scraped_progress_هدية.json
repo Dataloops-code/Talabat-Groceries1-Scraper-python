@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T12:33:19.090779",
+  "last_updated": "2025-04-28T12:34:30.179329",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Trash Bags",
+    "current_sub_category": "Dishwashing",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -134,7 +134,8 @@
           "Disposable Tableware",
           "Food Storage & Wraps",
           "Tissues & Wipes",
-          "Trash Bags"
+          "Trash Bags",
+          "Dishwashing"
         ]
       }
     }
