@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T02:04:38.850703",
+  "last_updated": "2025-04-28T02:04:39.921049",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Bath Scrubs",
+    "current_sub_category": "Feminine Care",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
