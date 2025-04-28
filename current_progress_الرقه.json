@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T06:44:36.942880",
+  "last_updated": "2025-04-28T06:45:13.706692",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Baby Formula",
+    "current_sub_category": "Baby Food",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -122,7 +122,8 @@
           "Canned Fruit",
           "Canned Meat",
           "Diapers",
-          "Baby Formula"
+          "Baby Formula",
+          "Baby Food"
         ]
       }
     }
