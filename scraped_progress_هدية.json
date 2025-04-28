@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T01:58:48.682125",
+  "last_updated": "2025-04-28T02:01:28.732628",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 10,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Diapers & Wipes",
+    "current_sub_category": "Body Wash",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -110,7 +110,8 @@
           "Baby Bath & Body Care",
           "Baby Food",
           "Feeding Bottle & Accessories",
-          "Diapers & Wipes"
+          "Diapers & Wipes",
+          "Body Wash"
         ]
       }
     }
