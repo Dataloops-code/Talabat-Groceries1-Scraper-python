@@ -302,190 +302,103 @@ class TalabatGroceries:
             retries = 3
             context = None
             page = None
-
+    
             while retries > 0:
                 try:
-                    self.main_scraper.active_contexts += 1
-                    logging.info(f"Opening new context, active contexts: {self.main_scraper.active_contexts}")
-                    context = await self.browser.new_context(
-                        user_agent=random.choice(self.main_scraper.user_agents)
-                    )
-                    page = await context.new_page()
-
-                    await asyncio.sleep(2)
-                    response = await page.goto(item_link, timeout=90000, wait_until="domcontentloaded")
-                    if response and response.status == 429:
-                        print(f"Rate limit hit (429) for {item_link}, waiting before retry...")
-                        retries -= 1
-                        await asyncio.sleep(30)
-                        continue
-                    elif response and response.status >= 500:
-                        print(f"Server error ({response.status}) for {item_link}, retrying...")
-                        retries -= 1
-                        await asyncio.sleep(10)
-                        continue
-
-                    await page.wait_for_load_state("networkidle", timeout=90000)
-                    critical_selector = (
-                        '//div[@class="price"] | '
-                        '//div[@data-testid="item-image"] | '
-                        '//p[@data-testid="item-description"] | '
-                        '//span[contains(@class, "price")] | '
-                        '//div[contains(@class, "product-details")]'
-                    )
-                    await page.wait_for_selector(critical_selector, timeout=90000)
-
-                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                    await page.wait_for_timeout(3000)
-
-                    item_price = await page.evaluate("""
-                        () => {
-                            const selectors = [
-                                '[class*="price"]',
-                                '[data-testid*="price"]',
-                                '.price',
-                                '.currency',
-                                '[class*="amount"]'
-                            ];
-                            for (let sel of selectors) {
-                                const el = document.querySelector(sel);
-                                if (el && el.innerText.trim()) return el.innerText.trim();
+                    # Limit concurrent browser contexts
+                    async with self.main_scraper.context_semaphore:
+                        self.main_scraper.active_contexts += 1
+                        logging.info(f"Opening new context, active contexts: {self.main_scraper.active_contexts}")
+                        context = await self.browser.new_context(
+                            user_agent=random.choice(self.main_scraper.user_agents),
+                            viewport={"width": 1920, "height": 1080},  # Standard viewport
+                            java_script_enabled=True,
+                            bypass_csp=True,
+                            # Mimic real browser headers
+                            extra_http_headers={
+                                "Accept-Language": "en-US,en;q=0.9",
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                                "Connection": "keep-alive",
                             }
-                            return "N/A";
-                        }
-                    """)
-                    if item_price == "N/A":
-                        price_selectors = [
-                            '//div[@class="price"]//span[@class="currency "]',
-                            '//span[contains(@class, "price")]',
-                            '//div[contains(@class, "price")]//span',
-                            '//div[contains(@class, "amount")]//text()',
-                            '//span[@data-testid="price"]'
-                        ]
-                        for selector in price_selectors:
-                            price_elements = await page.query_selector_all(selector)
-                            for element in price_elements:
-                                text = await element.inner_text()
-                                if text.strip() and text != "N/A":
-                                    item_price = text.strip()
-                                    break
-                            if item_price != "N/A":
-                                break
-                    print(f"Item price: {item_price}")
-
-                    old_price_selectors = [
-                        '//div[@class="price"]//p//span[@class="currency "]',
-                        '//span[contains(@class, "old-price")]',
-                        '//div[contains(@class, "price")]//p//span',
-                    ]
-                    item_old_price = None
-                    for selector in old_price_selectors:
-                        old_price_element = await page.query_selector(selector)
-                        if old_price_element:
-                            item_old_price = await old_price_element.inner_text()
-                            print(f"Item old price: {item_old_price}")
-                            break
-                    if not item_old_price:
-                        print("Item old price: None")
-
-                    offer_selectors = [
-                        '//div[@class="offer"]//div[@data-testid="offer-tag"]//span',
-                        '//span[contains(@class, "offer")]',
-                        '//div[contains(@class, "offer")]//span',
-                    ]
-                    item_offer = None
-                    for selector in offer_selectors:
-                        offer_element = await page.query_selector(selector)
-                        if offer_element:
-                            item_offer = await offer_element.inner_text()
-                            print(f"Item offer: {item_offer}")
-                            break
-                    if not item_offer:
-                        print("Item offer: None")
-
-                    item_description = await page.evaluate("""
-                        () => {
-                            const selectors = [
-                                '[data-testid="item-description"]',
-                                '[class*="description"]',
-                                '.product-details p',
-                                'section.description p'
-                            ];
-                            for (let sel of selectors) {
-                                const el = document.querySelector(sel);
-                                if (el && el.innerText.trim()) return el.innerText.trim();
-                            }
-                            return "N/A";
-                        }
-                    """)
-                    if item_description == "N/A":
-                        desc_selectors = [
-                            '//div[@class="description"]//p[@data-testid="item-description"]',
-                            '//div[contains(@class, "description")]//p',
-                            '//p[contains(@class, "description")]',
-                            '//div[@data-testid="item-description"]//p',
-                            '//section[contains(@class, "description")]//p',
-                            '//div[contains(@class, "product-details")]//p'
-                        ]
-                        for selector in desc_selectors:
-                            desc_element = await page.query_selector(selector)
-                            if desc_element:
-                                item_description = await desc_element.inner_text()
-                                if item_description.strip():
-                                    break
-                    print(f"Item description: {item_description}")
-
-                    delivery_time_selectors = [
-                        '//div[@data-testid="delivery-tag"]//span',
-                        '//span[contains(@class, "delivery-time")]',
-                        '//div[contains(@class, "delivery-info")]//span',
-                    ]
-                    delivery_time = "N/A"
-                    for selector in delivery_time_selectors:
-                        delivery_time_element = await page.query_selector(selector)
-                        if delivery_time_element:
-                            delivery_time = await delivery_time_element.inner_text()
-                            break
-                    print(f"Delivery time range: {delivery_time}")
-
-                    item_images = await page.evaluate("""
-                        () => {
-                            const selectors = [
-                                '[data-testid="item-image"] img',
-                                'img[class*="item-image"]',
-                                'img[alt*="product"]',
-                                'img[class*="product-image"]'
-                            ];
-                            let images = [];
-                            for (let sel of selectors) {
-                                const imgs = document.querySelectorAll(sel);
-                                imgs.forEach(img => {
-                                    if (img.src) images.push(img.src);
-                                });
-                                if (images.length) break;
-                            }
-                            return images;
-                        }
-                    """)
-                    print(f"Item images: {item_images}")
-
-                    if item_price == "N/A" and item_description == "N/A" and not item_images:
-                        print("Critical data missing, refreshing page...")
-                        response = await page.reload(timeout=90000, wait_until="domcontentloaded")
+                        )
+                        page = await context.new_page()
+    
+                        # Add random delay to mimic human behavior
+                        await asyncio.sleep(random.uniform(2, 5))
+    
+                        # Navigate with longer timeout and wait until network is idle
+                        response = await page.goto(item_link, timeout=120000, wait_until="networkidle")
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) on reload for {item_link}, waiting before retry...")
+                            print(f"Rate limit hit (429) for {item_link}, waiting before retry...")
                             retries -= 1
-                            await asyncio.sleep(30)
+                            await asyncio.sleep(60)  # Increased delay for rate limit
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) on reload for {item_link}, retrying...")
+                            print(f"Server error ({response.status}) for {item_link}, retrying...")
                             retries -= 1
-                            await asyncio.sleep(10)
+                            await asyncio.sleep(15)
                             continue
-
-                        await page.wait_for_load_state("networkidle", timeout=90000)
-                        await page.wait_for_selector(critical_selector, timeout=90000)
-
+    
+                        # Check for anti-bot pages (e.g., CAPTCHA)
+                        anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
+                        if anti_bot:
+                            print(f"Anti-bot page detected for {item_link}, skipping...")
+                            await page.close()
+                            await context.close()
+                            return {
+                                "item_price": "N/A",
+                                "item_old_price": None,
+                                "item_offer": None,
+                                "item_description": "Anti-bot page detected",
+                                "item_delivery_time_range": "N/A",
+                                "item_images": []
+                            }
+    
+                        # Mimic human behavior with scrolling
+                        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                        await page.wait_for_timeout(random.uniform(2000, 5000))
+    
+                        # Wait for critical elements with multiple selectors
+                        critical_selectors = [
+                            '//div[@class="price"]',
+                            '//div[@data-testid="item-image"]',
+                            '//p[@data-testid="item-description"]',
+                            '//span[contains(@class, "price")]',
+                            '//div[contains(@class, "product-details")]',
+                            '//div[@data-testid="product-price"]'
+                        ]
+                        critical_element = None
+                        for selector in critical_selectors:
+                            try:
+                                critical_element = await page.wait_for_selector(selector, timeout=60000)
+                                if critical_element:
+                                    print(f"Found critical element with selector: {selector}")
+                                    break
+                            except PlaywrightTimeoutError:
+                                print(f"Selector {selector} timed out, trying next selector")
+    
+                        if not critical_element:
+                            print(f"No critical elements found on {item_link}")
+                            html_content = await page.content()
+                            debug_file = f"debug_item_page_{item_link.split('/')[-1]}.html"
+                            with open(debug_file, "w", encoding="utf-8") as f:
+                                f.write(html_content)
+                            print(f"Saved page content to {debug_file} for debugging")
+                            screenshot_file = f"debug_screenshot_{item_link.split('/')[-1]}.png"
+                            await page.screenshot(path=screenshot_file, full_page=True)
+                            print(f"Saved screenshot to {screenshot_file} for debugging")
+                            await page.close()
+                            await context.close()
+                            return {
+                                "item_price": "N/A",
+                                "item_old_price": None,
+                                "item_offer": None,
+                                "item_description": "No critical elements found",
+                                "item_delivery_time_range": "N/A",
+                                "item_images": []
+                            }
+    
+                        # Extract price
                         item_price = await page.evaluate("""
                             () => {
                                 const selectors = [
@@ -503,6 +416,13 @@ class TalabatGroceries:
                             }
                         """)
                         if item_price == "N/A":
+                            price_selectors = [
+                                '//div[@class="price"]//span[@class="currency "]',
+                                '//span[contains(@class, "price")]',
+                                '//div[contains(@class, "price")]//span',
+                                '//div[contains(@class, "amount")]//text()',
+                                '//span[@data-testid="price"]'
+                            ]
                             for selector in price_selectors:
                                 price_elements = await page.query_selector_all(selector)
                                 for element in price_elements:
@@ -512,46 +432,203 @@ class TalabatGroceries:
                                         break
                                 if item_price != "N/A":
                                     break
-                        print(f"Item price (retry): {item_price}")
-
-                        for selector in desc_selectors:
-                            desc_element = await page.query_selector(selector)
-                            if desc_element:
-                                item_description = await desc_element.inner_text()
-                                if item_description.strip():
-                                    break
+                        print(f"Item price: {item_price}")
+    
+                        # Extract old price
+                        old_price_selectors = [
+                            '//div[@class="price"]//p//span[@class="currency "]',
+                            '//span[contains(@class, "old-price")]',
+                            '//div[contains(@class, "price")]//p//span',
+                        ]
+                        item_old_price = None
+                        for selector in old_price_selectors:
+                            old_price_element = await page.query_selector(selector)
+                            if old_price_element:
+                                item_old_price = await old_price_element.inner_text()
+                                print(f"Item old price: {item_old_price}")
+                                break
+                        if not item_old_price:
+                            print("Item old price: None")
+    
+                        # Extract offer
+                        offer_selectors = [
+                            '//div[@class="offer"]//div[@data-testid="offer-tag"]//span',
+                            '//span[contains(@class, "offer")]',
+                            '//div[contains(@class, "offer")]//span',
+                        ]
+                        item_offer = None
+                        for selector in offer_selectors:
+                            offer_element = await page.query_selector(selector)
+                            if offer_element:
+                                item_offer = await offer_element.inner_text()
+                                print(f"Item offer: {item_offer}")
+                                break
+                        if not item_offer:
+                            print("Item offer: None")
+    
+                        # Extract description
+                        item_description = await page.evaluate("""
+                            () => {
+                                const selectors = [
+                                    '[data-testid="item-description"]',
+                                    '[class*="description"]',
+                                    '.product-details p',
+                                    'section.description p'
+                                ];
+                                for (let sel of selectors) {
+                                    const el = document.querySelector(sel);
+                                    if (el && el.innerText.trim()) return el.innerText.trim();
+                                }
+                                return "N/A";
+                            }
+                        """)
                         if item_description == "N/A":
-                            item_description = await page.evaluate("""
+                            desc_selectors = [
+                                '//div[@class="description"]//p[@data-testid="item-description"]',
+                                '//div[contains(@class, "description")]//p',
+                                '//p[contains(@class, "description")]',
+                                '//div[@data-testid="item-description"]//p',
+                                '//section[contains(@class, "description")]//p',
+                                '//div[contains(@class, "product-details")]//p'
+                            ]
+                            for selector in desc_selectors:
+                                desc_element = await page.query_selector(selector)
+                                if desc_element:
+                                    item_description = await desc_element.inner_text()
+                                    if item_description.strip():
+                                        break
+                        print(f"Item description: {item_description}")
+    
+                        # Extract delivery time
+                        delivery_time_selectors = [
+                            '//div[@data-testid="delivery-tag"]//span',
+                            '//span[contains(@class, "delivery-time")]',
+                            '//div[contains(@class, "delivery-info")]//span',
+                        ]
+                        delivery_time = "N/A"
+                        for selector in delivery_time_selectors:
+                            delivery_time_element = await page.query_selector(selector)
+                            if delivery_time_element:
+                                delivery_time = await delivery_time_element.inner_text()
+                                break
+                        print(f"Delivery time range: {delivery_time}")
+    
+                        # Extract images
+                        item_images = await page.evaluate("""
+                            () => {
+                                const selectors = [
+                                    '[data-testid="item-image"] img',
+                                    'img[class*="item-image"]',
+                                    'img[alt*="product"]',
+                                    'img[class*="product-image"]'
+                                ];
+                                let images = [];
+                                for (let sel of selectors) {
+                                    const imgs = document.querySelectorAll(sel);
+                                    imgs.forEach(img => {
+                                        if (img.src) images.push(img.src);
+                                    });
+                                    if (images.length) break;
+                                }
+                                return images;
+                            }
+                        """)
+                        print(f"Item images: {item_images}")
+    
+                        # Retry if critical data is missing
+                        if item_price == "N/A" and item_description == "N/A" and not item_images:
+                            print("Critical data missing, refreshing page...")
+                            response = await page.reload(timeout=120000, wait_until="networkidle")
+                            if response and response.status == 429:
+                                print(f"Rate limit hit (429) on reload for {item_link}, waiting before retry...")
+                                retries -= 1
+                                await asyncio.sleep(60)
+                                continue
+                            elif response and response.status >= 500:
+                                print(f"Server error ({response.status}) on reload for {item_link}, retrying...")
+                                retries -= 1
+                                await asyncio.sleep(15)
+                                continue
+    
+                            # Re-check critical elements
+                            critical_element = None
+                            for selector in critical_selectors:
+                                try:
+                                    critical_element = await page.wait_for_selector(selector, timeout=60000)
+                                    if critical_element:
+                                        break
+                                except PlaywrightTimeoutError:
+                                    continue
+    
+                            # Re-extract price
+                            item_price = await page.evaluate("""
                                 () => {
-                                    const desc = document.querySelector('[class*="description"], [data-testid*="description"]')?.innerText;
-                                    return desc ? desc.trim() : "N/A";
+                                    const selectors = [
+                                        '[class*="price"]',
+                                        '[data-testid*="price"]',
+                                        '.price',
+                                        '.currency',
+                                        '[class*="amount"]'
+                                    ];
+                                    for (let sel of selectors) {
+                                        const el = document.querySelector(sel);
+                                        if (el && el.innerText.trim()) return el.innerText.trim();
+                                    }
+                                    return "N/A";
                                 }
                             """)
-                        print(f"Item description (retry): {item_description}")
-
-                        image_selectors = [
-                            '//div[@data-testid="item-image"]//img',
-                            '//img[contains(@class, "item-image")]',
-                            '//img[@alt[contains(., "product")]]',
-                            '//img[contains(@class, "product-image")]'
-                        ]
-                        for selector in image_selectors:
-                            item_image_elements = await page.query_selector_all(selector)
-                            if item_image_elements:
-                                item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
-                                break
-                        print(f"Item images (retry): {item_images}")
-
-                    await page.close()
-                    await context.close()
-                    return {
-                        "item_price": item_price,
-                        "item_old_price": item_old_price,
-                        "item_offer": item_offer,
-                        "item_description": item_description,
-                        "item_delivery_time_range": delivery_time,
-                        "item_images": item_images
-                    }
+                            if item_price == "N/A":
+                                for selector in price_selectors:
+                                    price_elements = await page.query_selector_all(selector)
+                                    for element in price_elements:
+                                        text = await element.inner_text()
+                                        if text.strip() and text != "N/A":
+                                            item_price = text.strip()
+                                            break
+                                    if item_price != "N/A":
+                                        break
+                            print(f"Item price (retry): {item_price}")
+    
+                            # Re-extract description
+                            for selector in desc_selectors:
+                                desc_element = await page.query_selector(selector)
+                                if desc_element:
+                                    item_description = await desc_element.inner_text()
+                                    if item_description.strip():
+                                        break
+                            if item_description == "N/A":
+                                item_description = await page.evaluate("""
+                                    () => {
+                                        const desc = document.querySelector('[class*="description"], [data-testid*="description"]')?.innerText;
+                                        return desc ? desc.trim() : "N/A";
+                                    }
+                                """)
+                            print(f"Item description (retry): {item_description}")
+    
+                            # Re-extract images
+                            image_selectors = [
+                                '//div[@data-testid="item-image"]//img',
+                                '//img[contains(@class, "item-image")]',
+                                '//img[@alt[contains(., "product")]]',
+                                '//img[contains(@class, "product-image")]'
+                            ]
+                            for selector in image_selectors:
+                                item_image_elements = await page.query_selector_all(selector)
+                                if item_image_elements:
+                                    item_images = [await img.get_attribute('src') for img in item_image_elements if await img.get_attribute('src')]
+                                    break
+                            print(f"Item images (retry): {item_images}")
+    
+                        await page.close()
+                        await context.close()
+                        return {
+                            "item_price": item_price,
+                            "item_old_price": item_old_price,
+                            "item_offer": item_offer,
+                            "item_description": item_description,
+                            "item_delivery_time_range": delivery_time,
+                            "item_images": item_images
+                        }
                 except PlaywrightTimeoutError as e:
                     print(f"Timeout error extracting item details for {item_link}: {e}")
                     retries -= 1
@@ -569,13 +646,13 @@ class TalabatGroceries:
                         except Exception as debug_e:
                             print(f"Failed to save debug artifacts: {debug_e}")
                     if retries > 0:
-                        await asyncio.sleep(10 * (2 ** (3 - retries)))
+                        await asyncio.sleep(60)  # Increased delay for retries
                 except Exception as e:
                     print(f"Unexpected error extracting item details for {item_link}: {e}")
                     retries -= 1
                     print(f"Retries left: {retries}")
                     if retries > 0:
-                        await asyncio.sleep(10 * (2 ** (3 - retries)))
+                        await asyncio.sleep(60)
                 finally:
                     if page:
                         await page.close()
@@ -583,16 +660,17 @@ class TalabatGroceries:
                         await context.close()
                     self.main_scraper.active_contexts -= 1
                     logging.info(f"Closed context, active contexts: {self.main_scraper.active_contexts}")
+                    # Add delay after closing context to avoid rapid requests
+                    await asyncio.sleep(random.uniform(5, 10))
             print(f"Failed to extract details for {item_link} after all retries")
             return {
                 "item_price": "N/A",
                 "item_old_price": None,
                 "item_offer": None,
-                "item_description": "N/A",
+                "item_description": "Failed due to rate limiting or timeout",
                 "item_delivery_time_range": "N/A",
                 "item_images": []
             }
-
     async def extract_all_items_from_sub_category(self, sub_category_link):
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         async with self.main_scraper.semaphore:
@@ -867,19 +945,21 @@ class TalabatGroceries:
             return {"error": "Failed to extract categories after multiple attempts"}
 
 class MainScraper:
-    def __init__(self, area_name):
-        self.area_name = area_name
-        self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
-        self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
-        self.output_dir = "output"
-        self.github_token = os.environ.get('GITHUB_TOKEN')
-        self.semaphore = asyncio.Semaphore(3)  # Limit to 3 concurrent requests
-        self.active_contexts = 0
-        self.user_agents = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
-        ]
+        def __init__(self, area_name):
+            self.area_name = area_name
+            self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
+            self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
+            self.output_dir = "output"
+            self.github_token = os.environ.get('GITHUB_TOKEN')
+            self.semaphore = asyncio.Semaphore(3)  # Limit concurrent requests
+            self.max_contexts = 5  # Maximum concurrent browser contexts
+            self.active_contexts = 0
+            self.context_semaphore = asyncio.Semaphore(self.max_contexts)  # Limit concurrent contexts
+            self.user_agents = [
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+            ]
         if not self.github_token:
             logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
@@ -1624,10 +1704,21 @@ async def main():
     args = parser.parse_args()
 
     scraper = MainScraper(args.area_name)
-    # Create a list of dictionaries for the areas
     areas = [{"name": args.area_name, "url": args.url}]
     async with async_playwright() as playwright:
-        browser = await playwright.chromium.launch(headless=True)
+        # Launch browser with realistic settings
+        browser = await playwright.chromium.launch(
+            headless=True,  # Set to False for debugging
+            args=[
+                "--disable-blink-features=AutomationControlled",  # Hide automation flags
+                "--no-sandbox",
+                "--disable-dev-shm-usage"
+            ]
+        )
+        # Optional: Use stealth plugin if available (requires `playwright-stealth`)
+        # from playwright_stealth import stealth_async
+        # context = await browser.new_context()
+        # await stealth_async(context)
         await scraper.run(areas, browser)
         await browser.close()
 
