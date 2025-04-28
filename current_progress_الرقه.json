@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T03:41:00.370121",
+  "last_updated": "2025-04-28T03:42:46.696675",
   "current_progress": {
     "area_name": "الرقه",
     "current_grocery": 13,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Chocolate & Candy ",
-    "current_sub_category": "Pickles & Olives",
+    "current_sub_category": "Canned Seafood",
     "completed_groceries": {
       "Fatafeat Market": {
         "completed sub-categories": [
@@ -116,7 +116,8 @@
           "Kitchen & Dining",
           "Cheese & Labneh",
           "Deli Cuts",
-          "Pickles & Olives"
+          "Pickles & Olives",
+          "Canned Seafood"
         ]
       }
     }
