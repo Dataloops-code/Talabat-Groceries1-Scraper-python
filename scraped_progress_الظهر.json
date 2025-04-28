@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T07:07:30.703687",
+  "last_updated": "2025-04-28T07:09:16.935655",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 3,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "School Snacks time",
-    "current_sub_category": "Chocolate Bars",
+    "current_sub_category": "Chocolate Sharing",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -96,7 +96,8 @@
           "Cups & Tubs",
           "Family Packs",
           "Minis & Miniatures",
-          "Chocolate Bars"
+          "Chocolate Bars",
+          "Chocolate Sharing"
         ]
       }
     }
