@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T08:05:52.198418",
+  "last_updated": "2025-04-29T08:07:23.450557",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Meat & Seafood",
+    "current_sub_category": "Canned Fruits & Vegetables",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -163,7 +163,8 @@
           "Pulses & Grains",
           "Cooking Supplies",
           "Baking Products",
-          "Meat & Seafood"
+          "Meat & Seafood",
+          "Canned Fruits & Vegetables"
         ]
       }
     }
