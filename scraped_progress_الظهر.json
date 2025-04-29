@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T12:16:20.117032",
+  "last_updated": "2025-04-29T12:16:42.290782",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -320,7 +320,7 @@
       },
       "Kiki Market Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
-        "delivery_time": "27 mins",
+        "delivery_time": "31 mins",
         "grocery_details": {
           "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
