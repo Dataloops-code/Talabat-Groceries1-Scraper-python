@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:50:50.876148",
+  "last_updated": "2025-04-29T18:57:10.129053",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Healthy & Protein Snacks",
+    "current_sub_category": "Fresh Milk",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -173,7 +173,8 @@
           "Herbs & Seasonings",
           "Gluten Free Food & Snacks",
           "Special Diet",
-          "Healthy & Protein Snacks"
+          "Healthy & Protein Snacks",
+          "Fresh Milk"
         ]
       }
     }
