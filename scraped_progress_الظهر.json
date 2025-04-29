@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-28T22:18:53.611715",
+  "last_updated": "2025-04-29T00:39:50.883351",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -9,8 +9,8 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
-      "Top Offer",
-      "Ghozlan Al Egaila Grocery"
+      "Ghozlan Al Egaila Grocery",
+      "Top Offer"
     ],
     "current_category": "Bakery",
     "current_sub_category": "Portion Cheese & Halloumi",
