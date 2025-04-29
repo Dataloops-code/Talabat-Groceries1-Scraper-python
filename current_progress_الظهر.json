@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T08:00:56.894005",
+  "last_updated": "2025-04-29T08:02:32.632234",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Pulses & Grains",
+    "current_sub_category": "Cooking Supplies",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -160,7 +160,8 @@
           "Pasta & Sauces",
           "Noodles & Soups",
           "Oil & Ghee",
-          "Pulses & Grains"
+          "Pulses & Grains",
+          "Cooking Supplies"
         ]
       }
     }
