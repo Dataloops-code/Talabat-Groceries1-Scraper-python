@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T00:55:02.387632",
+  "last_updated": "2025-04-29T01:57:50.377243",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 1,
+    "current_grocery": 9,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
@@ -150,7 +150,8 @@
           "Household",
           "Mobile Accessories",
           "Imported",
-          "Vape Disposables"
+          "Vape Disposables",
+          "Vape Devices & Pods"
         ]
       }
     }
