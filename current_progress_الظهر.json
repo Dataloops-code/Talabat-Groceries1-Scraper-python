@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T13:03:24.586583",
+  "last_updated": "2025-04-29T18:12:06.086065",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 6,
@@ -9,8 +9,8 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
-      "Top Offer",
-      "Ghozlan Al Egaila Grocery"
+      "Ghozlan Al Egaila Grocery",
+      "Top Offer"
     ],
     "current_category": "Bakery",
     "current_sub_category": "Olives & Pickles",
