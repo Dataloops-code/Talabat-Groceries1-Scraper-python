@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:20:03.523367",
+  "last_updated": "2025-04-29T18:29:07.877606",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Olives & Pickles",
+    "current_sub_category": "Vinegar & Concentrates",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -168,7 +168,8 @@
           "Ready-to-Eat Canned Meals",
           "Salt & Spices",
           "Sauces & Dressings",
-          "Olives & Pickles"
+          "Olives & Pickles",
+          "Vinegar & Concentrates"
         ]
       }
     }
