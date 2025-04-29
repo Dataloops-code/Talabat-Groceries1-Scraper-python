@@ -1,14 +1,16 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T12:58:09.453650",
+  "last_updated": "2025-04-29T13:35:20.911846",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 20,
-    "current_grocery_title": "Hala Store",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
+    "current_grocery": 0,
+    "current_grocery_title": null,
+    "current_grocery_link": null,
     "total_groceries": 20,
-    "processed_groceries": [],
+    "processed_groceries": [
+      "Hala Store"
+    ],
     "current_category": null,
     "current_sub_category": null,
     "completed_groceries": {
