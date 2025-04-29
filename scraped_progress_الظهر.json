@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T07:20:44.019582",
+  "last_updated": "2025-04-29T07:45:36.031508",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Fresh Seafood",
+    "current_sub_category": "Fresh Poultry",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -149,7 +149,8 @@
           "Cocoa Powder",
           "Syrups",
           "Spreads & Honey",
-          "Fresh Seafood"
+          "Fresh Seafood",
+          "Fresh Poultry"
         ]
       }
     }
