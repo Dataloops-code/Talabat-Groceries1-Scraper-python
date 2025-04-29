@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T19:40:32.103439",
+  "last_updated": "2025-04-29T20:04:38.418610",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Powdered Milk",
+    "current_sub_category": "Juices Single",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -180,7 +180,8 @@
           "Flavoured Milk",
           "Condensed Milk",
           "Evaporated Milk",
-          "Powdered Milk"
+          "Powdered Milk",
+          "Juices Single"
         ]
       }
     }
