@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T01:57:50.375569",
+  "last_updated": "2025-04-29T01:58:17.623171",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Vape Devices & Pods",
+    "current_sub_category": "Shisha",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -151,7 +151,8 @@
           "Mobile Accessories",
           "Imported",
           "Vape Disposables",
-          "Vape Devices & Pods"
+          "Vape Devices & Pods",
+          "Shisha"
         ]
       }
     }
