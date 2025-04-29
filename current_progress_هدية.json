@@ -1,15 +1,15 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T12:23:12.017827",
+  "last_updated": "2025-04-29T12:23:32.956921",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 21,
+    "current_grocery": 20,
     "current_grocery_title": "Hala Store",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Tobacco Shop",
+    "current_category": null,
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
@@ -172,7 +172,8 @@
           "Milk",
           "Coffee & Tea",
           "Snacks & Candy",
-          "Ice Cream"
+          "Ice Cream",
+          "Beverages"
         ]
       }
     }
