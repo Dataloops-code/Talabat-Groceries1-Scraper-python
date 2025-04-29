@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:29:07.876243",
+  "last_updated": "2025-04-29T18:39:50.325053",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Vinegar & Concentrates",
+    "current_sub_category": "Herbs & Seasonings",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -169,7 +169,8 @@
           "Salt & Spices",
           "Sauces & Dressings",
           "Olives & Pickles",
-          "Vinegar & Concentrates"
+          "Vinegar & Concentrates",
+          "Herbs & Seasonings"
         ]
       }
     }
