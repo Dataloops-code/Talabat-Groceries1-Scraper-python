@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T08:11:57.430374",
+  "last_updated": "2025-04-29T08:12:01.055074",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -9,11 +9,11 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
-      "Top Offer",
-      "Ghozlan Al Egaila Grocery"
+      "Ghozlan Al Egaila Grocery",
+      "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Sauces & Dressings",
+    "current_sub_category": "Olives & Pickles",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
