@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T07:20:14.278644",
+  "last_updated": "2025-04-29T07:20:15.762990",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 21,
@@ -9,7 +9,7 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": null,
+    "current_category": "Ice Cream",
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
