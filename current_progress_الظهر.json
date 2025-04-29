@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T08:07:23.449372",
+  "last_updated": "2025-04-29T08:08:54.743648",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Canned Fruits & Vegetables",
+    "current_sub_category": "Ready-to-Eat Canned Meals",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -164,7 +164,8 @@
           "Cooking Supplies",
           "Baking Products",
           "Meat & Seafood",
-          "Canned Fruits & Vegetables"
+          "Canned Fruits & Vegetables",
+          "Ready-to-Eat Canned Meals"
         ]
       }
     }
