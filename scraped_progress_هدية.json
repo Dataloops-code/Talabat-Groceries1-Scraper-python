@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T12:24:49.387933",
+  "last_updated": "2025-04-29T12:24:56.571058",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -9,7 +9,7 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
     "total_groceries": 20,
     "processed_groceries": [],
-    "current_category": "Disposables",
+    "current_category": null,
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
@@ -178,7 +178,8 @@
           "Pet Care",
           "Baby",
           "Personal Care",
-          "Pharmacy"
+          "Pharmacy",
+          "Disposables"
         ]
       }
     }
