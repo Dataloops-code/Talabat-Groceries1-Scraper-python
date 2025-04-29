@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T01:48:20.085544",
+  "last_updated": "2025-04-29T01:50:36.739583",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Block Cheese & Feta",
+    "current_sub_category": "Butter & Margarine",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -139,7 +139,8 @@
           "Slice Cheese & Shredded",
           "Squeeze & Tub Cheese",
           "Portion Cheese & Halloumi",
-          "Block Cheese & Feta"
+          "Block Cheese & Feta",
+          "Butter & Margarine"
         ]
       }
     }
