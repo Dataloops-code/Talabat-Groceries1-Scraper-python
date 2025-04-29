@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:42:16.189351",
+  "last_updated": "2025-04-29T18:44:28.287051",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Gluten Free Food & Snacks",
+    "current_sub_category": "Special Diet",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -171,7 +171,8 @@
           "Olives & Pickles",
           "Vinegar & Concentrates",
           "Herbs & Seasonings",
-          "Gluten Free Food & Snacks"
+          "Gluten Free Food & Snacks",
+          "Special Diet"
         ]
       }
     }
