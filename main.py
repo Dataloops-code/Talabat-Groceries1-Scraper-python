@@ -16,6 +16,7 @@ import argparse
 import aiohttp
 import psutil
 import random
+from concurrent.futures import ThreadPoolExecutor
 
 # Set up logging
 logging.basicConfig(
@@ -297,19 +298,19 @@ class TalabatGroceries:
             return missing_sub_categories
 
     async def extract_item_details(self, item_link):
+        """Extract item details with optimized selectors and rate limit handling."""
         print(f"Attempting to extract item details for link: {item_link}")
         async with self.main_scraper.semaphore:
-            retries = 2  # Reduced from 3 to avoid excessive retries
+            retries = 2
             context = None
             page = None
-    
+
             for attempt in range(retries + 1):
                 try:
-                    # Limit concurrent browser contexts
                     async with self.main_scraper.context_semaphore:
                         self.main_scraper.active_contexts += 1
-                        logging.info(f"Opening new context, active contexts: {self.main_scraper.active_contexts}")
-                        context = await self.browser.new_context(
+                        browser = await self.main_scraper.get_browser()
+                        context = await browser.new_context(
                             user_agent=random.choice(self.main_scraper.user_agents),
                             viewport={"width": 1920, "height": 1080},
                             java_script_enabled=True,
@@ -318,30 +319,32 @@ class TalabatGroceries:
                                 "Accept-Language": "en-US,en;q=0.9",
                                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
                                 "Connection": "keep-alive",
-                            }
+                            },
+                            # proxy=random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
                         )
                         page = await context.new_page()
-    
-                        # Add random delay to mimic human behavior
-                        await asyncio.sleep(random.uniform(1, 3))
-    
-                        # Navigate with reduced timeout
-                        response = await page.goto(item_link, timeout=30000, wait_until="networkidle")  # Reduced from 120000ms to 30000ms
+
+                        domain = item_link.split('/')[2]
+                        if domain in self.main_scraper.rate_limit_delays:
+                            await asyncio.sleep(self.main_scraper.rate_limit_delays[domain])
+
+                        response = await page.goto(item_link, timeout=20000, wait_until="domcontentloaded")
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) for {item_link}, attempt {attempt + 1}/{retries + 1}, waiting before retry...")
-                            await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s, 120s
+                            print(f"Rate limit hit (429) for {item_link}, attempt {attempt + 1}/{retries + 1}")
+                            delay = 30 * (2 ** attempt)
+                            self.main_scraper.rate_limit_delays[domain] = delay
+                            await asyncio.sleep(delay)
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for {item_link}, attempt {attempt + 1}/{retries + 1}, retrying...")
-                            await asyncio.sleep(10 * (2 ** attempt))  # Exponential backoff: 10s, 20s, 40s
+                            print(f"Server error ({response.status}) for {item_link}, attempt {attempt + 1}/{retries + 1}")
+                            await asyncio.sleep(10 * (2 ** attempt))
                             continue
-    
-                        # Check for anti-bot pages
+
+                        await page.wait_for_load_state("networkidle", timeout=20000)
+
                         anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
                         if anti_bot:
-                            print(f"Anti-bot page detected for {item_link}, skipping...")
-                            await page.close()
-                            await context.close()
+                            print(f"Anti-bot page detected for {item_link}")
                             return {
                                 "item_price": "N/A",
                                 "item_old_price": None,
@@ -350,42 +353,32 @@ class TalabatGroceries:
                                 "item_delivery_time_range": "N/A",
                                 "item_images": []
                             }
-    
-                        # Mimic human behavior with scrolling
-                        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        await page.wait_for_timeout(random.uniform(1000, 3000))  # Reduced from 2000-5000ms
-    
-                        # Wait for critical elements with multiple selectors
+
                         critical_selectors = [
-                            '//div[@class="price"]',
-                            '//div[@data-testid="item-image"]',
-                            '//p[@data-testid="item-description"]',
-                            '//span[contains(@class, "price")]',
-                            '//div[contains(@class, "product-details")]',
-                            '//div[@data-testid="product-price"]'
+                            '[data-testid="product-price"]',
+                            '[class*="price"]',
+                            '[data-testid="item-image"]',
+                            '[data-testid="item-description"]',
                         ]
                         critical_element = None
                         for selector in critical_selectors:
                             try:
-                                critical_element = await page.wait_for_selector(selector, timeout=15000)  # Reduced from 60000ms to 15000ms
+                                critical_element = await page.wait_for_selector(selector, timeout=10000)
                                 if critical_element:
                                     print(f"Found critical element with selector: {selector}")
                                     break
                             except PlaywrightTimeoutError:
-                                print(f"Selector {selector} timed out, trying next selector")
-    
+                                print(f"Selector {selector} timed out")
+
                         if not critical_element:
                             print(f"No critical elements found on {item_link}")
                             html_content = await page.content()
                             debug_file = f"debug_item_page_{item_link.split('/')[-1]}.html"
                             with open(debug_file, "w", encoding="utf-8") as f:
                                 f.write(html_content)
-                            print(f"Saved page content to {debug_file} for debugging")
                             screenshot_file = f"debug_screenshot_{item_link.split('/')[-1]}.png"
                             await page.screenshot(path=screenshot_file, full_page=True)
-                            print(f"Saved screenshot to {screenshot_file} for debugging")
-                            await page.close()
-                            await context.close()
+                            print(f"Saved debug artifacts for {item_link}")
                             return {
                                 "item_price": "N/A",
                                 "item_old_price": None,
@@ -394,136 +387,100 @@ class TalabatGroceries:
                                 "item_delivery_time_range": "N/A",
                                 "item_images": []
                             }
-    
-                        # Extract price
+
                         item_price = await page.evaluate("""
                             () => {
                                 const selectors = [
+                                    '[data-testid="product-price"]',
                                     '[class*="price"]',
-                                    '[data-testid*="price"]',
-                                    '.price',
                                     '.currency',
                                     '[class*="amount"]'
                                 ];
                                 for (let sel of selectors) {
                                     const el = document.querySelector(sel);
-                                    if (el && el.innerText.trim()) return el.innerText.trim();
+                                    if (el?.innerText.trim()) return el.innerText.trim();
                                 }
                                 return "N/A";
                             }
                         """)
-                        if item_price == "N/A":
-                            price_selectors = [
-                                '//div[@class="price"]//span[@class="currency "]',
-                                '//span[contains(@class, "price")]',
-                                '//div[contains(@class, "price")]//span',
-                                '//div[contains(@class, "amount")]//text()',
-                                '//span[@data-testid="price"]'
-                            ]
-                            for selector in price_selectors:
-                                price_elements = await page.query_selector_all(selector)
-                                for element in price_elements:
-                                    text = await element.inner_text()
-                                    if text.strip() and text != "N/A":
-                                        item_price = text.strip()
-                                        break
-                                if item_price != "N/A":
-                                    break
                         print(f"Item price: {item_price}")
-    
-                        # Extract old price
-                        old_price_selectors = [
-                            '//div[@class="price"]//p//span[@class="currency "]',
-                            '//span[contains(@class, "old-price")]',
-                            '//div[contains(@class, "price")]//p//span',
-                        ]
-                        item_old_price = None
-                        for selector in old_price_selectors:
-                            old_price_element = await page.query_selector(selector)
-                            if old_price_element:
-                                item_old_price = await old_price_element.inner_text()
-                                print(f"Item old price: {item_old_price}")
-                                break
-                        if not item_old_price:
-                            print("Item old price: None")
-    
-                        # Extract offer
-                        offer_selectors = [
-                            '//div[@class="offer"]//div[@data-testid="offer-tag"]//span',
-                            '//span[contains(@class, "offer")]',
-                            '//div[contains(@class, "offer")]//span',
-                        ]
-                        item_offer = None
-                        for selector in offer_selectors:
-                            offer_element = await page.query_selector(selector)
-                            if offer_element:
-                                item_offer = await offer_element.inner_text()
-                                print(f"Item offer: {item_offer}")
-                                break
-                        if not item_offer:
-                            print("Item offer: None")
-    
-                        # Extract description
+
+                        item_old_price = await page.evaluate("""
+                            () => {
+                                const selectors = [
+                                    '[class*="old-price"]',
+                                    '.price-strike',
+                                    '[data-testid="original-price"]'
+                                ];
+                                for (let sel of selectors) {
+                                    const el = document.querySelector(sel);
+                                    if (el?.innerText.trim()) return el.innerText.trim();
+                                }
+                                return null;
+                            }
+                        """)
+                        print(f"Item old price: {item_old_price}")
+
+                        item_offer = await page.evaluate("""
+                            () => {
+                                const selectors = [
+                                    '[data-testid="offer-tag"]',
+                                    '[class*="offer"]',
+                                    '.promotion'
+                                ];
+                                for (let sel of selectors) {
+                                    const el = document.querySelector(sel);
+                                    if (el?.innerText.trim()) return el.innerText.trim();
+                                }
+                                return null;
+                            }
+                        """)
+                        print(f"Item offer: {item_offer}")
+
                         item_description = await page.evaluate("""
                             () => {
                                 const selectors = [
                                     '[data-testid="item-description"]',
                                     '[class*="description"]',
-                                    '.product-details p',
-                                    'section.description p'
+                                    '.product-details p'
                                 ];
                                 for (let sel of selectors) {
                                     const el = document.querySelector(sel);
-                                    if (el && el.innerText.trim()) return el.innerText.trim();
+                                    if (el?.innerText.trim()) return el.innerText.trim();
                                 }
                                 return "N/A";
                             }
                         """)
-                        if item_description == "N/A":
-                            desc_selectors = [
-                                '//div[@class="description"]//p[@data-testid="item-description"]',
-                                '//div[contains(@class, "description")]//p',
-                                '//p[contains(@class, "description")]',
-                                '//div[@data-testid="item-description"]//p',
-                                '//section[contains(@class, "description")]//p',
-                                '//div[contains(@class, "product-details")]//p'
-                            ]
-                            for selector in desc_selectors:
-                                desc_element = await page.query_selector(selector)
-                                if desc_element:
-                                    item_description = await desc_element.inner_text()
-                                    if item_description.strip():
-                                        break
                         print(f"Item description: {item_description}")
-    
-                        # Extract delivery time
-                        delivery_time_selectors = [
-                            '//div[@data-testid="delivery-tag"]//span',
-                            '//span[contains(@class, "delivery-time")]',
-                            '//div[contains(@class, "delivery-info")]//span',
-                        ]
-                        delivery_time = "N/A"
-                        for selector in delivery_time_selectors:
-                            delivery_time_element = await page.query_selector(selector)
-                            if delivery_time_element:
-                                delivery_time = await delivery_time_element.inner_text()
-                                break
+
+                        delivery_time = await page.evaluate("""
+                            () => {
+                                const selectors = [
+                                    '[data-testid="delivery-tag"] span',
+                                    '[class*="delivery-time"]',
+                                    '.delivery-info span'
+                                ];
+                                for (let sel of selectors) {
+                                    const el = document.querySelector(sel);
+                                    if (el?.innerText.trim()) return el.innerText.trim();
+                                }
+                                return "N/A";
+                            }
+                        """)
                         print(f"Delivery time range: {delivery_time}")
-    
-                        # Extract images
+
                         item_images = await page.evaluate("""
                             () => {
                                 const selectors = [
                                     '[data-testid="item-image"] img',
-                                    'img[class*="item-image"]',
-                                    'img[alt*="product"]',
-                                    'img[class*="product-image"]'
+                                    'img[class*="product-image"]',
+                                    'img[alt*="product"]'
                                 ];
                                 let images = [];
                                 for (let sel of selectors) {
                                     const imgs = document.querySelectorAll(sel);
                                     imgs.forEach(img => {
-                                        if (img.src) images.push(img.src);
+                                        if (img.src && !images.includes(img.src)) images.push(img.src);
                                     });
                                     if (images.length) break;
                                 }
@@ -531,12 +488,9 @@ class TalabatGroceries:
                             }
                         """)
                         print(f"Item images: {item_images}")
-    
-                        # Skip retry on reload if critical data is missing, as rate limiting is the issue
+
                         if item_price == "N/A" and item_description == "N/A" and not item_images:
-                            print(f"Critical data missing for {item_link}, likely due to rate limiting, skipping reload...")
-                            await page.close()
-                            await context.close()
+                            print(f"Critical data missing for {item_link}, likely rate limited")
                             return {
                                 "item_price": "N/A",
                                 "item_old_price": None,
@@ -545,7 +499,7 @@ class TalabatGroceries:
                                 "item_delivery_time_range": "N/A",
                                 "item_images": []
                             }
-    
+
                         await page.close()
                         await context.close()
                         return {
@@ -564,29 +518,22 @@ class TalabatGroceries:
                             debug_file = f"debug_item_page_{item_link.split('/')[-1]}.html"
                             with open(debug_file, "w", encoding="utf-8") as f:
                                 f.write(html_content)
-                            print(f"Saved page content to {debug_file} for debugging")
                             screenshot_file = f"debug_screenshot_{item_link.split('/')[-1]}.png"
                             await page.screenshot(path=screenshot_file, full_page=True)
-                            print(f"Saved screenshot to {screenshot_file} for debugging")
+                            print(f"Saved debug artifacts for {item_link}")
                         except Exception as debug_e:
                             print(f"Failed to save debug artifacts: {debug_e}")
-                    if attempt < retries:
-                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying after delay...")
-                        await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s
                 except Exception as e:
                     print(f"Unexpected error extracting item details for {item_link}: {e}")
-                    if attempt < retries:
-                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying after delay...")
-                        await asyncio.sleep(30 * (2 ** attempt))  # Exponential backoff: 30s, 60s
                 finally:
                     if page:
                         await page.close()
                     if context:
                         await context.close()
                     self.main_scraper.active_contexts -= 1
-                    logging.info(f"Closed context, active contexts: {self.main_scraper.active_contexts}")
-                    # Add delay after closing context to avoid rapid requests
-                    await asyncio.sleep(random.uniform(3, 5))  # Reduced from 5-10s
+                    await asyncio.sleep(random.uniform(2, 5))
+                    if attempt < retries:
+                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying...")
             print(f"Failed to extract details for {item_link} after all retries")
             return {
                 "item_price": "N/A",
@@ -596,193 +543,178 @@ class TalabatGroceries:
                 "item_delivery_time_range": "N/A",
                 "item_images": []
             }
-        
+
     async def extract_all_items_from_sub_category(self, sub_category_link):
+        """Extract all items from a sub-category with optimized navigation."""
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         async with self.main_scraper.semaphore:
-            retries = 3
+            retries = 2
             context = None
-            while retries > 0:
+            sub_page = None
+
+            for attempt in range(retries + 1):
                 try:
-                    self.main_scraper.active_contexts += 1
-                    logging.info(f"Opening new context, active contexts: {self.main_scraper.active_contexts}")
-                    context = await self.browser.new_context(
-                        user_agent=random.choice(self.main_scraper.user_agents)
-                    )
-                    sub_page = await context.new_page()
-                    response = await sub_page.goto(sub_category_link, timeout=240000, wait_until="domcontentloaded")
-                    if response and response.status == 429:
-                        print(f"Rate limit hit (429) for {sub_category_link}, waiting before retry...")
-                        retries -= 1
-                        await asyncio.sleep(30)
-                        continue
-                    elif response and response.status >= 500:
-                        print(f"Server error ({response.status}) for {sub_category_link}, retrying...")
-                        retries -= 1
-                        await asyncio.sleep(10)
-                        continue
-    
-                    # Wait for network idle to ensure dynamic content loads
-                    await sub_page.wait_for_load_state("networkidle", timeout=120000)
-    
-                    # Check for empty sub-category message
-                    empty_message = await sub_page.query_selector('//div[contains(text(), "No items") or contains(text(), "empty") or contains(@class, "no-results")]')
-                    if empty_message:
-                        print(f"Sub-category {sub_category_link} is empty or has no items")
-                        await sub_page.close()
-                        await context.close()
-                        return []
-    
-                    # Try multiple selectors for item containers
-                    item_container_selectors = [
-                        '//div[@class="category-items-container all-items w-100"]//div[@class="col-8 col-sm-4"]',
-                        '//div[contains(@class, "category-items-container")]//div[contains(@class, "col-")]',
-                        '//div[@data-testid="grocery-item-container"]'
-                    ]
-                    item_elements = None
-                    for selector in item_container_selectors:
-                        try:
-                            await sub_page.wait_for_selector(selector, timeout=60000)
-                            item_elements = await sub_page.query_selector_all(selector)
-                            if item_elements:
-                                print(f"Found item containers using selector: {selector}")
-                                break
-                        except PlaywrightTimeoutError:
-                            print(f"Selector {selector} timed out, trying next selector")
-    
-                    if not item_elements:
-                        print(f"No item containers found on {sub_category_link}")
-                        html_content = await sub_page.content()
-                        debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
-                        with open(debug_file, "w", encoding="utf-8") as f:
-                            f.write(html_content)
-                        print(f"Saved page content to {debug_file} for debugging")
-                        screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.png"
-                        await sub_page.screenshot(path=screenshot_file, full_page=True)
-                        print(f"Saved screenshot to {screenshot_file} for debugging")
-                        await sub_page.close()
-                        await context.close()
-                        return []
-    
-                    html_content = await sub_page.content()
-                    html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
-                    with open(html_filename, "w", encoding="utf-8") as f:
-                        f.write(html_content)
-                    print(f"Saved sub-category HTML to {html_filename} for debugging")
-    
-                    # Handle pagination
-                    pagination_element = await sub_page.query_selector('//div[@class="sc-104fa483-0 fCcIDQ"]//ul[@class="paginate-wrap"]')
-                    total_pages = 1
-                    if pagination_element:
-                        page_numbers = await pagination_element.query_selector_all('//li[contains(@class, "paginate-li f-16 f-500")]//a')
-                        total_pages = len(page_numbers) if page_numbers else 1
-                    print(f"Found {total_pages} pages in this sub-category")
-    
-                    items = []
-                    for page_number in range(1, total_pages + 1):
-                        print(f"Processing page {page_number} of {total_pages}")
-                        page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
-                        response = await sub_page.goto(page_url, timeout=240000, wait_until="domcontentloaded")
+                    async with self.main_scraper.context_semaphore:
+                        self.main_scraper.active_contexts += 1
+                        browser = await self.main_scraper.get_browser()
+                        context = await browser.new_context(
+                            user_agent=random.choice(self.main_scraper.user_agents),
+                            viewport={"width": 1920, "height": 1080},
+                            # proxy=random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
+                        )
+                        sub_page = await context.new_page()
+
+                        domain = sub_category_link.split('/')[2]
+                        if domain in self.main_scraper.rate_limit_delays:
+                            await asyncio.sleep(self.main_scraper.rate_limit_delays[domain])
+
+                        response = await sub_page.goto(sub_category_link, timeout=60000, wait_until="domcontentloaded")
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) for page {page_number} of {sub_category_link}, waiting before retry...")
-                            retries -= 1
-                            await asyncio.sleep(30)
+                            print(f"Rate limit hit (429) for {sub_category_link}, attempt {attempt + 1}/{retries + 1}")
+                            delay = 30 * (2 ** attempt)
+                            self.main_scraper.rate_limit_delays[domain] = delay
+                            await asyncio.sleep(delay)
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for page {page_number} of {sub_category_link}, retrying...")
-                            retries -= 1
-                            await asyncio.sleep(10)
+                            print(f"Server error ({response.status}) for {sub_category_link}, attempt {attempt + 1}/{retries + 1}")
+                            await asyncio.sleep(10 * (2 ** attempt))
                             continue
-    
-                        await sub_page.wait_for_load_state("networkidle", timeout=120000)
-    
-                        item_link_elements = await sub_page.query_selector_all(
-                            '//a[@data-testid="grocery-item-link-nofollow"]'
-                        )
-                        print(f"Found {len(item_link_elements)} items on page {page_number}")
-    
-                        for i, element in enumerate(item_link_elements):
+
+                        await sub_page.wait_for_load_state("networkidle", timeout=60000)
+
+                        empty_message = await sub_page.query_selector('//div[contains(text(), "No items") or contains(text(), "empty") or contains(@class, "no-results")]')
+                        if empty_message:
+                            print(f"Sub-category {sub_category_link} is empty")
+                            await sub_page.close()
+                            await context.close()
+                            return []
+
+                        item_container_selectors = [
+                            '[data-testid="grocery-item-container"]',
+                            '[class*="category-items-container"] [class*="col-"]',
+                            '.category-items-container .col-8.col-sm-4'
+                        ]
+                        item_elements = None
+                        for selector in item_container_selectors:
                             try:
-                                name_selectors = [
-                                    'div[data-test="item-name"]',
-                                    'span[data-test="item-name"]',
-                                    'div[data-testid="product-name"]',
-                                    'span[data-testid="product-title"]',
-                                    'div[class*="product-name"]',
-                                    'span[class*="product-title"]',
-                                    'h3[class*="product-title"]'
-                                ]
-                                item_name = None
-                                for selector in name_selectors:
-                                    item_name_element = await element.query_selector(selector)
-                                    if item_name_element:
-                                        item_name = await item_name_element.inner_text()
-                                        if item_name and item_name.strip():
-                                            invalid_names = ['currency', 'kiki', 'market', 'grocery', 'mahboula']
-                                            if not any(invalid.lower() in item_name.lower() for invalid in invalid_names):
-                                                print(f"Item name: {item_name}")
-                                                break
-                                            else:
-                                                print(f"Selector '{selector}' found invalid name: {item_name}")
-                                                item_name = None
-                                        else:
-                                            print(f"Selector '{selector}' found empty or invalid name")
-                                    else:
-                                        print(f"Selector '{selector}' not found")
-    
-                                if not item_name or not item_name.strip():
-                                    item_name = f"Unknown Item {i+1}"
-                                    print(f"No valid item name found, using default: {item_name}")
-    
-                                item_link = self.base_url + await element.get_attribute('href')
-                                print(f"Item link: {item_link}")
-    
-                                item_details = await self.extract_item_details(item_link)
-                                items.append({
-                                    "item_name": item_name.strip(),
-                                    "item_link": item_link,
-                                    **item_details
-                                })
-    
-                                await asyncio.sleep(3)
-                            except Exception as e:
-                                print(f"Error processing item {i+1}: {e}")
-                                logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
-    
-                    await sub_page.close()
-                    await context.close()
-                    return items
-                except PlaywrightTimeoutError as e:
-                    print(f"Timeout error extracting items from sub-category {sub_category_link}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    if 'sub_page' in locals():
-                        try:
+                                await sub_page.wait_for_selector(selector, timeout=30000)
+                                item_elements = await sub_page.query_selector_all(selector)
+                                if item_elements:
+                                    print(f"Found item containers using selector: {selector}")
+                                    break
+                            except PlaywrightTimeoutError:
+                                print(f"Selector {selector} timed out")
+
+                        if not item_elements:
+                            print(f"No item containers found on {sub_category_link}")
                             html_content = await sub_page.content()
-                            debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.html"
+                            debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=', '')}.html"
                             with open(debug_file, "w", encoding="utf-8") as f:
                                 f.write(html_content)
-                            print(f"Saved page content to {debug_file} for debugging")
-                            screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=59', '')}.png"
+                            screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=', '')}.png"
                             await sub_page.screenshot(path=screenshot_file, full_page=True)
-                            print(f"Saved screenshot to {screenshot_file} for debugging")
+                            print(f"Saved debug artifacts for {sub_category_link}")
+                            await sub_page.close()
+                            await context.close()
+                            return []
+
+                        html_content = await sub_page.content()
+                        html_filename = f"sub_category_{sub_category_link.split('/')[-1].replace('?aid=', '')}.html"
+                        with open(html_filename, "w", encoding="utf-8") as f:
+                            f.write(html_content)
+                        print(f"Saved sub-category HTML to {html_filename} for debugging")
+
+                        pagination_element = await sub_page.query_selector('[class*="paginate-wrap"]')
+                        total_pages = 1
+                        if pagination_element:
+                            page_numbers = await pagination_element.query_selector_all('li.paginate-li a')
+                            total_pages = len(page_numbers) if page_numbers else 1
+                        print(f"Found {total_pages} pages in this sub-category")
+
+                        items = []
+                        for page_number in range(1, total_pages + 1):
+                            print(f"Processing page {page_number} of {total_pages}")
+                            page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
+                            response = await sub_page.goto(page_url, timeout=60000, wait_until="domcontentloaded")
+                            if response and response.status == 429:
+                                print(f"Rate limit hit (429) for page {page_number}, attempt {attempt + 1}/{retries + 1}")
+                                delay = 30 * (2 ** attempt)
+                                self.main_scraper.rate_limit_delays[domain] = delay
+                                await asyncio.sleep(delay)
+                                continue
+                            await sub_page.wait_for_load_state("networkidle", timeout=60000)
+
+                            item_link_elements = await sub_page.query_selector_all('[data-testid="grocery-item-link-nofollow"]')
+                            print(f"Found {len(item_link_elements)} items on page {page_number}")
+
+                            for i, element in enumerate(item_link_elements):
+                                try:
+                                    name_selectors = [
+                                        '[data-testid="product-name"]',
+                                        '[data-test="item-name"]',
+                                        '[class*="product-title"]',
+                                        'h3[class*="product-title"]'
+                                    ]
+                                    item_name = None
+                                    for selector in name_selectors:
+                                        item_name_element = await element.query_selector(selector)
+                                        if item_name_element:
+                                            item_name = await item_name_element.inner_text()
+                                            if item_name and item_name.strip():
+                                                invalid_names = ['currency', 'kiki', 'market', 'grocery', 'mahboula']
+                                                if not any(invalid.lower() in item_name.lower() for invalid in invalid_names):
+                                                    print(f"Item name: {item_name}")
+                                                    break
+                                                else:
+                                                    item_name = None
+
+                                    if not item_name or not item_name.strip():
+                                        item_name = f"Unknown Item {i+1}"
+                                        print(f"No valid item name found, using default: {item_name}")
+
+                                    item_link = self.base_url + await element.get_attribute('href')
+                                    print(f"Item link: {item_link}")
+
+                                    item_details = await self.extract_item_details(item_link)
+                                    items.append({
+                                        "item_name": item_name.strip(),
+                                        "item_link": item_link,
+                                        **item_details
+                                    })
+
+                                    await asyncio.sleep(random.uniform(1, 3))
+                                except Exception as e:
+                                    print(f"Error processing item {i+1}: {e}")
+                                    logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
+
+                        await sub_page.close()
+                        await context.close()
+                        return items
+                except PlaywrightTimeoutError as e:
+                    print(f"Timeout error extracting items from sub-category {sub_category_link}: {e}")
+                    if sub_page:
+                        try:
+                            html_content = await sub_page.content()
+                            debug_file = f"debug_sub_category_{sub_category_link.split('/')[-1].replace('?aid=', '')}.html"
+                            with open(debug_file, "w", encoding="utf-8") as f:
+                                f.write(html_content)
+                            screenshot_file = f"debug_screenshot_sub_category_{sub_category_link.split('/')[-1].replace('?aid=', '')}.png"
+                            await sub_page.screenshot(path=screenshot_file, full_page=True)
+                            print(f"Saved debug artifacts for {sub_category_link}")
                         except Exception as debug_e:
                             print(f"Failed to save debug artifacts: {debug_e}")
-                    if retries > 0:
-                        await asyncio.sleep(10 * (2 ** (3 - retries)))
                 except Exception as e:
                     print(f"Unexpected error extracting items from sub-category {sub_category_link}: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    if retries > 0:
-                        await asyncio.sleep(10 * (2 ** (3 - retries)))
+                    logging.error(f"Unexpected error in sub-category {sub_category_link}: {e}")
                 finally:
-                    if 'sub_page' in locals():
+                    if sub_page:
                         await sub_page.close()
                     if context:
                         await context.close()
                     self.main_scraper.active_contexts -= 1
-                    logging.info(f"Closed context, active contexts: {self.main_scraper.active_contexts}")
+                    if attempt < retries:
+                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying...")
+                        await asyncio.sleep(10 * (2 ** attempt))
             print(f"Failed to extract items from sub-category {sub_category_link} after all retries")
             return []
 
@@ -877,48 +809,76 @@ class MainScraper:
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.output_dir = "output"
         self.github_token = os.environ.get('GITHUB_TOKEN')
-        self.semaphore = asyncio.Semaphore(3)  # Limit concurrent requests
-        self.max_contexts = 5  # Maximum concurrent browser contexts
+        self.semaphore = asyncio.Semaphore(5)  # Increased for more concurrency
+        self.max_browsers = 3  # Number of browser instances
+        self.max_contexts_per_browser = 2  # Contexts per browser
         self.active_contexts = 0
-        self.context_semaphore = asyncio.Semaphore(self.max_contexts)  # Limit concurrent contexts
+        self.context_semaphore = asyncio.Semaphore(self.max_contexts_per_browser * self.max_browsers)
+        self.browsers = []
         self.user_agents = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
         ]
-        if not self.github_token:
-            logging.warning("GITHUB_TOKEN is not set. Git pushes will be skipped.")
+        # Optional proxy pool (uncomment and configure if needed)
+        # self.proxies = [
+        #     {"server": "http://proxy1:port", "username": "user", "password": "pass"},
+        #     {"server": "http://proxy2:port", "username": "user", "password": "pass"},
+        # ]
+        self.rate_limit_delays = {}  # Track rate limit delays per domain
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
-        if not credentials_json:
-            logging.warning("TALABAT_GCLOUD_KEY_JSON is not set. Google Drive uploads will fail.")
-            self.drive_uploader = SavingOnDrive(credentials_json=None)
-        else:
-            try:
-                credentials_dict = json.loads(credentials_json)
-                if not credentials_dict.get('type') == 'service_account':
-                    logging.warning("TALABAT_GCLOUD_KEY_JSON is not a valid service account key. Google Drive uploads will fail.")
-                    self.drive_uploader = SavingOnDrive(credentials_json=None)
-                else:
-                    self.drive_uploader = SavingOnDrive(credentials_json=credentials_json)
-            except json.JSONDecodeError as e:
-                logging.warning(f"TALABAT_GCLOUD_KEY_JSON is invalid JSON: {str(e)}. Google Drive uploads will fail.")
-                self.drive_uploader = SavingOnDrive(credentials_json=None)
-
         os.makedirs(self.output_dir, exist_ok=True)
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
+        self.drive_uploader = SavingOnDrive(credentials_json=credentials_json if credentials_json else None)
+        self.executor = ThreadPoolExecutor(max_workers=2)  # For non-async tasks
         self.ensure_playwright_browsers()
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Initialized progress files for {area_name}")
 
+    async def initialize_browsers(self, playwright):
+        """Initialize a pool of browser instances."""
+        for _ in range(self.max_browsers):
+            browser = await playwright.chromium.launch(
+                headless=True,
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--no-sandbox",
+                    "--disable-dev-shm-usage",
+                    "--disable-gpu",
+                    "--window-size=1920,1080",
+                ]
+            )
+            self.browsers.append(browser)
+        logging.info(f"Initialized {len(self.browsers)} browser instances")
+
+    async def get_browser(self):
+        """Get a random browser from the pool, rotating to balance load."""
+        if not self.browsers:
+            raise RuntimeError("No browsers initialized")
+        return random.choice(self.browsers)
+
+    async def close_browsers(self):
+        """Close all browser instances."""
+        for browser in self.browsers:
+            await browser.close()
+        self.browsers.clear()
+        logging.info("Closed all browser instances")
+
     async def check_server_status(self, url):
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.get(url, timeout=10) as response:
+                    if response.status == 429:
+                        domain = url.split('/')[2]
+                        delay = self.rate_limit_delays.get(domain, 30)
+                        self.rate_limit_delays[domain] = min(delay * 2, 300)  # Exponential backoff, max 5 min
+                        await asyncio.sleep(delay)
+                        return False
                     return response.status < 400
             except Exception as e:
-                print(f"Server check failed: {e}")
+                logging.warning(f"Server check failed for {url}: {e}")
                 return False
 
     def ensure_playwright_browsers(self):
@@ -1379,14 +1339,14 @@ class MainScraper:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
-        self.browser = browser
+        """Scrape a single area with enhanced error handling and resource management."""
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         process = psutil.Process()
         logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
         logging.info(f"Active browser contexts: {self.active_contexts}")
 
         if not await self.check_server_status(area_url):
-            print(f"Server at {area_url} is not responding, aborting scrape.")
+            print(f"Server at {area_url} is not responding or rate limited, aborting scrape.")
             return []
 
         all_area_results = self.scraped_progress["all_results"].get(area_name, {})
@@ -1413,13 +1373,20 @@ class MainScraper:
         context = None
         page = None
         try:
+            browser = await self.get_browser()
             context = await browser.new_context(
-                user_agent=random.choice(self.user_agents)
+                user_agent=random.choice(self.user_agents),
+                viewport={"width": 1920, "height": 1080},
+                java_script_enabled=True,
+                bypass_csp=True,
+                # proxy=random.choice(self.proxies) if self.proxies else None
             )
-            page = await browser.new_page()
-            response = await page.goto(area_url, timeout=90000, wait_until="domcontentloaded")
+            page = await context.new_page()
+            response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
             if response and response.status == 429:
                 print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
+                domain = area_url.split('/')[2]
+                self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 30) * 2
                 return []
             elif response and response.status >= 500:
                 print(f"Server error ({response.status}) for {area_url}, aborting scrape.")
@@ -1433,7 +1400,6 @@ class MainScraper:
 
             processed_grocery_titles = set(current_progress["processed_groceries"])
             current_grocery_title = current_progress.get("current_grocery_title")
-            current_grocery_link = current_progress.get("current_grocery_link")
 
             for grocery_idx, grocery in enumerate(groceries_on_page):
                 grocery_num = grocery_idx + 1
@@ -1441,11 +1407,11 @@ class MainScraper:
                 grocery_link = grocery["grocery_link"]
 
                 if grocery_title in processed_grocery_titles:
-                    print(f"Skipping already processed grocery: {grocery_title} (link: {grocery_link})")
+                    print(f"Skipping already processed grocery: {grocery_title}")
                     continue
 
                 if current_grocery_title and current_grocery_title != grocery_title:
-                    print(f"Skipping grocery {grocery_title}, waiting for current grocery {current_grocery_title} ({current_grocery_link})")
+                    print(f"Skipping grocery {grocery_title}, waiting for {current_grocery_title}")
                     continue
 
                 current_progress["current_grocery"] = grocery_num
@@ -1459,7 +1425,8 @@ class MainScraper:
                 print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
 
                 grocery_context = await browser.new_context(
-                    user_agent=random.choice(self.user_agents)
+                    user_agent=random.choice(self.user_agents),
+                    # proxy=random.choice(self.proxies) if self.proxies else None
                 )
                 grocery_page = await grocery_context.new_page()
                 talabat_grocery = TalabatGroceries(grocery_link, browser, self)
@@ -1484,7 +1451,7 @@ class MainScraper:
                 user_agent=random.choice(self.user_agents)
             )
             page = await verify_context.new_page()
-            await page.goto(area_url, timeout=90000)
+            await page.goto(area_url, timeout=60000)
             current_groceries = await self.get_page_groceries(page)
             await page.close()
             await verify_context.close()
@@ -1570,7 +1537,7 @@ class MainScraper:
                 await context.close()
             logging.info(f"Memory usage after scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
             logging.info(f"Active browser contexts: {self.active_contexts}")
-
+    
     async def process_category(self, grocery_title, category_data, category_name, talabat_grocery, page):
         async with self.semaphore:
             sub_categories = await talabat_grocery.extract_sub_categories(page, category_data["category_link"], grocery_title, category_name)
@@ -1601,26 +1568,26 @@ class MainScraper:
                 logging.error(f"Error extracting groceries: {e}")
                 return []
 
-    async def run(self, areas: List[Dict[str, str]], browser):
-        """
-        Run the scraper for all specified areas.
-        
-        Args:
-            areas: List of dictionaries containing 'name' and 'url' for each area.
-            browser: Playwright browser instance.
-        """
-        for area in areas:
-            area_name = area["name"]
-            area_url = area["url"]
-            if area_name in self.current_progress["completed_areas"]:
-                print(f"Skipping completed area: {area_name}")
-                continue
-            print(f"Starting scrape for area: {area_name}")
-            await self.scrape_and_save_area(area_name, area_url, browser)
-            self.current_progress["current_area_index"] = self.current_progress["current_area_index"] + 1
+    async def run(self, areas: List[Dict[str, str]], playwright):
+        """Run the scraper for all areas concurrently."""
+        await self.initialize_browsers(playwright)
+        try:
+            tasks = []
+            for area in areas:
+                area_name = area["name"]
+                area_url = area["url"]
+                if area_name in self.current_progress["completed_areas"]:
+                    print(f"Skipping completed area: {area_name}")
+                    continue
+                print(f"Starting scrape for area: {area_name}")
+                tasks.append(self.scrape_and_save_area(area_name, area_url, None))  # Browser handled internally
+            await asyncio.gather(*tasks, return_exceptions=True)
+            self.current_progress["current_area_index"] = len(areas)
             self.save_current_progress()
             self.save_scraped_progress()
-            self.commit_progress(f"Completed scraping area {area_name}")
+            self.commit_progress("Completed all areas")
+        finally:
+            await self.close_browsers()
         print("All areas processed.")
         
 async def main():
@@ -1632,21 +1599,7 @@ async def main():
     scraper = MainScraper(args.area_name)
     areas = [{"name": args.area_name, "url": args.url}]
     async with async_playwright() as playwright:
-        # Launch browser with realistic settings
-        browser = await playwright.chromium.launch(
-            headless=True,  # Set to False for debugging
-            args=[
-                "--disable-blink-features=AutomationControlled",  # Hide automation flags
-                "--no-sandbox",
-                "--disable-dev-shm-usage"
-            ]
-        )
-        # Optional: Use stealth plugin if available (requires `playwright-stealth`)
-        # from playwright_stealth import stealth_async
-        # context = await browser.new_context()
-        # await stealth_async(context)
-        await scraper.run(areas, browser)
-        await browser.close()
+        await scraper.run(areas, playwright)
 
 if __name__ == "__main__":
     asyncio.run(main())
