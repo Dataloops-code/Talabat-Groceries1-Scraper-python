@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T08:10:26.148569",
+  "last_updated": "2025-04-29T08:11:57.430374",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Salt & Spices",
+    "current_sub_category": "Sauces & Dressings",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -166,7 +166,8 @@
           "Meat & Seafood",
           "Canned Fruits & Vegetables",
           "Ready-to-Eat Canned Meals",
-          "Salt & Spices"
+          "Salt & Spices",
+          "Sauces & Dressings"
         ]
       }
     }
