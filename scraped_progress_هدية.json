@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T12:58:03.254880",
+  "last_updated": "2025-04-29T12:58:21.737417",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 20,
@@ -193,7 +193,7 @@
     "هدية": {
       "Hala Store": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas?aid=30",
-        "delivery_time": "18 mins",
+        "delivery_time": "20 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
