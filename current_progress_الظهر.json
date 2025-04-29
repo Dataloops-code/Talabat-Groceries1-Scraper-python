@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T07:54:45.888579",
+  "last_updated": "2025-04-29T07:56:21.571890",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Rice",
+    "current_sub_category": "Pasta & Sauces",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -156,7 +156,8 @@
           "Frozen Fruits & Vegetables",
           "Frozen Ready Meals",
           "Frozen Desserts",
-          "Rice"
+          "Rice",
+          "Pasta & Sauces"
         ]
       }
     }
