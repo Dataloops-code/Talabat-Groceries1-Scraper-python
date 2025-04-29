@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T02:03:43.390733",
+  "last_updated": "2025-04-29T02:04:39.879115",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 9,
@@ -10,7 +10,7 @@
     "total_groceries": 20,
     "processed_groceries": [],
     "current_category": "Deals",
-    "current_sub_category": "Tobacco & Rolling Papers",
+    "current_sub_category": "Lighters",
     "completed_groceries": {
       "Hala Store": {
         "completed sub-categories": [
@@ -153,7 +153,8 @@
           "Vape Disposables",
           "Vape Devices & Pods",
           "Shisha",
-          "Tobacco & Rolling Papers"
+          "Tobacco & Rolling Papers",
+          "Lighters"
         ]
       }
     }
