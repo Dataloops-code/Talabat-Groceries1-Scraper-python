@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T06:13:17.120103",
+  "last_updated": "2025-04-29T07:14:31.638546",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 10,
+    "current_grocery": 1,
     "current_grocery_title": "Kiki Market Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
@@ -146,7 +146,8 @@
           "Dairy Products",
           "Desserts",
           "Cereals",
-          "Cocoa Powder"
+          "Cocoa Powder",
+          "Syrups"
         ]
       }
     }
@@ -299,9 +300,9 @@
       },
       "Kiki Market Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
-        "delivery_time": "25 mins",
+        "delivery_time": "27 mins",
         "grocery_details": {
-          "delivery_fees": "KD 1.000",
+          "delivery_fees": "KD 0.000",
           "minimum_order": "KD 1.000",
           "categories": {
             "Bakery": {
