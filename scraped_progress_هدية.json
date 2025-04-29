@@ -1,17 +1,17 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:16:42.884356",
+  "last_updated": "2025-04-29T18:17:00.801350",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 0,
-    "current_grocery_title": null,
-    "current_grocery_link": null,
+    "current_grocery": 2,
+    "current_grocery_title": "Mega Mart",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=30",
     "total_groceries": 20,
     "processed_groceries": [
       "Hala Store"
     ],
-    "current_category": null,
+    "current_category": "Special Offers",
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
@@ -306,6 +306,136 @@
             },
             "Tobacco Shop": {
               "category_link": "https://www.talabat.com/kuwait/grocery/627805/hala-storefintas/tobacco-shop/vape-disposables?aid=30",
+              "sub_categories": []
+            }
+          }
+        }
+      },
+      "Mega Mart": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=30",
+        "delivery_time": "26 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": {
+            "Special Offers": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/special-offers/promotions?aid=30",
+              "sub_categories": []
+            },
+            "Organic & Special Diet": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/organic-special-diet/gluten-free-food-snacks?aid=30",
+              "sub_categories": []
+            },
+            "Bakery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/bakery/freshly-baked?aid=30",
+              "sub_categories": []
+            },
+            "Fruits & Vegetables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fruits-vegetables/vegetables?aid=30",
+              "sub_categories": []
+            },
+            "Dairy & Eggs": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/dairy-eggs/eggs?aid=30",
+              "sub_categories": []
+            },
+            "Breakfast Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/breakfast-food/cereals?aid=30",
+              "sub_categories": []
+            },
+            "Grab & Go": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/grab-go/salads?aid=30",
+              "sub_categories": []
+            },
+            "Beverages": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/beverages/juices-single?aid=30",
+              "sub_categories": []
+            },
+            "Water": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/water/drinking-water?aid=30",
+              "sub_categories": []
+            },
+            "Frozen Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/frozen-food/frozen-poultry?aid=30",
+              "sub_categories": []
+            },
+            "Cooking & Baking": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cooking-baking/rice?aid=30",
+              "sub_categories": []
+            },
+            "Canned & Jarred Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/canned-jarred-food/meat-seafood?aid=30",
+              "sub_categories": []
+            },
+            "Condiments": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/condiments/salt-spices?aid=30",
+              "sub_categories": []
+            },
+            "Milk": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/milk/fresh-milk?aid=30",
+              "sub_categories": []
+            },
+            "Coffee & Tea": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/coffee-tea/coffee?aid=30",
+              "sub_categories": []
+            },
+            "Ice Cream": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/ice-cream/bars-cones-sticks?aid=30",
+              "sub_categories": []
+            },
+            "Snacks & Candy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/snacks-candy/minis-miniatures?aid=30",
+              "sub_categories": []
+            },
+            "Fresh Meat and Poultry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/fresh-meat-and-poultry/fresh-seafood?aid=30",
+              "sub_categories": []
+            },
+            "Pet Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pet-care/pet-food?aid=30",
+              "sub_categories": []
+            },
+            "Baby": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/baby/baby-bath-body-care?aid=30",
+              "sub_categories": []
+            },
+            "Toys": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/toys/game-console?aid=30",
+              "sub_categories": []
+            },
+            "Personal Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/personal-care/body-wash?aid=30",
+              "sub_categories": []
+            },
+            "Pharmacy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/pharmacy/vitamins-supplements?aid=30",
+              "sub_categories": []
+            },
+            "Disposables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/disposables/disposable-tableware?aid=30",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/cleaning-laundry/dishwashing?aid=30",
+              "sub_categories": []
+            },
+            "Electronics": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/electronics/wires-plugs?aid=30",
+              "sub_categories": []
+            },
+            "Household Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/household-essentials/batteries?aid=30",
+              "sub_categories": []
+            },
+            "Gift Items": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/gift-items/birthday-supplies?aid=30",
+              "sub_categories": []
+            },
+            "Stationery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/stationery/stationary-office-supplies?aid=30",
+              "sub_categories": []
+            },
+            "Tobacco Shop": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/tobacco-shop/tobacco-rolling-papers?aid=30",
               "sub_categories": []
             }
           }
