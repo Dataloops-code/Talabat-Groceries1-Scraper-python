@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T07:20:18.373430",
+  "last_updated": "2025-04-29T07:20:44.019582",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Spreads & Honey",
+    "current_sub_category": "Fresh Seafood",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -148,7 +148,8 @@
           "Cereals",
           "Cocoa Powder",
           "Syrups",
-          "Spreads & Honey"
+          "Spreads & Honey",
+          "Fresh Seafood"
         ]
       }
     }
