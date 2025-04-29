@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T02:37:25.144494",
+  "last_updated": "2025-04-29T02:37:25.967735",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Cocoa Powder",
+    "current_sub_category": "Syrups",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
