@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T07:48:38.716481",
+  "last_updated": "2025-04-29T07:50:09.972129",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 1,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Frozen Meat & Seafood",
+    "current_sub_category": "Frozen Fruits & Vegetables",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -152,7 +152,8 @@
           "Fresh Seafood",
           "Fresh Poultry",
           "Frozen Poultry",
-          "Frozen Meat & Seafood"
+          "Frozen Meat & Seafood",
+          "Frozen Fruits & Vegetables"
         ]
       }
     }
