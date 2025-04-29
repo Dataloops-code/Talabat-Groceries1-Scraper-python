@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T02:12:45.473054",
+  "last_updated": "2025-04-29T02:18:21.808032",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Yoghurt & Labneh",
+    "current_sub_category": "Cream",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -141,7 +141,8 @@
           "Portion Cheese & Halloumi",
           "Block Cheese & Feta",
           "Butter & Margarine",
-          "Yoghurt & Labneh"
+          "Yoghurt & Labneh",
+          "Cream"
         ]
       }
     }
