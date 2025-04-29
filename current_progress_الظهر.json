@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T02:22:52.680230",
+  "last_updated": "2025-04-29T02:36:44.208130",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Desserts",
+    "current_sub_category": "Cereals",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -144,7 +144,8 @@
           "Yoghurt & Labneh",
           "Cream",
           "Dairy Products",
-          "Desserts"
+          "Desserts",
+          "Cereals"
         ]
       }
     }
