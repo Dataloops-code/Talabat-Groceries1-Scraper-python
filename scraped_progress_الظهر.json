@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T18:12:06.089121",
+  "last_updated": "2025-04-29T18:20:03.523367",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 6,
+    "current_grocery": 5,
     "current_grocery_title": "Kiki Market Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
@@ -167,7 +167,8 @@
           "Canned Fruits & Vegetables",
           "Ready-to-Eat Canned Meals",
           "Salt & Spices",
-          "Sauces & Dressings"
+          "Sauces & Dressings",
+          "Olives & Pickles"
         ]
       }
     }
@@ -320,9 +321,9 @@
       },
       "Kiki Market Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
-        "delivery_time": "33 mins",
+        "delivery_time": "35 mins",
         "grocery_details": {
-          "delivery_fees": "KD 0.000",
+          "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
           "categories": {
             "Bakery": {
