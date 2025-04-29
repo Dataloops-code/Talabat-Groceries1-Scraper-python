@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-29T00:39:50.880310",
+  "last_updated": "2025-04-29T01:42:38.417678",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -137,7 +137,8 @@
           "Salads",
           "Eggs",
           "Slice Cheese & Shredded",
-          "Squeeze & Tub Cheese"
+          "Squeeze & Tub Cheese",
+          "Portion Cheese & Halloumi"
         ]
       }
     }
