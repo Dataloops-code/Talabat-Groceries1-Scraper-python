@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "المهبولة"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T22:19:12.848155",
+  "last_updated": "2025-04-30T22:48:18.088132",
   "current_progress": {
-    "area_name": "المهبولة",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
