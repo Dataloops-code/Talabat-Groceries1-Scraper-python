@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T06:14:03.035286",
+  "last_updated": "2025-04-30T06:43:37.029227",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 10,
+    "current_grocery": 8,
     "current_grocery_title": "Kiki Market Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
@@ -188,7 +188,8 @@
           "Sports & Energy Drinks",
           "Malt Drinks",
           "Powdered & Concentrated Juices",
-          "Iced Tea"
+          "Iced Tea",
+          "Specialty Drinks"
         ]
       }
     }
