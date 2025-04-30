@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T18:17:42.276975",
+  "last_updated": "2025-04-30T18:18:07.359956",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 4,
@@ -565,7 +565,7 @@
       },
       "Dandoosh Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=30",
-        "delivery_time": "23 mins",
+        "delivery_time": "26 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
