@@ -841,6 +841,105 @@ class MainScraper:
         self.save_scraped_progress()
         self.commit_progress(f"Initialized progress files for {area_name}")
 
+    async def check_server_status(self, url):
+        """Check server status with enhanced proxy retry logic."""
+        async with aiohttp.ClientSession() as session:
+            max_retries = 3
+            used_proxies = []
+            proxies = self.proxies.copy() if self.proxies else []
+            domain = url.split('/')[2]
+
+            # Filter out placeholder proxies
+            valid_proxies = [
+                p for p in proxies
+                if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
+            ]
+
+            if not valid_proxies:
+                logging.warning("No valid proxies configured, attempting request without proxy")
+                try:
+                    async with session.get(url, timeout=15) as response:
+                        if response.status == 429:
+                            delay = self.rate_limit_delays.get(domain, 60)
+                            self.rate_limit_delays[domain] = min(delay * 1.5, 600)
+                            logging.info(f"Rate limit hit (429) for {url}, waiting {delay}s")
+                            await asyncio.sleep(delay)
+                            return False
+                        return response.status < 400
+                except Exception as e:
+                    logging.warning(f"Server check failed without proxy for {url}: {e}")
+                    return False
+
+            for attempt in range(max_retries):
+                if not valid_proxies:
+                    logging.warning("No more proxies to try")
+                    break
+
+                proxy = random.choice(valid_proxies)
+                used_proxies.append(proxy)
+                valid_proxies.remove(proxy)
+
+                try:
+                    async with session.get(
+                        url,
+                        timeout=15,
+                        proxy=proxy["server"],
+                        proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
+                    ) as response:
+                        if response.status == 429:
+                            delay = self.rate_limit_delays.get(domain, 60)
+                            self.rate_limit_delays[domain] = min(delay * 1.5, 600)
+                            logging.info(f"Rate limit hit (429) for {url} with proxy {proxy['server']}, waiting {delay}s")
+                            await asyncio.sleep(delay)
+                            return False
+                        logging.info(f"Server check successful for {url} with proxy {proxy['server']}")
+                        return response.status < 400
+                except Exception as e:
+                    logging.warning(f"Server check failed for {url} with proxy {proxy['server']}: {e}")
+                    if attempt < max_retries - 1:
+                        logging.info(f"Retrying with another proxy, attempt {attempt + 2}/{max_retries}")
+
+            # Fallback to no proxy if all proxies fail
+            logging.warning(f"All proxies failed for {url}, attempting without proxy")
+            try:
+                async with session.get(url, timeout=15) as response:
+                    if response.status == 429:
+                        delay = self.rate_limit_delays.get(domain, 60)
+                        self.rate_limit_delays[domain] = min(delay * 1.5, 600)
+                        logging.info(f"Rate limit hit (429) for {url} without proxy, waiting {delay}s")
+                        await asyncio.sleep(delay)
+                        return False
+                    return response.status < 400
+            except Exception as e:
+                logging.warning(f"Server check failed without proxy for {url}: {e}")
+                return False
+
+    def reset_area_progress(self, area_name: str):
+        """Reset progress for an area to start scraping from the beginning."""
+        self.current_progress["current_progress"] = {
+            "area_name": area_name,
+            "current_grocery": 0,
+            "current_grocery_title": None,
+            "current_grocery_link": None,
+            "total_groceries": 0,
+            "processed_groceries": [],
+            "current_category": None,
+            "current_sub_category": None,
+            "completed_groceries": {}
+        }
+        self.scraped_progress["current_progress"] = self.current_progress["current_progress"].copy()
+        self.scraped_progress["all_results"][area_name] = {}
+        if area_name in self.current_progress["completed_areas"]:
+            self.current_progress["completed_areas"].remove(area_name)
+        if area_name in self.scraped_progress["completed_areas"]:
+            self.scraped_progress["completed_areas"].remove(area_name)
+        self.current_progress["last_updated"] = datetime.now().isoformat()
+        self.scraped_progress["last_updated"] = datetime.now().isoformat()
+        self.save_current_progress()
+        self.save_scraped_progress()
+        self.commit_progress(f"Reset progress for {area_name} to re-scrape")
+        logging.info(f"Reset progress for area: {area_name}")
+
     async def initialize_browsers(self, playwright):
         """Initialize a pool of browser instances."""
         for _ in range(self.max_browsers):
@@ -869,27 +968,6 @@ class MainScraper:
             await browser.close()
         self.browsers.clear()
         logging.info("Closed all browser instances")
-
-    async def check_server_status(self, url):
-        async with aiohttp.ClientSession() as session:
-            try:
-                proxy = random.choice(self.proxies) if self.proxies else None
-                async with session.get(
-                    url,
-                    timeout=10,
-                    proxy=proxy["server"] if proxy else None,
-                    proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"]) if proxy else None
-                ) as response:
-                    if response.status == 429:
-                        domain = url.split('/')[2]
-                        delay = self.rate_limit_delays.get(domain, 60)  # Start with 60s
-                        self.rate_limit_delays[domain] = min(delay * 1.5, 600)  # Slower backoff, max 10 min
-                        await asyncio.sleep(delay)
-                        return False
-                    return response.status < 400
-            except Exception as e:
-                logging.warning(f"Server check failed for {url}: {e}")
-                return False
 
     def ensure_playwright_browsers(self):
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
@@ -1349,7 +1427,7 @@ class MainScraper:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
-        """Scrape a single area with enhanced rate limit handling."""
+        """Scrape a single area, delete JSON after Excel upload, and restart scraping."""
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         process = psutil.Process()
         logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
@@ -1551,6 +1629,21 @@ class MainScraper:
             await asyncio.sleep(30)
             await self.convert_json_to_excel(area_name, json_filename)
 
+            # Check if Excel was created and uploaded, then delete JSON and restart
+            excel_filename = os.path.join(self.output_dir, f"{area_name}_detailed.xlsx")
+            if os.path.exists(excel_filename) and self.upload_to_drive(excel_filename):
+                logging.info(f"Excel file {excel_filename} created and uploaded, deleting JSON and restarting scrape")
+                try:
+                    os.remove(json_filename)
+                    logging.info(f"Deleted JSON file: {json_filename}")
+                except Exception as e:
+                    logging.error(f"Failed to delete JSON file {json_filename}: {e}")
+
+                # Reset progress and restart scraping
+                self.reset_area_progress(area_name)
+                print(f"Restarting scrape for area: {area_name}")
+                return await self.scrape_and_save_area(area_name, area_url, browser)
+
             return list(all_area_results.values())
         except Exception as e:
             print(f"Error scraping area {area_name}: {e}")
@@ -1634,7 +1727,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 
