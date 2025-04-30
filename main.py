@@ -298,29 +298,31 @@ class TalabatGroceries:
             return missing_sub_categories
 
     async def extract_item_details(self, item_link):
-        """Extract item details with optimized selectors and rate limit handling."""
+        """Extract item details with enhanced rate limit handling and proxy rotation."""
         print(f"Attempting to extract item details for link: {item_link}")
         async with self.main_scraper.semaphore:
-            retries = 2
+            retries = 3
             context = None
             page = None
 
-            for attempt in range(retries + 1):
+            for attempt in range(retries):
                 try:
                     async with self.main_scraper.context_semaphore:
                         self.main_scraper.active_contexts += 1
                         browser = await self.main_scraper.get_browser()
+                        proxy = random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
                         context = await browser.new_context(
                             user_agent=random.choice(self.main_scraper.user_agents),
                             viewport={"width": 1920, "height": 1080},
                             java_script_enabled=True,
                             bypass_csp=True,
+                            proxy=proxy,
                             extra_http_headers={
                                 "Accept-Language": "en-US,en;q=0.9",
                                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
                                 "Connection": "keep-alive",
-                            },
-                            # proxy=random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
+                                "Cache-Control": "no-cache",
+                            }
                         )
                         page = await context.new_page()
 
@@ -330,14 +332,14 @@ class TalabatGroceries:
 
                         response = await page.goto(item_link, timeout=20000, wait_until="domcontentloaded")
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) for {item_link}, attempt {attempt + 1}/{retries + 1}")
-                            delay = 30 * (2 ** attempt)
+                            print(f"Rate limit hit (429) for {item_link}, attempt {attempt + 1}/{retries}")
+                            delay = 60 * (1.5 ** attempt)
                             self.main_scraper.rate_limit_delays[domain] = delay
                             await asyncio.sleep(delay)
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for {item_link}, attempt {attempt + 1}/{retries + 1}")
-                            await asyncio.sleep(10 * (2 ** attempt))
+                            print(f"Server error ({response.status}) for {item_link}, attempt {attempt + 1}/{retries}")
+                            await asyncio.sleep(10 * (1.5 ** attempt))
                             continue
 
                         await page.wait_for_load_state("networkidle", timeout=20000)
@@ -531,9 +533,9 @@ class TalabatGroceries:
                     if context:
                         await context.close()
                     self.main_scraper.active_contexts -= 1
-                    await asyncio.sleep(random.uniform(2, 5))
-                    if attempt < retries:
-                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying...")
+                    await asyncio.sleep(random.uniform(5, 10))
+                    if attempt < retries - 1:
+                        print(f"Attempt {attempt + 1}/{retries}, retrying...")
             print(f"Failed to extract details for {item_link} after all retries")
             return {
                 "item_price": "N/A",
@@ -545,22 +547,23 @@ class TalabatGroceries:
             }
 
     async def extract_all_items_from_sub_category(self, sub_category_link):
-        """Extract all items from a sub-category with optimized navigation."""
+        """Extract all items from a sub-category with proxy rotation."""
         print(f"Attempting to extract all items from sub-category: {sub_category_link}")
         async with self.main_scraper.semaphore:
-            retries = 2
+            retries = 3
             context = None
             sub_page = None
 
-            for attempt in range(retries + 1):
+            for attempt in range(retries):
                 try:
                     async with self.main_scraper.context_semaphore:
                         self.main_scraper.active_contexts += 1
                         browser = await self.main_scraper.get_browser()
+                        proxy = random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
                         context = await browser.new_context(
                             user_agent=random.choice(self.main_scraper.user_agents),
                             viewport={"width": 1920, "height": 1080},
-                            # proxy=random.choice(self.main_scraper.proxies) if self.main_scraper.proxies else None
+                            proxy=proxy
                         )
                         sub_page = await context.new_page()
 
@@ -570,14 +573,14 @@ class TalabatGroceries:
 
                         response = await sub_page.goto(sub_category_link, timeout=60000, wait_until="domcontentloaded")
                         if response and response.status == 429:
-                            print(f"Rate limit hit (429) for {sub_category_link}, attempt {attempt + 1}/{retries + 1}")
-                            delay = 30 * (2 ** attempt)
+                            print(f"Rate limit hit (429) for {sub_category_link}, attempt {attempt + 1}/{retries}")
+                            delay = 60 * (1.5 ** attempt)
                             self.main_scraper.rate_limit_delays[domain] = delay
                             await asyncio.sleep(delay)
                             continue
                         elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for {sub_category_link}, attempt {attempt + 1}/{retries + 1}")
-                            await asyncio.sleep(10 * (2 ** attempt))
+                            print(f"Server error ({response.status}) for {sub_category_link}, attempt {attempt + 1}/{retries}")
+                            await asyncio.sleep(10 * (1.5 ** attempt))
                             continue
 
                         await sub_page.wait_for_load_state("networkidle", timeout=60000)
@@ -637,8 +640,8 @@ class TalabatGroceries:
                             page_url = f"{sub_category_link}&page={page_number}" if page_number > 1 else sub_category_link
                             response = await sub_page.goto(page_url, timeout=60000, wait_until="domcontentloaded")
                             if response and response.status == 429:
-                                print(f"Rate limit hit (429) for page {page_number}, attempt {attempt + 1}/{retries + 1}")
-                                delay = 30 * (2 ** attempt)
+                                print(f"Rate limit hit (429) for page {page_number}, attempt {attempt + 1}/{retries}")
+                                delay = 60 * (1.5 ** attempt)
                                 self.main_scraper.rate_limit_delays[domain] = delay
                                 await asyncio.sleep(delay)
                                 continue
@@ -682,7 +685,7 @@ class TalabatGroceries:
                                         **item_details
                                     })
 
-                                    await asyncio.sleep(random.uniform(1, 3))
+                                    await asyncio.sleep(random.uniform(3, 6))  # Increased delay
                                 except Exception as e:
                                     print(f"Error processing item {i+1}: {e}")
                                     logging.error(f"Error processing item {i+1} in {sub_category_link}: {e}")
@@ -712,12 +715,12 @@ class TalabatGroceries:
                     if context:
                         await context.close()
                     self.main_scraper.active_contexts -= 1
-                    if attempt < retries:
-                        print(f"Attempt {attempt + 1}/{retries + 1}, retrying...")
-                        await asyncio.sleep(10 * (2 ** attempt))
+                    await asyncio.sleep(random.uniform(5, 10))
+                    if attempt < retries - 1:
+                        print(f"Attempt {attempt + 1}/{retries}, retrying...")
             print(f"Failed to extract items from sub-category {sub_category_link} after all retries")
             return []
-
+            
     async def extract_categories(self, page):
         print(f"Processing grocery: {self.url}")
         async with self.main_scraper.semaphore:
@@ -809,8 +812,8 @@ class MainScraper:
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.output_dir = "output"
         self.github_token = os.environ.get('GITHUB_TOKEN')
-        self.semaphore = asyncio.Semaphore(5)  # Increased for more concurrency
-        self.max_browsers = 3  # Number of browser instances
+        self.semaphore = asyncio.Semaphore(3)  # Reduced for less aggressive concurrency
+        self.max_browsers = 2  # Reduced number of browser instances
         self.max_contexts_per_browser = 2  # Contexts per browser
         self.active_contexts = 0
         self.context_semaphore = asyncio.Semaphore(self.max_contexts_per_browser * self.max_browsers)
@@ -820,18 +823,19 @@ class MainScraper:
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
         ]
-        # Optional proxy pool (uncomment and configure if needed)
-        # self.proxies = [
-        #     {"server": "http://proxy1:port", "username": "user", "password": "pass"},
-        #     {"server": "http://proxy2:port", "username": "user", "password": "pass"},
-        # ]
+        # Proxy pool configuration (replace with actual proxy details)
+        self.proxies = [
+            {"server": "http://proxy1:port", "username": "user1", "password": "pass1"},
+            {"server": "http://proxy2:port", "username": "user2", "password": "pass2"},
+            {"server": "http://proxy3:port", "username": "user3", "password": "pass3"},
+        ]
         self.rate_limit_delays = {}  # Track rate limit delays per domain
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
         os.makedirs(self.output_dir, exist_ok=True)
         self.current_progress = self.load_current_progress()
         self.scraped_progress = self.load_scraped_progress()
         self.drive_uploader = SavingOnDrive(credentials_json=credentials_json if credentials_json else None)
-        self.executor = ThreadPoolExecutor(max_workers=2)  # For non-async tasks
+        self.executor = ThreadPoolExecutor(max_workers=2)
         self.ensure_playwright_browsers()
         self.save_current_progress()
         self.save_scraped_progress()
@@ -869,11 +873,17 @@ class MainScraper:
     async def check_server_status(self, url):
         async with aiohttp.ClientSession() as session:
             try:
-                async with session.get(url, timeout=10) as response:
+                proxy = random.choice(self.proxies) if self.proxies else None
+                async with session.get(
+                    url,
+                    timeout=10,
+                    proxy=proxy["server"] if proxy else None,
+                    proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"]) if proxy else None
+                ) as response:
                     if response.status == 429:
                         domain = url.split('/')[2]
-                        delay = self.rate_limit_delays.get(domain, 30)
-                        self.rate_limit_delays[domain] = min(delay * 2, 300)  # Exponential backoff, max 5 min
+                        delay = self.rate_limit_delays.get(domain, 60)  # Start with 60s
+                        self.rate_limit_delays[domain] = min(delay * 1.5, 600)  # Slower backoff, max 10 min
                         await asyncio.sleep(delay)
                         return False
                     return response.status < 400
@@ -1339,7 +1349,7 @@ class MainScraper:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
-        """Scrape a single area with enhanced error handling and resource management."""
+        """Scrape a single area with enhanced rate limit handling."""
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         process = psutil.Process()
         logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
@@ -1374,19 +1384,25 @@ class MainScraper:
         page = None
         try:
             browser = await self.get_browser()
+            proxy = random.choice(self.proxies) if self.proxies else None
             context = await browser.new_context(
                 user_agent=random.choice(self.user_agents),
                 viewport={"width": 1920, "height": 1080},
                 java_script_enabled=True,
                 bypass_csp=True,
-                # proxy=random.choice(self.proxies) if self.proxies else None
+                proxy=proxy,
+                extra_http_headers={
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                    "Connection": "keep-alive",
+                }
             )
             page = await context.new_page()
             response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
             if response and response.status == 429:
                 print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
                 domain = area_url.split('/')[2]
-                self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 30) * 2
+                self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 60) * 1.5
                 return []
             elif response and response.status >= 500:
                 print(f"Server error ({response.status}) for {area_url}, aborting scrape.")
@@ -1424,31 +1440,36 @@ class MainScraper:
                 self.save_scraped_progress()
                 print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
 
-                grocery_context = await browser.new_context(
-                    user_agent=random.choice(self.user_agents),
-                    # proxy=random.choice(self.proxies) if self.proxies else None
-                )
-                grocery_page = await grocery_context.new_page()
-                talabat_grocery = TalabatGroceries(grocery_link, browser, self)
-                grocery_details = await talabat_grocery.extract_categories(grocery_page)
-                all_area_results[grocery_title] = {
-                    "grocery_link": grocery_link,
-                    "delivery_time": grocery["delivery_time"],
-                    "grocery_details": grocery_details
-                }
-                self.scraped_progress["all_results"][area_name] = all_area_results
-                self.save_scraped_progress()
+                async with self.context_semaphore:
+                    self.active_contexts += 1
+                    grocery_context = await browser.new_context(
+                        user_agent=random.choice(self.user_agents),
+                        proxy=random.choice(self.proxies) if self.proxies else None
+                    )
+                    grocery_page = await grocery_context.new_page()
+                    talabat_grocery = TalabatGroceries(grocery_link, browser, self)
+                    grocery_details = await talabat_grocery.extract_categories(grocery_page)
+                    all_area_results[grocery_title] = {
+                        "grocery_link": grocery_link,
+                        "delivery_time": grocery["delivery_time"],
+                        "grocery_details": grocery_details
+                    }
+                    self.scraped_progress["all_results"][area_name] = all_area_results
+                    self.save_scraped_progress()
 
-                await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
-                await grocery_page.close()
-                await grocery_context.close()
+                    await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
+                    await grocery_page.close()
+                    await grocery_context.close()
+                    self.active_contexts -= 1
+                    await asyncio.sleep(random.uniform(5, 10))  # Random delay to avoid detection
 
                 if current_grocery_title == grocery_title:
                     break
 
             print(f"Verifying groceries for area: {area_name}")
             verify_context = await browser.new_context(
-                user_agent=random.choice(self.user_agents)
+                user_agent=random.choice(self.user_agents),
+                proxy=random.choice(self.proxies) if self.proxies else None
             )
             page = await verify_context.new_page()
             await page.goto(area_url, timeout=60000)
@@ -1474,23 +1495,28 @@ class MainScraper:
                     self.save_current_progress()
                     self.save_scraped_progress()
 
-                    grocery_context = await browser.new_context(
-                        user_agent=random.choice(self.user_agents)
-                    )
-                    grocery_page = await grocery_context.new_page()
-                    talabat_grocery = TalabatGroceries(grocery_link, browser, self)
-                    grocery_details = await talabat_grocery.extract_categories(grocery_page)
-                    all_area_results[grocery_title] = {
-                        "grocery_link": grocery_link,
-                        "delivery_time": grocery["delivery_time"],
-                        "grocery_details": grocery_details
-                    }
-                    self.scraped_progress["all_results"][area_name] = all_area_results
-                    self.save_scraped_progress()
+                    async with self.context_semaphore:
+                        self.active_contexts += 1
+                        grocery_context = await browser.new_context(
+                            user_agent=random.choice(self.user_agents),
+                            proxy=random.choice(self.proxies) if self.proxies else None
+                        )
+                        grocery_page = await grocery_context.new_page()
+                        talabat_grocery = TalabatGroceries(grocery_link, browser, self)
+                        grocery_details = await talabat_grocery.extract_categories(grocery_page)
+                        all_area_results[grocery_title] = {
+                            "grocery_link": grocery_link,
+                            "delivery_time": grocery["delivery_time"],
+                            "grocery_details": grocery_details
+                        }
+                        self.scraped_progress["all_results"][area_name] = all_area_results
+                        self.save_scraped_progress()
 
-                    await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page + missing_groceries, grocery_idx)
-                    await grocery_page.close()
-                    await grocery_context.close()
+                        await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page + missing_groceries, grocery_idx)
+                        await grocery_page.close()
+                        await grocery_context.close()
+                        self.active_contexts -= 1
+                        await asyncio.sleep(random.uniform(5, 10))
 
             json_filename = os.path.join(self.output_dir, f"{area_name}.json")
             with open(json_filename, 'w', encoding='utf-8') as f:
@@ -1569,19 +1595,24 @@ class MainScraper:
                 return []
 
     async def run(self, areas: List[Dict[str, str]], playwright):
-        """Run the scraper for all areas concurrently."""
+        """Run the scraper for all areas concurrently with controlled concurrency."""
         await self.initialize_browsers(playwright)
         try:
-            tasks = []
-            for area in areas:
-                area_name = area["name"]
-                area_url = area["url"]
-                if area_name in self.current_progress["completed_areas"]:
-                    print(f"Skipping completed area: {area_name}")
-                    continue
-                print(f"Starting scrape for area: {area_name}")
-                tasks.append(self.scrape_and_save_area(area_name, area_url, None))  # Browser handled internally
-            await asyncio.gather(*tasks, return_exceptions=True)
+            # Process areas in batches to avoid overwhelming the server
+            batch_size = 5  # Process 5 areas at a time
+            for i in range(0, len(areas), batch_size):
+                batch = areas[i:i + batch_size]
+                tasks = []
+                for area in batch:
+                    area_name = area["name"]
+                    area_url = area["url"]
+                    if area_name in self.current_progress["completed_areas"]:
+                        print(f"Skipping completed area: {area_name}")
+                        continue
+                    print(f"Starting scrape for area: {area_name}")
+                    tasks.append(self.scrape_and_save_area(area_name, area_url, None))
+                await asyncio.gather(*tasks, return_exceptions=True)
+                await asyncio.sleep(random.uniform(30, 60))  # Delay between batches
             self.current_progress["current_area_index"] = len(areas)
             self.save_current_progress()
             self.save_scraped_progress()
@@ -1603,6 +1634,11 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+
+
+
 
 
 
