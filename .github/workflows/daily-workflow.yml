@@ -1,20 +1,49 @@
-name: Daily Talabat Groceries Scraper
+name: Scrape Talabat Groceries - All Areas
 
 on:
-  # schedule:
-  #   - cron: "0 */6 * * *"  # Runs every 6 hours
+  schedule:
+    - cron: "0 */6 * * *"  # Runs every 6 hours
   workflow_dispatch:     # Allows manual triggering
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 120  # Adjusted to 2 hours, tweak as needed
+    timeout-minutes: 360  # 6 hours, GitHub Actions max job duration
+    strategy:
+      matrix:
+        area:
+          - { name: "الظهر", url: "https://www.talabat.com/kuwait/restaurants/59/dhaher" }
+          - { name: "الرقه", url: "https://www.talabat.com/kuwait/restaurants/37/riqqa" }
+          - { name: "هدية", url: "https://www.talabat.com/kuwait/restaurants/30/hadiya" }
+          - { name: "المنقف", url: "https://www.talabat.com/kuwait/restaurants/32/mangaf" }
+          - { name: "أبو حليفة", url: "https://www.talabat.com/kuwait/restaurants/2/abu-halifa" }
+          - { name: "الفنطاس", url: "https://www.talabat.com/kuwait/restaurants/38/fintas" }
+          - { name: "العقيلة", url: "https://www.talabat.com/kuwait/restaurants/79/egaila" }
+          - { name: "الصباحية", url: "https://www.talabat.com/kuwait/restaurants/31/sabahiya" }
+          - { name: "الأحمدي", url: "https://www.talabat.com/kuwait/restaurants/3/al-ahmadi" }
+          - { name: "الفحيحيل", url: "https://www.talabat.com/kuwait/restaurants/5/fahaheel" }
+          - { name: "شرق الأحمدي", url: "https://www.talabat.com/kuwait/restaurants/3/al-ahmadi" }
+          - { name: "ضاحية علي صباح السالم", url: "https://www.talabat.com/kuwait/restaurants/82/ali-sabah-al-salem-umm-al-hayman" }
+          - { name: "ميناء عبد الله", url: "https://www.talabat.com/kuwait/restaurants/100/mina-abdullah" }
+          - { name: "بنيدر", url: "https://www.talabat.com/kuwait/restaurants/6650/bnaider" }
+          - { name: "الزور", url: "https://www.talabat.com/kuwait/restaurants/2053/zour" }
+          - { name: "الجليعة", url: "https://www.talabat.com/kuwait/restaurants/6860/al-julaiaa" }
+          - { name: "المهبولة", url: "https://www.talabat.com/kuwait/restaurants/24/mahboula" }
+          - { name: "النويصيب", url: "https://www.talabat.com/kuwait/restaurants/2054/nuwaiseeb" }
+          - { name: "الخيران", url: "https://www.talabat.com/kuwait/restaurants/2726/khairan" }
+          - { name: "الوفرة", url: "https://www.talabat.com/kuwait/restaurants/2057/wafra-farms" }
+          - { name: "ضاحية فهد الأحمد", url: "https://www.talabat.com/kuwait/restaurants/98/fahad-al-ahmed" }
+          - { name: "ضاحية جابر العلي", url: "https://www.talabat.com/kuwait/restaurants/60/jaber-al-ali" }
+          - { name: "مدينة صباح الأحمد السكنية", url: "https://www.talabat.com/kuwait/restaurants/6931/sabah-al-ahmad-2" }
+          - { name: "مدينة صباح الأحمد البحرية", url: "https://www.talabat.com/kuwait/restaurants/2726/khairan" }
+          - { name: "ميناء الأحمدي", url: "https://www.talabat.com/kuwait/restaurants/3/al-ahmadi" }
+      fail-fast: false  # Continue other areas if one fails
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: master  # Assuming 'master' is your default branch; adjust if it's 'main'
+          ref: master  # Adjust if your default branch is 'main'
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,11 +53,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Installs all dependencies including Google libraries
+          pip install -r requirements.txt
 
       - name: Install Playwright Browsers
         run: |
-          python -m playwright install chromium firefox
+          python -m playwright install chromium
 
       - name: Install Playwright System Dependencies
         run: |
@@ -40,14 +69,32 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: |
-            current_progress.json
-          key: talabat-groceries-progress-${{ github.run_id }}
+            current_progress_${{ matrix.area.name }}.json
+            scraped_progress_${{ matrix.area.name }}.json
+            cookies_${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}_detailed.xlsx
+          key: talabat-groceries-progress-${{ matrix.area.name }}-${{ github.run_id }}
           restore-keys: |
-            talabat-groceries-progress-
+            talabat-groceries-progress-${{ matrix.area.name }}-
+
+      - name: Check if area is completed
+        id: check-completion
+        run: |
+          if [ -f "current_progress_${{ matrix.area.name }}.json" ]; then
+            if jq -e '.completed_areas[] | select(. == "${{ matrix.area.name }}")' current_progress_${{ matrix.area.name }}.json > /dev/null; then
+              echo "completed=true" >> $GITHUB_OUTPUT
+            else
+              echo "completed=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "completed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Run Talabat Groceries Scraper
+        if: steps.check-completion.outputs.completed == 'false'
         run: |
-          python main.py
+          python main.py --area-name "${{ matrix.area.name }}" --url "${{ matrix.area.url }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
@@ -56,43 +103,53 @@ jobs:
         if: always()
         run: |
           ls -la
-          cat current_progress.json || echo "current_progress.json not found"
-          cat scraped_progress.json || echo "scraped_progress.json not found"
-          ls output/الاحمدي_groceries.xlsx || echo "الاحمدي_groceries.xlsx not found"
+          cat current_progress_${{ matrix.area.name }}.json || echo "current_progress_${{ matrix.area.name }}.json not found"
+          cat scraped_progress_${{ matrix.area.name }}.json || echo "scraped_progress_${{ matrix.area.name }}.json not found"
+          ls output/${{ matrix.area.name }}_detailed.xlsx || echo "${{ matrix.area.name }}_detailed.xlsx not found"
 
       - name: Commit progress updates
         if: always()
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add current_progress.json scraped_progress.json output/ || true  # Proceed even if files are missing
-          git commit -m "Update scraper progress and data for run ${{ github.run_id }}" || echo "No changes to commit"
-          git push
+          git add current_progress_${{ matrix.area.name }}.json scraped_progress_${{ matrix.area.name }}.json cookies_${{ matrix.area.name }}.json output/*.json output/*.xlsx || true
+          git commit -m "Update scraper progress for ${{ matrix.area.name }} run ${{ github.run_id }}" || echo "No changes to commit"
+          for attempt in 1 2 3; do
+            git pull --rebase && git push && break
+            echo "Git push failed (attempt $attempt/3), retrying..."
+            sleep $((attempt * 5))
+          done || echo "Failed to push after 3 attempts"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save progress to cache
-        if: always()  # Run even if previous steps fail/cancel
+        if: always()
         uses: actions/cache/save@v4
         with:
           path: |
-            current_progress.json
-          key: talabat-groceries-progress-${{ github.run_id }}
+            current_progress_${{ matrix.area.name }}.json
+            scraped_progress_${{ matrix.area.name }}.json
+            cookies_${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}_detailed.xlsx
+          key: talabat-groceries-progress-${{ matrix.area.name }}-${{ github.run_id }}
 
       - name: Upload progress artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: talabat-groceries-progress-files
+          name: talabat-groceries-progress-${{ matrix.area.name }}
           path: |
-            current_progress.json
-            scraped_progress.json
-            output/
+            current_progress_${{ matrix.area.name }}.json
+            scraped_progress_${{ matrix.area.name }}.json
+            cookies_${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}.json
+            output/${{ matrix.area.name }}_detailed.xlsx
             scraper.log
           retention-days: 7
+          if-no-files-found: warn
 
       - name: Cleanup
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
-          
