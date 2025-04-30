@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T00:41:25.126847",
+  "last_updated": "2025-04-30T01:00:44.266818",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 5,
+    "current_grocery": 10,
     "current_grocery_title": "Kiki Market Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
@@ -181,7 +181,8 @@
           "Condensed Milk",
           "Evaporated Milk",
           "Powdered Milk",
-          "Juices Single"
+          "Juices Single",
+          "Juices Packs"
         ]
       }
     }
@@ -334,7 +335,7 @@
       },
       "Kiki Market Grocery": {
         "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
-        "delivery_time": "35 mins",
+        "delivery_time": "22 mins",
         "grocery_details": {
           "delivery_fees": "KD 1.000",
           "minimum_order": "KD 1.000",
