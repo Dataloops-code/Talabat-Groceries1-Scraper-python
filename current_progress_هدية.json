@@ -1,17 +1,17 @@
 {
   "completed_areas": [],
   "current_area_index": 1,
-  "last_updated": "2025-04-30T06:17:50.198999",
+  "last_updated": "2025-04-30T06:18:09.978795",
   "current_progress": {
     "area_name": "هدية",
     "current_grocery": 21,
-    "current_grocery_title": "Top Offer",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=30",
+    "current_grocery_title": "Dandoosh Grocery",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/641626/dandoush-grocerymahboula-tgo?aid=30",
     "total_groceries": 20,
     "processed_groceries": [
       "Hala Store"
     ],
-    "current_category": "School Snacks time",
+    "current_category": "Bakery",
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
