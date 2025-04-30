@@ -797,7 +797,11 @@ class MainScraper:
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.COOKIES_FILE = f"cookies_{area_name}.json"
         self.output_dir = "output"
+        self.OUTPUT_JSON_FILE = f"output/{area_name}.json"
+        self.OUTPUT_EXCEL_FILE = f"output/{area_name}_detailed.xlsx"
+        self.output_suffix = ""
         self.github_token = os.environ.get('GITHUB_TOKEN')
+        self.gcloud_key_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
         self.semaphore = asyncio.Semaphore(2)
         self.max_browsers = 1
         self.max_contexts_per_browser = 2
@@ -815,7 +819,9 @@ class MainScraper:
         self.ensure_playwright_browsers()
         self.save_current_progress()
         self.save_scraped_progress()
-        self.commit_progress(f"Initialized progress files for {area_name}")
+        # Run async commit_progress in an event loop
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(self.commit_progress(f"Initialized progress files for {area_name}"))
 
     def save_cookies(self, storage_state):
         try:
@@ -1665,14 +1671,21 @@ class MainScraper:
 
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
-    parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
-    parser.add_argument("--url", required=True, help="URL of the area to scrape")
+    parser.add_argument("--area-name", required=True, help="Name of the area to scrape (e.g., المنقف)")
+    parser.add_argument("--url", required=True, help="URL of the area to scrape (e.g., https://www.talabat.com/kuwait/restaurants/32/mangaf)")
+    parser.add_argument("--upload-to-drive", action="store_true", help="Upload completed area files to Google Drive")
     args = parser.parse_args()
 
     scraper = MainScraper(args.area_name)
-    areas = [{"name": args.area_name, "url": args.url}]
     async with async_playwright() as playwright:
-        await scraper.run(areas, playwright)
+        if args.upload_to_drive:
+            # Handle upload for completed area
+            logging.info(f"Processing upload-to-drive for area: {args.area_name}")
+            await scraper.handle_completed_area()
+        else:
+            # Run scraping for the specified area
+            areas = [{"name": args.area_name, "url": args.url}]
+            await scraper.run(areas, playwright)
 
 if __name__ == "__main__":
     asyncio.run(main())
