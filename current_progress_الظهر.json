@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T07:58:48.531058",
+  "last_updated": "2025-04-30T08:04:46.370228",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 8,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Iced Coffee",
+    "current_sub_category": "Sugar & Sweeteners",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -194,7 +194,8 @@
           "Tea",
           "Creamers",
           "Coffee Capsules",
-          "Iced Coffee"
+          "Iced Coffee",
+          "Sugar & Sweeteners"
         ]
       }
     }
