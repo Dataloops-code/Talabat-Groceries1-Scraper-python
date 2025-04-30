@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T07:49:40.775685",
+  "last_updated": "2025-04-30T07:54:06.858435",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 8,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Creamers",
+    "current_sub_category": "Coffee Capsules",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -192,7 +192,8 @@
           "Specialty Drinks",
           "Coffee",
           "Tea",
-          "Creamers"
+          "Creamers",
+          "Coffee Capsules"
         ]
       }
     }
