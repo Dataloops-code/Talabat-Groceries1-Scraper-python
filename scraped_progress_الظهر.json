@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T01:08:08.374951",
+  "last_updated": "2025-04-30T01:51:53.063350",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Juices Sharing",
+    "current_sub_category": "Soft Drinks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -183,7 +183,8 @@
           "Powdered Milk",
           "Juices Single",
           "Juices Packs",
-          "Juices Sharing"
+          "Juices Sharing",
+          "Soft Drinks"
         ]
       }
     }
