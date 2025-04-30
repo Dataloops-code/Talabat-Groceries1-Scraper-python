@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T13:02:31.600586",
+  "last_updated": "2025-04-30T13:07:31.682269",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Cups & Tubs",
+    "current_sub_category": "Family Packs",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -197,7 +197,8 @@
           "Iced Coffee",
           "Sugar & Sweeteners",
           "Bars, Cones & Sticks",
-          "Cups & Tubs"
+          "Cups & Tubs",
+          "Family Packs"
         ]
       }
     }
