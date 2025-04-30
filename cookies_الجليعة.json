@@ -1,1 +1,145 @@
-{}
+{
+  "cookies": [
+    {
+      "name": "X-AB",
+      "value": "b3a96b4c83494438a4aaf47c12bafdb4",
+      "domain": "sc-static.net",
+      "path": "/scevent.min.js",
+      "expires": 1746138024.957008,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "AWSALB",
+      "value": "yL5NQ7AhyGCoIFTBoRtJBwqe04Udc1NP4lON7EaTwROh0dgAASjVnH99WxYuHum2Ztpxj5oipU1BwqKQwhoQDeoE9DOcSOsYf21bNxZiIJJzygQQccokYIXL1XhS",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1746656423.140742,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "AWSALBCORS",
+      "value": "yL5NQ7AhyGCoIFTBoRtJBwqe04Udc1NP4lON7EaTwROh0dgAASjVnH99WxYuHum2Ztpxj5oipU1BwqKQwhoQDeoE9DOcSOsYf21bNxZiIJJzygQQccokYIXL1XhS",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1746656423.14085,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "tlb_lng",
+      "value": "en",
+      "domain": ".www.talabat.com",
+      "path": "/",
+      "expires": 1780611624.140872,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "tlb_country",
+      "value": "kuwait",
+      "domain": ".www.talabat.com",
+      "path": "/",
+      "expires": 1780611624.140884,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "dhhPerseusGuestId",
+      "value": "1746051623786.161899378960488770.b8ac8rccs2",
+      "domain": ".www.talabat.com",
+      "path": "/",
+      "expires": 1780611624.140891,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "dhhPerseusSessionId",
+      "value": "1746051623786.837719403609726000.y5v67oyr0h",
+      "domain": ".www.talabat.com",
+      "path": "/",
+      "expires": 1746053424.1409,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "next-i18next",
+      "value": "en",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "__cf_bm",
+      "value": "ERCUIw5189RkBmRz.VNvNWpUGznWyoKyn8cib4gZU44-1746051624-1.0.1.1-sgI.PuHMTKViAUWjVDrB4SKvteOmhuMmMsic8QOI2Sv6Tu8qBDdVJjgmETrUWC2469lcCzNE5TwXnEEfHajvSe3m8xiH02OvSqO4DqUO8HT6vr.GyeaXLwk3WBUBeiXF",
+      "domain": ".talabat.com",
+      "path": "/",
+      "expires": 1746053424.140915,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "perseusRolloutSplit",
+      "value": "2",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1747779624,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "dhhPerseusSessionId",
+      "value": "1746051623786.837719403609726000.y5v67oyr0h",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1746053424,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "dhhPerseusGuestId",
+      "value": "1746051623786.161899378960488770.b8ac8rccs2",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1780611624.858507,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "test_cookie",
+      "value": "CheckForPermission",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1746052524.518477,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "dhhPerseusHitId",
+      "value": "1746051624928.475826188399770560.hsevcijwwwi",
+      "domain": "www.talabat.com",
+      "path": "/",
+      "expires": 1746055224,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

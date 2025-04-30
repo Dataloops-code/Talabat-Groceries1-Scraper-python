@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "الجليعة"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T22:20:17.420415",
+  "last_updated": "2025-04-30T22:23:29.365560",
   "current_progress": {
-    "area_name": "الجليعة",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
