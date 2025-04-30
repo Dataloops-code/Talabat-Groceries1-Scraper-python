@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T07:13:25.266562",
+  "last_updated": "2025-04-30T07:47:49.226931",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 8,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Coffee",
+    "current_sub_category": "Tea",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -190,7 +190,8 @@
           "Powdered & Concentrated Juices",
           "Iced Tea",
           "Specialty Drinks",
-          "Coffee"
+          "Coffee",
+          "Tea"
         ]
       }
     }
