@@ -1,17 +1,17 @@
 {
   "completed_areas": [],
   "current_area_index": 1,
-  "last_updated": "2025-04-30T00:55:17.935680",
+  "last_updated": "2025-04-30T00:55:35.393060",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 2,
-    "current_grocery_title": "Mega Mart",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=30",
+    "current_grocery": 21,
+    "current_grocery_title": "Top Offer",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=30",
     "total_groceries": 20,
     "processed_groceries": [
       "Hala Store"
     ],
-    "current_category": "Special Offers",
+    "current_category": "School Snacks time",
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {

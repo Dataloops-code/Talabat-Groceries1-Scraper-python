@@ -1,17 +1,17 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T00:55:17.939187",
+  "last_updated": "2025-04-30T00:55:35.394871",
   "current_progress": {
     "area_name": "هدية",
-    "current_grocery": 2,
-    "current_grocery_title": "Mega Mart",
-    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo?aid=30",
+    "current_grocery": 21,
+    "current_grocery_title": "Top Offer",
+    "current_grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=30",
     "total_groceries": 20,
     "processed_groceries": [
       "Hala Store"
     ],
-    "current_category": "Special Offers",
+    "current_category": "School Snacks time",
     "current_sub_category": null,
     "completed_groceries": {
       "Hala Store": {
@@ -436,6 +436,128 @@
             },
             "Tobacco Shop": {
               "category_link": "https://www.talabat.com/kuwait/grocery/676927/mega-mart-mahboula-tgo/tobacco-shop/tobacco-rolling-papers?aid=30",
+              "sub_categories": []
+            }
+          }
+        }
+      },
+      "Top Offer": {
+        "grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=30",
+        "delivery_time": "20 mins",
+        "grocery_details": {
+          "delivery_fees": "KD 1.000",
+          "minimum_order": "KD 1.000",
+          "categories": {
+            "School Snacks time": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/school-snacks-time/candies?aid=30",
+              "sub_categories": []
+            },
+            "Bakery": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/bakery/freshly-baked?aid=30",
+              "sub_categories": []
+            },
+            "Fruits & Vegetables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/fruits-vegetables/vegetables?aid=30",
+              "sub_categories": []
+            },
+            "Dairy & Eggs": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/dairy-eggs/eggs?aid=30",
+              "sub_categories": []
+            },
+            "Breakfast Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/breakfast-food/cereals?aid=30",
+              "sub_categories": []
+            },
+            "Fresh Meat & Chicken": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/fresh-meat-chicken/fresh-seafood?aid=30",
+              "sub_categories": []
+            },
+            "Frozen Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/frozen-food/frozen-poultry?aid=30",
+              "sub_categories": []
+            },
+            "Cooking & Baking": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/cooking-baking/rice?aid=30",
+              "sub_categories": []
+            },
+            "Canned & Jarred Food": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/canned-jarred-food/meat-seafood?aid=30",
+              "sub_categories": []
+            },
+            "Condiments": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/condiments/salt-spices?aid=30",
+              "sub_categories": []
+            },
+            "Organic & Special Diet": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/organic-special-diet/gluten-free-food-snacks?aid=30",
+              "sub_categories": []
+            },
+            "Milk": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/milk/fresh-milk?aid=30",
+              "sub_categories": []
+            },
+            "Beverages": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/beverages/juices-single?aid=30",
+              "sub_categories": []
+            },
+            "Coffee & Tea": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/coffee-tea/coffee?aid=30",
+              "sub_categories": []
+            },
+            "Ice Cream": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/ice-cream/bars-cones-sticks?aid=30",
+              "sub_categories": []
+            },
+            "Snacks & Candy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/snacks-candy/minis-miniatures?aid=30",
+              "sub_categories": []
+            },
+            "Water": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/water/drinking-water?aid=30",
+              "sub_categories": []
+            },
+            "Pet Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/pet-care/pet-food?aid=30",
+              "sub_categories": []
+            },
+            "Baby": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/baby/baby-food?aid=30",
+              "sub_categories": []
+            },
+            "Toys": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/toys/baby-toddler-toys?aid=30",
+              "sub_categories": []
+            },
+            "Personal Care": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/personal-care/body-wash?aid=30",
+              "sub_categories": []
+            },
+            "Pharmacy": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/pharmacy/vitamins-supplements?aid=30",
+              "sub_categories": []
+            },
+            "Disposables": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/disposables/disposable-tableware?aid=30",
+              "sub_categories": []
+            },
+            "Cleaning & Laundry": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/cleaning-laundry/dishwashing?aid=30",
+              "sub_categories": []
+            },
+            "Household Essentials": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/household-essentials/batteries?aid=30",
+              "sub_categories": []
+            },
+            "Electronics": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/electronics/mobile-devices?aid=30",
+              "sub_categories": []
+            },
+            "Gift Items": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/gift-items/candles?aid=30",
+              "sub_categories": []
+            },
+            "Tobacco Shop": {
+              "category_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula/tobacco-shop/e-cigarettes-cigar?aid=30",
               "sub_categories": []
             }
           }
