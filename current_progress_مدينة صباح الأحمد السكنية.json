@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "مدينة صباح الأحمد السكنية"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T22:18:09.016014",
+  "last_updated": "2025-04-30T22:49:26.989256",
   "current_progress": {
-    "area_name": "مدينة صباح الأحمد السكنية",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
