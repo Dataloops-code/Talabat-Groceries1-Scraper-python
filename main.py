@@ -14,6 +14,7 @@ import logging
 import random
 import time
 import psutil
+from SavingOnDrive import SavingOnDrive
 
 # Set up logging
 logging.basicConfig(
@@ -839,7 +840,7 @@ class MainScraper:
                 logging.error(f"Error loading cookies: {e}")
         return None
 
-    def reset_area_progress(self, area_name: str):
+    def reset_area_progress(self, area_name: str, new_suffix=None):
         self.current_progress["current_progress"] = {
             "area_name": area_name,
             "current_grocery": 0,
@@ -859,11 +860,19 @@ class MainScraper:
             self.scraped_progress["completed_areas"].remove(area_name)
         self.current_progress["last_updated"] = datetime.now().isoformat()
         self.scraped_progress["last_updated"] = datetime.now().isoformat()
+        if new_suffix:
+            self.output_suffix = new_suffix
+            self.OUTPUT_JSON_FILE = f"output/{area_name}{new_suffix}.json"
+            self.OUTPUT_EXCEL_FILE = f"output/{area_name}{new_suffix}_detailed.xlsx"
+        else:
+            self.output_suffix = ""
+            self.OUTPUT_JSON_FILE = f"output/{area_name}.json"
+            self.OUTPUT_EXCEL_FILE = f"output/{area_name}_detailed.xlsx"
         self.save_current_progress()
         self.save_scraped_progress()
-        self.commit_progress(f"Reset progress for {area_name} to re-scrape")
-        logging.info(f"Reset progress for area: {area_name}")
-
+        self.commit_progress(f"Reset progress for {area_name} to re-scrape with suffix {new_suffix or 'default'}")
+        logging.info(f"Reset progress for area: {area_name} with suffix {new_suffix or 'default'}")
+    
     async def initialize_browsers(self, playwright):
         for _ in range(self.max_browsers):
             browser = await playwright.chromium.launch(
@@ -1003,47 +1012,6 @@ class MainScraper:
         self.save_scraped_progress(default_progress)
         return default_progress
 
-    def commit_progress(self, message: str):
-        if not self.github_token:
-            logging.info("Skipping git commit due to missing GITHUB_TOKEN")
-            return
-
-        try:
-            for file_path in [self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.COOKIES_FILE]:
-                if not os.path.exists(file_path):
-                    with open(file_path, 'w', encoding='utf-8') as f:
-                        json.dump({}, f)
-
-            subprocess.run(["git", "add", self.CURRENT_PROGRESS_FILE, self.SCRAPED_PROGRESS_FILE, self.COOKIES_FILE, self.output_dir], check=True)
-            result = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
-            if not result.stdout.strip():
-                logging.info("No changes to commit")
-                return
-
-            subprocess.run(["git", "config", "--global", "user.name", "GitHub Action"], check=True)
-            subprocess.run(["git", "config", "--global", "user.email", "action@github.com"], check=True)
-            subprocess.run(["git", "commit", "-m", message], check=True)
-
-            for attempt in range(3):
-                try:
-                    subprocess.run(["git", "pull", "--rebase", "origin", "master"], check=True)
-                    subprocess.run(["git", "push", "origin", "master"], check=True)
-                    logging.info(f"Successfully committed and pushed: {message}")
-                    break
-                except subprocess.CalledProcessError as e:
-                    logging.warning(f"Git operation failed (attempt {attempt + 1}/3): {e}")
-                    if attempt == 2:
-                        logging.error("Failed to push after 3 attempts, aborting")
-                        raise
-                    asyncio.get_event_loop().run_until_complete(asyncio.sleep(2))
-        except subprocess.CalledProcessError as e:
-            error_output = e.stderr or str(e)
-            if "nothing to commit" in error_output.lower() or "no changes added" in error_output.lower():
-                logging.info("No changes to commit")
-            else:
-                logging.error(f"Error committing progress: {e}")
-                raise
-
     def save_scraped_progress(self, progress: Dict = None):
         progress = progress or self.scraped_progress
         try:
@@ -1057,9 +1025,74 @@ class MainScraper:
                 os.fsync(temp_file.fileno())
                 temp_filename = temp_file.name
             os.replace(temp_filename, self.SCRAPED_PROGRESS_FILE)
-            logging.info(f"Saved {self.SCRAPED_PROGRESS_FILE}")
+            logging.info(f"Saved scraped progress to {self.SCRAPED_PROGRESS_FILE}")
+    
+            # Save to JSON file
+            output_data = progress.get("all_results", {})
+            with open(self.OUTPUT_JSON_FILE, 'w', encoding='utf-8') as f:
+                json.dump(output_data, f, indent=2, ensure_ascii=False)
+            logging.info(f"Saved output to {self.OUTPUT_JSON_FILE}")
+    
+            # Save to Excel
+            self.save_to_excel(output_data)
         except Exception as e:
-            logging.error(f"Error saving {self.SCRAPED_PROGRESS_FILE}: {e}")
+            logging.error(f"Error saving scraped progress: {e}")
+    
+    def save_to_excel(self, output_data):
+        try:
+            excel_data = []
+            area_data = output_data.get(self.area_name, {})
+            for grocery_title, grocery_data in area_data.items():
+                categories = grocery_data.get("grocery_details", {}).get("categories", {})
+                for category_name, category_data in categories.items():
+                    for sub_category in category_data.get("sub_categories", []):
+                        for item in sub_category.get("items", []):
+                            excel_data.append({
+                                "Area": self.area_name,
+                                "Grocery": grocery_title,
+                                "Category": category_name,
+                                "Sub-Category": sub_category.get("sub_category_name"),
+                                "Item Name": item.get("item_name"),
+                                "Item Link": item.get("item_link"),
+                                "Item Price": item.get("item_price"),
+                                "Item Old Price": item.get("item_old_price"),
+                                "Item Offer": item.get("item_offer"),
+                                "Item Description": item.get("item_description"),
+                                "Delivery Time Range": item.get("item_delivery_time_range"),
+                                "Item Images": ", ".join(item.get("item_images", []))
+                            })
+            if excel_data:
+                df = pd.DataFrame(excel_data)
+                df.to_excel(self.OUTPUT_EXCEL_FILE, index=False)
+                logging.info(f"Saved detailed data to {self.OUTPUT_EXCEL_FILE}")
+            else:
+                logging.warning("No data to save to Excel")
+        except Exception as e:
+            logging.error(f"Error saving to Excel: {e}")
+    
+    async def commit_progress(self, message):
+        logging.info(f"Committing progress: {message}")
+        try:
+            subprocess.run(["git", "config", "--global", "user.name", "GitHub Action"], check=True)
+            subprocess.run(["git", "config", "--global", "user.email", "action@github.com"], check=True)
+            subprocess.run(["git", "add", f"current_progress_{self.area_name}.json", f"scraped_progress_{self.area_name}.json", f"cookies_{self.area_name}.json", "output/*.json", "output/*.xlsx"], check=True)
+            subprocess.run(["git", "commit", "-m", message], check=True, capture_output=True)
+            
+            for attempt in range(1, 4):
+                try:
+                    subprocess.run(["git", "pull", "--rebase"], check=True)
+                    subprocess.run(["git", "push", "origin", "master"], check=True)
+                    logging.info(f"Successfully pushed changes on attempt {attempt}")
+                    return
+                except subprocess.CalledProcessError as e:
+                    logging.warning(f"Git push failed (attempt {attempt}/3): {e}")
+                    if attempt < 3:
+                        await asyncio.sleep(random.uniform(5, 10) * attempt)  # Exponential backoff with jitter
+            logging.error("Failed to push changes after 3 attempts")
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Git commit failed: {e}")
+        except Exception as e:
+            logging.error(f"Unexpected error during commit: {e}")
 
     async def process_grocery_categories(self, grocery_title, grocery_details, talabat_grocery, page, groceries_on_page, grocery_idx):
         completed_groceries = self.current_progress["current_progress"]["completed_groceries"].get(grocery_title, {})
@@ -1305,17 +1338,75 @@ class MainScraper:
         except Exception as e:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
+    async def handle_completed_area(self):
+        logging.info(f"Handling completed area: {self.area_name}")
+        success = self.upload_to_drive()
+        if success:
+            # Delete files on successful upload
+            try:
+                os.remove(self.OUTPUT_JSON_FILE)
+                os.remove(self.OUTPUT_EXCEL_FILE)
+                logging.info(f"Deleted {self.OUTPUT_JSON_FILE} and {self.OUTPUT_EXCEL_FILE}")
+            except Exception as e:
+                logging.error(f"Error deleting files: {e}")
+            # Reset progress with default file names
+            self.reset_area_progress(self.area_name)
+        else:
+            # Create new file names with timestamp
+            timestamp = datetime.now().strftime("_%Y%m%d_%H%M%S")
+            self.reset_area_progress(self.area_name, new_suffix=timestamp)
+        await self.commit_progress(f"Handled completed area {self.area_name}, upload {'successful' if success else 'failed'}")
+
+    def upload_to_drive(self):
+        logging.info(f"Uploading files for {self.area_name} to Google Drive...")
+        try:
+            # Initialize SavingOnDrive with credentials from environment variable
+            drive_uploader = SavingOnDrive(self.gcloud_key_json)
+            if not drive_uploader.authenticate():
+                logging.error("Failed to authenticate with Google Drive. Check TALABAT_GCLOUD_KEY_JSON validity.")
+                return False
+    
+            # Define files to upload
+            files_to_upload = [
+                self.OUTPUT_JSON_FILE,
+                self.OUTPUT_EXCEL_FILE
+            ]
+    
+            success = True
+            for file_path in files_to_upload:
+                if not os.path.exists(file_path):
+                    logging.error(f"File {file_path} does not exist")
+                    success = False
+                    continue
+    
+                # Upload to multiple folders (date-based subfolders in target folders)
+                file_ids = drive_uploader.upload_to_multiple_folders(file_path)
+                if len(file_ids) == len(drive_uploader.target_folders):
+                    logging.info(f"Successfully uploaded {file_path} to Google Drive")
+                else:
+                    logging.error(f"Failed to upload {file_path}: Incomplete upload to folders")
+                    success = False
+    
+            return success
+    
+        except Exception as e:
+            if "429" in str(e) or "rate limit" in str(e).lower():
+                logging.error(f"Rate limit exceeded while uploading to Google Drive: {str(e)}")
+            else:
+                logging.error(f"Error uploading to Google Drive: {str(e)}")
+            return False
+    
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser, max_runtime=5.5*3600) -> List[Dict]:
         start_time = time.time()
         logging.info(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         process = psutil.Process()
         logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
         logging.info(f"Active browser contexts: {self.active_contexts}")
-
+    
         all_area_results = self.scraped_progress["all_results"].get(area_name, {})
         current_progress = self.current_progress["current_progress"]
         scraped_current_progress = self.scraped_progress["current_progress"]
-
+    
         if current_progress["area_name"] != area_name:
             current_progress.update({
                 "area_name": area_name,
@@ -1332,7 +1423,7 @@ class MainScraper:
             self.save_current_progress()
             self.save_scraped_progress()
             self.commit_progress(f"Started scraping {area_name}")
-
+    
         context = None
         page = None
         try:
@@ -1357,36 +1448,36 @@ class MainScraper:
             elif response and response.status >= 500:
                 logging.warning(f"Server error ({response.status}) for {area_url}, aborting scrape.")
                 return []
-
+    
             cookies = await context.storage_state()
             self.save_cookies(cookies)
-
+    
             groceries_on_page = await self.get_page_groceries(page)
             current_progress["total_groceries"] = len(groceries_on_page)
             scraped_current_progress["total_groceries"] = len(groceries_on_page)
             logging.info(f"Found {len(groceries_on_page)} groceries")
             await page.close()
-
+    
             processed_grocery_titles = set(current_progress["processed_groceries"])
             current_grocery_title = current_progress.get("current_grocery_title")
-
+    
             for grocery_idx, grocery in enumerate(groceries_on_page):
                 if time.time() - start_time >= max_runtime:
                     logging.info(f"Max runtime ({max_runtime}s) reached for {area_name}, saving progress")
                     break
-
+    
                 grocery_num = grocery_idx + 1
                 grocery_title = grocery["grocery_title"]
                 grocery_link = grocery["grocery_link"]
-
+    
                 if grocery_title in processed_grocery_titles:
                     logging.info(f"Skipping already processed grocery: {grocery_title}")
                     continue
-
+    
                 if current_grocery_title and current_grocery_title != grocery_title:
                     logging.info(f"Skipping grocery {grocery_title}, waiting for {current_grocery_title}")
                     continue
-
+    
                 current_progress["current_grocery"] = grocery_num
                 current_progress["current_grocery_title"] = grocery_title
                 current_progress["current_grocery_link"] = grocery_link
@@ -1396,7 +1487,7 @@ class MainScraper:
                 self.save_current_progress()
                 self.save_scraped_progress()
                 logging.info(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
-
+    
                 async with self.context_semaphore:
                     self.active_contexts += 1
                     grocery_context = await browser.new_context(
@@ -1413,16 +1504,16 @@ class MainScraper:
                     }
                     self.scraped_progress["all_results"][area_name] = all_area_results
                     self.save_scraped_progress()
-
+    
                     await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
                     await grocery_page.close()
                     await grocery_context.close()
                     self.active_contexts -= 1
                     await asyncio.sleep(random.uniform(5, 10))
-
+    
                 if current_grocery_title == grocery_title:
                     break
-
+    
             logging.info(f"Verifying groceries for area: {area_name}")
             verify_context = await browser.new_context(
                 user_agent=random.choice(self.user_agents),
@@ -1433,7 +1524,7 @@ class MainScraper:
             current_groceries = await self.get_page_groceries(page)
             await page.close()
             await verify_context.close()
-
+    
             missing_groceries = [g for g in current_groceries if g["grocery_title"] not in processed_grocery_titles]
             if missing_groceries and time.time() - start_time < max_runtime:
                 logging.info(f"Found {len(missing_groceries)} missing groceries in {area_name}")
@@ -1441,12 +1532,12 @@ class MainScraper:
                     if time.time() - start_time >= max_runtime:
                         logging.info(f"Max runtime ({max_runtime}s) reached for {area_name}, saving progress")
                         break
-
+    
                     grocery_num = len(groceries_on_page) + grocery_idx + 1
                     grocery_title = grocery["grocery_title"]
                     grocery_link = grocery["grocery_link"]
                     logging.info(f"Processing missing grocery {grocery_num}: {grocery_title} (link: {grocery_link})")
-
+    
                     current_progress["current_grocery"] = grocery_num
                     current_progress["current_grocery_title"] = grocery_title
                     current_progress["current_grocery_link"] = grocery_link
@@ -1455,7 +1546,7 @@ class MainScraper:
                     scraped_current_progress["current_grocery_link"] = grocery_link
                     self.save_current_progress()
                     self.save_scraped_progress()
-
+    
                     async with self.context_semaphore:
                         self.active_contexts += 1
                         grocery_context = await browser.new_context(
@@ -1472,17 +1563,17 @@ class MainScraper:
                         }
                         self.scraped_progress["all_results"][area_name] = all_area_results
                         self.save_scraped_progress()
-
+    
                         await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page + missing_groceries, grocery_idx)
                         await grocery_page.close()
                         await grocery_context.close()
                         self.active_contexts -= 1
                         await asyncio.sleep(random.uniform(5, 10))
-
+    
             json_filename = os.path.join(self.output_dir, f"{area_name}.json")
             with open(json_filename, 'w', encoding='utf-8') as f:
                 json.dump(all_area_results, f, indent=2, ensure_ascii=False)
-
+    
             processed_grocery_titles = set(current_progress["processed_groceries"])
             if all(g["grocery_title"] in processed_grocery_titles for g in current_groceries):
                 current_progress.update({
@@ -1499,11 +1590,17 @@ class MainScraper:
                 scraped_current_progress.update(current_progress)
                 self.current_progress["completed_areas"].append(area_name)
                 self.scraped_progress["completed_areas"].append(area_name)
-
+                self.save_current_progress()
+                self.save_scraped_progress()
+                await self.commit_progress(f"Marked area {area_name} as complete")
+    
+                # Upload files to Google Drive and handle completion
+                await self.handle_completed_area()
+    
             self.save_current_progress()
             self.save_scraped_progress()
-            self.commit_progress(f"Completed {area_name}")
-
+            await self.commit_progress(f"Completed {area_name}")
+    
             return list(all_area_results.values())
         except Exception as e:
             logging.error(f"Error scraping area {area_name}: {e}")
@@ -1515,7 +1612,7 @@ class MainScraper:
                 await context.close()
             logging.info(f"Memory usage after scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
             logging.info(f"Active browser contexts: {self.active_contexts}")
-
+        
     async def process_category(self, grocery_title, category_data, category_name, talabat_grocery, page):
         async with self.semaphore:
             sub_categories = await talabat_grocery.extract_sub_categories(page, category_data["category_link"], grocery_title, category_name)
@@ -1579,6 +1676,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
+
+
 
 
 
