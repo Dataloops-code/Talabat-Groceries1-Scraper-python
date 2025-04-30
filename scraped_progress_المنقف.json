@@ -1,11 +1,9 @@
 {
-  "completed_areas": [
-    "المنقف"
-  ],
+  "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T22:48:16.208784",
+  "last_updated": "2025-04-30T22:48:17.107623",
   "current_progress": {
-    "area_name": null,
+    "area_name": "المنقف",
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
@@ -15,5 +13,7 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {}
+  "all_results": {
+    "المنقف": {}
+  }
 }
