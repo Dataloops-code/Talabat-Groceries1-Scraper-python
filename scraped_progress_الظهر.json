@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T02:13:29.033854",
+  "last_updated": "2025-04-30T02:28:12.383682",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 10,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Sports & Energy Drinks",
+    "current_sub_category": "Malt Drinks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -185,7 +185,8 @@
           "Juices Packs",
           "Juices Sharing",
           "Soft Drinks",
-          "Sports & Energy Drinks"
+          "Sports & Energy Drinks",
+          "Malt Drinks"
         ]
       }
     }
