@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T13:07:31.682269",
+  "last_updated": "2025-04-30T13:41:44.778902",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 5,
@@ -13,7 +13,7 @@
       "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Family Packs",
+    "current_sub_category": "Minis & Miniatures",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
@@ -198,7 +198,8 @@
           "Sugar & Sweeteners",
           "Bars, Cones & Sticks",
           "Cups & Tubs",
-          "Family Packs"
+          "Family Packs",
+          "Minis & Miniatures"
         ]
       }
     }
