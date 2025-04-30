@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T08:04:46.370228",
+  "last_updated": "2025-04-30T08:04:47.195961",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 8,
@@ -13,7 +13,7 @@
       "Top Offer"
     ],
     "current_category": "Bakery",
-    "current_sub_category": "Sugar & Sweeteners",
+    "current_sub_category": "Bars, Cones & Sticks",
     "completed_groceries": {
       "Heathrow Market": {
         "completed sub-categories": [
