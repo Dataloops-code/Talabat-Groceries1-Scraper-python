@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "الأحمدي"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T22:18:15.493515",
+  "last_updated": "2025-04-30T22:49:08.606479",
   "current_progress": {
-    "area_name": "الأحمدي",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
