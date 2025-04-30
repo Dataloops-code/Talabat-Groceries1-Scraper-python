@@ -91,6 +91,14 @@ jobs:
             echo "completed=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Handle completed area (Upload to Drive and Reset)
+        if: steps.check-completion.outputs.completed == 'true'
+        run: |
+          python main.py --area-name "${{ matrix.area.name }}" --upload-to-drive
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+
       - name: Run Talabat Groceries Scraper
         if: steps.check-completion.outputs.completed == 'false'
         run: |
@@ -130,8 +138,8 @@ jobs:
             current_progress_${{ matrix.area.name }}.json
             scraped_progress_${{ matrix.area.name }}.json
             cookies_${{ matrix.area.name }}.json
-            output/${{ matrix.area.name }}.json
-            output/${{ matrix.area.name }}_detailed.xlsx
+            output/${{ matrix.area.name }}*.json
+            output/${{ matrix.area.name }}*.xlsx
           key: talabat-groceries-progress-${{ matrix.area.name }}-${{ github.run_id }}
 
       - name: Upload progress artifacts
@@ -143,8 +151,8 @@ jobs:
             current_progress_${{ matrix.area.name }}.json
             scraped_progress_${{ matrix.area.name }}.json
             cookies_${{ matrix.area.name }}.json
-            output/${{ matrix.area.name }}.json
-            output/${{ matrix.area.name }}_detailed.xlsx
+            output/${{ matrix.area.name }}*.json
+            output/${{ matrix.area.name }}*.xlsx
             scraper.log
           retention-days: 7
           if-no-files-found: warn
