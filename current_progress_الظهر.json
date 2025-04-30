@@ -1,10 +1,10 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-04-30T12:16:41.893337",
+  "last_updated": "2025-04-30T12:50:41.413933",
   "current_progress": {
     "area_name": "الظهر",
-    "current_grocery": 8,
+    "current_grocery": 5,
     "current_grocery_title": "Kiki Market Grocery",
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
@@ -195,7 +195,8 @@
           "Creamers",
           "Coffee Capsules",
           "Iced Coffee",
-          "Sugar & Sweeteners"
+          "Sugar & Sweeteners",
+          "Bars, Cones & Sticks"
         ]
       }
     }
