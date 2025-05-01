@@ -72,6 +72,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+          WEBSHARE_PROXY_USERNAME: ocdjzatk-rotate
+          WEBSHARE_PROXY_PASSWORD: 7m26xglp08ta
 
       - name: Debug file presence
         if: always()
