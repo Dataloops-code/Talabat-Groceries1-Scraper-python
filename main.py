@@ -780,7 +780,7 @@ class TalabatGroceries:
                         print(f"  Found {len(category_names)} categories")
 
                         for name, link in zip(category_names, category_links):
-                            print(f"  Category: {name}, Link: {link}")
+                            print(f"  Rate limit hit (429) for {category_link}, waiting before retry...")
                             categories_data[name] = {
                                 "category_link": link,
                                 "sub_categories": []
@@ -805,6 +805,30 @@ class TalabatGroceries:
                     await asyncio.sleep(10 * (2 ** (3 - retries)))
             return {"error": "Failed to extract categories after multiple attempts"}
 
+import asyncio
+import json
+import os
+import tempfile
+import subprocess
+import re
+from typing import Dict, List
+import pandas as pd
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
+from SavingOnDrive import SavingOnDrive
+import logging
+from datetime import datetime
+import aiohttp
+import psutil
+import random
+from concurrent.futures import ThreadPoolExecutor
+
+# Set up logging
+logging.basicConfig(
+    filename='scraper.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
 class MainScraper:
     def __init__(self, area_name):
         self.area_name = area_name
@@ -824,18 +848,11 @@ class MainScraper:
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
         ]
         # Webshare proxy configuration
-        # self.proxies = [
-        #     {
-        #         "server": "http://p.webshare.io:80",
-        #         "username": "ocdjzatk-rotate",
-        #         "password": "7m26xglp08ta"
-        #     }
-        # ]
         self.proxies = [
             {
                 "server": "http://p.webshare.io:80",
-                "username": os.environ.get("WEBSHARE_PROXY_USERNAME", "ocdjzatk-rotate"),
-                "password": os.environ.get("WEBSHARE_PROXY_PASSWORD", "7m26xglp08ta")
+                "username": "ocdjzatk-rotate",
+                "password": "7m26xglp08ta"
             }
         ]
         self.rate_limit_delays = {}  # Track rate limit delays per domain
@@ -849,7 +866,7 @@ class MainScraper:
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Initialized progress files for {area_name}")
-        
+
     async def check_server_status(self, url):
         """Check server status with enhanced proxy retry logic."""
         async with aiohttp.ClientSession() as session:
@@ -979,9 +996,11 @@ class MainScraper:
         logging.info("Closed all browser instances")
 
     def ensure_playwright_browsers(self):
+        """Ensure Playwright browsers are installed."""
         subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
 
     def upload_to_drive(self, file_path: str) -> bool:
+        """Upload a file to Google Drive."""
         try:
             if not self.drive_uploader or not hasattr(self.drive_uploader, 'upload_file'):
                 logging.warning(f"Drive uploader not initialized properly, skipping upload of {file_path}")
@@ -999,6 +1018,7 @@ class MainScraper:
             return False
 
     def save_current_progress(self, progress: Dict = None):
+        """Save current progress to file."""
         progress = progress or self.current_progress
         try:
             progress["last_updated"] = datetime.now().isoformat()
@@ -1015,7 +1035,26 @@ class MainScraper:
         except Exception as e:
             logging.error(f"Error saving {self.CURRENT_PROGRESS_FILE}: {e}")
 
+    def save_scraped_progress(self, progress: Dict = None):
+        """Save scraped progress to file."""
+        progress = progress or self.scraped_progress
+        try:
+            progress["last_updated"] = datetime.now().isoformat()
+            if "current_progress" in progress:
+                progress["current_progress"]["processed_groceries"] = list(set(progress["current_progress"].get("processed_groceries", [])))
+                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
+            with tempfile.NamedTemporaryFile('w', delete=False, dir='.', encoding='utf-8') as temp_file:
+                json.dump(progress, temp_file, indent=2, ensure_ascii=False)
+                temp_file.flush()
+                os.fsync(temp_file.fileno())
+                temp_filename = temp_file.name
+            os.replace(temp_filename, self.SCRAPED_PROGRESS_FILE)
+            logging.info(f"Saved {self.SCRAPED_PROGRESS_FILE}")
+        except Exception as e:
+            logging.error(f"Error saving {self.SCRAPED_PROGRESS_FILE}: {e}")
+
     def load_current_progress(self) -> Dict:
+        """Load current progress from file."""
         if os.path.exists(self.CURRENT_PROGRESS_FILE):
             try:
                 with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
@@ -1035,7 +1074,7 @@ class MainScraper:
                 current["processed_groceries"] = list(set(current["processed_groceries"]))
                 progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
                 progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
-                logging.info(f"Loaded {self.CURRENT_PROGRESS_FILE}: {json.dumps(progress, indent=2)}")
+                logging.info(f"Loaded {self.CURRENT_PROGRESS_FILE}")
                 return progress
             except Exception as e:
                 logging.error(f"Error loading {self.CURRENT_PROGRESS_FILE}: {e}")
@@ -1061,6 +1100,7 @@ class MainScraper:
         return default_progress
 
     def load_scraped_progress(self) -> Dict:
+        """Load scraped progress from file."""
         if os.path.exists(self.SCRAPED_PROGRESS_FILE):
             try:
                 with open(self.SCRAPED_PROGRESS_FILE, 'r', encoding='utf-8') as f:
@@ -1082,7 +1122,7 @@ class MainScraper:
                 current["processed_groceries"] = list(set(current["processed_groceries"]))
                 progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
                 progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
-                logging.info(f"Loaded {self.SCRAPED_PROGRESS_FILE}: {json.dumps(progress, indent=2)}")
+                logging.info(f"Loaded {self.SCRAPED_PROGRESS_FILE}")
                 return progress
             except Exception as e:
                 logging.error(f"Error loading {self.SCRAPED_PROGRESS_FILE}: {e}")
@@ -1109,6 +1149,7 @@ class MainScraper:
         return default_progress
 
     def commit_progress(self, message: str):
+        """Commit progress files to Git repository."""
         if not self.github_token:
             logging.info("Skipping git commit due to missing GITHUB_TOKEN")
             return
@@ -1166,24 +1207,35 @@ class MainScraper:
                 logging.error(f"Error committing progress: {e}")
                 raise
 
-    def save_scraped_progress(self, progress: Dict = None):
-        progress = progress or self.scraped_progress
+    async def get_page_groceries(self, page):
+        """Extract grocery information from a page."""
+        groceries = []
         try:
-            progress["last_updated"] = datetime.now().isoformat()
-            if "current_progress" in progress:
-                progress["current_progress"]["processed_groceries"] = list(set(progress["current_progress"].get("processed_groceries", [])))
-                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
-            with tempfile.NamedTemporaryFile('w', delete=False, dir='.', encoding='utf-8') as temp_file:
-                json.dump(progress, temp_file, indent=2, ensure_ascii=False)
-                temp_file.flush()
-                os.fsync(temp_file.fileno())
-                temp_filename = temp_file.name
-            os.replace(temp_filename, self.SCRAPED_PROGRESS_FILE)
-            logging.info(f"Saved {self.SCRAPED_PROGRESS_FILE}")
+            await page.wait_for_selector('[data-testid="grocery-card"]', timeout=30000)
+            grocery_elements = await page.query_selector_all('[data-testid="grocery-card"]')
+            for element in grocery_elements:
+                title_element = await element.query_selector('[data-testid="grocery-title"]')
+                link_element = await element.query_selector('a')
+                delivery_time_element = await element.query_selector('[data-testid="delivery-time"]')
+                
+                title = await title_element.inner_text() if title_element else "Unknown"
+                link = await link_element.get_attribute('href') if link_element else ""
+                link = f"https://www.talabat.com{link}" if link else ""
+                delivery_time = await delivery_time_element.inner_text() if delivery_time_element else "N/A"
+                
+                groceries.append({
+                    "grocery_title": title.strip(),
+                    "grocery_link": link,
+                    "delivery_time": delivery_time.strip()
+                })
+            logging.info(f"Found {len(groceries)} groceries on page")
+            return groceries
         except Exception as e:
-            logging.error(f"Error saving {self.SCRAPED_PROGRESS_FILE}: {e}")
+            logging.error(f"Error extracting groceries from page: {e}")
+            return []
 
     async def process_grocery_categories(self, grocery_title, grocery_details, talabat_grocery, page, groceries_on_page, grocery_idx):
+        """Process categories for a grocery."""
         completed_groceries = self.current_progress["current_progress"]["completed_groceries"].get(grocery_title, {})
         completed_categories = completed_groceries.get("completed categories", [])
         current_category = self.current_progress["current_progress"].get("current_category")
@@ -1258,7 +1310,15 @@ class MainScraper:
             self.save_scraped_progress()
             self.commit_progress(f"Completed all categories for {grocery_title}")
 
+    async def process_category(self, grocery_title, category_data, category_name, talabat_grocery, page):
+        """Process a single category."""
+        sub_categories = await talabat_grocery.extract_sub_categories(page, category_data["category_link"], grocery_title, category_name)
+        category_data["sub_categories"] = sub_categories
+        self.save_scraped_progress()
+        self.commit_progress(f"Processed category {category_name} for {grocery_title}")
+
     async def verify_and_scrape_missing_sub_categories(self, grocery_title, grocery_details, talabat_grocery, page):
+        """Verify and scrape missing sub-categories."""
         print(f"Verifying sub-categories for grocery: {grocery_title}")
         area_name = self.current_progress["current_progress"]["area_name"]
         completed_groceries = self.current_progress["current_progress"]["completed_groceries"].setdefault(grocery_title, {})
@@ -1324,6 +1384,7 @@ class MainScraper:
         await self.convert_json_to_excel(area_name, json_filename)
 
     def move_to_next_category(self, category_names, current_idx, grocery_title, completed_categories):
+        """Move to the next unprocessed category."""
         next_idx = current_idx + 1
         self.current_progress["current_progress"]["current_category"] = None
         self.scraped_progress["current_progress"]["current_category"] = None
@@ -1341,6 +1402,7 @@ class MainScraper:
         self.commit_progress(f"Moved to next category after {category_names[current_idx]} for {grocery_title}")
 
     def update_to_next_grocery(self, groceries_on_page, current_idx):
+        """Update progress to the next unprocessed grocery."""
         processed_grocery_titles = set(self.current_progress["current_progress"]["processed_groceries"])
         next_idx = current_idx + 1
         self.current_progress["current_progress"].update({
@@ -1377,6 +1439,7 @@ class MainScraper:
         self.commit_progress(f"Updated to next grocery after index {current_idx}")
 
     async def convert_json_to_excel(self, area_name: str, json_filename: str):
+        """Convert JSON data to Excel format."""
         try:
             with open(json_filename, 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -1430,13 +1493,15 @@ class MainScraper:
             logging.info(f"Successfully created Excel: {excel_filename}")
             if self.upload_to_drive(excel_filename):
                 logging.info(f"Uploaded {excel_filename} to Google Drive")
+                os.remove(json_filename)
+                logging.info(f"Deleted {json_filename} after Excel upload")
             else:
                 logging.warning(f"Failed to upload {excel_filename} to Google Drive")
         except Exception as e:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
     async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
-        """Scrape a single area, delete JSON after Excel upload, and restart scraping."""
+        """Scrape a single area, delete JSON after Excel upload."""
         print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
         process = psutil.Process()
         logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
@@ -1487,7 +1552,7 @@ class MainScraper:
             page = await context.new_page()
             response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
             if response and response.status == 429:
-                print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
+                print(f"Rate_Task limit hit (429) for {area_url}, aborting scrape.")
                 domain = area_url.split('/')[2]
                 self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 60) * 1.5
                 return []
@@ -1599,24 +1664,17 @@ class MainScraper:
                         self.scraped_progress["all_results"][area_name] = all_area_results
                         self.save_scraped_progress()
 
-                        await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page + missing_groceries, grocery_idx)
+                        await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, current_groceries, grocery_idx)
                         await grocery_page.close()
                         await grocery_context.close()
                         self.active_contexts -= 1
                         await asyncio.sleep(random.uniform(5, 10))
 
-            json_filename = os.path.join(self.output_dir, f"{area_name}.json")
-            with open(json_filename, 'w', encoding='utf-8') as f:
-                json.dump(all_area_results, f, indent=2, ensure_ascii=False)
-            if self.upload_to_drive(json_filename):
-                logging.info(f"Uploaded {json_filename} to Google Drive")
-            else:
-                logging.warning(f"Failed to upload {json_filename} to Google Drive")
-
-            processed_grocery_titles = set(current_progress["processed_groceries"])
-            if all(g["grocery_title"] in processed_grocery_titles for g in current_groceries):
-                current_progress.update({
-                    "area_name": None,
+            if all(g["grocery_title"] in processed_grocery_titles for g in groceries_on_page):
+                print(f"All groceries processed for area: {area_name}")
+                self.current_progress["completed_areas"].append(area_name)
+                self.scraped_progress["completed_areas"].append(area_name)
+                self.current_progress["current_progress"].update({
                     "current_grocery": 0,
                     "current_grocery_title": None,
                     "current_grocery_link": None,
@@ -1626,36 +1684,34 @@ class MainScraper:
                     "current_sub_category": None,
                     "completed_groceries": {}
                 })
-                scraped_current_progress.update(current_progress)
-                self.current_progress["completed_areas"].append(area_name)
-                self.scraped_progress["completed_areas"].append(area_name)
+                self.scraped_progress["current_progress"].update({
+                    "current_grocery": 0,
+                    "current_grocery_title": None,
+                    "current_grocery_link": None,
+                    "total_groceries": 0,
+                    "processed_groceries": [],
+                    "current_category": None,
+                    "current_sub_category": None,
+                    "completed_groceries": {}
+                })
+                self.save_current_progress()
+                self.save_scraped_progress()
+                self.commit_progress(f"Completed scraping area: {area_name}")
 
-            self.save_current_progress()
-            self.save_scraped_progress()
-            self.commit_progress(f"Completed {area_name}")
+            json_filename = os.path.join(self.output_dir, f"{area_name}.json")
+            with open(json_filename, 'w', encoding='utf-8') as f:
+                json.dump(all_area_results, f, indent=2, ensure_ascii=False)
+            if self.upload_to_drive(json_filename):
+                logging.info(f"Uploaded {json_filename} to Google Drive")
+            else:
+                logging.warning(f"Failed to upload {json_filename} to Google Drive")
 
-            print(f"Waiting 30 seconds before converting {area_name}.json to Excel...")
+            print(f"Waiting 30 seconds before updating Excel for {area_name}...")
             await asyncio.sleep(30)
             await self.convert_json_to_excel(area_name, json_filename)
 
-            # Check if Excel was created and uploaded, then delete JSON and restart
-            excel_filename = os.path.join(self.output_dir, f"{area_name}_detailed.xlsx")
-            if os.path.exists(excel_filename) and self.upload_to_drive(excel_filename):
-                logging.info(f"Excel file {excel_filename} created and uploaded, deleting JSON and restarting scrape")
-                try:
-                    os.remove(json_filename)
-                    logging.info(f"Deleted JSON file: {json_filename}")
-                except Exception as e:
-                    logging.error(f"Failed to delete JSON file {json_filename}: {e}")
-
-                # Reset progress and restart scraping
-                self.reset_area_progress(area_name)
-                print(f"Restarting scrape for area: {area_name}")
-                return await self.scrape_and_save_area(area_name, area_url, browser)
-
             return list(all_area_results.values())
         except Exception as e:
-            print(f"Error scraping area {area_name}: {e}")
             logging.error(f"Error scraping area {area_name}: {e}")
             return []
         finally:
@@ -1663,66 +1719,32 @@ class MainScraper:
                 await page.close()
             if context:
                 await context.close()
-            logging.info(f"Memory usage after scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
-            logging.info(f"Active browser contexts: {self.active_contexts}")
-    
-    async def process_category(self, grocery_title, category_data, category_name, talabat_grocery, page):
-        async with self.semaphore:
-            sub_categories = await talabat_grocery.extract_sub_categories(page, category_data["category_link"], grocery_title, category_name)
-            category_data["sub_categories"] = sub_categories
-            self.save_current_progress()
-            self.save_scraped_progress()
 
-    async def get_page_groceries(self, page) -> List[Dict]:
-        async with self.semaphore:
-            logging.info("Extracting grocery information")
+    async def run(self, area_urls: List[Dict]):
+        """Run the scraper for all provided areas, re-scraping completed areas."""
+        async with async_playwright() as playwright:
+            await self.initialize_browsers(playwright)
             try:
-                await page.wait_for_selector('div[data-testid="one-vendor-container"]', timeout=90000)
-                vendor_containers = await page.query_selector_all('div[data-testid="one-vendor-container"]')
-                groceries_info = []
-                for container in vendor_containers:
-                    title_element = await container.query_selector('a div h2')
-                    title = await title_element.inner_text() if title_element else "Unknown Grocery"
-                    link_element = await container.query_selector('a')
-                    link = "https://www.talabat.com" + await link_element.get_attribute('href') if link_element else None
-                    delivery_info = await container.query_selector('div.deliveryInfo')
-                    delivery_time_text = await delivery_info.inner_text() if delivery_info else ""
-                    delivery_time = re.findall(r'\d+', delivery_time_text)[0] + " mins" if re.findall(r'\d+', delivery_time_text) else "N/A"
-                    if link:
-                        groceries_info.append({"grocery_title": title, "grocery_link": link, "delivery_time": delivery_time})
-                logging.info(f"Extracted {len(groceries_info)} groceries: {[g['grocery_title'] for g in groceries_info]}")
-                return groceries_info
-            except Exception as e:
-                logging.error(f"Error extracting groceries: {e}")
-                return []
+                batch_size = 5
+                for i in range(0, len(area_urls), batch_size):
+                    batch = area_urls[i:i + batch_size]
+                    tasks = []
+                    for area in batch:
+                        area_name = area["area_name"]
+                        area_url = area["url"]
+                        # Check if the area is completed and reset if necessary
+                        if area_name in self.current_progress["completed_areas"]:
+                            print(f"Area {area_name} is marked as completed, resetting progress for re-scrape")
+                            self.reset_area_progress(area_name)
+                        tasks.append(self.scrape_and_save_area(area_name, area_url, None))
+                    await asyncio.gather(*tasks, return_exceptions=True)
+                    logging.info(f"Processed batch {i//batch_size + 1} of {len(area_urls)//batch_size + 1}")
+                    await asyncio.sleep(random.uniform(5, 10))
+            finally:
+                await self.close_browsers()
+                self.executor.shutdown(wait=True)
+                logging.info("Scraper run completed")
 
-    async def run(self, areas: List[Dict[str, str]], playwright):
-        """Run the scraper for all areas concurrently with controlled concurrency."""
-        await self.initialize_browsers(playwright)
-        try:
-            # Process areas in batches to avoid overwhelming the server
-            batch_size = 5  # Process 5 areas at a time
-            for i in range(0, len(areas), batch_size):
-                batch = areas[i:i + batch_size]
-                tasks = []
-                for area in batch:
-                    area_name = area["name"]
-                    area_url = area["url"]
-                    if area_name in self.current_progress["completed_areas"]:
-                        print(f"Skipping completed area: {area_name}")
-                        continue
-                    print(f"Starting scrape for area: {area_name}")
-                    tasks.append(self.scrape_and_save_area(area_name, area_url, None))
-                await asyncio.gather(*tasks, return_exceptions=True)
-                await asyncio.sleep(random.uniform(30, 60))  # Delay between batches
-            self.current_progress["current_area_index"] = len(areas)
-            self.save_current_progress()
-            self.save_scraped_progress()
-            self.commit_progress("Completed all areas")
-        finally:
-            await self.close_browsers()
-        print("All areas processed.")
-        
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
     parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
@@ -1736,7 +1758,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
 
 
 
