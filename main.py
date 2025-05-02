@@ -18,6 +18,7 @@ import psutil
 import random
 from concurrent.futures import ThreadPoolExecutor
 
+
 # Set up logging
 logging.basicConfig(
     filename='scraper.log',
@@ -805,29 +806,6 @@ class TalabatGroceries:
                     await asyncio.sleep(10 * (2 ** (3 - retries)))
             return {"error": "Failed to extract categories after multiple attempts"}
 
-import asyncio
-import json
-import os
-import tempfile
-import subprocess
-import re
-from typing import Dict, List
-import pandas as pd
-from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
-from SavingOnDrive import SavingOnDrive
-import logging
-from datetime import datetime
-import aiohttp
-import psutil
-import random
-from concurrent.futures import ThreadPoolExecutor
-
-# Set up logging
-logging.basicConfig(
-    filename='scraper.log',
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
 
 class MainScraper:
     def __init__(self, area_name):
@@ -1552,7 +1530,7 @@ class MainScraper:
             page = await context.new_page()
             response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
             if response and response.status == 429:
-                print(f"Rate_Task limit hit (429) for {area_url}, aborting scrape.")
+                print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
                 domain = area_url.split('/')[2]
                 self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 60) * 1.5
                 return []
@@ -1719,7 +1697,7 @@ class MainScraper:
                 await page.close()
             if context:
                 await context.close()
-
+                
     async def run(self, area_urls: List[Dict]):
         """Run the scraper for all provided areas, re-scraping completed areas."""
         async with async_playwright() as playwright:
