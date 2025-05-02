@@ -810,13 +810,14 @@ class TalabatGroceries:
 class MainScraper:
     def __init__(self, area_name):
         self.area_name = area_name
+        self.base_url = "https://www.talabat.com"  # Define base_url
         self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
         self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
         self.output_dir = "output"
         self.github_token = os.environ.get('GITHUB_TOKEN')
-        self.semaphore = asyncio.Semaphore(3)  # Reduced for less aggressive concurrency
-        self.max_browsers = 2  # Reduced number of browser instances
-        self.max_contexts_per_browser = 2  # Contexts per browser
+        self.semaphore = asyncio.Semaphore(3)
+        self.max_browsers = 2
+        self.max_contexts_per_browser = 2
         self.active_contexts = 0
         self.context_semaphore = asyncio.Semaphore(self.max_contexts_per_browser * self.max_browsers)
         self.browsers = []
@@ -825,7 +826,6 @@ class MainScraper:
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
         ]
-        # Webshare proxy configuration
         self.proxies = [
             {
                 "server": "http://p.webshare.io:80",
@@ -833,7 +833,7 @@ class MainScraper:
                 "password": "7m26xglp08ta"
             }
         ]
-        self.rate_limit_delays = {}  # Track rate limit delays per domain
+        self.rate_limit_delays = {}
         credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
         os.makedirs(self.output_dir, exist_ok=True)
         self.current_progress = self.load_current_progress()
@@ -844,6 +844,42 @@ class MainScraper:
         self.save_current_progress()
         self.save_scraped_progress()
         self.commit_progress(f"Initialized progress files for {area_name}")
+    # def __init__(self, area_name):
+    #     self.area_name = area_name
+    #     self.CURRENT_PROGRESS_FILE = f"current_progress_{area_name}.json"
+    #     self.SCRAPED_PROGRESS_FILE = f"scraped_progress_{area_name}.json"
+    #     self.output_dir = "output"
+    #     self.github_token = os.environ.get('GITHUB_TOKEN')
+    #     self.semaphore = asyncio.Semaphore(3)  # Reduced for less aggressive concurrency
+    #     self.max_browsers = 2  # Reduced number of browser instances
+    #     self.max_contexts_per_browser = 2  # Contexts per browser
+    #     self.active_contexts = 0
+    #     self.context_semaphore = asyncio.Semaphore(self.max_contexts_per_browser * self.max_browsers)
+    #     self.browsers = []
+    #     self.user_agents = [
+    #         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    #         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+    #         "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
+    #     ]
+    #     # Webshare proxy configuration
+    #     self.proxies = [
+    #         {
+    #             "server": "http://p.webshare.io:80",
+    #             "username": "ocdjzatk-rotate",
+    #             "password": "7m26xglp08ta"
+    #         }
+    #     ]
+    #     self.rate_limit_delays = {}  # Track rate limit delays per domain
+    #     credentials_json = os.environ.get('TALABAT_GCLOUD_KEY_JSON')
+    #     os.makedirs(self.output_dir, exist_ok=True)
+    #     self.current_progress = self.load_current_progress()
+    #     self.scraped_progress = self.load_scraped_progress()
+    #     self.drive_uploader = SavingOnDrive(credentials_json=credentials_json if credentials_json else None)
+    #     self.executor = ThreadPoolExecutor(max_workers=2)
+    #     self.ensure_playwright_browsers()
+    #     self.save_current_progress()
+    #     self.save_scraped_progress()
+    #     self.commit_progress(f"Initialized progress files for {area_name}")
 
     async def check_server_status(self, url):
         """Check server status with improved proxy rotation, extended retries, and detailed logging."""
