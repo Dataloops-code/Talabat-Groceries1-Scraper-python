@@ -723,89 +723,117 @@ class TalabatGroceries:
             return []
             
     async def extract_categories(self, page):
-        print(f"Processing grocery: {self.url}")
-        async with self.main_scraper.semaphore:
-            retries = 3
-            while retries > 0:
-                try:
-                    response = await page.goto(self.url, timeout=240000, wait_until="domcontentloaded")
-                    if response and response.status == 429:
-                        print(f"Rate limit hit (429) for {self.url}, waiting before retry...")
-                        retries -= 1
-                        await asyncio.sleep(30)
-                        continue
-                    elif response and response.status >= 500:
-                        print(f"Server error ({response.status}) for {self.url}, retrying...")
-                        retries -= 1
-                        await asyncio.sleep(10)
-                        continue
-
-                    await page.wait_for_load_state("networkidle", timeout=240000)
-                    print("Page loaded successfully")
-
-                    delivery_fees = await self.get_delivery_fees(page)
-                    minimum_order = await self.get_minimum_order(page)
-                    view_all_link = await self.get_general_link(page)
-
-                    print(f"  Delivery fees: {delivery_fees}")
-                    print(f"  Minimum order: {minimum_order}")
-
-                    categories_data = {}
-                    if view_all_link:
-                        print(f"  Navigating to view all link: {view_all_link}")
-                        context = await self.browser.new_context(
-                            user_agent=random.choice(self.main_scraper.user_agents)
-                        )
-                        category_page = await context.new_page()
-                        response = await category_page.goto(view_all_link, timeout=240000, wait_until="domcontentloaded")
-                        if response and response.status == 429:
-                            print(f"Rate limit hit (429) for {view_all_link}, waiting before retry...")
-                            retries -= 1
-                            await asyncio.sleep(30)
-                            await category_page.close()
-                            await context.close()
-                            continue
-                        elif response and response.status >= 500:
-                            print(f"Server error ({response.status}) for {view_all_link}, retrying...")
-                            retries -= 1
-                            await asyncio.sleep(10)
-                            await category_page.close()
-                            await context.close()
-                            continue
-
-                        await category_page.wait_for_load_state("networkidle", timeout=240000)
-
-                        category_names = await self.extract_category_names(category_page)
-                        category_links = await self.extract_category_links(category_page)
-
-                        print(f"  Found {len(category_names)} categories")
-
-                        for name, link in zip(category_names, category_links):
-                            print(f"  Rate limit hit (429) for {category_link}, waiting before retry...")
-                            categories_data[name] = {
-                                "category_link": link,
-                                "sub_categories": []
-                            }
-                        await category_page.close()
-                        await context.close()
-
-                    return {
-                        "delivery_fees": delivery_fees,
-                        "minimum_order": minimum_order,
-                        "categories": categories_data
+        """Extract categories from the grocery page with improved error handling and logging."""
+        retries = 3
+        for attempt in range(retries):
+            try:
+                logging.info(f"Attempt {attempt + 1}/{retries} to extract categories for {self.grocery_url}")
+                print(f"Page loaded successfully")
+                
+                # Get delivery fees
+                print("Attempting to get delivery fees")
+                delivery_fees_elements = await page.query_selector_all('div:has-text("Delivery fee") + div')
+                delivery_fees = "N/A"
+                for element in delivery_fees_elements:
+                    text = await element.inner_text()
+                    if text and "KD" in text:
+                        delivery_fees = text.strip()
+                        break
+                logging.info(f"Delivery fees: {delivery_fees}")
+                print(f"Delivery fees: {delivery_fees}")
+    
+                # Get minimum order
+                print("Attempting to get minimum order")
+                minimum_order_elements = await page.query_selector_all('div:has-text("Minimum order") + div')
+                minimum_order = "N/A"
+                for element in minimum_order_elements:
+                    text = await element.inner_text()
+                    if text and "KD" in text:
+                        minimum_order = text.strip()
+                        break
+                logging.info(f"Minimum order: {minimum_order}")
+                print(f"Minimum order: {minimum_order}")
+    
+                # Get general link to categories
+                print("Attempting to get general link")
+                view_all_link = None
+                category_elements = await page.query_selector_all('a[href*="/grocery/"]')
+                for element in category_elements:
+                    href = await element.get_attribute('href')
+                    if href and any(category in href for category in ['imports', 'fruit-veg', 'bakery', 'organic-special-diet']):
+                        view_all_link = self.base_url + href if href.startswith('/') else href
+                        break
+                if not view_all_link:
+                    logging.warning(f"No general category link found for {self.grocery_url}")
+                    print("No general category link found")
+                    return {"error": "No categories found"}
+    
+                logging.info(f"General link found: {view_all_link}")
+                print(f"General link found: {view_all_link}")
+                print(f"  Delivery fees: {delivery_fees}")
+                print(f"  Minimum order: {minimum_order}")
+                print(f"  Navigating to view all link: {view_all_link}")
+    
+                # Navigate to the category page
+                await page.goto(view_all_link, timeout=240000, wait_until="domcontentloaded")
+                await page.wait_for_load_state("networkidle", timeout=240000)
+                logging.info(f"Navigated to category page: {view_all_link}")
+    
+                # Extract category names
+                print("Attempting to extract category names")
+                category_names = []
+                category_name_elements = await page.query_selector_all('div[class*="category"] span, a[class*="category"] span')
+                for element in category_name_elements:
+                    text = await element.inner_text()
+                    if text and text.strip():
+                        category_names.append(text.strip())
+                logging.info(f"Category names extracted: {category_names}")
+                print(f"Category names extracted: {category_names}")
+    
+                # Extract category links
+                print("Attempting to extract category links")
+                category_links = []
+                category_link_elements = await page.query_selector_all('a[href*="/grocery/"]')
+                for element in category_link_elements:
+                    href = await element.get_attribute('href')
+                    if href and any(category in href for category in ['imports', 'fruit-veg', 'bakery', 'organic-special-diet', 'dairy-eggs', 'beverages']):
+                        full_link = self.base_url + href if href.startswith('/') else href
+                        category_links.append(full_link)
+                logging.info(f"Category links extracted: {category_links}")
+                print(f"Category links extracted: {category_links}")
+                print(f"  Found {len(category_names)} categories")
+    
+                # Ensure category names and links align
+                if len(category_names) != len(category_links):
+                    logging.warning(f"Mismatch between category names ({len(category_names)}) and links ({len(category_links)}) for {self.grocery_url}")
+                    category_names = category_names[:min(len(category_names), len(category_links))]
+                    category_links = category_links[:min(len(category_names), len(category_links))]
+    
+                # Construct category data
+                categories = {}
+                for name, link in zip(category_names, category_links):
+                    categories[name] = {
+                        "category_name": name,
+                        "category_link": link,
+                        "sub_categories": []
                     }
-                except PlaywrightTimeoutError as e:
-                    print(f"Timeout error extracting categories: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    await asyncio.sleep(10 * (2 ** (3 - retries)))
-                except Exception as e:
-                    print(f"Unexpected error extracting categories: {e}")
-                    retries -= 1
-                    print(f"Retries left: {retries}")
-                    await asyncio.sleep(10 * (2 ** (3 - retries)))
-            return {"error": "Failed to extract categories after multiple attempts"}
-
+    
+                logging.info(f"Successfully extracted {len(categories)} categories for {self.grocery_url}")
+                return {
+                    "delivery_fees": delivery_fees,
+                    "minimum_order": minimum_order,
+                    "categories": categories
+                }
+    
+            except Exception as e:
+                logging.error(f"Unexpected error extracting categories for {self.grocery_url}: {e}")
+                print(f"Unexpected error extracting categories: {e}")
+                retries_left = retries - attempt - 1
+                print(f"Retries left: {retries_left}")
+                if retries_left == 0:
+                    logging.error(f"Failed to extract categories for {self.grocery_url} after {retries} attempts")
+                    return {"error": str(e)}
+                await asyncio.sleep(10 * (2 ** attempt))  # Exponential backoff
 
 class MainScraper:
     def __init__(self, area_name):
