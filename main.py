@@ -727,7 +727,7 @@ class TalabatGroceries:
         retries = 3
         for attempt in range(retries):
             try:
-                logging.info(f"Attempt {attempt + 1}/{retries} to extract categories for {self.grocery_url}")
+                logging.info(f"Attempt {attempt + 1}/{retries} to extract categories for {self.url}")
                 print(f"Page loaded successfully")
                 
                 # Get delivery fees
@@ -764,7 +764,7 @@ class TalabatGroceries:
                         view_all_link = self.base_url + href if href.startswith('/') else href
                         break
                 if not view_all_link:
-                    logging.warning(f"No general category link found for {self.grocery_url}")
+                    logging.warning(f"No general category link found for {self.url}")
                     print("No general category link found")
                     return {"error": "No categories found"}
     
@@ -805,7 +805,7 @@ class TalabatGroceries:
     
                 # Ensure category names and links align
                 if len(category_names) != len(category_links):
-                    logging.warning(f"Mismatch between category names ({len(category_names)}) and links ({len(category_links)}) for {self.grocery_url}")
+                    logging.warning(f"Mismatch between category names ({len(category_names)}) and links ({len(category_links)}) for {self.url}")
                     category_names = category_names[:min(len(category_names), len(category_links))]
                     category_links = category_links[:min(len(category_names), len(category_links))]
     
@@ -818,7 +818,7 @@ class TalabatGroceries:
                         "sub_categories": []
                     }
     
-                logging.info(f"Successfully extracted {len(categories)} categories for {self.grocery_url}")
+                logging.info(f"Successfully extracted {len(categories)} categories for {self.url}")
                 return {
                     "delivery_fees": delivery_fees,
                     "minimum_order": minimum_order,
@@ -826,15 +826,15 @@ class TalabatGroceries:
                 }
     
             except Exception as e:
-                logging.error(f"Unexpected error extracting categories for {self.grocery_url}: {e}")
+                logging.error(f"Unexpected error extracting categories for {self.url}: {e}")
                 print(f"Unexpected error extracting categories: {e}")
                 retries_left = retries - attempt - 1
                 print(f"Retries left: {retries_left}")
                 if retries_left == 0:
-                    logging.error(f"Failed to extract categories for {self.grocery_url} after {retries} attempts")
+                    logging.error(f"Failed to extract categories for {self.url} after {retries} attempts")
                     return {"error": str(e)}
                 await asyncio.sleep(10 * (2 ** attempt))  # Exponential backoff
-
+            
 class MainScraper:
     def __init__(self, area_name):
         self.area_name = area_name
