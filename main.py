@@ -846,45 +846,49 @@ class MainScraper:
         self.commit_progress(f"Initialized progress files for {area_name}")
 
     async def check_server_status(self, url):
-        """Check server status with enhanced proxy retry logic and extended retries."""
+        """Check server status with improved proxy rotation, extended retries, and detailed logging."""
         async with aiohttp.ClientSession() as session:
-            max_retries = 5  # Increased from 3 to 5
+            max_retries = 6  # Increased from 5 to 6
             used_proxies = []
             proxies = self.proxies.copy() if self.proxies else []
             domain = url.split('/')[2]
     
-            # Filter out placeholder proxies
+            # Filter out placeholder or invalid proxies
             valid_proxies = [
                 p for p in proxies
                 if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
             ]
     
             if not valid_proxies:
-                logging.warning("No valid proxies configured, attempting request without proxy")
+                logging.warning(f"No valid proxies configured for {url}, attempting request without proxy")
                 for attempt in range(max_retries):
                     try:
-                        async with session.get(url, timeout=15) as response:
+                        async with session.get(url, timeout=20) as response:
+                            logging.info(f"Non-proxy attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
                             if response.status == 429:
-                                delay = self.rate_limit_delays.get(domain, 60) * (1.5 ** attempt)
-                                self.rate_limit_delays[domain] = min(delay, 600)
+                                delay = 120 * (2 ** attempt)  # Increased base delay from 60 to 120
+                                self.rate_limit_delays[domain] = min(delay, 1800)  # Cap at 30 minutes
                                 logging.info(f"Rate limit hit (429) for {url}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
                                 await asyncio.sleep(delay)
                                 continue
                             elif response.status >= 500:
                                 logging.warning(f"Server error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
-                                await asyncio.sleep(10 * (1.5 ** attempt))
+                                await asyncio.sleep(15 * (2 ** attempt))
                                 continue
+                            elif response.status >= 400:
+                                logging.error(f"Client error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
+                                return False
                             logging.info(f"Server check successful for {url} without proxy: status {response.status}")
                             return response.status < 400
                     except Exception as e:
-                        logging.warning(f"Server check failed without proxy for {url}, attempt {attempt + 1}/{max_retries}: {e}")
-                        await asyncio.sleep(10 * (1.5 ** attempt))
-                logging.error(f"Server check failed for {url} after {max_retries} attempts without proxy")
+                        logging.warning(f"Non-proxy attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
+                        await asyncio.sleep(15 * (2 ** attempt))
+                logging.error(f"Server check failed for {url} after {max_retries} non-proxy attempts")
                 return False
     
             for attempt in range(max_retries):
                 if not valid_proxies:
-                    logging.warning("No more proxies to try")
+                    logging.warning(f"No more proxies available for {url}, switching to non-proxy attempt")
                     break
     
                 proxy = random.choice(valid_proxies)
@@ -894,51 +898,58 @@ class MainScraper:
                 try:
                     async with session.get(
                         url,
-                        timeout=15,
+                        timeout=20,
                         proxy=proxy["server"],
                         proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
                     ) as response:
+                        logging.info(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} for {url}: status {response.status}")
                         if response.status == 429:
-                            delay = self.rate_limit_delays.get(domain, 60) * (1.5 ** attempt)
-                            self.rate_limit_delays[domain] = min(delay, 600)
+                            delay = 120 * (2 ** attempt)  # Increased base delay
+                            self.rate_limit_delays[domain] = min(delay, 1800)
                             logging.info(f"Rate limit hit (429) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
                             await asyncio.sleep(delay)
                             continue
                         elif response.status >= 500:
                             logging.warning(f"Server error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
-                            await asyncio.sleep(10 * (1.5 ** attempt))
+                            await asyncio.sleep(15 * (2 ** attempt))
                             continue
+                        elif response.status >= 400:
+                            logging.error(f"Client error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
+                            return False
                         logging.info(f"Server check successful for {url} with proxy {proxy['server']}: status {response.status}")
                         return response.status < 400
                 except Exception as e:
-                    logging.warning(f"Server check failed for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}: {e}")
+                    logging.warning(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} failed for {url}: {e}")
                     if attempt < max_retries - 1:
-                        logging.info(f"Retrying with another proxy, attempt {attempt + 2}/{max_retries}")
-                        await asyncio.sleep(10 * (1.5 ** attempt))
+                        await asyncio.sleep(15 * (2 ** attempt))
     
-            # Fallback to no proxy if all proxies fail
+            # Fallback to non-proxy attempt if all proxies fail
             logging.warning(f"All proxies failed for {url}, attempting without proxy")
             for attempt in range(max_retries):
                 try:
-                    async with session.get(url, timeout=15) as response:
+                    async with session.get(url, timeout=20) as response:
+                        logging.info(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
                         if response.status == 429:
-                            delay = self.rate_limit_delays.get(domain, 60) * (1.5 ** attempt)
-                            self.rate_limit_delays[domain] = min(delay, 600)
+                            delay = 120 * (2 ** attempt)
+                            self.rate_limit_delays[domain] = min(delay, 1800)
                             logging.info(f"Rate limit hit (429) for {url} without proxy, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
                             await asyncio.sleep(delay)
                             continue
                         elif response.status >= 500:
                             logging.warning(f"Server error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
-                            await asyncio.sleep(10 * (1.5 ** attempt))
+                            await asyncio.sleep(15 * (2 ** attempt))
                             continue
+                        elif response.status >= 400:
+                            logging.error(f"Client error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
+                            return False
                         logging.info(f"Server check successful for {url} without proxy: status {response.status}")
                         return response.status < 400
                 except Exception as e:
-                    logging.warning(f"Server check failed without proxy for {url}, attempt {attempt + 1}/{max_retries}: {e}")
-                    await asyncio.sleep(10 * (1.5 ** attempt))
+                    logging.warning(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
+                    await asyncio.sleep(15 * (2 ** attempt))
             logging.error(f"Server check failed for {url} after {max_retries} attempts with and without proxies")
             return False
-
+        
     def reset_area_progress(self, area_name: str):
         """Reset progress for an area to start scraping from the beginning."""
         self.current_progress["current_progress"] = {
