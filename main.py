@@ -1063,51 +1063,87 @@ class MainScraper:
         except Exception as e:
             logging.error(f"Error saving {self.SCRAPED_PROGRESS_FILE}: {e}")
 
-    def load_current_progress(self) -> Dict:
-        """Load current progress from file."""
-        if os.path.exists(self.CURRENT_PROGRESS_FILE):
-            try:
+    # def load_current_progress(self) -> Dict:
+    #     """Load current progress from file."""
+    #     if os.path.exists(self.CURRENT_PROGRESS_FILE):
+    #         try:
+    #             with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
+    #                 progress = json.load(f)
+    #             if "current_progress" not in progress:
+    #                 progress["current_progress"] = {}
+    #             current = progress["current_progress"]
+    #             current.setdefault("processed_groceries", [])
+    #             current.setdefault("completed_groceries", {})
+    #             current.setdefault("area_name", self.area_name)
+    #             current.setdefault("current_grocery", 0)
+    #             current.setdefault("current_grocery_title", None)
+    #             current.setdefault("current_grocery_link", None)
+    #             current.setdefault("current_category", None)
+    #             current.setdefault("current_sub_category", None)
+    #             current.setdefault("total_groceries", 0)
+    #             current["processed_groceries"] = list(set(current["processed_groceries"]))
+    #             progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
+    #             progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
+    #             logging.info(f"Loaded {self.CURRENT_PROGRESS_FILE}")
+    #             return progress
+    #         except Exception as e:
+    #             logging.error(f"Error loading {self.CURRENT_PROGRESS_FILE}: {e}")
+
+    #     default_progress = {
+    #         "completed_areas": [],
+    #         "current_area_index": 0,
+    #         "last_updated": datetime.now().isoformat(),
+    #         "current_progress": {
+    #             "area_name": self.area_name,
+    #             "current_grocery": 0,
+    #             "current_grocery_title": None,
+    #             "current_grocery_link": None,
+    #             "total_groceries": 0,
+    #             "processed_groceries": [],
+    #             "current_category": None,
+    #             "current_sub_category": None,
+    #             "completed_groceries": {}
+    #         }
+    #     }
+    #     logging.info(f"{self.CURRENT_PROGRESS_FILE} not found, creating default")
+    #     self.save_current_progress(default_progress)
+    #     return default_progress
+
+    def load_current_progress(self):
+        """Load current progress from file, initializing with default structure."""
+        try:
+            if os.path.exists(self.CURRENT_PROGRESS_FILE):
                 with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
                     progress = json.load(f)
-                if "current_progress" not in progress:
-                    progress["current_progress"] = {}
-                current = progress["current_progress"]
-                current.setdefault("processed_groceries", [])
-                current.setdefault("completed_groceries", {})
-                current.setdefault("area_name", self.area_name)
-                current.setdefault("current_grocery", 0)
-                current.setdefault("current_grocery_title", None)
-                current.setdefault("current_grocery_link", None)
-                current.setdefault("current_category", None)
-                current.setdefault("current_sub_category", None)
-                current.setdefault("total_groceries", 0)
-                current["processed_groceries"] = list(set(current["processed_groceries"]))
-                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
-                progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
-                logging.info(f"Loaded {self.CURRENT_PROGRESS_FILE}")
-                return progress
-            except Exception as e:
-                logging.error(f"Error loading {self.CURRENT_PROGRESS_FILE}: {e}")
-
-        default_progress = {
-            "completed_areas": [],
-            "current_area_index": 0,
-            "last_updated": datetime.now().isoformat(),
-            "current_progress": {
-                "area_name": self.area_name,
-                "current_grocery": 0,
-                "current_grocery_title": None,
-                "current_grocery_link": None,
-                "total_groceries": 0,
-                "processed_groceries": [],
-                "current_category": None,
-                "current_sub_category": None,
-                "completed_groceries": {}
+                    # Ensure required keys are present
+                    if "current_progress" not in progress:
+                        progress["current_progress"] = {}
+                    if "completed_areas" not in progress["current_progress"]:
+                        progress["current_progress"]["completed_areas"] = []
+                    if "completed_groceries" not in progress["current_progress"]:
+                        progress["current_progress"]["completed_groceries"] = {}
+                    return progress
+            logging.info(f"No existing progress file found for {self.area_name}, creating new one")
+            return {
+                "current_progress": {
+                    "area_name": self.area_name,
+                    "completed_areas": [],
+                    "completed_groceries": {},
+                    "current_category": None,
+                    "current_sub_category": None
+                }
             }
-        }
-        logging.info(f"{self.CURRENT_PROGRESS_FILE} not found, creating default")
-        self.save_current_progress(default_progress)
-        return default_progress
+        except Exception as e:
+            logging.error(f"Error loading current progress: {e}")
+            return {
+                "current_progress": {
+                    "area_name": self.area_name,
+                    "completed_areas": [],
+                    "completed_groceries": {},
+                    "current_category": None,
+                    "current_sub_category": None
+                }
+            }
 
     def load_scraped_progress(self) -> Dict:
         """Load scraped progress from file."""
@@ -1756,7 +1792,7 @@ class MainScraper:
     #             logging.info("Scraper run completed")
 
     async def run(self, areas):
-        """Run the scraper for the specified areas with enhanced logging."""
+        """Run the scraper for the specified areas with enhanced logging and broader selectors."""
         for area in areas:
             area_name = area["area_name"]
             area_url = area["url"]
@@ -1794,14 +1830,52 @@ class MainScraper:
                         logging.error(f"Server error ({response.status}) for {area_url}")
                         print(f"Server error ({response.status}) for {area_url}, aborting.")
                         continue
+                    elif response and response.status >= 400:
+                        logging.error(f"Client error ({response.status}) for {area_url}")
+                        print(f"Client error ({response.status}) for {area_url}, aborting.")
+                        continue
     
                     await page.wait_for_load_state("networkidle", timeout=240000)
-                    logging.info(f"Area page loaded successfully: {area_url}")
+                    logging.info(f"Area page loaded successfully: {area_url}, status: {response.status}")
     
-                    # Extract grocery links
-                    grocery_elements = await page.query_selector_all('[data-testid="vendor-card"] a')
+                    # Log page title and headers for debugging
+                    page_title = await page.title()
+                    headers = response.headers
+                    logging.info(f"Page title: {page_title}")
+                    logging.info(f"Response headers: {headers}")
+    
+                    # Check for anti-bot page
+                    anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
+                    if anti_bot:
+                        logging.error(f"Anti-bot page detected for {area_url}")
+                        print(f"Anti-bot page detected for {area_url}, aborting.")
+                        # Save debug artifacts
+                        html_content = await page.content()
+                        debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                        with open(debug_file, "w", encoding="utf-8") as f:
+                            f.write(html_content)
+                        screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                        await page.screenshot(path=screenshot_file, full_page=True)
+                        logging.info(f"Saved debug artifacts for {area_name}: {debug_file}, {screenshot_file}")
+                        continue
+    
+                    # Extract grocery links with broader selectors
+                    selectors = [
+                        '[data-testid="vendor-card"] a',
+                        '.vendor-card a',
+                        '[data-testid="grocery-vendor"] a',
+                        '[class*="vendor"] a',
+                        'a[href*="/kuwait/groceries/"]'
+                    ]
+                    grocery_elements = []
+                    for selector in selectors:
+                        elements = await page.query_selector_all(selector)
+                        if elements:
+                            grocery_elements = elements
+                            logging.info(f"Found grocery elements with selector: {selector}")
+                            break
                     grocery_links = [await el.get_attribute('href') for el in grocery_elements]
-                    grocery_links = [self.base_url + link for link in grocery_links if link]
+                    grocery_links = [self.base_url + link for link in grocery_links if link and link.startswith('/')]
                     logging.info(f"Found {len(grocery_links)} grocery links: {grocery_links}")
                     print(f"Found {len(grocery_links)} groceries")
     
