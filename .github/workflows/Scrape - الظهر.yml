@@ -44,9 +44,12 @@ jobs:
             scraped_progress_الظهر.json
             output/الظهر.json
             output/الظهر_detailed.xlsx
-          key: talabat-groceries-progress-الظهر-${{ github.run_id }}
+          # key: talabat-groceries-progress-الظهر-${{ github.run_id }}
+          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
+          # restore-keys: |
+          #   talabat-groceries-progress-الظهر-
           restore-keys: |
-            talabat-groceries-progress-الظهر-
+            talabat-groceries-progress-${{ env.AREA_NAME }}-
 
       - name: Run Talabat Groceries Scraper
         run: |
