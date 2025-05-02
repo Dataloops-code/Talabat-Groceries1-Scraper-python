@@ -732,7 +732,7 @@ class TalabatGroceries:
                 
                 # Get delivery fees
                 print("Attempting to get delivery fees")
-                delivery_fees_elements = await page.query_selector_all('div:has-text("Delivery fee") + div')
+                delivery_fees_elements = await page.query_selector_all('div:has-text("Delivery fee") + div, [data-testid="delivery-fee"], [class*="delivery-fee"]')
                 delivery_fees = "N/A"
                 for element in delivery_fees_elements:
                     text = await element.inner_text()
@@ -744,7 +744,7 @@ class TalabatGroceries:
     
                 # Get minimum order
                 print("Attempting to get minimum order")
-                minimum_order_elements = await page.query_selector_all('div:has-text("Minimum order") + div')
+                minimum_order_elements = await page.query_selector_all('div:has-text("Minimum order") + div, [data-testid="minimum-order"], [class*="minimum-order"]')
                 minimum_order = "N/A"
                 for element in minimum_order_elements:
                     text = await element.inner_text()
@@ -757,15 +757,34 @@ class TalabatGroceries:
                 # Get general link to categories
                 print("Attempting to get general link")
                 view_all_link = None
-                category_elements = await page.query_selector_all('a[href*="/grocery/"]')
-                for element in category_elements:
-                    href = await element.get_attribute('href')
-                    if href and any(category in href for category in ['imports', 'fruit-veg', 'bakery', 'organic-special-diet']):
-                        view_all_link = self.base_url + href if href.startswith('/') else href
+                selectors = [
+                    'a[href*="/grocery/"]',
+                    '[data-testid="view-all-link"]',
+                    '[class*="view-all"]',
+                    'a[href*="/categories/"]',
+                    'a[href*="/shop/"]'
+                ]
+                category_filters = ['imports', 'fruit-veg', 'bakery', 'organic-special-diet', 'dairy-eggs', 'beverages', 'meat-seafood', 'pantry', 'frozen']
+                for selector in selectors:
+                    category_elements = await page.query_selector_all(selector)
+                    for element in category_elements:
+                        href = await element.get_attribute('href')
+                        if href and any(category in href.lower() for category in category_filters):
+                            view_all_link = self.base_url + href if href.startswith('/') else href
+                            break
+                    if view_all_link:
                         break
                 if not view_all_link:
                     logging.warning(f"No general category link found for {self.url}")
                     print("No general category link found")
+                    # Save page content for debugging
+                    html_content = await page.content()
+                    debug_file = f"debug_categories_{self.url.split('/')[-1]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                    with open(debug_file, "w", encoding="utf-8") as f:
+                        f.write(html_content)
+                    screenshot_file = f"debug_screenshot_{self.url.split('/')[-1]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                    await page.screenshot(path=screenshot_file, full_page=True)
+                    logging.info(f"Saved debug artifacts for {self.url}: {debug_file}, {screenshot_file}")
                     return {"error": "No categories found"}
     
                 logging.info(f"General link found: {view_all_link}")
@@ -782,7 +801,7 @@ class TalabatGroceries:
                 # Extract category names
                 print("Attempting to extract category names")
                 category_names = []
-                category_name_elements = await page.query_selector_all('div[class*="category"] span, a[class*="category"] span')
+                category_name_elements = await page.query_selector_all('div[class*="category"] span, a[class*="category"] span, [data-testid="category-name"], [class*="category-title"]')
                 for element in category_name_elements:
                     text = await element.inner_text()
                     if text and text.strip():
@@ -793,10 +812,10 @@ class TalabatGroceries:
                 # Extract category links
                 print("Attempting to extract category links")
                 category_links = []
-                category_link_elements = await page.query_selector_all('a[href*="/grocery/"]')
+                category_link_elements = await page.query_selector_all('a[href*="/grocery/"], a[href*="/categories/"], [data-testid="category-item-container"]')
                 for element in category_link_elements:
                     href = await element.get_attribute('href')
-                    if href and any(category in href for category in ['imports', 'fruit-veg', 'bakery', 'organic-special-diet', 'dairy-eggs', 'beverages']):
+                    if href and any(category in href.lower() for category in category_filters):
                         full_link = self.base_url + href if href.startswith('/') else href
                         category_links.append(full_link)
                 logging.info(f"Category links extracted: {category_links}")
@@ -1173,6 +1192,55 @@ class MainScraper:
     #     self.save_current_progress(default_progress)
     #     return default_progress
 
+    # def load_scraped_progress(self) -> Dict:
+    #     """Load scraped progress from file."""
+    #     if os.path.exists(self.SCRAPED_PROGRESS_FILE):
+    #         try:
+    #             with open(self.SCRAPED_PROGRESS_FILE, 'r', encoding='utf-8') as f:
+    #                 progress = json.load(f)
+    #             if "current_progress" not in progress:
+    #                 progress["current_progress"] = {}
+    #             if "all_results" not in progress:
+    #                 progress["all_results"] = {}
+    #             current = progress["current_progress"]
+    #             current.setdefault("processed_groceries", [])
+    #             current.setdefault("completed_groceries", {})
+    #             current.setdefault("area_name", self.area_name)
+    #             current.setdefault("current_grocery", 0)
+    #             current.setdefault("current_grocery_title", None)
+    #             current.setdefault("current_grocery_link", None)
+    #             current.setdefault("current_category", None)
+    #             current.setdefault("current_sub_category", None)
+    #             current.setdefault("total_groceries", 0)
+    #             current["processed_groceries"] = list(set(current["processed_groceries"]))
+    #             progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
+    #             progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
+    #             logging.info(f"Loaded {self.SCRAPED_PROGRESS_FILE}")
+    #             return progress
+    #         except Exception as e:
+    #             logging.error(f"Error loading {self.SCRAPED_PROGRESS_FILE}: {e}")
+
+    #     default_progress = {
+    #         "completed_areas": [],
+    #         "current_area_index": 0,
+    #         "last_updated": datetime.now().isoformat(),
+    #         "current_progress": {
+    #             "area_name": self.area_name,
+    #             "current_grocery": 0,
+    #             "current_grocery_title": None,
+    #             "current_grocery_link": None,
+    #             "total_groceries": 0,
+    #             "processed_groceries": [],
+    #             "current_category": None,
+    #             "current_sub_category": None,
+    #             "completed_groceries": {}
+    #         },
+    #         "all_results": {}
+    #     }
+    #     logging.info(f"{self.SCRAPED_PROGRESS_FILE} not found, creating default")
+    #     self.save_scraped_progress(default_progress)
+    #     return default_progress
+
     def load_current_progress(self):
         """Load current progress from file, initializing with default structure."""
         try:
@@ -1180,41 +1248,48 @@ class MainScraper:
                 with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
                     progress = json.load(f)
                     # Ensure required keys are present
+                    progress.setdefault("completed_areas", [])
                     if "current_progress" not in progress:
                         progress["current_progress"] = {}
-                    if "completed_areas" not in progress["current_progress"]:
-                        progress["current_progress"]["completed_areas"] = []
-                    if "completed_groceries" not in progress["current_progress"]:
-                        progress["current_progress"]["completed_groceries"] = {}
+                    current = progress["current_progress"]
+                    current.setdefault("area_name", self.area_name)
+                    current.setdefault("completed_groceries", {})
+                    current.setdefault("current_category", None)
+                    current.setdefault("current_sub_category", None)
                     return progress
             logging.info(f"No existing progress file found for {self.area_name}, creating new one")
-            return {
+            default_progress = {
+                "completed_areas": [],
                 "current_progress": {
                     "area_name": self.area_name,
-                    "completed_areas": [],
                     "completed_groceries": {},
                     "current_category": None,
                     "current_sub_category": None
                 }
             }
+            self.save_current_progress(default_progress)
+            return default_progress
         except Exception as e:
             logging.error(f"Error loading current progress: {e}")
-            return {
+            default_progress = {
+                "completed_areas": [],
                 "current_progress": {
                     "area_name": self.area_name,
-                    "completed_areas": [],
                     "completed_groceries": {},
                     "current_category": None,
                     "current_sub_category": None
                 }
             }
+            self.save_current_progress(default_progress)
+            return default_progress
 
-    def load_scraped_progress(self) -> Dict:
-        """Load scraped progress from file."""
-        if os.path.exists(self.SCRAPED_PROGRESS_FILE):
-            try:
+    def load_scraped_progress(self):
+        """Load scraped progress from file, initializing with default structure."""
+        try:
+            if os.path.exists(self.SCRAPED_PROGRESS_FILE):
                 with open(self.SCRAPED_PROGRESS_FILE, 'r', encoding='utf-8') as f:
                     progress = json.load(f)
+                progress.setdefault("completed_areas", [])
                 if "current_progress" not in progress:
                     progress["current_progress"] = {}
                 if "all_results" not in progress:
@@ -1230,33 +1305,50 @@ class MainScraper:
                 current.setdefault("current_sub_category", None)
                 current.setdefault("total_groceries", 0)
                 current["processed_groceries"] = list(set(current["processed_groceries"]))
-                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
                 progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
                 logging.info(f"Loaded {self.SCRAPED_PROGRESS_FILE}")
                 return progress
-            except Exception as e:
-                logging.error(f"Error loading {self.SCRAPED_PROGRESS_FILE}: {e}")
-
-        default_progress = {
-            "completed_areas": [],
-            "current_area_index": 0,
-            "last_updated": datetime.now().isoformat(),
-            "current_progress": {
-                "area_name": self.area_name,
-                "current_grocery": 0,
-                "current_grocery_title": None,
-                "current_grocery_link": None,
-                "total_groceries": 0,
-                "processed_groceries": [],
-                "current_category": None,
-                "current_sub_category": None,
-                "completed_groceries": {}
-            },
-            "all_results": {}
-        }
-        logging.info(f"{self.SCRAPED_PROGRESS_FILE} not found, creating default")
-        self.save_scraped_progress(default_progress)
-        return default_progress
+            default_progress = {
+                "completed_areas": [],
+                "current_area_index": 0,
+                "last_updated": datetime.now().isoformat(),
+                "current_progress": {
+                    "area_name": self.area_name,
+                    "current_grocery": 0,
+                    "current_grocery_title": None,
+                    "current_grocery_link": None,
+                    "total_groceries": 0,
+                    "processed_groceries": [],
+                    "current_category": None,
+                    "current_sub_category": None,
+                    "completed_groceries": {}
+                },
+                "all_results": {}
+            }
+            logging.info(f"{self.SCRAPED_PROGRESS_FILE} not found, creating default")
+            self.save_scraped_progress(default_progress)
+            return default_progress
+        except Exception as e:
+            logging.error(f"Error loading {self.SCRAPED_PROGRESS_FILE}: {e}")
+            default_progress = {
+                "completed_areas": [],
+                "current_area_index": 0,
+                "last_updated": datetime.now().isoformat(),
+                "current_progress": {
+                    "area_name": self.area_name,
+                    "current_grocery": 0,
+                    "current_grocery_title": None,
+                    "current_grocery_link": None,
+                    "total_groceries": 0,
+                    "processed_groceries": [],
+                    "current_category": None,
+                    "current_sub_category": None,
+                    "completed_groceries": {}
+                },
+                "all_results": {}
+            }
+            self.save_scraped_progress(default_progress)
+            return default_progress
 
     def commit_progress(self, message: str):
         """Commit progress files to Git repository."""
