@@ -1719,32 +1719,185 @@ class MainScraper:
             if context:
                 await context.close()
                 
-    async def run(self, area_urls: List[Dict]):
-        """Run the scraper for all provided areas, re-scraping completed areas."""
-        async with async_playwright() as playwright:
-            await self.initialize_browsers(playwright)
-            try:
-                batch_size = 5
-                for i in range(0, len(area_urls), batch_size):
-                    batch = area_urls[i:i + batch_size]
-                    tasks = []
-                    for area in batch:
-                        area_name = area["area_name"]
-                        area_url = area["url"]
-                        # Check if the area is completed and reset if necessary
-                        if area_name in self.current_progress["completed_areas"]:
-                            print(f"Area {area_name} is marked as completed, resetting progress for re-scrape")
-                            self.reset_area_progress(area_name)
-                        tasks.append(self.scrape_and_save_area(area_name, area_url, None))
-                    await asyncio.gather(*tasks, return_exceptions=True)
-                    logging.info(f"Processed batch {i//batch_size + 1} of {len(area_urls)//batch_size + 1}")
-                    await asyncio.sleep(random.uniform(5, 10))
-            finally:
-                await self.close_browsers()
-                self.executor.shutdown(wait=True)
-                logging.info("Scraper run completed")
+    # async def run(self, area_urls: List[Dict]):
+    #     """Run the scraper for all provided areas, re-scraping completed areas."""
+    #     async with async_playwright() as playwright:
+    #         await self.initialize_browsers(playwright)
+    #         try:
+    #             batch_size = 5
+    #             for i in range(0, len(area_urls), batch_size):
+    #                 batch = area_urls[i:i + batch_size]
+    #                 tasks = []
+    #                 for area in batch:
+    #                     area_name = area["area_name"]
+    #                     area_url = area["url"]
+    #                     # Check if the area is completed and reset if necessary
+    #                     if area_name in self.current_progress["completed_areas"]:
+    #                         print(f"Area {area_name} is marked as completed, resetting progress for re-scrape")
+    #                         self.reset_area_progress(area_name)
+    #                     tasks.append(self.scrape_and_save_area(area_name, area_url, None))
+    #                 await asyncio.gather(*tasks, return_exceptions=True)
+    #                 logging.info(f"Processed batch {i//batch_size + 1} of {len(area_urls)//batch_size + 1}")
+    #                 await asyncio.sleep(random.uniform(5, 10))
+    #         finally:
+    #             await self.close_browsers()
+    #             self.executor.shutdown(wait=True)
+    #             logging.info("Scraper run completed")
 
-
+    async def run(self, areas):
+        """Run the scraper for the specified areas with enhanced logging."""
+        for area in areas:
+            area_name = area["area_name"]
+            area_url = area["url"]
+            print(f"==================================================")
+            print(f"SCRAPING AREA: {area_name}")
+            print(f"URL: {area_url}")
+            print(f"==================================================")
+            logging.info(f"Starting scrape for area: {area_name}, URL: {area_url}")
+    
+            # Check server status
+            if not await self.check_server_status(area_url):
+                print(f"Server at {area_url} is not responding or rate limited, aborting scrape.")
+                logging.error(f"Server check failed for {area_url}, aborting scrape for {area_name}")
+                continue
+    
+            # Initialize browser context
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                self.browsers.append(browser)
+                context = await browser.new_context(
+                    user_agent=random.choice(self.user_agents),
+                    viewport={"width": 1920, "height": 1080}
+                )
+                page = await context.new_page()
+    
+                try:
+                    # Navigate to area URL
+                    logging.info(f"Navigating to area URL: {area_url}")
+                    response = await page.goto(area_url, timeout=240000, wait_until="domcontentloaded")
+                    if response and response.status == 429:
+                        logging.error(f"Rate limit hit (429) for {area_url}")
+                        print(f"Rate limit hit (429) for {area_url}, aborting.")
+                        continue
+                    elif response and response.status >= 500:
+                        logging.error(f"Server error ({response.status}) for {area_url}")
+                        print(f"Server error ({response.status}) for {area_url}, aborting.")
+                        continue
+    
+                    await page.wait_for_load_state("networkidle", timeout=240000)
+                    logging.info(f"Area page loaded successfully: {area_url}")
+    
+                    # Extract grocery links
+                    grocery_elements = await page.query_selector_all('[data-testid="vendor-card"] a')
+                    grocery_links = [await el.get_attribute('href') for el in grocery_elements]
+                    grocery_links = [self.base_url + link for link in grocery_links if link]
+                    logging.info(f"Found {len(grocery_links)} grocery links: {grocery_links}")
+                    print(f"Found {len(grocery_links)} groceries")
+    
+                    if not grocery_links:
+                        logging.warning(f"No groceries found for {area_name} at {area_url}")
+                        # Save page content for debugging
+                        html_content = await page.content()
+                        debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                        with open(debug_file, "w", encoding="utf-8") as f:
+                            f.write(html_content)
+                        screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                        await page.screenshot(path=screenshot_file, full_page=True)
+                        logging.info(f"Saved debug artifacts for {area_name}: {debug_file}, {screenshot_file}")
+    
+                    completed_groceries = self.current_progress["current_progress"]["completed_groceries"]
+                    for grocery_link in grocery_links:
+                        grocery_title = grocery_link.split('/')[-1]
+                        if grocery_title in completed_groceries:
+                            logging.info(f"Skipping completed grocery: {grocery_title}")
+                            print(f"Skipping completed grocery: {grocery_title}")
+                            continue
+    
+                        logging.info(f"Processing grocery: {grocery_title} at {grocery_link}")
+                        talabat_groceries = TalabatGroceries(grocery_link, browser, self)
+                        grocery_data = await talabat_groceries.extract_categories(page)
+    
+                        if "error" not in grocery_data:
+                            self.scraped_progress["all_results"].setdefault(area_name, {})[grocery_title] = {
+                                "grocery_link": grocery_link,
+                                "delivery_time": "N/A",
+                                "grocery_details": {
+                                    "delivery_fees": grocery_data.get("delivery_fees", "N/A"),
+                                    "minimum_order": grocery_data.get("minimum_order", "N/A"),
+                                    "categories": grocery_data.get("categories", {})
+                                }
+                            }
+                            self.current_progress["current_progress"]["completed_groceries"][grocery_title] = {
+                                "completed categories": [],
+                                "completed sub-categories": []
+                            }
+                            self.save_current_progress()
+                            self.save_scraped_progress()
+                            self.commit_progress(f"Processed grocery {grocery_title} for {area_name}")
+    
+                    # Process categories and sub-categories
+                    for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
+                        if grocery_title in completed_groceries and completed_groceries[grocery_title].get("completed categories"):
+                            logging.info(f"All categories completed for {grocery_title}, skipping")
+                            continue
+    
+                        talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
+                        for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
+                            completed_categories = completed_groceries.get(grocery_title, {}).get("completed categories", [])
+                            if category_name in completed_categories:
+                                logging.info(f"Skipping completed category: {category_name} for {grocery_title}")
+                                print(f"Skipping completed category: {category_name}")
+                                continue
+    
+                            logging.info(f"Processing category: {category_name} for {grocery_title}")
+                            sub_categories = await talabat_groceries.extract_sub_categories(
+                                page, category_data["category_link"], grocery_title, category_name
+                            )
+                            self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"] = sub_categories
+                            self.save_scraped_progress()
+                            self.commit_progress(f"Updated sub-categories for {category_name} in {grocery_title}")
+    
+                    # Verify groceries
+                    logging.info(f"Verifying groceries for area: {area_name}")
+                    print(f"Verifying groceries for area: {area_name}")
+                    for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
+                        talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
+                        for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
+                            missing_sub_categories = await talabat_groceries.verify_sub_categories(
+                                page, category_data["category_link"], grocery_title, category_name
+                            )
+                            if missing_sub_categories:
+                                logging.info(f"Found {len(missing_sub_categories)} missing sub-categories for {category_name} in {grocery_title}")
+                                for sub_category in missing_sub_categories:
+                                    sub_category_data = await talabat_groceries.extract_sub_categories(
+                                        page, sub_category["sub_category_link"], grocery_title, category_name
+                                    )
+                                    self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"].extend(sub_category_data)
+                                    self.save_scraped_progress()
+                                    self.commit_progress(f"Processed missing sub-category {sub_category['sub_category_name']} for {category_name}")
+    
+                    logging.info(f"All groceries processed for area: {area_name}")
+                    print(f"All groceries processed for area: {area_name}")
+                    self.current_progress["current_progress"]["completed_areas"].append(area_name)
+                    self.save_current_progress()
+                    self.commit_progress(f"Completed scraping area: {area_name}")
+    
+                    # Update Excel
+                    print(f"Waiting 30 seconds before updating Excel for {area_name}...")
+                    logging.info(f"Waiting 30 seconds before updating Excel for {area_name}")
+                    await asyncio.sleep(30)
+                    self.update_excel(area_name)
+                    logging.info(f"Excel updated for {area_name}")
+    
+                except Exception as e:
+                    logging.error(f"Error processing area {area_name}: {e}")
+                    print(f"Error processing area {area_name}: {e}")
+                finally:
+                    await page.close()
+                    await context.close()
+                    await browser.close()
+                    self.browsers.remove(browser)
+                
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
     parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
