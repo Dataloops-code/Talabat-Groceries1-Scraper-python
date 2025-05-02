@@ -1730,9 +1730,8 @@ async def main():
     args = parser.parse_args()
 
     scraper = MainScraper(args.area_name)
-    areas = [{"name": args.area_name, "url": args.url}]
-    async with async_playwright() as playwright:
-        await scraper.run(areas, playwright)
+    areas = [{"area_name": args.area_name, "url": args.url}]
+    await scraper.run(areas)
 
 if __name__ == "__main__":
     asyncio.run(main())
