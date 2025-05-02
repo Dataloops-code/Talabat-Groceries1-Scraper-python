@@ -25,13 +25,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Install Playwright Browsers
         run: |
           python -m playwright install chromium
+
       - name: Install Playwright System Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
+
       - name: Restore cached progress
         id: cache-restore
         uses: actions/cache/restore@v4
@@ -44,21 +47,8 @@ jobs:
           key: talabat-groceries-progress-الظهر-${{ github.run_id }}
           restore-keys: |
             talabat-groceries-progress-الظهر-
-      - name: Check if area is completed
-        id: check-completion
-        run: |
-          if [ -f "current_progress_الظهر.json" ]; then
-            if jq -e '.completed_areas[] | select(. == "الظهر")' current_progress_الظهر.json > /dev/null; then
-              echo "completed=true" >> $GITHUB_OUTPUT
-            else
-              echo "completed=false" >> $GITHUB_OUTPUT
-            fi
-          else
-            echo "completed=false" >> $GITHUB_OUTPUT
-          fi
 
       - name: Run Talabat Groceries Scraper
-        if: steps.check-completion.outputs.completed == 'false'
         run: |
           python main.py --area-name "الظهر" --url "https://www.talabat.com/kuwait/groceries/59/dhaher"
         env:
@@ -74,6 +64,7 @@ jobs:
           cat current_progress_الظهر.json || echo "current_progress_الظهر.json not found"
           cat scraped_progress_الظهر.json || echo "scraped_progress_الظهر.json not found"
           ls output/الظهر_detailed.xlsx || echo "الظهر_detailed.xlsx not found"
+
       - name: Commit progress updates
         if: always()
         run: |
