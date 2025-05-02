@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 1,
-  "last_updated": "2025-05-01T20:14:08.940353",
+  "last_updated": "2025-05-02T00:41:05.126957",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 9,
@@ -9,8 +9,8 @@
     "current_grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
     "total_groceries": 20,
     "processed_groceries": [
-      "Ghozlan Al Egaila Grocery",
-      "Top Offer"
+      "Top Offer",
+      "Ghozlan Al Egaila Grocery"
     ],
     "current_category": "Bakery",
     "current_sub_category": "Chocolate Bars",
