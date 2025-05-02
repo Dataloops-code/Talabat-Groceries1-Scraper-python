@@ -1,7 +1,9 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "الظهر"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-05-02T21:47:57.206090",
+  "last_updated": "2025-05-02T21:49:08.222679",
   "current_progress": {
     "area_name": "الظهر",
     "current_grocery": 0,
