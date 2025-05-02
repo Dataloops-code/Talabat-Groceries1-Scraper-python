@@ -1723,6 +1723,7 @@ class MainScraper:
                 self.executor.shutdown(wait=True)
                 logging.info("Scraper run completed")
 
+
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
     parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
@@ -1730,8 +1731,20 @@ async def main():
     args = parser.parse_args()
 
     scraper = MainScraper(args.area_name)
+    # Reset progress for the area to start scraping from the beginning
+    scraper.reset_area_progress(args.area_name)
     areas = [{"area_name": args.area_name, "url": args.url}]
     await scraper.run(areas)
+
+# async def main():
+#     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
+#     parser.add_argument("--area-name", required=True, help="Name of the area to scrape")
+#     parser.add_argument("--url", required=True, help="URL of the area to scrape")
+#     args = parser.parse_args()
+
+#     scraper = MainScraper(args.area_name)
+#     areas = [{"area_name": args.area_name, "url": args.url}]
+#     await scraper.run(areas)
 
 if __name__ == "__main__":
     asyncio.run(main())
