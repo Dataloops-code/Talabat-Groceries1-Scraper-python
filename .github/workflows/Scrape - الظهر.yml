@@ -8,6 +8,13 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    
+    env:
+      AREA_NAME: الظهر
+      AREA_URL: https://www.talabat.com/kuwait/groceries/59/dhaher
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+      
     timeout-minutes: 120  # 2 hours, adjust as needed
     steps:
       - name: Checkout code
@@ -34,6 +41,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
+        
 
       - name: Restore cached progress
         id: cache-restore
@@ -45,15 +53,18 @@ jobs:
             output/الظهر.json
             output/الظهر_detailed.xlsx
           # key: talabat-groceries-progress-الظهر-${{ github.run_id }}
-          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
           # restore-keys: |
           #   talabat-groceries-progress-الظهر-
+          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
           restore-keys: |
-            talabat-groceries-progress-${{ env.AREA_NAME }}-
+            talabat-groceries-progress-${{ env.AREA_NAME }}-v2-
+          
 
       - name: Run Talabat Groceries Scraper
+        # run: |
+        #   python main.py --area-name "الظهر" --url "https://www.talabat.com/kuwait/groceries/59/dhaher"
         run: |
-          python main.py --area-name "الظهر" --url "https://www.talabat.com/kuwait/groceries/59/dhaher"
+          python main.py --area-name "${{ env.AREA_NAME }}" --url "${{ env.AREA_URL }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
@@ -92,7 +103,8 @@ jobs:
             scraped_progress_الظهر.json
             output/الظهر.json
             output/الظهر_detailed.xlsx
-          key: talabat-groceries-progress-الظهر-${{ github.run_id }}
+          # key: talabat-groceries-progress-الظهر-${{ github.run_id }}
+          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
 
       - name: Upload progress artifacts
         if: always()
