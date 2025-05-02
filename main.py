@@ -730,26 +730,50 @@ class TalabatGroceries:
                 logging.info(f"Attempt {attempt + 1}/{retries} to extract categories for {self.url}")
                 print(f"Page loaded successfully")
                 
+                # Wait for page content to load
+                await page.wait_for_load_state("networkidle", timeout=240000)
+                await asyncio.sleep(5)  # Additional delay for dynamic content
+                
                 # Get delivery fees
                 print("Attempting to get delivery fees")
-                delivery_fees_elements = await page.query_selector_all('div:has-text("Delivery fee") + div, [data-testid="delivery-fee"], [class*="delivery-fee"]')
                 delivery_fees = "N/A"
-                for element in delivery_fees_elements:
-                    text = await element.inner_text()
-                    if text and "KD" in text:
-                        delivery_fees = text.strip()
+                fee_selectors = [
+                    'div:has-text("Delivery fee") + div',
+                    '[data-testid="delivery-fee"]',
+                    '[class*="delivery-fee"]',
+                    'text=/Delivery.*\d+\.*\d* KD/i',
+                    'span:below(:text("Delivery")):has-text("KD")'
+                ]
+                for selector in fee_selectors:
+                    elements = await page.query_selector_all(selector)
+                    for element in elements:
+                        text = await element.inner_text()
+                        if text and "KD" in text:
+                            delivery_fees = text.strip()
+                            break
+                    if delivery_fees != "N/A":
                         break
                 logging.info(f"Delivery fees: {delivery_fees}")
                 print(f"Delivery fees: {delivery_fees}")
     
                 # Get minimum order
                 print("Attempting to get minimum order")
-                minimum_order_elements = await page.query_selector_all('div:has-text("Minimum order") + div, [data-testid="minimum-order"], [class*="minimum-order"]')
                 minimum_order = "N/A"
-                for element in minimum_order_elements:
-                    text = await element.inner_text()
-                    if text and "KD" in text:
-                        minimum_order = text.strip()
+                min_order_selectors = [
+                    'div:has-text("Minimum order") + div',
+                    '[data-testid="minimum-order"]',
+                    '[class*="minimum-order"]',
+                    'text=/Minimum.*\d+\.*\d* KD/i',
+                    'span:below(:text("Minimum")):has-text("KD")'
+                ]
+                for selector in min_order_selectors:
+                    elements = await page.query_selector_all(selector)
+                    for element in elements:
+                        text = await element.inner_text()
+                        if text and "KD" in text:
+                            minimum_order = text.strip()
+                            break
+                    if minimum_order != "N/A":
                         break
                 logging.info(f"Minimum order: {minimum_order}")
                 print(f"Minimum order: {minimum_order}")
@@ -758,18 +782,28 @@ class TalabatGroceries:
                 print("Attempting to get general link")
                 view_all_link = None
                 selectors = [
-                    'a[href*="/grocery/"]',
                     '[data-testid="view-all-link"]',
-                    '[class*="view-all"]',
+                    'a[href*="/grocery/"]',
                     'a[href*="/categories/"]',
-                    'a[href*="/shop/"]'
+                    'a[href*="/shop/"]',
+                    '[class*="view-all"]',
+                    'a:below(:text("Categories"))',
+                    'a:has-text("View All")',
+                    'a:has-text("See All")'
                 ]
-                category_filters = ['imports', 'fruit-veg', 'bakery', 'organic-special-diet', 'dairy-eggs', 'beverages', 'meat-seafood', 'pantry', 'frozen']
+                category_filters = [
+                    'imports', 'fruit-veg', 'bakery', 'organic', 'diet', 'dairy', 'eggs', 'beverages',
+                    'meat', 'seafood', 'pantry', 'frozen', 'snacks', 'household', 'personal-care'
+                ]
                 for selector in selectors:
-                    category_elements = await page.query_selector_all(selector)
-                    for element in category_elements:
-                        href = await element.get_attribute('href')
+                    elements = await page.query_selector_all(selector)
+                    for element in elements:
+                        href = await element.get_attribute#'href')
                         if href and any(category in href.lower() for category in category_filters):
+                            view_all_link = self.base_url + href if href.startswith('/') else href
+                            break
+                        # Fallback: Accept any grocery-related link if no category match
+                        if href and '/grocery/' in href.lower():
                             view_all_link = self.base_url + href if href.startswith('/') else href
                             break
                     if view_all_link:
@@ -777,10 +811,10 @@ class TalabatGroceries:
                 if not view_all_link:
                     logging.warning(f"No general category link found for {self.url}")
                     print("No general category link found")
-                    # Save page content for debugging
+                    # Save debug artifacts
                     html_content = await page.content()
                     debug_file = f"debug_categories_{self.url.split('/')[-1]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-                    with open(debug_file, "w", encoding="utf-8") as f:
+                    with open(debug_file, 'w', encoding='utf-8') as f:
                         f.write(html_content)
                     screenshot_file = f"debug_screenshot_{self.url.split('/')[-1]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
                     await page.screenshot(path=screenshot_file, full_page=True)
@@ -796,28 +830,50 @@ class TalabatGroceries:
                 # Navigate to the category page
                 await page.goto(view_all_link, timeout=240000, wait_until="domcontentloaded")
                 await page.wait_for_load_state("networkidle", timeout=240000)
+                await asyncio.sleep(5)  # Additional delay for dynamic content
                 logging.info(f"Navigated to category page: {view_all_link}")
     
                 # Extract category names
                 print("Attempting to extract category names")
                 category_names = []
-                category_name_elements = await page.query_selector_all('div[class*="category"] span, a[class*="category"] span, [data-testid="category-name"], [class*="category-title"]')
-                for element in category_name_elements:
-                    text = await element.inner_text()
-                    if text and text.strip():
-                        category_names.append(text.strip())
+                name_selectors = [
+                    '[data-testid="category-name"]',
+                    'div[class*="category"] span',
+                    'a[class*="category"] span',
+                    '[class*="category-title"]',
+                    'h2:below(:text("Categories"))',
+                    'span:has-text("Category")'
+                ]
+                for selector in name_selectors:
+                    elements = await page.query_selector_all(selector)
+                    for element in elements:
+                        text = await element.inner_text()
+                        if text and text.strip():
+                            category_names.append(text.strip())
+                    if category_names:
+                        break
                 logging.info(f"Category names extracted: {category_names}")
                 print(f"Category names extracted: {category_names}")
     
                 # Extract category links
                 print("Attempting to extract category links")
                 category_links = []
-                category_link_elements = await page.query_selector_all('a[href*="/grocery/"], a[href*="/categories/"], [data-testid="category-item-container"]')
-                for element in category_link_elements:
-                    href = await element.get_attribute('href')
-                    if href and any(category in href.lower() for category in category_filters):
-                        full_link = self.base_url + href if href.startswith('/') else href
-                        category_links.append(full_link)
+                link_selectors = [
+                    '[data-testid="category-item-container"]',
+                    'a[href*="/grocery/"]',
+                    'a[href*="/categories/"]',
+                    'a:below(:text("Categories"))',
+                    'a:has-text("Shop")'
+                ]
+                for selector in link_selectors:
+                    elements = await page.query_selector_all(selector)
+                    for element in elements:
+                        href = await element.get_attribute('href')
+                        if href:
+                            full_link = self.base_url + href if href.startswith('/') else href
+                            category_links.append(full_link)
+                    if category_links:
+                        break
                 logging.info(f"Category links extracted: {category_links}")
                 print(f"Category links extracted: {category_links}")
                 print(f"  Found {len(category_names)} categories")
@@ -1242,114 +1298,156 @@ class MainScraper:
     #     return default_progress
 
     def load_current_progress(self):
-        """Load current progress from file, initializing with default structure."""
+        """Load current progress from file, ensuring all required keys are initialized."""
+        default_progress = {
+            "completed_areas": [],
+            "current_progress": {
+                "area_name": self.area_name,
+                "completed_groceries": {},
+                "current_category": None,
+                "current_sub_category": None
+            }
+        }
         try:
             if os.path.exists(self.CURRENT_PROGRESS_FILE):
                 with open(self.CURRENT_PROGRESS_FILE, 'r', encoding='utf-8') as f:
                     progress = json.load(f)
-                    # Ensure required keys are present
-                    progress.setdefault("completed_areas", [])
-                    if "current_progress" not in progress:
-                        progress["current_progress"] = {}
-                    current = progress["current_progress"]
-                    current.setdefault("area_name", self.area_name)
-                    current.setdefault("completed_groceries", {})
-                    current.setdefault("current_category", None)
-                    current.setdefault("current_sub_category", None)
-                    return progress
-            logging.info(f"No existing progress file found for {self.area_name}, creating new one")
-            default_progress = {
-                "completed_areas": [],
-                "current_progress": {
-                    "area_name": self.area_name,
-                    "completed_groceries": {},
-                    "current_category": None,
-                    "current_sub_category": None
-                }
-            }
+                # Ensure all required keys exist
+                progress.setdefault("completed_areas", [])
+                progress.setdefault("current_progress", {})
+                current = progress["current_progress"]
+                current.setdefault("area_name", self.area_name)
+                current.setdefault("completed_groceries", {})
+                current.setdefault("current_category", None)
+                current.setdefault("current_sub_category", None)
+                logging.info(f"Loaded current progress from {self.CURRENT_PROGRESS_FILE}")
+                return progress
+            logging.info(f"No current progress file found for {self.area_name}, creating new one")
             self.save_current_progress(default_progress)
             return default_progress
         except Exception as e:
             logging.error(f"Error loading current progress: {e}")
-            default_progress = {
-                "completed_areas": [],
-                "current_progress": {
-                    "area_name": self.area_name,
-                    "completed_groceries": {},
-                    "current_category": None,
-                    "current_sub_category": None
-                }
-            }
             self.save_current_progress(default_progress)
             return default_progress
 
     def load_scraped_progress(self):
-        """Load scraped progress from file, initializing with default structure."""
+        """Load scraped progress from file, ensuring all required keys are initialized."""
+        default_progress = {
+            "completed_areas": [],
+            "current_area_index": 0,
+            "last_updated": datetime.now().isoformat(),
+            "current_progress": {
+                "area_name": self.area_name,
+                "current_grocery": 0,
+                "current_grocery_title": None,
+                "current_grocery_link": None,
+                "total_groceries": 0,
+                "processed_groceries": [],
+                "current_category": None,
+                "current_sub_category": None,
+                "completed_groceries": {}
+            },
+            "all_results": {}
+        }
         try:
             if os.path.exists(self.SCRAPED_PROGRESS_FILE):
                 with open(self.SCRAPED_PROGRESS_FILE, 'r', encoding='utf-8') as f:
                     progress = json.load(f)
+                # Ensure all required keys exist
                 progress.setdefault("completed_areas", [])
-                if "current_progress" not in progress:
-                    progress["current_progress"] = {}
-                if "all_results" not in progress:
-                    progress["all_results"] = {}
+                progress.setdefault("current_area_index", 0)
+                progress.setdefault("last_updated", datetime.now().isoformat())
+                progress.setdefault("current_progress", {})
+                progress.setdefault("all_results", {})
                 current = progress["current_progress"]
-                current.setdefault("processed_groceries", [])
-                current.setdefault("completed_groceries", {})
                 current.setdefault("area_name", self.area_name)
                 current.setdefault("current_grocery", 0)
                 current.setdefault("current_grocery_title", None)
                 current.setdefault("current_grocery_link", None)
+                current.setdefault("total_groceries", 0)
+                current.setdefault("processed_groceries", [])
                 current.setdefault("current_category", None)
                 current.setdefault("current_sub_category", None)
-                current.setdefault("total_groceries", 0)
+                current.setdefault("completed_groceries", {})
                 current["processed_groceries"] = list(set(current["processed_groceries"]))
-                progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
-                logging.info(f"Loaded {self.SCRAPED_PROGRESS_FILE}")
+                logging.info(f"Loaded scraped progress from {self.SCRAPED_PROGRESS_FILE}")
                 return progress
-            default_progress = {
-                "completed_areas": [],
-                "current_area_index": 0,
-                "last_updated": datetime.now().isoformat(),
-                "current_progress": {
-                    "area_name": self.area_name,
-                    "current_grocery": 0,
-                    "current_grocery_title": None,
-                    "current_grocery_link": None,
-                    "total_groceries": 0,
-                    "processed_groceries": [],
-                    "current_category": None,
-                    "current_sub_category": None,
-                    "completed_groceries": {}
-                },
-                "all_results": {}
-            }
-            logging.info(f"{self.SCRAPED_PROGRESS_FILE} not found, creating default")
+            logging.info(f"No scraped progress file found, creating new one")
             self.save_scraped_progress(default_progress)
             return default_progress
         except Exception as e:
-            logging.error(f"Error loading {self.SCRAPED_PROGRESS_FILE}: {e}")
-            default_progress = {
-                "completed_areas": [],
-                "current_area_index": 0,
-                "last_updated": datetime.now().isoformat(),
-                "current_progress": {
-                    "area_name": self.area_name,
-                    "current_grocery": 0,
-                    "current_grocery_title": None,
-                    "current_grocery_link": None,
-                    "total_groceries": 0,
-                    "processed_groceries": [],
-                    "current_category": None,
-                    "current_sub_category": None,
-                    "completed_groceries": {}
-                },
-                "all_results": {}
-            }
+            logging.error(f"Error loading scraped progress: {e}")
             self.save_scraped_progress(default_progress)
             return default_progress
 
+    async def scrape_and_save_area(self, area_name, url):
+        """Scrape an area and save the results."""
+        logging.info(f"Starting scrape for area: {area_name} with URL: {url}")
+        print(f"==================================================")
+        print(f"SCRAPING AREA: {area_name}")
+        print(f"URL: {url}")
+        print(f"==================================================")
+        try:
+            # Initialize completed_areas if missing
+            if "completed_areas" not in self.current_progress:
+                self.current_progress["completed_areas"] = []
+            if "completed_areas" not in self.scraped_progress:
+                self.scraped_progress["completed_areas"] = []
+
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
+                    viewport={"width": 1920, "height": 1080},
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                )
+                groceries = await self.extract_groceries(context, url)
+                print(f"Found {len(groceries)} groceries")
+                logging.info(f"Found {len(groceries)} groceries for {area_name}")
+
+                for grocery in groceries:
+                    grocery_url = grocery.get("url")
+                    grocery_title = grocery.get("title")
+                    if not grocery_url or not grocery_title:
+                        logging.warning(f"Skipping grocery with missing url or title: {grocery}")
+                        continue
+
+                    if grocery_url in self.scraped_progress["current_progress"]["processed_groceries"]:
+                        logging.info(f"Skipping already processed grocery: {grocery_title} ({grocery_url})")
+                        continue
+
+                    logging.info(f"Processing grocery: {grocery_title} ({grocery_url})")
+                    page = await context.new_page()
+                    talabat_grocery = TalabatGroceries(grocery_url, browser, self)
+                    try:
+                        await page.goto(grocery_url, timeout=240000, wait_until="domcontentloaded")
+                        await page.wait_for_load_state("networkidle", timeout=240000)
+                        categories_data = await talabat_grocery.extract_categories(page)
+                        self.scraped_progress["current_progress"]["processed_groceries"].append(grocery_url)
+                        self.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {}).update({
+                            "url": grocery_url,
+                            "categories_data": categories_data
+                        })
+                        self.save_scraped_progress(self.scraped_progress)
+                    except Exception as e:
+                        logging.error(f"Error processing grocery {grocery_title} ({grocery_url}): {e}")
+                        print(f"Error processing grocery {grocery_title}: {e}")
+                    finally:
+                        await page.close()
+
+                await self.verify_groceries(area_name, groceries)
+                self.current_progress["completed_areas"].append(area_name)
+                self.scraped_progress["completed_areas"].append(area_name)
+                self.save_current_progress(self.current_progress)
+                self.save_scraped_progress(self.scraped_progress)
+                logging.info(f"Completed scraping for area: {area_name}")
+                print(f"All groceries processed for area: {area_name}")
+                await browser.close()
+
+        except Exception as e:
+            logging.error(f"Error processing area {area_name}: {e}")
+            print(f"Error processing area {area_name}: {e}")
+            raise
+                
     def commit_progress(self, message: str):
         """Commit progress files to Git repository."""
         if not self.github_token:
@@ -1702,225 +1800,225 @@ class MainScraper:
         except Exception as e:
             logging.error(f"Error converting JSON to Excel for {area_name}: {e}")
 
-    async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
-        """Scrape a single area, delete JSON after Excel upload."""
-        print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
-        process = psutil.Process()
-        logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
-        logging.info(f"Active browser contexts: {self.active_contexts}")
+    # async def scrape_and_save_area(self, area_name: str, area_url: str, browser) -> List[Dict]:
+    #     """Scrape a single area, delete JSON after Excel upload."""
+    #     print(f"\n{'='*50}\nSCRAPING AREA: {area_name}\nURL: {area_url}\n{'='*50}")
+    #     process = psutil.Process()
+    #     logging.info(f"Memory usage before scrape: {process.memory_info().rss / 1024 / 1024:.2f} MB")
+    #     logging.info(f"Active browser contexts: {self.active_contexts}")
 
-        if not await self.check_server_status(area_url):
-            print(f"Server at {area_url} is not responding or rate limited, aborting scrape.")
-            return []
+    #     if not await self.check_server_status(area_url):
+    #         print(f"Server at {area_url} is not responding or rate limited, aborting scrape.")
+    #         return []
 
-        all_area_results = self.scraped_progress["all_results"].get(area_name, {})
-        current_progress = self.current_progress["current_progress"]
-        scraped_current_progress = self.scraped_progress["current_progress"]
+    #     all_area_results = self.scraped_progress["all_results"].get(area_name, {})
+    #     current_progress = self.current_progress["current_progress"]
+    #     scraped_current_progress = self.scraped_progress["current_progress"]
 
-        if current_progress["area_name"] != area_name:
-            current_progress.update({
-                "area_name": area_name,
-                "current_grocery": 0,
-                "current_grocery_title": None,
-                "current_grocery_link": None,
-                "total_groceries": 0,
-                "processed_groceries": [],
-                "current_category": None,
-                "current_sub_category": None,
-                "completed_groceries": {}
-            })
-            scraped_current_progress.update(current_progress)
-            self.save_current_progress()
-            self.save_scraped_progress()
-            self.commit_progress(f"Started scraping {area_name}")
+    #     if current_progress["area_name"] != area_name:
+    #         current_progress.update({
+    #             "area_name": area_name,
+    #             "current_grocery": 0,
+    #             "current_grocery_title": None,
+    #             "current_grocery_link": None,
+    #             "total_groceries": 0,
+    #             "processed_groceries": [],
+    #             "current_category": None,
+    #             "current_sub_category": None,
+    #             "completed_groceries": {}
+    #         })
+    #         scraped_current_progress.update(current_progress)
+    #         self.save_current_progress()
+    #         self.save_scraped_progress()
+    #         self.commit_progress(f"Started scraping {area_name}")
 
-        context = None
-        page = None
-        try:
-            browser = await self.get_browser()
-            proxy = random.choice(self.proxies) if self.proxies else None
-            context = await browser.new_context(
-                user_agent=random.choice(self.user_agents),
-                viewport={"width": 1920, "height": 1080},
-                java_script_enabled=True,
-                bypass_csp=True,
-                proxy=proxy,
-                extra_http_headers={
-                    "Accept-Language": "en-US,en;q=0.9",
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                    "Connection": "keep-alive",
-                }
-            )
-            page = await context.new_page()
-            response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
-            if response and response.status == 429:
-                print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
-                domain = area_url.split('/')[2]
-                self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 60) * 1.5
-                return []
-            elif response and response.status >= 500:
-                print(f"Server error ({response.status}) for {area_url}, aborting scrape.")
-                return []
+    #     context = None
+    #     page = None
+    #     try:
+    #         browser = await self.get_browser()
+    #         proxy = random.choice(self.proxies) if self.proxies else None
+    #         context = await browser.new_context(
+    #             user_agent=random.choice(self.user_agents),
+    #             viewport={"width": 1920, "height": 1080},
+    #             java_script_enabled=True,
+    #             bypass_csp=True,
+    #             proxy=proxy,
+    #             extra_http_headers={
+    #                 "Accept-Language": "en-US,en;q=0.9",
+    #                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    #                 "Connection": "keep-alive",
+    #             }
+    #         )
+    #         page = await context.new_page()
+    #         response = await page.goto(area_url, timeout=60000, wait_until="domcontentloaded")
+    #         if response and response.status == 429:
+    #             print(f"Rate limit hit (429) for {area_url}, aborting scrape.")
+    #             domain = area_url.split('/')[2]
+    #             self.rate_limit_delays[domain] = self.rate_limit_delays.get(domain, 60) * 1.5
+    #             return []
+    #         elif response and response.status >= 500:
+    #             print(f"Server error ({response.status}) for {area_url}, aborting scrape.")
+    #             return []
 
-            groceries_on_page = await self.get_page_groceries(page)
-            current_progress["total_groceries"] = len(groceries_on_page)
-            scraped_current_progress["total_groceries"] = len(groceries_on_page)
-            print(f"Found {len(groceries_on_page)} groceries")
-            await page.close()
+    #         groceries_on_page = await self.get_page_groceries(page)
+    #         current_progress["total_groceries"] = len(groceries_on_page)
+    #         scraped_current_progress["total_groceries"] = len(groceries_on_page)
+    #         print(f"Found {len(groceries_on_page)} groceries")
+    #         await page.close()
 
-            processed_grocery_titles = set(current_progress["processed_groceries"])
-            current_grocery_title = current_progress.get("current_grocery_title")
+    #         processed_grocery_titles = set(current_progress["processed_groceries"])
+    #         current_grocery_title = current_progress.get("current_grocery_title")
 
-            for grocery_idx, grocery in enumerate(groceries_on_page):
-                grocery_num = grocery_idx + 1
-                grocery_title = grocery["grocery_title"]
-                grocery_link = grocery["grocery_link"]
+    #         for grocery_idx, grocery in enumerate(groceries_on_page):
+    #             grocery_num = grocery_idx + 1
+    #             grocery_title = grocery["grocery_title"]
+    #             grocery_link = grocery["grocery_link"]
 
-                if grocery_title in processed_grocery_titles:
-                    print(f"Skipping already processed grocery: {grocery_title}")
-                    continue
+    #             if grocery_title in processed_grocery_titles:
+    #                 print(f"Skipping already processed grocery: {grocery_title}")
+    #                 continue
 
-                if current_grocery_title and current_grocery_title != grocery_title:
-                    print(f"Skipping grocery {grocery_title}, waiting for {current_grocery_title}")
-                    continue
+    #             if current_grocery_title and current_grocery_title != grocery_title:
+    #                 print(f"Skipping grocery {grocery_title}, waiting for {current_grocery_title}")
+    #                 continue
 
-                current_progress["current_grocery"] = grocery_num
-                current_progress["current_grocery_title"] = grocery_title
-                current_progress["current_grocery_link"] = grocery_link
-                scraped_current_progress["current_grocery"] = grocery_num
-                scraped_current_progress["current_grocery_title"] = grocery_title
-                scraped_current_progress["current_grocery_link"] = grocery_link
-                self.save_current_progress()
-                self.save_scraped_progress()
-                print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
+    #             current_progress["current_grocery"] = grocery_num
+    #             current_progress["current_grocery_title"] = grocery_title
+    #             current_progress["current_grocery_link"] = grocery_link
+    #             scraped_current_progress["current_grocery"] = grocery_num
+    #             scraped_current_progress["current_grocery_title"] = grocery_title
+    #             scraped_current_progress["current_grocery_link"] = grocery_link
+    #             self.save_current_progress()
+    #             self.save_scraped_progress()
+    #             print(f"Processing grocery {grocery_num}/{len(groceries_on_page)}: {grocery_title} (link: {grocery_link})")
 
-                async with self.context_semaphore:
-                    self.active_contexts += 1
-                    grocery_context = await browser.new_context(
-                        user_agent=random.choice(self.user_agents),
-                        proxy=random.choice(self.proxies) if self.proxies else None
-                    )
-                    grocery_page = await grocery_context.new_page()
-                    talabat_grocery = TalabatGroceries(grocery_link, browser, self)
-                    grocery_details = await talabat_grocery.extract_categories(grocery_page)
-                    all_area_results[grocery_title] = {
-                        "grocery_link": grocery_link,
-                        "delivery_time": grocery["delivery_time"],
-                        "grocery_details": grocery_details
-                    }
-                    self.scraped_progress["all_results"][area_name] = all_area_results
-                    self.save_scraped_progress()
+    #             async with self.context_semaphore:
+    #                 self.active_contexts += 1
+    #                 grocery_context = await browser.new_context(
+    #                     user_agent=random.choice(self.user_agents),
+    #                     proxy=random.choice(self.proxies) if self.proxies else None
+    #                 )
+    #                 grocery_page = await grocery_context.new_page()
+    #                 talabat_grocery = TalabatGroceries(grocery_link, browser, self)
+    #                 grocery_details = await talabat_grocery.extract_categories(grocery_page)
+    #                 all_area_results[grocery_title] = {
+    #                     "grocery_link": grocery_link,
+    #                     "delivery_time": grocery["delivery_time"],
+    #                     "grocery_details": grocery_details
+    #                 }
+    #                 self.scraped_progress["all_results"][area_name] = all_area_results
+    #                 self.save_scraped_progress()
 
-                    await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
-                    await grocery_page.close()
-                    await grocery_context.close()
-                    self.active_contexts -= 1
-                    await asyncio.sleep(random.uniform(5, 10))  # Random delay to avoid detection
+    #                 await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, groceries_on_page, grocery_idx)
+    #                 await grocery_page.close()
+    #                 await grocery_context.close()
+    #                 self.active_contexts -= 1
+    #                 await asyncio.sleep(random.uniform(5, 10))  # Random delay to avoid detection
 
-                if current_grocery_title == grocery_title:
-                    break
+    #             if current_grocery_title == grocery_title:
+    #                 break
 
-            print(f"Verifying groceries for area: {area_name}")
-            verify_context = await browser.new_context(
-                user_agent=random.choice(self.user_agents),
-                proxy=random.choice(self.proxies) if self.proxies else None
-            )
-            page = await verify_context.new_page()
-            await page.goto(area_url, timeout=60000)
-            current_groceries = await self.get_page_groceries(page)
-            await page.close()
-            await verify_context.close()
+    #         print(f"Verifying groceries for area: {area_name}")
+    #         verify_context = await browser.new_context(
+    #             user_agent=random.choice(self.user_agents),
+    #             proxy=random.choice(self.proxies) if self.proxies else None
+    #         )
+    #         page = await verify_context.new_page()
+    #         await page.goto(area_url, timeout=60000)
+    #         current_groceries = await self.get_page_groceries(page)
+    #         await page.close()
+    #         await verify_context.close()
 
-            missing_groceries = [g for g in current_groceries if g["grocery_title"] not in processed_grocery_titles]
-            if missing_groceries:
-                print(f"Found {len(missing_groceries)} missing groceries in {area_name}")
-                for grocery_idx, grocery in enumerate(missing_groceries):
-                    grocery_num = len(groceries_on_page) + grocery_idx + 1
-                    grocery_title = grocery["grocery_title"]
-                    grocery_link = grocery["grocery_link"]
-                    print(f"Processing missing grocery {grocery_num}: {grocery_title} (link: {grocery_link})")
+    #         missing_groceries = [g for g in current_groceries if g["grocery_title"] not in processed_grocery_titles]
+    #         if missing_groceries:
+    #             print(f"Found {len(missing_groceries)} missing groceries in {area_name}")
+    #             for grocery_idx, grocery in enumerate(missing_groceries):
+    #                 grocery_num = len(groceries_on_page) + grocery_idx + 1
+    #                 grocery_title = grocery["grocery_title"]
+    #                 grocery_link = grocery["grocery_link"]
+    #                 print(f"Processing missing grocery {grocery_num}: {grocery_title} (link: {grocery_link})")
 
-                    current_progress["current_grocery"] = grocery_num
-                    current_progress["current_grocery_title"] = grocery_title
-                    current_progress["current_grocery_link"] = grocery_link
-                    scraped_current_progress["current_grocery"] = grocery_num
-                    scraped_current_progress["current_grocery_title"] = grocery_title
-                    scraped_current_progress["current_grocery_link"] = grocery_link
-                    self.save_current_progress()
-                    self.save_scraped_progress()
+    #                 current_progress["current_grocery"] = grocery_num
+    #                 current_progress["current_grocery_title"] = grocery_title
+    #                 current_progress["current_grocery_link"] = grocery_link
+    #                 scraped_current_progress["current_grocery"] = grocery_num
+    #                 scraped_current_progress["current_grocery_title"] = grocery_title
+    #                 scraped_current_progress["current_grocery_link"] = grocery_link
+    #                 self.save_current_progress()
+    #                 self.save_scraped_progress()
 
-                    async with self.context_semaphore:
-                        self.active_contexts += 1
-                        grocery_context = await browser.new_context(
-                            user_agent=random.choice(self.user_agents),
-                            proxy=random.choice(self.proxies) if self.proxies else None
-                        )
-                        grocery_page = await grocery_context.new_page()
-                        talabat_grocery = TalabatGroceries(grocery_link, browser, self)
-                        grocery_details = await talabat_grocery.extract_categories(grocery_page)
-                        all_area_results[grocery_title] = {
-                            "grocery_link": grocery_link,
-                            "delivery_time": grocery["delivery_time"],
-                            "grocery_details": grocery_details
-                        }
-                        self.scraped_progress["all_results"][area_name] = all_area_results
-                        self.save_scraped_progress()
+    #                 async with self.context_semaphore:
+    #                     self.active_contexts += 1
+    #                     grocery_context = await browser.new_context(
+    #                         user_agent=random.choice(self.user_agents),
+    #                         proxy=random.choice(self.proxies) if self.proxies else None
+    #                     )
+    #                     grocery_page = await grocery_context.new_page()
+    #                     talabat_grocery = TalabatGroceries(grocery_link, browser, self)
+    #                     grocery_details = await talabat_grocery.extract_categories(grocery_page)
+    #                     all_area_results[grocery_title] = {
+    #                         "grocery_link": grocery_link,
+    #                         "delivery_time": grocery["delivery_time"],
+    #                         "grocery_details": grocery_details
+    #                     }
+    #                     self.scraped_progress["all_results"][area_name] = all_area_results
+    #                     self.save_scraped_progress()
 
-                        await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, current_groceries, grocery_idx)
-                        await grocery_page.close()
-                        await grocery_context.close()
-                        self.active_contexts -= 1
-                        await asyncio.sleep(random.uniform(5, 10))
+    #                     await self.process_grocery_categories(grocery_title, grocery_details, talabat_grocery, grocery_page, current_groceries, grocery_idx)
+    #                     await grocery_page.close()
+    #                     await grocery_context.close()
+    #                     self.active_contexts -= 1
+    #                     await asyncio.sleep(random.uniform(5, 10))
 
-            if all(g["grocery_title"] in processed_grocery_titles for g in groceries_on_page):
-                print(f"All groceries processed for area: {area_name}")
-                self.current_progress["completed_areas"].append(area_name)
-                self.scraped_progress["completed_areas"].append(area_name)
-                self.current_progress["current_progress"].update({
-                    "current_grocery": 0,
-                    "current_grocery_title": None,
-                    "current_grocery_link": None,
-                    "total_groceries": 0,
-                    "processed_groceries": [],
-                    "current_category": None,
-                    "current_sub_category": None,
-                    "completed_groceries": {}
-                })
-                self.scraped_progress["current_progress"].update({
-                    "current_grocery": 0,
-                    "current_grocery_title": None,
-                    "current_grocery_link": None,
-                    "total_groceries": 0,
-                    "processed_groceries": [],
-                    "current_category": None,
-                    "current_sub_category": None,
-                    "completed_groceries": {}
-                })
-                self.save_current_progress()
-                self.save_scraped_progress()
-                self.commit_progress(f"Completed scraping area: {area_name}")
+    #         if all(g["grocery_title"] in processed_grocery_titles for g in groceries_on_page):
+    #             print(f"All groceries processed for area: {area_name}")
+    #             self.current_progress["completed_areas"].append(area_name)
+    #             self.scraped_progress["completed_areas"].append(area_name)
+    #             self.current_progress["current_progress"].update({
+    #                 "current_grocery": 0,
+    #                 "current_grocery_title": None,
+    #                 "current_grocery_link": None,
+    #                 "total_groceries": 0,
+    #                 "processed_groceries": [],
+    #                 "current_category": None,
+    #                 "current_sub_category": None,
+    #                 "completed_groceries": {}
+    #             })
+    #             self.scraped_progress["current_progress"].update({
+    #                 "current_grocery": 0,
+    #                 "current_grocery_title": None,
+    #                 "current_grocery_link": None,
+    #                 "total_groceries": 0,
+    #                 "processed_groceries": [],
+    #                 "current_category": None,
+    #                 "current_sub_category": None,
+    #                 "completed_groceries": {}
+    #             })
+    #             self.save_current_progress()
+    #             self.save_scraped_progress()
+    #             self.commit_progress(f"Completed scraping area: {area_name}")
 
-            json_filename = os.path.join(self.output_dir, f"{area_name}.json")
-            with open(json_filename, 'w', encoding='utf-8') as f:
-                json.dump(all_area_results, f, indent=2, ensure_ascii=False)
-            if self.upload_to_drive(json_filename):
-                logging.info(f"Uploaded {json_filename} to Google Drive")
-            else:
-                logging.warning(f"Failed to upload {json_filename} to Google Drive")
+    #         json_filename = os.path.join(self.output_dir, f"{area_name}.json")
+    #         with open(json_filename, 'w', encoding='utf-8') as f:
+    #             json.dump(all_area_results, f, indent=2, ensure_ascii=False)
+    #         if self.upload_to_drive(json_filename):
+    #             logging.info(f"Uploaded {json_filename} to Google Drive")
+    #         else:
+    #             logging.warning(f"Failed to upload {json_filename} to Google Drive")
 
-            print(f"Waiting 30 seconds before updating Excel for {area_name}...")
-            await asyncio.sleep(30)
-            await self.convert_json_to_excel(area_name, json_filename)
+    #         print(f"Waiting 30 seconds before updating Excel for {area_name}...")
+    #         await asyncio.sleep(30)
+    #         await self.convert_json_to_excel(area_name, json_filename)
 
-            return list(all_area_results.values())
-        except Exception as e:
-            logging.error(f"Error scraping area {area_name}: {e}")
-            return []
-        finally:
-            if page:
-                await page.close()
-            if context:
-                await context.close()
+    #         return list(all_area_results.values())
+    #     except Exception as e:
+    #         logging.error(f"Error scraping area {area_name}: {e}")
+    #         return []
+    #     finally:
+    #         if page:
+    #             await page.close()
+    #         if context:
+    #             await context.close()
                 
     # async def run(self, area_urls: List[Dict]):
     #     """Run the scraper for all provided areas, re-scraping completed areas."""
