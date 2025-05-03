@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "أبو حليفة"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-03T01:21:01.418037",
+  "last_updated": "2025-05-03T06:24:35.745865",
   "current_progress": {
-    "area_name": "أبو حليفة",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
