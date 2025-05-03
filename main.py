@@ -984,136 +984,211 @@ class MainScraper:
     #     self.save_scraped_progress()
     #     self.commit_progress(f"Initialized progress files for {area_name}")
 
+    # async def check_server_status(self, url):
+    #     """Check server status with improved proxy rotation, extended retries, and detailed logging."""
+    #     async with aiohttp.ClientSession() as session:
+    #         max_retries = 6  # Increased from 5 to 6
+    #         used_proxies = []
+    #         proxies = self.proxies.copy() if self.proxies else []
+    #         domain = url.split('/')[2]
+    
+    #         # Filter out placeholder or invalid proxies
+    #         valid_proxies = [
+    #             p for p in proxies
+    #             if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
+    #         ]
+    
+    #         if not valid_proxies:
+    #             logging.warning(f"No valid proxies configured for {url}, attempting request without proxy")
+    #             for attempt in range(max_retries):
+    #                 try:
+    #                     async with session.get(url, timeout=20) as response:
+    #                         logging.info(f"Non-proxy attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
+    #                         if response.status == 429:
+    #                             delay = 120 * (2 ** attempt)  # Increased base delay from 60 to 120
+    #                             self.rate_limit_delays[domain] = min(delay, 1800)  # Cap at 30 minutes
+    #                             logging.info(f"Rate limit hit (429) for {url}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
+    #                             await asyncio.sleep(delay)
+    #                             continue
+    #                         elif response.status >= 500:
+    #                             logging.warning(f"Server error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
+    #                             await asyncio.sleep(15 * (2 ** attempt))
+    #                             continue
+    #                         elif response.status >= 400:
+    #                             logging.error(f"Client error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
+    #                             return False
+    #                         logging.info(f"Server check successful for {url} without proxy: status {response.status}")
+    #                         return response.status < 400
+    #                 except Exception as e:
+    #                     logging.warning(f"Non-proxy attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
+    #                     await asyncio.sleep(15 * (2 ** attempt))
+    #             logging.error(f"Server check failed for {url} after {max_retries} non-proxy attempts")
+    #             return False
+    
+    #         for attempt in range(max_retries):
+    #             if not valid_proxies:
+    #                 logging.warning(f"No more proxies available for {url}, switching to non-proxy attempt")
+    #                 break
+    
+    #             proxy = random.choice(valid_proxies)
+    #             used_proxies.append(proxy)
+    #             valid_proxies.remove(proxy)
+    
+    #             try:
+    #                 async with session.get(
+    #                     url,
+    #                     timeout=20,
+    #                     proxy=proxy["server"],
+    #                     proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
+    #                 ) as response:
+    #                     logging.info(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} for {url}: status {response.status}")
+    #                     if response.status == 429:
+    #                         delay = 120 * (2 ** attempt)  # Increased base delay
+    #                         self.rate_limit_delays[domain] = min(delay, 1800)
+    #                         logging.info(f"Rate limit hit (429) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
+    #                         await asyncio.sleep(delay)
+    #                         continue
+    #                     elif response.status >= 500:
+    #                         logging.warning(f"Server error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
+    #                         await asyncio.sleep(15 * (2 ** attempt))
+    #                         continue
+    #                     elif response.status >= 400:
+    #                         logging.error(f"Client error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
+    #                         return False
+    #                     logging.info(f"Server check successful for {url} with proxy {proxy['server']}: status {response.status}")
+    #                     return response.status < 400
+    #             except Exception as e:
+    #                 logging.warning(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} failed for {url}: {e}")
+    #                 if attempt < max_retries - 1:
+    #                     await asyncio.sleep(15 * (2 ** attempt))
+    
+    #         # Fallback to non-proxy attempt if all proxies fail
+    #         logging.warning(f"All proxies failed for {url}, attempting without proxy")
+    #         for attempt in range(max_retries):
+    #             try:
+    #                 async with session.get(url, timeout=20) as response:
+    #                     logging.info(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
+    #                     if response.status == 429:
+    #                         delay = 120 * (2 ** attempt)
+    #                         self.rate_limit_delays[domain] = min(delay, 1800)
+    #                         logging.info(f"Rate limit hit (429) for {url} without proxy, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
+    #                         await asyncio.sleep(delay)
+    #                         continue
+    #                     elif response.status >= 500:
+    #                         logging.warning(f"Server error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
+    #                         await asyncio.sleep(15 * (2 ** attempt))
+    #                         continue
+    #                     elif response.status >= 400:
+    #                         logging.error(f"Client error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
+    #                         return False
+    #                     logging.info(f"Server check successful for {url} without proxy: status {response.status}")
+    #                     return response.status < 400
+    #             except Exception as e:
+    #                 logging.warning(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
+    #                 await asyncio.sleep(15 * (2 ** attempt))
+    #         logging.error(f"Server check failed for {url} after {max_retries} attempts with and without proxies")
+    #         return False
+        
+    # def reset_area_progress(self, area_name: str):
+    #     """Reset progress for an area to start scraping from the beginning."""
+    #     self.current_progress["current_progress"] = {
+    #         "area_name": area_name,
+    #         "current_grocery": 0,
+    #         "current_grocery_title": None,
+    #         "current_grocery_link": None,
+    #         "total_groceries": 0,
+    #         "processed_groceries": [],
+    #         "current_category": None,
+    #         "current_sub_category": None,
+    #         "completed_groceries": {}
+    #     }
+    #     self.scraped_progress["current_progress"] = self.current_progress["current_progress"].copy()
+    #     self.scraped_progress["all_results"][area_name] = {}
+    #     if area_name in self.current_progress["completed_areas"]:
+    #         self.current_progress["completed_areas"].remove(area_name)
+    #     if area_name in self.scraped_progress["completed_areas"]:
+    #         self.scraped_progress["completed_areas"].remove(area_name)
+    #     self.current_progress["last_updated"] = datetime.now().isoformat()
+    #     self.scraped_progress["last_updated"] = datetime.now().isoformat()
+    #     self.save_current_progress()
+    #     self.save_scraped_progress()
+    #     self.commit_progress(f"Reset progress for {area_name} to re-scrape")
+    #     logging.info(f"Reset progress for area: {area_name}")
+
     async def check_server_status(self, url):
-        """Check server status with improved proxy rotation, extended retries, and detailed logging."""
+        """Check server status with timeout, improved proxy handling, and reduced retries."""
+        logging.info(f"Checking server status for {url}")
         async with aiohttp.ClientSession() as session:
-            max_retries = 6  # Increased from 5 to 6
-            used_proxies = []
+            max_retries = 3  # Reduced from 6
             proxies = self.proxies.copy() if self.proxies else []
             domain = url.split('/')[2]
-    
-            # Filter out placeholder or invalid proxies
+
+            # Filter valid proxies
             valid_proxies = [
                 p for p in proxies
                 if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
             ]
-    
             if not valid_proxies:
-                logging.warning(f"No valid proxies configured for {url}, attempting request without proxy")
-                for attempt in range(max_retries):
-                    try:
-                        async with session.get(url, timeout=20) as response:
-                            logging.info(f"Non-proxy attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
-                            if response.status == 429:
-                                delay = 120 * (2 ** attempt)  # Increased base delay from 60 to 120
-                                self.rate_limit_delays[domain] = min(delay, 1800)  # Cap at 30 minutes
-                                logging.info(f"Rate limit hit (429) for {url}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
-                                await asyncio.sleep(delay)
-                                continue
-                            elif response.status >= 500:
-                                logging.warning(f"Server error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
-                                await asyncio.sleep(15 * (2 ** attempt))
-                                continue
-                            elif response.status >= 400:
-                                logging.error(f"Client error ({response.status}) for {url}, attempt {attempt + 1}/{max_retries}")
-                                return False
-                            logging.info(f"Server check successful for {url} without proxy: status {response.status}")
-                            return response.status < 400
-                    except Exception as e:
-                        logging.warning(f"Non-proxy attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
-                        await asyncio.sleep(15 * (2 ** attempt))
-                logging.error(f"Server check failed for {url} after {max_retries} non-proxy attempts")
+                logging.warning(f"No valid proxies configured for {url}, using direct connection")
+
+            # Overall timeout for the method
+            try:
+                async with asyncio.timeout(60):  # 60-second total timeout
+                    for attempt in range(max_retries):
+                        proxy = random.choice(valid_proxies) if valid_proxies else None
+                        try:
+                            if proxy:
+                                logging.info(f"Attempt {attempt + 1}/{max_retries} with proxy {proxy['server']}")
+                                async with session.get(
+                                    url,
+                                    timeout=15,  # Reduced from 20
+                                    proxy=proxy["server"],
+                                    proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
+                                ) as response:
+                                    status = response.status
+                                    logging.info(f"Proxy response status: {status}")
+                                    if status == 429:
+                                        delay = 30 * (1.5 ** attempt)  # Reduced base delay
+                                        self.rate_limit_delays[domain] = min(delay, 600)  # Cap at 10 minutes
+                                        logging.info(f"Rate limit (429), waiting {delay}s")
+                                        await asyncio.sleep(delay)
+                                        continue
+                                    elif status >= 500:
+                                        logging.warning(f"Server error ({status}), retrying")
+                                        await asyncio.sleep(5 * (1.5 ** attempt))
+                                        continue
+                                    elif status >= 400:
+                                        logging.error(f"Client error ({status})")
+                                        return False
+                                    return True
+                            else:
+                                logging.info(f"Attempt {attempt + 1}/{max_retries} without proxy")
+                                async with session.get(url, timeout=15) as response:
+                                    status = response.status
+                                    logging.info(f"Non-proxy response status: {status}")
+                                    if status == 429:
+                                        delay = 30 * (1.5 ** attempt)
+                                        self.rate_limit_delays[domain] = min(delay, 600)
+                                        logging.info(f"Rate limit (429), waiting {delay}s")
+                                        await asyncio.sleep(delay)
+                                        continue
+                                    elif status >= 500:
+                                        logging.warning(f"Server error ({status}), retrying")
+                                        await asyncio.sleep(5 * (1.5 ** attempt))
+                                        continue
+                                    elif status >= 400:
+                                        logging.error(f"Client error ({status})")
+                                        return False
+                                    return True
+                        except Exception as e:
+                            logging.warning(f"Attempt {attempt + 1} failed: {e}")
+                            if attempt < max_retries - 1:
+                                await asyncio.sleep(5 * (1.5 ** attempt))
+                    logging.error(f"Server check failed after {max_retries} attempts")
+                    return False
+            except asyncio.TimeoutError:
+                logging.error(f"Server check timed out after 60 seconds for {url}")
                 return False
-    
-            for attempt in range(max_retries):
-                if not valid_proxies:
-                    logging.warning(f"No more proxies available for {url}, switching to non-proxy attempt")
-                    break
-    
-                proxy = random.choice(valid_proxies)
-                used_proxies.append(proxy)
-                valid_proxies.remove(proxy)
-    
-                try:
-                    async with session.get(
-                        url,
-                        timeout=20,
-                        proxy=proxy["server"],
-                        proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
-                    ) as response:
-                        logging.info(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} for {url}: status {response.status}")
-                        if response.status == 429:
-                            delay = 120 * (2 ** attempt)  # Increased base delay
-                            self.rate_limit_delays[domain] = min(delay, 1800)
-                            logging.info(f"Rate limit hit (429) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
-                            await asyncio.sleep(delay)
-                            continue
-                        elif response.status >= 500:
-                            logging.warning(f"Server error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
-                            await asyncio.sleep(15 * (2 ** attempt))
-                            continue
-                        elif response.status >= 400:
-                            logging.error(f"Client error ({response.status}) for {url} with proxy {proxy['server']}, attempt {attempt + 1}/{max_retries}")
-                            return False
-                        logging.info(f"Server check successful for {url} with proxy {proxy['server']}: status {response.status}")
-                        return response.status < 400
-                except Exception as e:
-                    logging.warning(f"Proxy attempt {attempt + 1}/{max_retries} with {proxy['server']} failed for {url}: {e}")
-                    if attempt < max_retries - 1:
-                        await asyncio.sleep(15 * (2 ** attempt))
-    
-            # Fallback to non-proxy attempt if all proxies fail
-            logging.warning(f"All proxies failed for {url}, attempting without proxy")
-            for attempt in range(max_retries):
-                try:
-                    async with session.get(url, timeout=20) as response:
-                        logging.info(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} for {url}: status {response.status}")
-                        if response.status == 429:
-                            delay = 120 * (2 ** attempt)
-                            self.rate_limit_delays[domain] = min(delay, 1800)
-                            logging.info(f"Rate limit hit (429) for {url} without proxy, attempt {attempt + 1}/{max_retries}, waiting {delay}s")
-                            await asyncio.sleep(delay)
-                            continue
-                        elif response.status >= 500:
-                            logging.warning(f"Server error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
-                            await asyncio.sleep(15 * (2 ** attempt))
-                            continue
-                        elif response.status >= 400:
-                            logging.error(f"Client error ({response.status}) for {url} without proxy, attempt {attempt + 1}/{max_retries}")
-                            return False
-                        logging.info(f"Server check successful for {url} without proxy: status {response.status}")
-                        return response.status < 400
-                except Exception as e:
-                    logging.warning(f"Non-proxy fallback attempt {attempt + 1}/{max_retries} failed for {url}: {e}")
-                    await asyncio.sleep(15 * (2 ** attempt))
-            logging.error(f"Server check failed for {url} after {max_retries} attempts with and without proxies")
-            return False
-        
-    def reset_area_progress(self, area_name: str):
-        """Reset progress for an area to start scraping from the beginning."""
-        self.current_progress["current_progress"] = {
-            "area_name": area_name,
-            "current_grocery": 0,
-            "current_grocery_title": None,
-            "current_grocery_link": None,
-            "total_groceries": 0,
-            "processed_groceries": [],
-            "current_category": None,
-            "current_sub_category": None,
-            "completed_groceries": {}
-        }
-        self.scraped_progress["current_progress"] = self.current_progress["current_progress"].copy()
-        self.scraped_progress["all_results"][area_name] = {}
-        if area_name in self.current_progress["completed_areas"]:
-            self.current_progress["completed_areas"].remove(area_name)
-        if area_name in self.scraped_progress["completed_areas"]:
-            self.scraped_progress["completed_areas"].remove(area_name)
-        self.current_progress["last_updated"] = datetime.now().isoformat()
-        self.scraped_progress["last_updated"] = datetime.now().isoformat()
-        self.save_current_progress()
-        self.save_scraped_progress()
-        self.commit_progress(f"Reset progress for {area_name} to re-scrape")
-        logging.info(f"Reset progress for area: {area_name}")
 
     async def initialize_browsers(self, playwright):
         """Initialize a pool of browser instances."""
@@ -1379,74 +1454,6 @@ class MainScraper:
             logging.error(f"Error loading scraped progress: {e}")
             self.save_scraped_progress(default_progress)
             return default_progress
-
-    async def scrape_and_save_area(self, area_name, url):
-        """Scrape an area and save the results."""
-        logging.info(f"Starting scrape for area: {area_name} with URL: {url}")
-        print(f"==================================================")
-        print(f"SCRAPING AREA: {area_name}")
-        print(f"URL: {url}")
-        print(f"==================================================")
-        try:
-            # Initialize completed_areas if missing
-            if "completed_areas" not in self.current_progress:
-                self.current_progress["completed_areas"] = []
-            if "completed_areas" not in self.scraped_progress:
-                self.scraped_progress["completed_areas"] = []
-
-            async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=True)
-                context = await browser.new_context(
-                    viewport={"width": 1920, "height": 1080},
-                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-                )
-                groceries = await self.extract_groceries(context, url)
-                print(f"Found {len(groceries)} groceries")
-                logging.info(f"Found {len(groceries)} groceries for {area_name}")
-
-                for grocery in groceries:
-                    grocery_url = grocery.get("url")
-                    grocery_title = grocery.get("title")
-                    if not grocery_url or not grocery_title:
-                        logging.warning(f"Skipping grocery with missing url or title: {grocery}")
-                        continue
-
-                    if grocery_url in self.scraped_progress["current_progress"]["processed_groceries"]:
-                        logging.info(f"Skipping already processed grocery: {grocery_title} ({grocery_url})")
-                        continue
-
-                    logging.info(f"Processing grocery: {grocery_title} ({grocery_url})")
-                    page = await context.new_page()
-                    talabat_grocery = TalabatGroceries(grocery_url, browser, self)
-                    try:
-                        await page.goto(grocery_url, timeout=240000, wait_until="domcontentloaded")
-                        await page.wait_for_load_state("networkidle", timeout=240000)
-                        categories_data = await talabat_grocery.extract_categories(page)
-                        self.scraped_progress["current_progress"]["processed_groceries"].append(grocery_url)
-                        self.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {}).update({
-                            "url": grocery_url,
-                            "categories_data": categories_data
-                        })
-                        self.save_scraped_progress(self.scraped_progress)
-                    except Exception as e:
-                        logging.error(f"Error processing grocery {grocery_title} ({grocery_url}): {e}")
-                        print(f"Error processing grocery {grocery_title}: {e}")
-                    finally:
-                        await page.close()
-
-                await self.verify_groceries(area_name, groceries)
-                self.current_progress["completed_areas"].append(area_name)
-                self.scraped_progress["completed_areas"].append(area_name)
-                self.save_current_progress(self.current_progress)
-                self.save_scraped_progress(self.scraped_progress)
-                logging.info(f"Completed scraping for area: {area_name}")
-                print(f"All groceries processed for area: {area_name}")
-                await browser.close()
-
-        except Exception as e:
-            logging.error(f"Error processing area {area_name}: {e}")
-            print(f"Error processing area {area_name}: {e}")
-            raise
                 
     def commit_progress(self, message: str):
         """Commit progress files to Git repository."""
@@ -2045,197 +2052,374 @@ class MainScraper:
     #             self.executor.shutdown(wait=True)
     #             logging.info("Scraper run completed")
 
+    def reset_area_progress(self, area_name: str):
+        """Reset progress for an area with atomic file operations."""
+        logging.info(f"Resetting progress for area: {area_name}")
+        self.current_progress["current_progress"] = {
+            "area_name": area_name,
+            "current_grocery": 0,
+            "current_grocery_title": None,
+            "current_grocery_link": None,
+            "total_groceries": 0,
+            "processed_groceries": [],
+            "current_category": None,
+            "current_sub_category": None,
+            "completed_groceries": {}
+        }
+        self.scraped_progress["current_progress"] = self.current_progress["current_progress"].copy()
+        self.scraped_progress["all_results"][area_name] = {}
+        if area_name in self.current_progress["completed_areas"]:
+            self.current_progress["completed_areas"].remove(area_name)
+        if area_name in self.scraped_progress["completed_areas"]:
+            self.scraped_progress["completed_areas"].remove(area_name)
+        self.current_progress["last_updated"] = datetime.now().isoformat()
+        self.scraped_progress["last_updated"] = datetime.now().isoformat()
+        
+        # Atomic file writes to prevent locking
+        try:
+            self.save_current_progress()
+            self.save_scraped_progress()
+            self.commit_progress(f"Reset progress for {area_name} to re-scrape")
+            logging.info(f"Successfully reset progress for {area_name}")
+        except Exception as e:
+            logging.error(f"Error resetting progress for {area_name}: {e}")
+            raise
+
+    async def scrape_and_save_area(self, area_name, url):
+        """Scrape an area with timeout on browser launch and enhanced logging."""
+        logging.info(f"Starting scrape for area: {area_name} with URL: {url}")
+        print(f"==================================================")
+        print(f"SCRAPING AREA: {area_name}")
+        print(f"URL: {url}")
+        print(f"==================================================")
+        try:
+            async with async_playwright() as p:
+                # Add timeout for browser launch
+                try:
+                    browser = await asyncio.wait_for(
+                        p.chromium.launch(headless=True, args=[
+                            "--disable-blink-features=AutomationControlled",
+                            "--no-sandbox",
+                            "--disable-dev-shm-usage",
+                            "--disable-gpu",
+                            "--window-size=1920,1080",
+                        ]),
+                        timeout=30.0
+                    )
+                    logging.info("Browser launched successfully")
+                except asyncio.TimeoutError:
+                    logging.error("Timeout launching browser")
+                    raise Exception("Failed to launch browser within 30 seconds")
+
+                proxy = random.choice(self.proxies) if self.proxies else None
+                context = await browser.new_context(
+                    viewport={"width": 1920, "height": 1080},
+                    user_agent=random.choice(self.user_agents),
+                    proxy=proxy,
+                    extra_http_headers={
+                        "Accept-Language": "en-US,en;q=0.9",
+                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                        "Connection": "keep-alive",
+                    }
+                )
+                logging.info("Browser context created")
+
+                groceries = await self.extract_groceries(context, url)
+                print(f"Found {len(groceries)} groceries")
+                logging.info(f"Found {len(groceries)} groceries for {area_name}")
+
+                async with self.context_semaphore:
+                    for grocery in groceries:
+                        grocery_url = grocery.get("url")
+                        grocery_title = grocery.get("title")
+                        if not grocery_url or not grocery_title:
+                            logging.warning(f"Skipping grocery with missing url or title: {grocery}")
+                            continue
+
+                        if grocery_url in self.scraped_progress["current_progress"]["processed_groceries"]:
+                            logging.info(f"Skipping already processed grocery: {grocery_title} ({grocery_url})")
+                            continue
+
+                        logging.info(f"Processing grocery: {grocery_title} ({grocery_url})")
+                        self.active_contexts += 1
+                        page = await context.new_page()
+                        talabat_grocery = TalabatGroceries(grocery_url, browser, self)
+                        try:
+                            response = await page.goto(grocery_url, timeout=120000, wait_until="domcontentloaded")
+                            if response.status == 429:
+                                logging.error(f"Rate limit (429) for {grocery_url}")
+                                continue
+                            elif response.status >= 500:
+                                logging.error(f"Server error ({response.status}) for {grocery_url}")
+                                continue
+                            await page.wait_for_load_state("networkidle", timeout=120000)
+                            categories_data = await talabat_grocery.extract_categories(page)
+                            self.scraped_progress["current_progress"]["processed_groceries"].append(grocery_url)
+                            self.scraped_progress["all_results"].setdefault(area_name, {}).setdefault(grocery_title, {}).update({
+                                "url": grocery_url,
+                                "categories_data": categories_data
+                            })
+                            self.save_scraped_progress()
+                            self.commit_progress(f"Processed grocery {grocery_title} for {area_name}")
+                        except PlaywrightTimeoutError as e:
+                            logging.error(f"Timeout processing grocery {grocery_title} ({grocery_url}): {e}")
+                        except Exception as e:
+                            logging.error(f"Error processing grocery {grocery_title} ({grocery_url}): {e}")
+                        finally:
+                            await page.close()
+                            self.active_contexts -= 1
+                            await asyncio.sleep(random.uniform(3, 5))
+
+                await self.verify_groceries(area_name, groceries)
+                self.current_progress["completed_areas"].append(area_name)
+                self.scraped_progress["completed_areas"].append(area_name)
+                self.save_current_progress()
+                self.save_scraped_progress()
+                self.commit_progress(f"Completed scraping for area: {area_name}")
+                print(f"All groceries processed for area: {area_name}")
+                await context.close()
+                await browser.close()
+
+        except Exception as e:
+            logging.error(f"Error processing area {area_name}: {e}")
+            print(f"Error processing area {area_name}: {e}")
+            raise
+
     async def run(self, areas):
-        """Run the scraper for the specified areas with enhanced logging and broader selectors."""
+        """Run the scraper with robust error handling and anti-bot retry logic."""
         for area in areas:
             area_name = area["area_name"]
             area_url = area["url"]
+            logging.info(f"Starting scrape for area: {area_name}, URL: {area_url}")
             print(f"==================================================")
             print(f"SCRAPING AREA: {area_name}")
             print(f"URL: {area_url}")
             print(f"==================================================")
-            logging.info(f"Starting scrape for area: {area_name}, URL: {area_url}")
-    
-            # Check server status
-            if not await self.check_server_status(area_url):
-                print(f"Server at {area_url} is not responding or rate limited, aborting scrape.")
-                logging.error(f"Server check failed for {area_url}, aborting scrape for {area_name}")
+
+            # Check server status with timeout
+            try:
+                server_ok = await asyncio.wait_for(self.check_server_status(area_url), timeout=90)
+                if not server_ok:
+                    logging.error(f"Server check failed for {area_url}, skipping area")
+                    print(f"Server at {area_url} is not responding or rate limited, skipping.")
+                    continue
+            except asyncio.TimeoutError:
+                logging.error(f"Server status check timed out for {area_url}, skipping area")
+                print(f"Server status check timed out for {area_url}, skipping.")
                 continue
-    
-            # Initialize browser context
-            async with async_playwright() as p:
-                browser = await p.chromium.launch(headless=True)
-                self.browsers.append(browser)
-                context = await browser.new_context(
-                    user_agent=random.choice(self.user_agents),
-                    viewport={"width": 1920, "height": 1080}
-                )
-                page = await context.new_page()
-    
-                try:
-                    # Navigate to area URL
-                    logging.info(f"Navigating to area URL: {area_url}")
-                    response = await page.goto(area_url, timeout=240000, wait_until="domcontentloaded")
-                    if response and response.status == 429:
-                        logging.error(f"Rate limit hit (429) for {area_url}")
-                        print(f"Rate limit hit (429) for {area_url}, aborting.")
-                        continue
-                    elif response and response.status >= 500:
-                        logging.error(f"Server error ({response.status}) for {area_url}")
-                        print(f"Server error ({response.status}) for {area_url}, aborting.")
-                        continue
-                    elif response and response.status >= 400:
-                        logging.error(f"Client error ({response.status}) for {area_url}")
-                        print(f"Client error ({response.status}) for {area_url}, aborting.")
-                        continue
-    
-                    await page.wait_for_load_state("networkidle", timeout=240000)
-                    logging.info(f"Area page loaded successfully: {area_url}, status: {response.status}")
-    
-                    # Log page title and headers for debugging
-                    page_title = await page.title()
-                    headers = response.headers
-                    logging.info(f"Page title: {page_title}")
-                    logging.info(f"Response headers: {headers}")
-    
-                    # Check for anti-bot page
-                    anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
-                    if anti_bot:
-                        logging.error(f"Anti-bot page detected for {area_url}")
-                        print(f"Anti-bot page detected for {area_url}, aborting.")
-                        # Save debug artifacts
-                        html_content = await page.content()
-                        debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-                        with open(debug_file, "w", encoding="utf-8") as f:
-                            f.write(html_content)
-                        screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
-                        await page.screenshot(path=screenshot_file, full_page=True)
-                        logging.info(f"Saved debug artifacts for {area_name}: {debug_file}, {screenshot_file}")
-                        continue
-    
-                    # Extract grocery links with broader selectors
-                    selectors = [
-                        '[data-testid="vendor-card"] a',
-                        '.vendor-card a',
-                        '[data-testid="grocery-vendor"] a',
-                        '[class*="vendor"] a',
-                        'a[href*="/kuwait/groceries/"]'
-                    ]
-                    grocery_elements = []
-                    for selector in selectors:
-                        elements = await page.query_selector_all(selector)
-                        if elements:
-                            grocery_elements = elements
-                            logging.info(f"Found grocery elements with selector: {selector}")
+
+            max_retries = 3
+            for attempt in range(max_retries):
+                async with async_playwright() as p:
+                    try:
+                        browser = await asyncio.wait_for(
+                            p.chromium.launch(headless=True, args=[
+                                "--disable-blink-features=AutomationControlled",
+                                "--no-sandbox",
+                                "--disable-dev-shm-usage",
+                                "--disable-gpu",
+                                "--window-size=1920,1080",
+                            ]),
+                            timeout=30.0
+                        )
+                        logging.info(f"Attempt {attempt + 1}/{max_retries}: Browser launched for {area_name}")
+                        self.browsers.append(browser)
+                        proxy = random.choice(self.proxies) if self.proxies else None
+                        context = await browser.new_context(
+                            user_agent=random.choice(self.user_agents),
+                            viewport={"width": 1920, "height": 1080},
+                            proxy=proxy,
+                            extra_http_headers={
+                                "Accept-Language": "en-US,en;q=0.9",
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                                "Connection": "keep-alive",
+                            }
+                        )
+                        page = await context.new_page()
+                        logging.info(f"Navigating to area URL: {area_url}")
+
+                        response = await page.goto(area_url, timeout=120000, wait_until="domcontentloaded")
+                        if response.status == 429:
+                            delay = 30 * (1.5 ** attempt)
+                            logging.error(f"Rate limit (429) for {area_url}, waiting {delay}s")
+                            print(f"Rate limit hit (429) for {area_url}, retrying after {delay}s.")
+                            await asyncio.sleep(delay)
+                            continue
+                        elif response.status >= 500:
+                            logging.error(f"Server error ({response.status}) for {area_url}")
+                            print(f"Server error ({response.status}) for {area_url}, retrying.")
+                            await asyncio.sleep(5 * (1.5 ** attempt))
+                            continue
+                        elif response.status >= 400:
+                            logging.error(f"Client error ({response.status}) for {area_url}")
+                            print(f"Client error ({response.status}) for {area_url}, aborting.")
                             break
-                    grocery_links = [await el.get_attribute('href') for el in grocery_elements]
-                    grocery_links = [self.base_url + link for link in grocery_links if link and link.startswith('/')]
-                    logging.info(f"Found {len(grocery_links)} grocery links: {grocery_links}")
-                    print(f"Found {len(grocery_links)} groceries")
-    
-                    if not grocery_links:
-                        logging.warning(f"No groceries found for {area_name} at {area_url}")
-                        # Save page content for debugging
-                        html_content = await page.content()
-                        debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-                        with open(debug_file, "w", encoding="utf-8") as f:
-                            f.write(html_content)
-                        screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
-                        await page.screenshot(path=screenshot_file, full_page=True)
-                        logging.info(f"Saved debug artifacts for {area_name}: {debug_file}, {screenshot_file}")
-    
-                    completed_groceries = self.current_progress["current_progress"]["completed_groceries"]
-                    for grocery_link in grocery_links:
-                        grocery_title = grocery_link.split('/')[-1]
-                        if grocery_title in completed_groceries:
-                            logging.info(f"Skipping completed grocery: {grocery_title}")
-                            print(f"Skipping completed grocery: {grocery_title}")
+
+                        await page.wait_for_load_state("networkidle", timeout=120000)
+                        logging.info(f"Area page loaded: {area_url}, status: {response.status}")
+
+                        # Check for anti-bot page
+                        anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
+                        if anti_bot:
+                            logging.error(f"Anti-bot page detected for {area_url}, attempt {attempt + 1}/{max_retries}")
+                            print(f"Anti-bot page detected for {area_url}, retrying.")
+                            html_content = await page.content()
+                            debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                            with open(debug_file, "w", encoding="utf-8") as f:
+                                f.write(html_content)
+                            screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                            await page.screenshot(path=screenshot_file, full_page=True)
+                            logging.info(f"Saved debug artifacts: {debug_file}, {screenshot_file}")
+                            await asyncio.sleep(10 * (1.5 ** attempt))
                             continue
-    
-                        logging.info(f"Processing grocery: {grocery_title} at {grocery_link}")
-                        talabat_groceries = TalabatGroceries(grocery_link, browser, self)
-                        grocery_data = await talabat_groceries.extract_categories(page)
-    
-                        if "error" not in grocery_data:
-                            self.scraped_progress["all_results"].setdefault(area_name, {})[grocery_title] = {
-                                "grocery_link": grocery_link,
-                                "delivery_time": "N/A",
-                                "grocery_details": {
-                                    "delivery_fees": grocery_data.get("delivery_fees", "N/A"),
-                                    "minimum_order": grocery_data.get("minimum_order", "N/A"),
-                                    "categories": grocery_data.get("categories", {})
-                                }
-                            }
-                            self.current_progress["current_progress"]["completed_groceries"][grocery_title] = {
-                                "completed categories": [],
-                                "completed sub-categories": []
-                            }
-                            self.save_current_progress()
-                            self.save_scraped_progress()
-                            self.commit_progress(f"Processed grocery {grocery_title} for {area_name}")
-    
-                    # Process categories and sub-categories
-                    for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
-                        if grocery_title in completed_groceries and completed_groceries[grocery_title].get("completed categories"):
-                            logging.info(f"All categories completed for {grocery_title}, skipping")
-                            continue
-    
-                        talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
-                        for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
-                            completed_categories = completed_groceries.get(grocery_title, {}).get("completed categories", [])
-                            if category_name in completed_categories:
-                                logging.info(f"Skipping completed category: {category_name} for {grocery_title}")
-                                print(f"Skipping completed category: {category_name}")
+
+                        # Extract grocery links
+                        selectors = [
+                            '[data-testid="vendor-card"] a',
+                            '.vendor-card a',
+                            '[data-testid="grocery-vendor"] a',
+                            '[class*="vendor"] a',
+                            'a[href*="/kuwait/groceries/"]'
+                        ]
+                        grocery_elements = []
+                        for selector in selectors:
+                            elements = await page.query_selector_all(selector)
+                            if elements:
+                                grocery_elements = elements
+                                logging.info(f"Found {len(elements)} grocery elements with selector: {selector}")
+                                break
+                        grocery_links = [await el.get_attribute('href') for el in grocery_elements]
+                        grocery_links = [self.base_url + link for link in grocery_links if link and link.startswith('/')]
+                        logging.info(f"Found {len(grocery_links)} grocery links")
+                        print(f"Found {len(grocery_links)} groceries")
+
+                        if not grocery_links:
+                            logging.warning(f"No groceries found for {area_name}")
+                            html_content = await page.content()
+                            debug_file = f"debug_area_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+                            with open(debug_file, "w", encoding="utf-8") as f:
+                                f.write(html_content)
+                            screenshot_file = f"debug_screenshot_{area_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                            await page.screenshot(path=screenshot_file, full_page=True)
+                            logging.info(f"Saved debug artifacts: {debug_file}, {screenshot_file}")
+
+                        completed_groceries = self.current_progress["current_progress"]["completed_groceries"]
+                        for grocery_link in grocery_links:
+                            grocery_title = grocery_link.split('/')[-1]
+                            if grocery_title in completed_groceries:
+                                logging.info(f"Skipping completed grocery: {grocery_title}")
+                                print(f"Skipping completed grocery: {grocery_title}")
                                 continue
-    
-                            logging.info(f"Processing category: {category_name} for {grocery_title}")
-                            sub_categories = await talabat_groceries.extract_sub_categories(
-                                page, category_data["category_link"], grocery_title, category_name
-                            )
-                            self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"] = sub_categories
-                            self.save_scraped_progress()
-                            self.commit_progress(f"Updated sub-categories for {category_name} in {grocery_title}")
-    
-                    # Verify groceries
-                    logging.info(f"Verifying groceries for area: {area_name}")
-                    print(f"Verifying groceries for area: {area_name}")
-                    for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
-                        talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
-                        for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
-                            missing_sub_categories = await talabat_groceries.verify_sub_categories(
-                                page, category_data["category_link"], grocery_title, category_name
-                            )
-                            if missing_sub_categories:
-                                logging.info(f"Found {len(missing_sub_categories)} missing sub-categories for {category_name} in {grocery_title}")
-                                for sub_category in missing_sub_categories:
-                                    sub_category_data = await talabat_groceries.extract_sub_categories(
-                                        page, sub_category["sub_category_link"], grocery_title, category_name
-                                    )
-                                    self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"].extend(sub_category_data)
+
+                            logging.info(f"Processing grocery: {grocery_title} at {grocery_link}")
+                            async with self.context_semaphore:
+                                self.active_contexts += 1
+                                talabat_groceries = TalabatGroceries(grocery_link, browser, self)
+                                grocery_data = await talabat_groceries.extract_categories(page)
+                                if "error" not in grocery_data:
+                                    self.scraped_progress["all_results"].setdefault(area_name, {})[grocery_title] = {
+                                        "grocery_link": grocery_link,
+                                        "delivery_time": "N/A",
+                                        "grocery_details": {
+                                            "delivery_fees": grocery_data.get("delivery_fees", "N/A"),
+                                            "minimum_order": grocery_data.get("minimum_order", "N/A"),
+                                            "categories": grocery_data.get("categories", {})
+                                        }
+                                    }
+                                    self.current_progress["current_progress"]["completed_groceries"][grocery_title] = {
+                                        "completed categories": [],
+                                        "completed sub-categories": []
+                                    }
+                                    self.save_current_progress()
                                     self.save_scraped_progress()
-                                    self.commit_progress(f"Processed missing sub-category {sub_category['sub_category_name']} for {category_name}")
-    
-                    logging.info(f"All groceries processed for area: {area_name}")
-                    print(f"All groceries processed for area: {area_name}")
-                    self.current_progress["current_progress"]["completed_areas"].append(area_name)
-                    self.save_current_progress()
-                    self.commit_progress(f"Completed scraping area: {area_name}")
-    
-                    # Update Excel
-                    print(f"Waiting 30 seconds before updating Excel for {area_name}...")
-                    logging.info(f"Waiting 30 seconds before updating Excel for {area_name}")
-                    await asyncio.sleep(30)
-                    self.update_excel(area_name)
-                    logging.info(f"Excel updated for {area_name}")
-    
-                except Exception as e:
-                    logging.error(f"Error processing area {area_name}: {e}")
-                    print(f"Error processing area {area_name}: {e}")
-                finally:
-                    await page.close()
-                    await context.close()
-                    await browser.close()
-                    self.browsers.remove(browser)
+                                    self.commit_progress(f"Processed grocery {grocery_title} for {area_name}")
+
+                                self.active_contexts -= 1
+                                await asyncio.sleep(random.uniform(3, 5))
+
+                        # Process categories and sub-categories
+                        for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
+                            if grocery_title in completed_groceries and completed_groceries[grocery_title].get("completed categories"):
+                                logging.info(f"All categories completed for {grocery_title}, skipping")
+                                continue
+
+                            talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
+                            for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
+                                completed_categories = completed_groceries.get(grocery_title, {}).get("completed categories", [])
+                                if category_name in completed_categories:
+                                    logging.info(f"Skipping completed category: {category_name} for {grocery_title}")
+                                    print(f"Skipping completed category: {category_name}")
+                                    continue
+
+                                logging.info(f"Processing category: {category_name} for {grocery_title}")
+                                async with self.context_semaphore:
+                                    self.active_contexts += 1
+                                    sub_categories = await talabat_groceries.extract_sub_categories(
+                                        page, category_data["category_link"], grocery_title, category_name
+                                    )
+                                    self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"] = sub_categories
+                                    self.save_scraped_progress()
+                                    self.commit_progress(f"Updated sub-categories for {category_name} in {grocery_title}")
+                                    self.active_contexts -= 1
+                                    await asyncio.sleep(random.uniform(3, 5))
+
+                        # Verify groceries
+                        logging.info(f"Verifying groceries for area: {area_name}")
+                        print(f"Verifying groceries for area: {area_name}")
+                        for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
+                            talabat_groceries = TalabatGroceries(grocery_data["grocery_link"], browser, self)
+                            for category_name, category_data in grocery_data["grocery_details"]["categories"].items():
+                                async with self.context_semaphore:
+                                    self.active_contexts += 1
+                                    missing_sub_categories = await talabat_groceries.verify_sub_categories(
+                                        page, category_data["category_link"], grocery_title, category_name
+                                    )
+                                    if missing_sub_categories:
+                                        logging.info(f"Found {len(missing_sub_categories)} missing sub-categories for {category_name}")
+                                        for sub_category in missing_sub_categories:
+                                            sub_category_data = await talabat_groceries.extract_sub_categories(
+                                                page, sub_category["sub_category_link"], grocery_title, category_name
+                                            )
+                                            self.scraped_progress["all_results"][area_name][grocery_title]["grocery_details"]["categories"][category_name]["sub_categories"].extend(sub_category_data)
+                                            self.save_scraped_progress()
+                                            self.commit_progress(f"Processed missing sub-category {sub_category['sub_category_name']} for {category_name}")
+                                    self.active_contexts -= 1
+                                    await asyncio.sleep(random.uniform(3, 5))
+
+                        logging.info(f"All groceries processed for area: {area_name}")
+                        print(f"All groceries processed for area: {area_name}")
+                        self.current_progress["current_progress"]["completed_areas"].append(area_name)
+                        self.save_current_progress()
+                        self.commit_progress(f"Completed scraping area: {area_name}")
+
+                        # Update Excel
+                        print(f"Waiting 30 seconds before updating Excel for {area_name}...")
+                        logging.info(f"Waiting 30 seconds before updating Excel for {area_name}")
+                        await asyncio.sleep(30)
+                        self.update_excel(area_name)
+                        logging.info(f"Excel updated for {area_name}")
+                        break  # Success, exit retry loop
+
+                    except PlaywrightTimeoutError as e:
+                        logging.error(f"Timeout on attempt {attempt + 1}/{max_retries} for {area_name}: {e}")
+                        print(f"Timeout processing {area_name}, retrying.")
+                        if attempt == max_retries - 1:
+                            logging.error(f"Failed to process {area_name} after {max_retries} attempts")
+                    except Exception as e:
+                        logging.error(f"Error on attempt {attempt + 1}/{max_retries} for {area_name}: {e}")
+                        print(f"Error processing {area_name}: {e}")
+                        if attempt == max_retries - 1:
+                            logging.error(f"Failed to process {area_name} after {max_retries} attempts")
+                    finally:
+                        if page:
+                            await page.close()
+                        if context:
+                            await context.close()
+                        if browser:
+                            await browser.close()
+                            if browser in self.browsers:
+                                self.browsers.remove(browser)
+                        await asyncio.sleep(5 * (1.5 ** attempt))
                 
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
@@ -2261,6 +2445,8 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+
 
 
 
