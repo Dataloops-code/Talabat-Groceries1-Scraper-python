@@ -2076,7 +2076,6 @@ class MainScraper:
         self.current_progress["last_updated"] = datetime.now().isoformat()
         self.scraped_progress["last_updated"] = datetime.now().isoformat()
         
-        # Atomic file writes to prevent locking
         try:
             self.save_current_progress()
             self.save_scraped_progress()
@@ -2095,7 +2094,6 @@ class MainScraper:
         print(f"==================================================")
         try:
             async with async_playwright() as p:
-                # Add timeout for browser launch
                 try:
                     browser = await asyncio.wait_for(
                         p.chromium.launch(headless=True, args=[
@@ -2197,7 +2195,6 @@ class MainScraper:
             print(f"URL: {area_url}")
             print(f"==================================================")
 
-            # Check server status with timeout
             try:
                 server_ok = await asyncio.wait_for(self.check_server_status(area_url), timeout=90)
                 if not server_ok:
@@ -2259,7 +2256,6 @@ class MainScraper:
                         await page.wait_for_load_state("networkidle", timeout=120000)
                         logging.info(f"Area page loaded: {area_url}, status: {response.status}")
 
-                        # Check for anti-bot page
                         anti_bot = await page.query_selector('//h1[contains(text(), "Access Denied")] | //div[contains(text(), "Please verify you are not a robot")]')
                         if anti_bot:
                             logging.error(f"Anti-bot page detected for {area_url}, attempt {attempt + 1}/{max_retries}")
@@ -2274,7 +2270,6 @@ class MainScraper:
                             await asyncio.sleep(10 * (1.5 ** attempt))
                             continue
 
-                        # Extract grocery links
                         selectors = [
                             '[data-testid="vendor-card"] a',
                             '.vendor-card a',
@@ -2338,7 +2333,6 @@ class MainScraper:
                                 self.active_contexts -= 1
                                 await asyncio.sleep(random.uniform(3, 5))
 
-                        # Process categories and sub-categories
                         for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
                             if grocery_title in completed_groceries and completed_groceries[grocery_title].get("completed categories"):
                                 logging.info(f"All categories completed for {grocery_title}, skipping")
@@ -2364,7 +2358,6 @@ class MainScraper:
                                     self.active_contexts -= 1
                                     await asyncio.sleep(random.uniform(3, 5))
 
-                        # Verify groceries
                         logging.info(f"Verifying groceries for area: {area_name}")
                         print(f"Verifying groceries for area: {area_name}")
                         for grocery_title, grocery_data in self.scraped_progress["all_results"].get(area_name, {}).items():
@@ -2393,13 +2386,12 @@ class MainScraper:
                         self.save_current_progress()
                         self.commit_progress(f"Completed scraping area: {area_name}")
 
-                        # Update Excel
                         print(f"Waiting 30 seconds before updating Excel for {area_name}...")
                         logging.info(f"Waiting 30 seconds before updating Excel for {area_name}")
                         await asyncio.sleep(30)
                         self.update_excel(area_name)
                         logging.info(f"Excel updated for {area_name}")
-                        break  # Success, exit retry loop
+                        break
 
                     except PlaywrightTimeoutError as e:
                         logging.error(f"Timeout on attempt {attempt + 1}/{max_retries} for {area_name}: {e}")
@@ -2421,6 +2413,7 @@ class MainScraper:
                             if browser in self.browsers:
                                 self.browsers.remove(browser)
                         await asyncio.sleep(5 * (1.5 ** attempt))
+
                 
 async def main():
     parser = argparse.ArgumentParser(description="Talabat Groceries Scraper for a specific area")
