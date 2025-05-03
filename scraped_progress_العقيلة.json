@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-05-03T01:21:06.156135",
+  "last_updated": "2025-05-03T01:21:07.360693",
   "current_progress": {
     "area_name": "العقيلة",
     "current_grocery": 0,
@@ -13,5 +13,7 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {}
+  "all_results": {
+    "العقيلة": {}
+  }
 }
