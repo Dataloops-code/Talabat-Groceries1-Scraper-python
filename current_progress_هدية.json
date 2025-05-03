@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "هدية"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-03T00:53:56.377155",
+  "last_updated": "2025-04-30T22:21:44.516634",
   "current_progress": {
-    "area_name": "هدية",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
