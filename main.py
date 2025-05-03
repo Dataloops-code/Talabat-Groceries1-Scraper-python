@@ -1115,81 +1115,6 @@ class MainScraper:
     #     self.commit_progress(f"Reset progress for {area_name} to re-scrape")
     #     logging.info(f"Reset progress for area: {area_name}")
 
-    async def check_server_status(self, url):
-        """Check server status with timeout, improved proxy handling, and reduced retries."""
-        logging.info(f"Checking server status for {url}")
-        async with aiohttp.ClientSession() as session:
-            max_retries = 3  # Reduced from 6
-            proxies = self.proxies.copy() if self.proxies else []
-            domain = url.split('/')[2]
-
-            # Filter valid proxies
-            valid_proxies = [
-                p for p in proxies
-                if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
-            ]
-            if not valid_proxies:
-                logging.warning(f"No valid proxies configured for {url}, using direct connection")
-
-            # Overall timeout for the method
-            try:
-                async with asyncio.timeout(60):  # 60-second total timeout
-                    for attempt in range(max_retries):
-                        proxy = random.choice(valid_proxies) if valid_proxies else None
-                        try:
-                            if proxy:
-                                logging.info(f"Attempt {attempt + 1}/{max_retries} with proxy {proxy['server']}")
-                                async with session.get(
-                                    url,
-                                    timeout=15,  # Reduced from 20
-                                    proxy=proxy["server"],
-                                    proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
-                                ) as response:
-                                    status = response.status
-                                    logging.info(f"Proxy response status: {status}")
-                                    if status == 429:
-                                        delay = 30 * (1.5 ** attempt)  # Reduced base delay
-                                        self.rate_limit_delays[domain] = min(delay, 600)  # Cap at 10 minutes
-                                        logging.info(f"Rate limit (429), waiting {delay}s")
-                                        await asyncio.sleep(delay)
-                                        continue
-                                    elif status >= 500:
-                                        logging.warning(f"Server error ({status}), retrying")
-                                        await asyncio.sleep(5 * (1.5 ** attempt))
-                                        continue
-                                    elif status >= 400:
-                                        logging.error(f"Client error ({status})")
-                                        return False
-                                    return True
-                            else:
-                                logging.info(f"Attempt {attempt + 1}/{max_retries} without proxy")
-                                async with session.get(url, timeout=15) as response:
-                                    status = response.status
-                                    logging.info(f"Non-proxy response status: {status}")
-                                    if status == 429:
-                                        delay = 30 * (1.5 ** attempt)
-                                        self.rate_limit_delays[domain] = min(delay, 600)
-                                        logging.info(f"Rate limit (429), waiting {delay}s")
-                                        await asyncio.sleep(delay)
-                                        continue
-                                    elif status >= 500:
-                                        logging.warning(f"Server error ({status}), retrying")
-                                        await asyncio.sleep(5 * (1.5 ** attempt))
-                                        continue
-                                    elif status >= 400:
-                                        logging.error(f"Client error ({status})")
-                                        return False
-                                    return True
-                        except Exception as e:
-                            logging.warning(f"Attempt {attempt + 1} failed: {e}")
-                            if attempt < max_retries - 1:
-                                await asyncio.sleep(5 * (1.5 ** attempt))
-                    logging.error(f"Server check failed after {max_retries} attempts")
-                    return False
-            except asyncio.TimeoutError:
-                logging.error(f"Server check timed out after 60 seconds for {url}")
-                return False
-
     async def initialize_browsers(self, playwright):
         """Initialize a pool of browser instances."""
         for _ in range(self.max_browsers):
@@ -2051,6 +1976,82 @@ class MainScraper:
     #             await self.close_browsers()
     #             self.executor.shutdown(wait=True)
     #             logging.info("Scraper run completed")
+
+    async def check_server_status(self, url):
+        """Check server status with timeout compatible with Python 3.10."""
+        logging.info(f"Checking server status for {url}")
+        async def session_task():
+            async with aiohttp.ClientSession() as session:
+                max_retries = 3
+                proxies = self.proxies.copy() if self.proxies else []
+                domain = url.split('/')[2]
+
+                # Filter valid proxies
+                valid_proxies = [
+                    p for p in proxies
+                    if p["server"] and not p["server"].startswith("http://proxy") and p["username"] and p["password"]
+                ]
+                if not valid_proxies:
+                    logging.warning(f"No valid proxies configured for {url}, using direct connection")
+
+                for attempt in range(max_retries):
+                    proxy = random.choice(valid_proxies) if valid_proxies else None
+                    try:
+                        if proxy:
+                            logging.info(f"Attempt {attempt + 1}/{max_retries} with proxy {proxy['server']}")
+                            async with session.get(
+                                url,
+                                timeout=15,
+                                proxy=proxy["server"],
+                                proxy_auth=aiohttp.BasicAuth(proxy["username"], proxy["password"])
+                            ) as response:
+                                status = response.status
+                                logging.info(f"Proxy response status: {status}")
+                                if status == 429:
+                                    delay = 30 * (1.5 ** attempt)
+                                    self.rate_limit_delays[domain] = min(delay, 600)
+                                    logging.info(f"Rate limit (429), waiting {delay}s")
+                                    await asyncio.sleep(delay)
+                                    continue
+                                elif status >= 500:
+                                    logging.warning(f"Server error ({status}), retrying")
+                                    await asyncio.sleep(5 * (1.5 ** attempt))
+                                    continue
+                                elif status >= 400:
+                                    logging.error(f"Client error ({status})")
+                                    return False
+                                return True
+                        else:
+                            logging.info(f"Attempt {attempt + 1}/{max_retries} without proxy")
+                            async with session.get(url, timeout=15) as response:
+                                status = response.status
+                                logging.info(f"Non-proxy response status: {status}")
+                                if status == 429:
+                                    delay = 30 * (1.5 ** attempt)
+                                    self.rate_limit_delays[domain] = min(delay, 600)
+                                    logging.info(f"Rate limit (429), waiting {delay}s")
+                                    await asyncio.sleep(delay)
+                                    continue
+                                elif status >= 500:
+                                    logging.warning(f"Server error ({status}), retrying")
+                                    await asyncio.sleep(5 * (1.5 ** attempt))
+                                    continue
+                                elif status >= 400:
+                                    logging.error(f"Client error ({status})")
+                                    return False
+                                return True
+                    except Exception as e:
+                        logging.warning(f"Attempt {attempt + 1} failed: {e}")
+                        if attempt < max_retries - 1:
+                            await asyncio.sleep(5 * (1.5 ** attempt))
+                logging.error(f"Server check failed after {max_retries} attempts")
+                return False
+
+        try:
+            return await asyncio.wait_for(session_task(), timeout=60)
+        except asyncio.TimeoutError:
+            logging.error(f"Server check timed out after 60 seconds for {url}")
+            return False
 
     def reset_area_progress(self, area_name: str):
         """Reset progress for an area with atomic file operations."""
