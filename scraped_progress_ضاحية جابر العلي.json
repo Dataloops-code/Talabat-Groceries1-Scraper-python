@@ -1,11 +1,9 @@
 {
-  "completed_areas": [
-    "ضاحية جابر العلي"
-  ],
+  "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-05-04T18:24:08.378252",
+  "last_updated": "2025-05-04T18:24:09.361466",
   "current_progress": {
-    "area_name": null,
+    "area_name": "ضاحية جابر العلي",
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
@@ -15,5 +13,7 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {}
+  "all_results": {
+    "ضاحية جابر العلي": {}
+  }
 }
