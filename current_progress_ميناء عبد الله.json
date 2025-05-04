@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "ميناء عبد الله"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-04T01:39:16.912484",
+  "last_updated": "2025-05-04T06:25:39.916030",
   "current_progress": {
-    "area_name": "ميناء عبد الله",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
