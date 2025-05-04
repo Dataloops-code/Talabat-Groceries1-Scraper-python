@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-05-04T18:23:36.279810",
+  "last_updated": "2025-05-04T18:23:37.071586",
   "current_progress": {
     "area_name": "المهبولة",
     "current_grocery": 0,
@@ -13,5 +13,7 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {}
+  "all_results": {
+    "المهبولة": {}
+  }
 }
