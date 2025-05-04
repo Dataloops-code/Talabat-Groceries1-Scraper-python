@@ -1,11 +1,9 @@
 {
-  "completed_areas": [
-    "مدينة صباح الأحمد البحرية"
-  ],
+  "completed_areas": [],
   "current_area_index": 1,
-  "last_updated": "2025-05-04T01:38:10.227310",
+  "last_updated": "2025-05-04T01:38:11.145635",
   "current_progress": {
-    "area_name": null,
+    "area_name": "مدينة صباح الأحمد البحرية",
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
