@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "ضاحية علي صباح السالم"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-04T06:25:36.711404",
+  "last_updated": "2025-05-04T12:33:16.632657",
   "current_progress": {
-    "area_name": "ضاحية علي صباح السالم",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
