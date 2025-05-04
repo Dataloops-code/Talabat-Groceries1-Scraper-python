@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "ضاحية فهد الأحمد"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-04T01:40:19.632489",
+  "last_updated": "2025-05-04T06:24:20.819989",
   "current_progress": {
-    "area_name": "ضاحية فهد الأحمد",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
