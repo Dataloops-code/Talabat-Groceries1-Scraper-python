@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-05-05T06:27:41.609047",
+  "last_updated": "2025-05-05T12:37:38.918653",
   "current_progress": {
     "area_name": "الخيران",
     "current_grocery": 0,
@@ -13,7 +13,5 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {
-    "الخيران": {}
-  }
+  "all_results": {}
 }
