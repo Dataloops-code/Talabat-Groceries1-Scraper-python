@@ -1,7 +1,7 @@
 {
   "completed_areas": [],
   "current_area_index": 0,
-  "last_updated": "2025-05-05T12:37:15.079629",
+  "last_updated": "2025-05-05T12:37:16.270699",
   "current_progress": {
     "area_name": "الزور",
     "current_grocery": 0,
@@ -13,5 +13,7 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {}
+  "all_results": {
+    "الزور": {}
+  }
 }
