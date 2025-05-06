@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "ميناء الأحمدي"
+  ],
   "current_area_index": 0,
-  "last_updated": "2025-05-06T06:26:12.255035",
+  "last_updated": "2025-05-06T12:39:27.248828",
   "current_progress": {
-    "area_name": "ميناء الأحمدي",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
@@ -13,7 +15,5 @@
     "current_sub_category": null,
     "completed_groceries": {}
   },
-  "all_results": {
-    "ميناء الأحمدي": {}
-  }
+  "all_results": {}
 }
