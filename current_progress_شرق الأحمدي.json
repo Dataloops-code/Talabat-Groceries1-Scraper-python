@@ -1,9 +1,11 @@
 {
-  "completed_areas": [],
+  "completed_areas": [
+    "شرق الأحمدي"
+  ],
   "current_area_index": 1,
-  "last_updated": "2025-05-05T18:21:43.819334",
+  "last_updated": "2025-05-06T01:23:26.491757",
   "current_progress": {
-    "area_name": "شرق الأحمدي",
+    "area_name": null,
     "current_grocery": 0,
     "current_grocery_title": null,
     "current_grocery_link": null,
