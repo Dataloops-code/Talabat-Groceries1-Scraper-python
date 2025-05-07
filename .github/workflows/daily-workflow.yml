@@ -1,47 +1,29 @@
 name: Scrape Talabat Groceries - ALL AREAS
 
 on:
-  workflow_dispatch: # Manual trigger via GitHub Actions interface
-  schedule:
-    - cron: "0 1 */10 * *" # Every 10 days at 1:00 AM
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  scrape-area:
+  scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    
     env:
-      area_name: "الظهر"
-      area_url: "https://www.talabat.com/kuwait/groceries/59/dhaher"
-
+      AREA_NAME: "الظهر"
+      AREA_URL: "https://www.talabat.com/kuwait/groceries/59/dhaher"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+      
+    timeout-minutes: 120  # 2 hours, adjust as needed
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Debug environment and repository
-        run: |
-          echo "Debug: Listing environment variables"
-          env | sort
-          echo "Debug: Pipeline variables"
-          echo "Build.SourceBranch: ${{ github.ref }}"
-          echo "Build.SourceVersion: ${{ github.sha }}"
-          echo "System.JobName: scrape-area"
-          echo "area_name: ${{ env.area_name }}"
-          echo "area_url: ${{ env.area_url }}"
-          echo "Debug: Repository details"
-          git remote -v
-          git status
-
-      - name: Set up Python 3.10
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
-      - name: Install jq
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
-
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -56,82 +38,75 @@ jobs:
           sudo apt-get install -y libdbus-glib-1-2 libgtk-3-0 libgdk-pixbuf2.0-0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libpcre3 libwoff1 libevent-2.1-7 libopus0 libsecret-1-0 libhyphen0 libgles2 libsoup2.4-1 libvpx-dev
 
       - name: Restore cached progress
+        id: cache-restore
         uses: actions/cache@v3
         with:
           path: |
-            current_progress_${{ env.area_name }}.json
-            scraped_progress_${{ env.area_name }}.json
-            cookies_${{ env.area_name }}.json
-            output/${{ env.area_name }}.json
-            output/${{ env.area_name }}_detailed.xlsx
-          key: talabat-groceries-progress-${{ env.area_name }}-${{ github.sha }}
+            current_progress_${{ env.AREA_NAME }}.json
+            scraped_progress_${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}_detailed.xlsx
+          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
           restore-keys: |
-            talabat-groceries-progress-${{ env.area_name }}-
-
-      - name: Check if area is completed
-        id: check-completed
-        run: |
-          if [ -f "current_progress_${{ env.area_name }}.json" ]; then
-            if jq -e '.completed_areas[] | select(. == "${{ env.area_name }}")' current_progress_${{ env.area_name }}.json > /dev/null; then
-              echo "completed=true" >> $GITHUB_ENV
-            else
-              echo "completed=false" >> $GITHUB_ENV
-            fi
-          else
-            echo "completed=false" >> $GITHUB_ENV
+            talabat-groceries-progress-${{ env.AREA_NAME }}-v2-
 
       - name: Run Talabat Groceries Scraper
-        if: env.completed == 'false'
         run: |
-          python main.py --area-name "${{ env.area_name }}" --url "${{ env.area_url }}"
+          python -m asyncio main.py --area-name "${{ env.AREA_NAME }}" --url "${{ env.AREA_URL }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TALABAT_GCLOUD_KEY_JSON: ${{ secrets.TALABAT_GCLOUD_KEY_JSON }}
+          WEBSHARE_PROXY_USERNAME: ocdjzatk-rotate
+          WEBSHARE_PROXY_PASSWORD: 7m26xglp08ta
 
       - name: Debug file presence
         if: always()
         run: |
           ls -la
-          cat current_progress_${{ env.area_name }}.json || echo "current_progress_${{ env.area_name }}.json not found"
-          cat scraped_progress_${{ env.area_name }}.json || echo "scraped_progress_${{ env.area_name }}.json not found"
-          ls output/${{ env.area_name }}_detailed.xlsx || echo "${{ env.area_name }}_detailed.xlsx not found"
+          cat current_progress_${{ env.AREA_NAME }}.json || echo "current_progress_${{ env.AREA_NAME }}.json not found"
+          cat scraped_progress_${{ env.AREA_NAME }}.json || echo "scraped_progress_${{ env.AREA_NAME }}.json not found"
+          ls output/${{ env.AREA_NAME }}_detailed.xlsx || echo "${{ env.AREA_NAME }}_detailed.xlsx not found"
 
       - name: Commit progress updates
         if: always()
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add current_progress_${{ env.area_name }}.json scraped_progress_${{ env.area_name }}.json cookies_${{ env.area_name }}.json output/*.json output/*.xlsx || true
-          git commit -m "Update scraper progress for ${{ env.area_name }} run ${{ github.run_id }}" || echo "No changes to commit"
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add current_progress_${{ env.AREA_NAME }}.json scraped_progress_${{ env.AREA_NAME }}.json output/*.json output/*.xlsx || true
+          git commit -m "Update scraper progress for ${{ env.AREA_NAME }} run ${{ github.run_id }}" || echo "No changes to commit"
           for attempt in 1 2 3; do
             git pull --rebase && git push && break
             echo "Git push failed (attempt $attempt/3), retrying..."
             sleep $((attempt * 5))
           done || echo "Failed to push after 3 attempts"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Save progress to cache
         if: always()
         uses: actions/cache@v3
         with:
           path: |
-            current_progress_${{ env.area_name }}.json
-            scraped_progress_${{ env.area_name }}.json
-            cookies_${{ env.area_name }}.json
-            output/${{ env.area_name }}.json
-            output/${{ env.area_name }}_detailed.xlsx
-          key: talabat-groceries-progress-${{ env.area_name }}-${{ github.sha }}
+            current_progress_${{ env.AREA_NAME }}.json
+            scraped_progress_${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}_detailed.xlsx
+          key: talabat-groceries-progress-${{ env.AREA_NAME }}-v2-${{ github.run_id }}
 
       - name: Upload progress artifacts
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: talabat-groceries-progress-${{ env.area_name }}
+          name: talabat-groceries-progress-${{ env.AREA_NAME }}
           path: |
-            current_progress_${{ env.area_name }}.json
-            scraped_progress_${{ env.area_name }}.json
-            cookies_${{ env.area_name }}.json
-            output/${{ env.area_name }}.json
-            output/${{ env.area_name }}_detailed.xlsx
+            current_progress_${{ env.AREA_NAME }}.json
+            scraped_progress_${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}.json
+            output/${{ env.AREA_NAME }}_detailed.xlsx
             scraper.log
+          retention-days: 7
 
-      - name: Cleanup Playwright cache
+      - name: Cleanup
         if: always()
         run: |
           rm -rf ~/.cache/ms-playwright
