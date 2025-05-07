@@ -1,0 +1,124 @@
+{
+  "Fatafeat Market": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem?aid=37",
+    "delivery_time": "30 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 0.000",
+      "minimum_order": "KD 1.000",
+      "categories": {
+        "Chocolate & Candy ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/chocolate-candy/chocolate?aid=37",
+          "sub_categories": []
+        },
+        "Snacks": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/snacks/chips?aid=37",
+          "sub_categories": []
+        },
+        "Beverages ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/beverages/water?aid=37",
+          "sub_categories": []
+        },
+        "Bakery ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/bakery/toast?aid=37",
+          "sub_categories": []
+        },
+        "Ice Cream ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/ice-cream/bars-cones-sticks?aid=37",
+          "sub_categories": []
+        },
+        "Ready To Eat ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/ready-to-eat/starters-sides?aid=37",
+          "sub_categories": []
+        },
+        "Protein & Special Diet ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/protein-special-diet/protein?aid=37",
+          "sub_categories": []
+        },
+        "Fruit & Veg ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/fruit-veg/fresh-fruit?aid=37",
+          "sub_categories": []
+        },
+        "Dairy & Eggs ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/dairy-eggs/eggs?aid=37",
+          "sub_categories": []
+        },
+        "Frozen Food ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/frozen-food/ready-meals?aid=37",
+          "sub_categories": []
+        },
+        "Milk ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/milk/fresh-milk?aid=37",
+          "sub_categories": []
+        },
+        "Poultry, Meat & Seafood ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/poultry-meat-seafood/chicken-poultry?aid=37",
+          "sub_categories": []
+        },
+        "Personal Care ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/personal-care/hair-care?aid=37",
+          "sub_categories": []
+        },
+        "Health & Beauty ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/health-beauty/perfumes?aid=37",
+          "sub_categories": []
+        },
+        "Cleaning & Laundry ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/cleaning-laundry/dishwashing?aid=37",
+          "sub_categories": []
+        },
+        "Cooking & Baking ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/cooking-baking/baking-ingredients?aid=37",
+          "sub_categories": []
+        },
+        "Coffee & Tea ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/coffee-tea/coffee?aid=37",
+          "sub_categories": []
+        },
+        "Disposables ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/disposables/tissues-paper-rolls?aid=37",
+          "sub_categories": []
+        },
+        "Condiments ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/condiments/salad-dressings-vinegar?aid=37",
+          "sub_categories": []
+        },
+        "Breakfast Food ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/breakfast-food/cereals?aid=37",
+          "sub_categories": []
+        },
+        "Pet Care ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/pet-care/cat-food?aid=37",
+          "sub_categories": []
+        },
+        "Household Essentials ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/household-essentials/outdoor-travel-gear?aid=37",
+          "sub_categories": []
+        },
+        "Deli ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/deli/cheese-labneh?aid=37",
+          "sub_categories": []
+        },
+        "Canned & Jarred ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/canned-jarred/canned-seafood?aid=37",
+          "sub_categories": []
+        },
+        "Baby Corner ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/baby-corner/diapers?aid=37",
+          "sub_categories": []
+        },
+        "Electronics ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/electronics/mobiles-accessories?aid=37",
+          "sub_categories": []
+        },
+        "Tobacco ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/tobacco/vape?aid=37",
+          "sub_categories": []
+        },
+        "Stationery & Games ": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/652419/fatafeat-marketsabah-al-salem/stationery-games/stationery?aid=37",
+          "sub_categories": []
+        }
+      }
+    }
+  }
+}
