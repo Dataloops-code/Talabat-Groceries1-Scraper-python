@@ -1,0 +1,268 @@
+{
+  "Heathrow Market": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo?aid=59",
+    "delivery_time": "27 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 0.000",
+      "minimum_order": "KD 1.000",
+      "categories": {
+        "School Snacks time": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/school-snacks-time/nuts?aid=59",
+          "sub_categories": []
+        },
+        "Bakery": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        "Fruits & Vegetables": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        "Grab & Go": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        "Dairy & Eggs": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        "Breakfast Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        "Fresh Meat & Chicken": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/fresh-meat-chicken/fresh-poultry?aid=59",
+          "sub_categories": []
+        },
+        "Frozen Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        "Cooking & Baking": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        "Canned & Jarred Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        "Condiments": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        "Organic & Special Diet": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        "Milk": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        "Beverages": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        "Coffee & Tea": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        "Ice Cream": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        "Snacks & Candy": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        "Water": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        "Pet Care": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        "Baby": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        "Toys": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        "Personal Care": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        "Pharmacy": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        "Disposables": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        "Cleaning & Laundry": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        "Household Essentials": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        "Electronics": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/electronics/mobile-devices?aid=59",
+          "sub_categories": []
+        },
+        "Gift Items": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/gift-items/boxes?aid=59",
+          "sub_categories": []
+        },
+        "Tobacco Shop": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/661935/heathrow-marketmahboulatgo/tobacco-shop/e-cigarettes-cigar?aid=59",
+          "sub_categories": []
+        }
+      }
+    }
+  },
+  "Top Offer": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/661940/top-offermahboula?aid=59",
+    "delivery_time": "31 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": {}
+    }
+  },
+  "Ghozlan Al Egaila Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/674068/ghozlan-al-egaila-grocery-fintas?aid=59",
+    "delivery_time": "23 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 0.000",
+      "minimum_order": "KD 1.000",
+      "categories": {}
+    }
+  },
+  "Kiki Market Grocery": {
+    "grocery_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula?aid=59",
+    "delivery_time": "32 mins",
+    "grocery_details": {
+      "delivery_fees": "KD 1.000",
+      "minimum_order": "KD 1.000",
+      "categories": {
+        "Bakery": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/bakery/freshly-baked?aid=59",
+          "sub_categories": []
+        },
+        "Fruits & Vegetables": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fruits-vegetables/vegetables?aid=59",
+          "sub_categories": []
+        },
+        "Grab & Go": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/grab-go/salads?aid=59",
+          "sub_categories": []
+        },
+        "Dairy & Eggs": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/dairy-eggs/eggs?aid=59",
+          "sub_categories": []
+        },
+        "Breakfast Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/breakfast-food/cereals?aid=59",
+          "sub_categories": []
+        },
+        "Fresh Meat & Chicken": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/fresh-meat-chicken/fresh-seafood?aid=59",
+          "sub_categories": []
+        },
+        "Frozen Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/frozen-food/frozen-poultry?aid=59",
+          "sub_categories": []
+        },
+        "Cooking & Baking": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cooking-baking/rice?aid=59",
+          "sub_categories": []
+        },
+        "Canned & Jarred Food": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/canned-jarred-food/meat-seafood?aid=59",
+          "sub_categories": []
+        },
+        "Condiments": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/condiments/salt-spices?aid=59",
+          "sub_categories": []
+        },
+        "Organic & Special Diet": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/organic-special-diet/gluten-free-food-snacks?aid=59",
+          "sub_categories": []
+        },
+        "Milk": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/milk/fresh-milk?aid=59",
+          "sub_categories": []
+        },
+        "Beverages": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/beverages/juices-single?aid=59",
+          "sub_categories": []
+        },
+        "Coffee & Tea": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/coffee-tea/coffee?aid=59",
+          "sub_categories": []
+        },
+        "Ice Cream": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/ice-cream/bars-cones-sticks?aid=59",
+          "sub_categories": []
+        },
+        "Snacks & Candy": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/snacks-candy/minis-miniatures?aid=59",
+          "sub_categories": []
+        },
+        "Water": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/water/drinking-water?aid=59",
+          "sub_categories": []
+        },
+        "Pet Care": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pet-care/pet-food?aid=59",
+          "sub_categories": []
+        },
+        "Baby": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/baby/baby-food?aid=59",
+          "sub_categories": []
+        },
+        "Toys": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/toys/baby-toddler-toys?aid=59",
+          "sub_categories": []
+        },
+        "Personal Care": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/personal-care/body-wash?aid=59",
+          "sub_categories": []
+        },
+        "Pharmacy": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/pharmacy/vitamins-supplements?aid=59",
+          "sub_categories": []
+        },
+        "Disposables": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/disposables/disposable-tableware?aid=59",
+          "sub_categories": []
+        },
+        "Cleaning & Laundry": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/cleaning-laundry/dishwashing?aid=59",
+          "sub_categories": []
+        },
+        "Household Essentials": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/household-essentials/batteries?aid=59",
+          "sub_categories": []
+        },
+        "Electronics": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/electronics/mobile-accessories?aid=59",
+          "sub_categories": []
+        },
+        "Gift Items": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/gift-items/candles?aid=59",
+          "sub_categories": []
+        },
+        "Tobacco Shop": {
+          "category_link": "https://www.talabat.com/kuwait/grocery/678049/kiki-market-grocery-mahboula/tobacco-shop/e-cigarettes-cigar?aid=59",
+          "sub_categories": []
+        }
+      }
+    }
+  }
+}
