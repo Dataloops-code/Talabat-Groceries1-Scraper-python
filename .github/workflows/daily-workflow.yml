@@ -95,7 +95,7 @@ jobs:
 
       - name: Upload progress artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: talabat-groceries-progress-${{ env.AREA_NAME }}
           path: |
@@ -105,6 +105,7 @@ jobs:
             output/${{ env.AREA_NAME }}_detailed.xlsx
             scraper.log
           retention-days: 7
+          if-no-files-found: warn
 
       - name: Cleanup
         if: always()
