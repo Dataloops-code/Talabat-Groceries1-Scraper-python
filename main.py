@@ -555,41 +555,29 @@ class MainScraper:
         os.makedirs(self.output_dir, exist_ok=True)
         self.blob_service_client = None  # No Azure Blob Storage client
         self.container_name = "scraper-progress"
-        self.current_progress = self.load_current_progress()
+        # Initialize current_progress with default structure to avoid AttributeError
+        self.current_progress = {
+            "completed_areas": [],
+            "current_area_index": 0,
+            "last_updated": datetime.now().isoformat(),
+            "current_progress": {
+                "area_name": None,
+                "current_grocery": 0,
+                "current_grocery_title": None,
+                "current_grocery_link": None,
+                "total_groceries": 0,
+                "processed_groceries": [],
+                "current_category": None,
+                "current_sub_category": None,
+                "completed_groceries": {}
+            }
+        }
+        self.current_progress = self.load_current_progress()  # Load progress after initializing
         self.scraped_progress = self.load_scraped_progress()
         self.ensure_playwright_browsers()
         self.commit_progress("Initialized progress files at scraper start")
 
-    def ensure_playwright_browsers(self):
-        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
-
     def load_current_progress(self) -> Dict:
-        try:
-            area_name = self.current_progress.get("current_progress", {}).get("area_name") or "default"
-            progress_file = f"current_progress_{area_name}.json"
-            if os.path.exists(progress_file):
-                with open(progress_file, 'r', encoding='utf-8') as f:
-                    progress = json.load(f)
-                if "current_progress" not in progress:
-                    progress["current_progress"] = {}
-                current = progress["current_progress"]
-                current.setdefault("processed_groceries", [])
-                current.setdefault("completed_groceries", {})
-                current.setdefault("area_name", None)
-                current.setdefault("current_grocery", 0)
-                current.setdefault("current_grocery_title", None)
-                current.setdefault("current_grocery_link", None)
-                current.setdefault("current_category", None)
-                current.setdefault("current_sub_category", None)
-                current.setdefault("total_groceries", 0)
-                current["processed_groceries"] = list(set(current["processed_groceries"]))
-                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
-                progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
-                logging.info(f"Loaded {progress_file} from local storage")
-                return progress
-        except Exception as e:
-            logging.error(f"Error loading {progress_file} from local storage: {e}")
-
         default_progress = {
             "completed_areas": [],
             "current_area_index": 0,
@@ -606,10 +594,39 @@ class MainScraper:
                 "completed_groceries": {}
             }
         }
-        logging.info(f"{progress_file} not found, creating default")
-        self.save_current_progress(default_progress)
-        self.commit_progress(f"Created default {progress_file}")
-        return default_progress
+        try:
+            # Use area_name from current_progress if available, else use "default"
+            area_name = self.current_progress["current_progress"].get("area_name") or "default"
+            progress_file = f"current_progress_{area_name}.json"
+            if os.path.exists(progress_file):
+                with open(progress_file, 'r', encoding='utf-8') as f:
+                    progress = json.load(f)
+                if "current_progress" not in progress:
+                    progress["current_progress"] = default_progress["current_progress"]
+                current = progress["current_progress"]
+                current.setdefault("processed_groceries", [])
+                current.setdefault("completed_groceries", {})
+                current.setdefault("area_name", None)
+                current.setdefault("current_grocery", 0)
+                current.setdefault("current_grocery_title", None)
+                current.setdefault("current_grocery_link", None)
+                current.setdefault("current_category", None)
+                current.setdefault("current_sub_category", None)
+                current.setdefault("total_groceries", 0)
+                current["processed_groceries"] = list(set(current["processed_groceries"]))
+                progress["completed_areas"] = list(set(progress.get("completed_areas", [])))
+                progress["last_updated"] = progress.get("last_updated", datetime.now().isoformat())
+                logging.info(f"Loaded {progress_file} from local storage")
+                return progress
+            else:
+                logging.info(f"{progress_file} not found, returning default progress")
+                return default_progress
+        except Exception as e:
+            logging.error(f"Error loading progress file from local storage: {e}")
+            return default_progress
+
+    def ensure_playwright_browsers(self):
+        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
 
     def save_current_progress(self, progress: Dict = None):
         progress = progress or self.current_progress
